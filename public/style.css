@@ -200,4 +200,43 @@ section#categories > ul > li {
 
 footer {
   background-color: #004445;
+  display: flex;
+  flex-direction: column;
+  padding: 5rem 2rem;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+footer > h2 {
+  font-size: 2.8em;
+  font-weight: 400;
+}
+
+.enterprise-direction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+div.social-media > ul,
+div.legal > ul {
+  display: flex;
+  gap: 2rem;
+  font-weight: 500;
+}
+
+div.legal > ul > li:hover {
+  cursor: pointer;
+  border: 1px solid black;
+}
+
+li {
+  list-style: none;
+  padding: 5px;
+}
+
+.social-icon {
+  width: 2rem;
 }
