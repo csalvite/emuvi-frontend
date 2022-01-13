@@ -89,7 +89,7 @@ header > div.header-main-text > h3 {
   font-weight: 300;
 }
 
-header > div.header-main-text > button {
+button.btn-products {
   border: 1px solid var(--footer-bg);
   padding: 1rem 1.4rem;
   background-color: rgba(255, 255, 255, 0);
@@ -98,7 +98,7 @@ header > div.header-main-text > button {
   color: white;
 }
 
-header > div.header-main-text > button:hover {
+button.btn-products:hover {
   background-color: rgb(255, 255, 255);
   color: var(--footer-bg);
   cursor: pointer;
