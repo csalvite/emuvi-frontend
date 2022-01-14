@@ -1,3 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Lato:ital,wght@0,300;0,400;1,300&family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+}
+
+html {
+  /* Paleta de colores y estilos */
+  --main-bg-color: #b7ded2;
+  --letter: #f6a6b2;
+  --div-bg-images: #f7c297;
+  --div-bg-section: #ffecb8;
+  --footer-bg: #86d0d1;
+  --black: #333333;
+  --white: #fff;
+  --lightGrey: #f0f1f1;
+  --green: #baed41;
+  --peach: #fdc002;
+  --orange: #ff6600;
+  --box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+  --border-radius: 25px;
+  overflow-x: hidden;
+}
+
 /* HEADER */
 nav {
   display: flex;
