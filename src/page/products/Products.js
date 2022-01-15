@@ -10,17 +10,24 @@ function Products() {
 
   const getProducts = async () => {
     try {
-      console.log(`${REACT_APP_LOCALHOST}/products`);
-      await fetch(`${REACT_APP_LOCALHOST}/products`)
-        .then((response) => response.json())
-        .then((data) => {
-          console.log('data ' + data);
-          setProducts(data);
-        });
+      const response = await fetch(`${REACT_APP_LOCALHOST}/products`, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
 
-      /* console.log(body);
-      setProducts(body); */
-      setError(false);
+      if (response.ok) {
+        const body = await response.json();
+        console.log('Devolvemos productos');
+
+        console.log(body);
+
+        setProducts(body.data);
+        setError(false);
+      } else {
+        console.error('Hubo un error con la petición');
+        setError(true);
+      }
     } catch (error) {
       console.error('Hubo un error al recibir los productos');
       setError(true);
@@ -38,7 +45,7 @@ function Products() {
         {error ? (
           <div style={{ color: 'red' }}>Ha habido un error</div>
         ) : (
-          products.map((product) => <div key={product.id}>{product}</div>)
+          products.map((product) => <div key={product.id}>{product.name}</div>)
         )}
       </div>
     </div>
