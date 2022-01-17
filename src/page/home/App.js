@@ -49,7 +49,9 @@ function App() {
                 En el siguiente enlace encontrarás un listado ordenado con los
                 productos vintage en venta más nuevos
               </p>
-              <button>Newest Products</button>
+              <Link to='/login'>
+                <button className='btn-newest-products'>Newest Products</button>
+              </Link>
             </div>
             <div className='div-modernillo'>
               <img src='./resources/images/gatito02.jpg' alt='Product' />

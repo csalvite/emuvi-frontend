@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useState } from 'react/cjs/react.development';
 
 const { REACT_APP_LOCALHOST } = process.env;
@@ -36,7 +37,7 @@ function Login() {
   };
 
   return (
-    <div className='login'>
+    <div className='login-form'>
       <form onSubmit={login}>
         <ul>
           <li>
@@ -49,6 +50,11 @@ function Login() {
           </li>
           <li>
             <button>Iniciar Sesión</button>
+          </li>
+          <li>
+            <p>
+              Todavía no tienes cuenta? <Link to='/register'>Regístrate</Link>
+            </p>
           </li>
         </ul>
       </form>

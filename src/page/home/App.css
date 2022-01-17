@@ -159,7 +159,8 @@ section#newest-products > div > .newest-products-text {
   font-weight: 300;
 }
 
-section#newest-products > div > .newest-products-text > button {
+/* section#newest-products > div > .newest-products-text > button */
+button.btn-newest-products {
   border: 1px solid var(--footer-bg);
   margin: 1rem;
   padding: 1rem 1.2rem;
@@ -169,7 +170,8 @@ section#newest-products > div > .newest-products-text > button {
   color: black;
 }
 
-section#newest-products > div > .newest-products-text > button:hover {
+/* section#newest-products > div > .newest-products-text > Link > button:hover */
+button.btn-newest-products:hover {
   background-color: var(--footer-bg);
   color: white;
   cursor: pointer;
