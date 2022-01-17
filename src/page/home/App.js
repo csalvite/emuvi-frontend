@@ -19,7 +19,9 @@ function App() {
             />
           </form>
           <div className='buttons-header'>
-            <button>Login/Register</button>
+            <Link to='/login'>
+              <button className='btn-login-register'>Login/Register</button>
+            </Link>
           </div>
         </div>
 
@@ -47,7 +49,7 @@ function App() {
                 En el siguiente enlace encontrarás un listado ordenado con los
                 productos vintage en venta más nuevos
               </p>
-              <button>Newest Products</button>--
+              <button>Newest Products</button>
             </div>
             <div className='div-modernillo'>
               <img src='./resources/images/gatito02.jpg' alt='Product' />

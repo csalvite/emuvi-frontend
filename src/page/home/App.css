@@ -52,7 +52,7 @@ header > div.main-header {
   top: 0;
 }
 
-div.main-header > div.buttons-header > button {
+button.btn-login-register {
   padding: 0.5rem 1rem;
   border: none;
   border-radius: var(--border-radius);
@@ -61,7 +61,7 @@ div.main-header > div.buttons-header > button {
   font-size: 1.1em;
 }
 
-div.main-header > div.buttons-header > button:hover {
+button.btn-login-register:hover {
   cursor: pointer;
   background-color: white;
   color: var(--footer-bg);
@@ -236,7 +236,7 @@ div.legal > ul {
 
 div.legal > ul > li:hover {
   cursor: pointer;
-  border: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 li {

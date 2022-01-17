@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './index.css';
 import App from './page/home/App';
+import { Login } from './page/login-register/Login';
 import Products from './page/products/Products';
 import reportWebVitals from './reportWebVitals';
 
@@ -12,6 +13,7 @@ ReactDOM.render(
       <Routes>
         <Route path='/' element={<App />} />
         <Route path='products' element={<Products />} />
+        <Route path='login' element={<Login />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
