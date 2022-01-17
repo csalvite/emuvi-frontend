@@ -7,17 +7,24 @@ import { Login } from './page/login-register/Login';
 import { Register } from './page/login-register/Register';
 import Products from './page/products/Products';
 import reportWebVitals from './reportWebVitals';
+import { Auth0Provider } from '@auth0/auth0-react';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<App />} />
-        <Route path='products' element={<Products />} />
-        <Route path='login' element={<Login />} />
-        <Route path='register' element={<Register />} />
-      </Routes>
-    </BrowserRouter>
+    <Auth0Provider
+      domain='dev-zq3gwiom.us.auth0.com'
+      clientId='DFMyYLRlLm2sCbGn8vKJUcrC3LsgbPtf'
+      redirectUri={window.location.origin}
+    >
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<App />} />
+          <Route path='products' element={<Products />} />
+          <Route path='login' element={<Login />} />
+          <Route path='register' element={<Register />} />
+        </Routes>
+      </BrowserRouter>
+    </Auth0Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

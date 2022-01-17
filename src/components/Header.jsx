@@ -1,7 +1,12 @@
 import React from 'react';
+import { LoginButton } from '../page/auth/Login';
+import { LogoutButton } from '../page/auth/Logout';
+import { useAuth0 } from '@auth0/auth0-react';
 import './Header.css';
+import { Profile } from '../page/Profile';
 
 function Header1() {
+  const { isAuthenticated } = useAuth0();
   return (
     <nav>
       <a href="#" class="logo">
@@ -11,9 +16,13 @@ function Header1() {
         <input type="search" placeholder="Encontrar algo..." />
         <span class="fas fa-search"></span>
       </div>
-      <button type="submit" class="btn">
-        LOGIN/REGISTER
-      </button>
+      {isAuthenticated ? 
+        <>
+          <Profile />
+          <LogoutButton />
+        </> : 
+        <LoginButton />
+      }
     </nav>
   );
 }
