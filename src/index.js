@@ -9,11 +9,13 @@ import Products from './page/products/Products';
 import reportWebVitals from './reportWebVitals';
 import { Auth0Provider } from '@auth0/auth0-react';
 
+const { REACT_APP_AUTH0_DOMAIN, REACT_APP_AUTH0_CLIENT_ID } = process.env;
+
 ReactDOM.render(
   <React.StrictMode>
     <Auth0Provider
-      domain='dev-zq3gwiom.us.auth0.com'
-      clientId='DFMyYLRlLm2sCbGn8vKJUcrC3LsgbPtf'
+      domain={REACT_APP_AUTH0_DOMAIN}
+      clientId={REACT_APP_AUTH0_CLIENT_ID}
       redirectUri={window.location.origin}
     >
       <BrowserRouter>
