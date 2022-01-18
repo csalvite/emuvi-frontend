@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <Header1 />
       <main>
-        <section id="newest-products">
+        {/* <section id="newest-products">
           <div>
             <div className="div-modernillo">
               <img src="./resources/images/gatito01.jpg" alt="Product" />
@@ -84,10 +84,11 @@ function App() {
               <p>Descripción de la categoría</p>
             </li>
           </ul>
-        </section>
+        </section>*/}
       </main>
 
-      <footer>
+      {/*<footer>
+        
         <h2>EMUVI - El Mundo Vintage</h2>
         <div className="enterprise-direction">
           <p>123 Anywhere St.Any City, ST 12345</p>
@@ -151,7 +152,7 @@ function App() {
             <li>Cookies</li>
           </ul>
         </div>
-      </footer>
+      </footer>*/}
     </div>
   );
 }
