@@ -14,7 +14,7 @@ html {
   --div-bg-images: #f7c297;
   --div-bg-section: #ffecb8;
   --footer-bg: #86d0d1;
-  --black: #333333;
+  --black: rgba(0, 0, 0, 0.432);
   --white: #fff;
   --lightGrey: #f0f1f1;
   --green: #baed41;
@@ -23,77 +23,6 @@ html {
   --box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
   --border-radius: 25px;
   overflow-x: hidden;
-}
-
-header {
-  min-height: 100vh;
-  background-color: rgba(0, 0, 0, 0.315);
-  display: flex;
-  flex-direction: column;
-}
-
-header > div.main-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.432);
-  color: var(--main-bg-color);
-  padding: 2rem;
-}
-
-/* 
-    Para cuando el scroll pasa del video baja el div.main-header
-
-    esto es algo que haremos con js más adelante
-*/
-.sticky {
-  position: sticky;
-  width: 100%;
-  top: 0;
-}
-
-button.btn-login-register {
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: var(--border-radius);
-  background-color: var(--footer-bg);
-  color: white;
-  font-size: 1.1em;
-}
-
-button.btn-login-register:hover {
-  cursor: pointer;
-  background-color: white;
-  color: var(--footer-bg);
-}
-
-div.main-header > form > input {
-  font-size: 1.1em;
-  border-radius: var(--border-radius);
-  padding: 0.5rem;
-  min-width: 40vw;
-  border: none;
-}
-
-header > div.header-main-text {
-  height: 100%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  gap: 2rem;
-}
-
-header > div.header-main-text > h2 {
-  font-size: 3.8em;
-  font-weight: 300;
-}
-
-header > div.header-main-text > h3 {
-  font-size: 1.5em;
-  font-weight: 300;
 }
 
 button.btn-products {
@@ -110,21 +39,6 @@ button.btn-products:hover {
   color: var(--footer-bg);
   cursor: pointer;
 }
-
-header > video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  min-width: 100%;
-  min-height: 100%;
-  z-index: -1;
-  object-position: center;
-  object-fit: cover;
-}
-
-/* Fin HEADER */
 
 /* MAIN */
 

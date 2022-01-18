@@ -7,35 +7,6 @@ function App() {
   return (
     <div className="App">
       <Header1 />
-      <header>
-        <video autoPlay loop muted src="./resources/videos/HeaderVideoBG.mp4">
-          Video cannot be loaded :(
-        </video>
-        <div className="main-header">
-          <h1>EMUVI</h1>
-          <form action="#">
-            <input
-              type="text"
-              name="search"
-              placeholder="Indica aquí tu búsqueda..."
-            />
-          </form>
-          <div className="buttons-header">
-            <Link to="/login">
-              <button className="btn-login-register">Login/Register</button>
-            </Link>
-          </div>
-        </div>
-
-        <div className="header-main-text">
-          <h2>EL MUNDO VINTAGE</h2>
-          <h3>PLATAFORMA PARA COMPTA-VENTA DE ARTÍCULOS RETRO</h3>
-          <Link to="/products">
-            <button className="btn-products">PRODUCTOS</button>
-          </Link>
-        </div>
-      </header>
-
       <main>
         <section id="newest-products">
           <div>
@@ -51,8 +22,8 @@ function App() {
                 En el siguiente enlace encontrarás un listado ordenado con los
                 productos vintage en venta más nuevos
               </p>
-              <Link to='/login'>
-                <button className='btn-newest-products'>Newest Products</button>
+              <Link to="/login">
+                <button className="btn-newest-products">Newest Products</button>
               </Link>
             </div>
             <div className="div-modernillo">
