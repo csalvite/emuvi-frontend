@@ -5,7 +5,7 @@ import './Header.css';
 function Header1() {
   return (
     <header>
-      <video autoPlay loop muted src="./resources/videos/HeaderVideoBG.mp4">
+      <video autoPlay loop muted src="./resources/videos/retro tv.mp4">
         Video cannot be loaded :(
       </video>
       <nav>
