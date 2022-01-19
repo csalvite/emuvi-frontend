@@ -3,8 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './index.css';
 import App from './page/home/App';
-import { Login } from './page/login-register/Login';
-import { Register } from './page/login-register/Register';
+import { Register } from './page/auth/Register';
 import Products from './page/products/Products';
 import reportWebVitals from './reportWebVitals';
 import { Auth0Provider } from '@auth0/auth0-react';
@@ -22,7 +21,6 @@ ReactDOM.render(
         <Routes>
           <Route path='/' element={<App />} />
           <Route path='products' element={<Products />} />
-          <Route path='login' element={<Login />} />
           <Route path='register' element={<Register />} />
         </Routes>
       </BrowserRouter>
