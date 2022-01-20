@@ -11,47 +11,38 @@ function Header1() {
   const { isAuthenticated } = useAuth0();
 
   return (
-    <nav>
-      <a href="#" className='logo'>
-        <i className="fas fa-globe-africa"></i>EMUVI<span></span>
-      </a>
-      <div className="search_box">
-        <input type="search" placeholder="Encontrar algo..." />
-        <span className="fas fa-search"></span>
-      </div>
-      {isAuthenticated ? 
-        <>
-          <Profile />
-          <LogoutButton />
-        </> : 
-        <LoginButton />
-      }
-    </nav>
-    <header>
-      <video autoPlay loop muted src="./resources/videos/HeaderVideoBG.mp4">
-        Video cannot be loaded :(
-      </video>
-      <nav>
-        <a href="#" class="logo">
-          <i className="fas fa-globe-africa"></i>EMUVI
-        </a>
-        <div className="search_box">
-          <input type="search" placeholder="Encontrar algo..." />
-          <span class="fas fa-search"></span>
-        </div>
-        <button type="submit" class="btn">
-          LOGIN/REGISTER
-        </button>
-      </nav>
+    <div>
+      <header>
+        <video autoPlay loop muted src="./resources/videos/HeaderVideoBG.mp4">
+          Video cannot be loaded :(
+        </video>
+        <nav>
+          <a href="#" className="logo">
+            <i className="fas fa-globe-africa"></i>EMUVI
+          </a>
+          <div className="search_box">
+            <input type="search" placeholder="Encontrar algo..." />
+            <span className="fas fa-search"></span>
+          </div>
 
-      <div className="header-container">
-        <h2>EL MUNDO VINTAGE</h2>
-        <h3>COMPRA-VENTA DE ARTÍCULOS RETRO</h3>
-        <Link to="/products">
-          <button className="products-button">PRODUCTOS</button>
-        </Link>
-      </div>
-    </header>
+          {isAuthenticated ? 
+          <>
+            <Profile />
+            <LogoutButton />
+          </> : 
+          <LoginButton />
+        }
+        </nav>
+      
+        <div className="header-container">
+          <h2>EL MUNDO VINTAGE</h2>
+          <h3>COMPRA-VENTA DE ARTÍCULOS RETRO</h3>
+          <Link to="/products">
+            <button className="products-button">PRODUCTOS</button>
+          </Link>
+        </div>
+      </header>
+    </div>
   );
 }
 
