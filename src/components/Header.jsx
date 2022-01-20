@@ -1,11 +1,11 @@
 import React from 'react';
-import { LoginButton } from '../page/auth/Login';
-import { LogoutButton } from '../page/auth/Logout';
+import { LoginButton } from './users/Login';
+import { LogoutButton } from './users/Logout';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Link } from 'react-router-dom';
+import { ProfileHeader } from './users/ProfileHeader';
 
 import './Header.css';
-import { Profile } from '../page/auth/Profile';
 
 function Header1() {
   const { isAuthenticated } = useAuth0();
@@ -27,7 +27,7 @@ function Header1() {
 
           {isAuthenticated ? 
           <>
-            <Profile />
+            <ProfileHeader />
             <LogoutButton />
           </> : 
           <LoginButton />

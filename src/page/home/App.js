@@ -3,6 +3,7 @@ import './App.css';
 import Header1 from '../../components/Header';
 
 import Categories from '../../components/Categories';
+import Footer from '../../components/footer/Footer';
 
 function App() {
   return (
@@ -158,6 +159,8 @@ function App() {
           </ul>
         </div>
       </footer>*/}
+
+      <Footer />
     </div>
   );
 }

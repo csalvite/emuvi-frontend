@@ -9,7 +9,7 @@ export const LogoutButton = () => {
       className='btn'
       onClick={() => logout({ returnTo: window.location.origin })}
     >
-      Logout
+      Cerrar Sesión
     </button>
   );
 };
