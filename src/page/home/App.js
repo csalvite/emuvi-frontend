@@ -2,13 +2,14 @@
 import { Link } from 'react-router-dom';
 import './App.css';
 import Header1 from '../../components/Header';
+import Categories from '../../components/Categories';
 
 function App() {
   return (
     <div className="App">
       <Header1 />
       <main>
-        {/* <section id="newest-products">
+        {/*<section id="newest-products">
           <div>
             <div className="div-modernillo">
               <img src="./resources/images/gatito01.jpg" alt="Product" />
@@ -30,61 +31,8 @@ function App() {
               <img src="./resources/images/gatito02.jpg" alt="Product" />
             </div>
           </div>
-        </section>
-
-        <section id="categories">
-          <h2>CATEGORÍAS</h2>
-          <ul>
-            <li>
-              <img
-                src="./resources/vectors/computer-svgrepo-com.svg"
-                alt="Imagen de categoría"
-              />
-              <h3>Nombre de Categoría</h3>
-              <p>Descripción de la categoría</p>
-            </li>
-            <li>
-              <img
-                src="./resources/vectors/joystick-videogame-controller-svgrepo-com.svg"
-                alt="Imagen de categoría"
-              />
-              <h3>Nombre de Categoría</h3>
-              <p>Descripción de la categoría</p>
-            </li>
-            <li>
-              <img
-                src="./resources/vectors/video-svgrepo-com.svg"
-                alt="Imagen de categoría"
-              />
-              <h3>Nombre de Categoría</h3>
-              <p>Descripción de la categoría</p>
-            </li>
-            <li>
-              <img
-                src="./resources/vectors/music-svgrepo-com.svg"
-                alt="Imagen de categoría"
-              />
-              <h3>Nombre de Categoría</h3>
-              <p>Descripción de la categoría</p>
-            </li>
-            <li>
-              <img
-                src="./resources/vectors/hanger-fashion-svgrepo-com.svg"
-                alt="Imagen de categoría"
-              />
-              <h3>Nombre de Categoría</h3>
-              <p>Descripción de la categoría</p>
-            </li>
-            <li>
-              <img
-                src="./resources/vectors/ellipsis-svgrepo-com.svg"
-                alt="Imagen de categoría"
-              />
-              <h3>Nombre de Categoría</h3>
-              <p>Descripción de la categoría</p>
-            </li>
-          </ul>
         </section>*/}
+        <Categories />
       </main>
 
       {/*<footer>

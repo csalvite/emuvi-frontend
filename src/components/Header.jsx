@@ -5,7 +5,7 @@ import './Header.css';
 function Header1() {
   return (
     <header>
-      <video autoPlay loop muted src="./resources/videos/retro tv.mp4">
+      <video autoPlay loop muted src="./resources/videos/HeaderVideoBG.mp4">
         Video cannot be loaded :(
       </video>
       <nav>
@@ -25,7 +25,7 @@ function Header1() {
         <h2>EL MUNDO VINTAGE</h2>
         <h3>COMPRA-VENTA DE ARTÍCULOS RETRO</h3>
         <Link to="/products">
-          <button className="btn">PRODUCTOS</button>
+          <button className="products-button">PRODUCTOS</button>
         </Link>
       </div>
     </header>

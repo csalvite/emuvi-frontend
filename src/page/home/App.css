@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 html {
@@ -17,6 +17,7 @@ html {
   --black: rgba(0, 0, 0, 0.432);
   --white: #fff;
   --lightGrey: #f0f1f1;
+  --darkGrey: #424141;
   --green: #baed41;
   --peach: #fdc002;
   --orange: #ff6600;
@@ -89,34 +90,6 @@ button.btn-newest-products:hover {
   background-color: var(--footer-bg);
   color: white;
   cursor: pointer;
-}
-
-/* Section Categories */
-section#categories {
-  padding: 2rem;
-  background-color: var(--main-bg-color);
-}
-
-section#categories img {
-  width: 8rem;
-}
-
-section#categories > h2 {
-  text-align: center;
-  font-size: 3.8em;
-  font-weight: 300;
-}
-
-section#categories > ul {
-  display: flex;
-  overflow-x: scroll;
-  gap: 3rem;
-}
-
-section#categories > ul > li {
-  list-style: none;
-  text-align: center;
-  padding: 2rem;
 }
 
 /* Fin Main */
