@@ -4,6 +4,9 @@ import './App.css';
 import Header1 from '../../components/Header';
 import { LoginButton } from '../auth/Login';
 
+import Categories from '../../components/Categories';
+
+
 function App() {
   return (
     <div className='App'>
@@ -40,6 +43,9 @@ function App() {
 
       <main>
         <section id='newest-products'>
+
+      <main>
+        {/*<section id="newest-products">
           <div>
             <div className='div-modernillo'>
               <img src='./resources/images/gatito01.jpg' alt='Product' />
@@ -53,8 +59,8 @@ function App() {
                 En el siguiente enlace encontrarás un listado ordenado con los
                 productos vintage en venta más nuevos
               </p>
-              <Link to='/login'>
-                <button className='btn-newest-products'>Newest Products</button>
+              <Link to="/login">
+                <button className="btn-newest-products">Newest Products</button>
               </Link>
             </div>
             <div className='div-modernillo'>
@@ -116,9 +122,13 @@ function App() {
             </li>
           </ul>
         </section>
+
+        </section>*/}
+        <Categories />
       </main>
 
-      <footer>
+      {/*<footer>
+        
         <h2>EMUVI - El Mundo Vintage</h2>
         <div className='enterprise-direction'>
           <p>123 Anywhere St.Any City, ST 12345</p>
@@ -182,7 +192,7 @@ function App() {
             <li>Cookies</li>
           </ul>
         </div>
-      </footer>
+      </footer>*/}
     </div>
   );
 }
