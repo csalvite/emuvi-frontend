@@ -94,13 +94,13 @@ button.btn-newest-products:hover {
 
 /* Fin Main */
 
-footer {
+/* footer {
   background-color: #004445;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   padding: 5rem 2rem;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   gap: 2rem;
 }
 
@@ -115,7 +115,6 @@ footer > h2 {
   align-items: center;
   gap: 0.5rem;
 }
-
 div.social-media > ul,
 div.legal > ul {
   display: flex;
@@ -135,4 +134,4 @@ li {
 
 .social-icon {
   width: 2rem;
-}
+} */
