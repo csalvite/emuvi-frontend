@@ -2,6 +2,7 @@
 import { Link } from 'react-router-dom';
 import './App.css';
 import Header1 from '../../components/Header';
+
 import { LoginButton } from '../auth/Login';
 
 import Categories from '../../components/Categories';
@@ -11,38 +12,6 @@ function App() {
   return (
     <div className='App'>
       <Header1 />
-      <header>
-        <video autoPlay loop muted src='./resources/videos/HeaderVideoBG.mp4'>
-          Video cannot be loaded :(
-        </video>
-        <div className='main-header'>
-          <h1>EMUVI</h1>
-          <form action='#'>
-            <input
-              type='text'
-              name='search'
-              placeholder='Indica aquí tu búsqueda...'
-            />
-          </form>
-          <div className='buttons-header'>
-            {/* <Link to="/login">
-              <button className="btn-login-register">Login/Register</button>
-            </Link> */}
-            <LoginButton />
-          </div>
-        </div>
-
-        <div className='header-main-text'>
-          <h2>EL MUNDO VINTAGE</h2>
-          <h3>PLATAFORMA PARA COMPTA-VENTA DE ARTÍCULOS RETRO</h3>
-          <Link to='/products'>
-            <button className='btn-products'>PRODUCTOS</button>
-          </Link>
-        </div>
-      </header>
-
-      <main>
-        <section id='newest-products'>
 
       <main>
         {/*<section id="newest-products">
@@ -126,6 +95,7 @@ function App() {
         </section>*/}
         <Categories />
       </main>
+
 
       {/*<footer>
         
