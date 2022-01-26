@@ -1,30 +1,27 @@
-import React from 'react';
+import React, { createContext } from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './index.css';
-import App from './page/home/App';
-import { Register } from './page/auth/Register';
-import Products from './page/products/Products';
 import reportWebVitals from './reportWebVitals';
-import { Auth0Provider } from '@auth0/auth0-react';
+import { EmuviRoutes } from './page/Routes';
+import { useLocalStorage } from './hooks/useLocalStorage';
 
-const { REACT_APP_AUTH0_DOMAIN, REACT_APP_AUTH0_CLIENT_ID } = process.env;
+// Creamos el contexto del token
+export const TokenContext = createContext();
+const TokenProvider = ({ children }) => {
+  const [jwt, setJwt] = useLocalStorage('jwtToken', '');
+  return (
+    <TokenContext.Provider value={[jwt, setJwt]}>
+      {children}
+    </TokenContext.Provider>
+  );
+};
 
 ReactDOM.render(
   <React.StrictMode>
-    <Auth0Provider
-      domain={REACT_APP_AUTH0_DOMAIN}
-      clientId={REACT_APP_AUTH0_CLIENT_ID}
-      redirectUri={window.location.origin}
-    >
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<App />} />
-          <Route path='products' element={<Products />} />
-          <Route path='register' element={<Register />} />
-        </Routes>
-      </BrowserRouter>
-    </Auth0Provider>
+    {/* envolvemos todas las rutas con el contexto del token */}
+    <TokenProvider>
+      <EmuviRoutes />
+    </TokenProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

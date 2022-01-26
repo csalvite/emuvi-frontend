@@ -1,27 +1,21 @@
-import React from 'react';
-import { useAuth0 } from '@auth0/auth0-react';
-import { ButtonRegisterUser } from '../../components/users/ButtonRegisterUser';
+import { Avatar } from '@mui/material';
+import React, { useContext } from 'react';
+import { TokenContext } from '../..';
+import { LogoutButton } from './LogoutButton';
 
 export const ProfileHeader = () => {
-  const { user, isAuthenticated, isLoading } = useAuth0();
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  console.log(user);
+  const [token] = useContext(TokenContext);
 
   return (
-    isAuthenticated && (
+    token && (
       <div>
-        <img src={user.picture} alt={user.name} />
-        <ButtonRegisterUser />
+        <Avatar
+          alt='User Name'
+          src='/resources/images/cat_chibi.jpeg'
+          sx={{ width: 56, height: 56 }}
+        />
+        <LogoutButton />
       </div>
     )
   );
 };
-
-// existe ese email en la base de datos y está activado?
-// TRUE no mostramos nada
-// FALSE enlace a formulario de registro para insertar TODOS los datos del usuario y simplemente
-//  enviar un correo de activación de cuenta/confirmación de email
