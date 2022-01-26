@@ -1,14 +1,13 @@
-import React from 'react';
-import { LoginButton } from './users/Login';
-import { LogoutButton } from './users/Logout';
-import { useAuth0 } from '@auth0/auth0-react';
+import React, { useContext } from 'react';
+import { LoginButton } from './users/LoginButton';
 import { Link } from 'react-router-dom';
 import { ProfileHeader } from './users/ProfileHeader';
 
 import './Header.css';
+import { TokenContext } from '..';
 
 function Header1() {
-  const { isAuthenticated } = useAuth0();
+  const [token] = useContext(TokenContext);
 
   return (
     <div>
@@ -25,10 +24,9 @@ function Header1() {
             <span className="fas fa-search"></span>
           </div>
 
-          {isAuthenticated ? 
+          {token ? 
           <>
             <ProfileHeader />
-            <LogoutButton />
           </> : 
           <LoginButton />
         }
