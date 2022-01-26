@@ -22,18 +22,19 @@ function Header1() {
           </a>
           <div className="search_box">
             <input type="search" placeholder="Encontrar algo..." />
-            <span className="fas fa-search"></span>
+            <span className="fa fa-search"></span>
           </div>
 
-          {isAuthenticated ? 
-          <>
-            <ProfileHeader />
-            <LogoutButton />
-          </> : 
-          <LoginButton />
-        }
+          {isAuthenticated ? (
+            <>
+              <ProfileHeader />
+              <LogoutButton />
+            </>
+          ) : (
+            <LoginButton />
+          )}
         </nav>
-      
+
         <div className="header-container">
           <h2>EL MUNDO VINTAGE</h2>
           <h3>COMPRA-VENTA DE ARTÍCULOS RETRO</h3>

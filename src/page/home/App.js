@@ -1,13 +1,13 @@
 //import logo from './logo.svg';
 import './App.css';
 import Header1 from '../../components/Header';
-
 import Categories from '../../components/Categories';
+import AboutUs from '../../components/AboutUs';
 import Footer from '../../components/footer/Footer';
 
 function App() {
   return (
-    <div className='App'>
+    <div className="App">
       <Header1 />
 
       <main>
@@ -91,6 +91,7 @@ function App() {
 
         </section>*/}
         <Categories />
+        <AboutUs />
       </main>
 
       {/*<footer>
@@ -160,7 +161,7 @@ function App() {
         </div>
       </footer>*/}
 
-      <Footer />
+      {/*<Footer />*/}
     </div>
   );
 }
