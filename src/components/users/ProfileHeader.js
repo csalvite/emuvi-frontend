@@ -9,11 +9,7 @@ export const ProfileHeader = () => {
   return (
     token && (
       <div>
-        <Avatar
-          alt='User Name'
-          src='/resources/images/cat_chibi.jpeg'
-          sx={{ width: 56, height: 56 }}
-        />
+        <Avatar alt='User Name' src='' sx={{ width: 56, height: 56 }} />
         <LogoutButton />
       </div>
     )

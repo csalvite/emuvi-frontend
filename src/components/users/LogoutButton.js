@@ -1,5 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { TokenContext } from '../..';
 
 export const LogoutButton = () => {
-  return <button className='btn'>Cerrar Sesión</button>;
+  const [, setToken] = useContext(TokenContext);
+
+  function logout() {
+    setToken('');
+  }
+  // onClick={setToken('')}
+  return (
+    <button onClick={logout} className='btn'>
+      Cerrar Sesión
+    </button>
+  );
 };
