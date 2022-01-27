@@ -3,12 +3,12 @@ import './logo.css';
 
 const Logo = () => {
   return (
-    <nav>
+    <section className='LG'>
       <a href='#' className='logo'>
         <i id='globo' className='fas fa-globe-africa'></i>EMUVI{' '}
         <p className='Rreg'>®</p>
       </a>
-    </nav>
+    </section>
   );
 };
 

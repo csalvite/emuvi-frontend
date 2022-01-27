@@ -9,13 +9,13 @@
 
 #botones {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
 }
 
 div button {
-  display: inline-block;
+  display: flex;
   padding: 8px 28px;
   background-color: var(--black);
   color: var(--white);
@@ -55,10 +55,10 @@ div button:hover::before {
 
 #enlacess {
   display: flex;
-  background-color: rgba(0, 0, 0, 0.466);
+  background-color: var(--black);
   flex-wrap: wrap;
   align-items: flex-start;
-  justify-content: end;
+  justify-content: space-evenly;
 }
 
 #siguenos {

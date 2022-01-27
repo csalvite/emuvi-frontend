@@ -11,19 +11,18 @@ const Footer = () => {
 
   return (
     <div className='footer'>
-      <nav id='botones'>
+      {showpopUp && <PopUp setshowpopUp={setshowpopUp} />}
+      <section id='botones'>
         <button onClick={() => setshowpopUp(true)}>
           Términos y Condiciones
         </button>
         <button onClick={() => setshowpopUp(true)}>Sobre Nosotros</button>
         <button onClick={() => setshowpopUp(true)}>Cookies</button>
-
-        <RRSS></RRSS>
-        {showpopUp && <PopUp setshowpopUp={setshowpopUp} />}
-      </nav>
-      <nav id='enlacess'>
+      </section>
+      <section id='enlacess'>
         <Logo />
-      </nav>
+        <RRSS></RRSS>
+      </section>
     </div>
   );
 };

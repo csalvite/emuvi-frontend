@@ -1,11 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Lato:ital,wght@0,300;0,400;1,300&family=Poppins:wght@400;500;600;700&display=swap');
+.LG {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-nav {
+section {
   padding: 1rem;
 }
-nav .logo {
+section .logo {
   font-size: 50px;
-  font-weight: 800;
+  font-weight: 30px;
   color: var(--white);
   cursor: pointer;
   text-decoration: none;
