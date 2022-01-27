@@ -1,0 +1,21 @@
+#popUp_background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(128, 128, 128, 0.623);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#popUp_foreground {
+  background-color: var(--black);
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: 60%;
+  border-radius: 9999;
+  box-shadow: 2px 2px 15px black;
+}
