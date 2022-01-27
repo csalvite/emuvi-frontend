@@ -7,24 +7,29 @@ const PopUp = ({ setshowpopUp, Children }) => {
     <section onClick={() => setshowpopUp(false)} id='popUp_background'>
       <article id='popUp_foreground' onClick={(e) => e.stopPropagation()}>
         <Logo></Logo>
-        {Children}Términos y Condiciones de uso de Wallapop Los presentes
-        Términos y Condiciones de uso (en adelante, “Términos y Condiciones”)
-        establecen las condiciones bajo las cuales se ofrece a los usuarios el
-        acceso a los sitios web, servicios y aplicaciones Wallapop (en adelante,
-        “el Servicio”) , que es una plataforma que permite a los usuarios
-        publicar ofertas para la compra–venta de una amplia variedad de
-        artículos de su propiedad, así como la comunicación entre los usuarios
-        ofertantes y los usuarios interesados en adquirir los artículos
-        ofrecidos y la localización geográfica de los mismos, para completar la
-        transacción. El uso del Servicio atribuye a quien lo realiza la
-        condición de usuario del mismo (en adelante, “el Usuario”) e implica la
-        aceptación íntegra de estos Términos y Condiciones. En caso de no estar
-        de acuerdo con todo o parte de estos Términos y Condiciones, el Usuario
-        debe abstenerse de instalar y utilizar el Servicio. Por medio de la
-        aceptación de los presentes Términos y Condiciones, el Usuario
-        manifiesta: Que ha leído, entiende y comprende lo aquí expuesto. Que
-        asume todas las obligaciones aquí dispuestas. Que es mayor de edad y
-        tiene la capacidad legal suficiente para utilizar el Servicio. La
+        {Children}
+        <p>
+          Términos y Condiciones de uso de Wallapop Los presentes Términos y
+          Condiciones de uso (en adelante, “Términos y Condiciones”) establecen
+          las condiciones bajo las cuales se ofrece a los usuarios el acceso a
+          los sitios web, servicios y aplicaciones Wallapop (en adelante, “el
+          Servicio”) , que es una plataforma que permite a los usuarios publicar
+          ofertas para la compra–venta de una amplia variedad de artículos de su
+          propiedad, así como la comunicación entre los usuarios ofertantes y
+          los usuarios interesados en adquirir los artículos ofrecidos y la
+          localización geográfica de los mismos, para completar la transacción.
+          El uso del Servicio atribuye a quien lo realiza la condición de
+          usuario del mismo (en adelante, “el Usuario”) e implica la aceptación
+          íntegra de estos
+        </p>
+        <p></p>
+        <h2>Términos y Condiciones.</h2> En caso de no estar de acuerdo con todo
+        o parte de estos Términos y Condiciones, el Usuario debe abstenerse de
+        instalar y utilizar el Servicio. Por medio de la aceptación de los
+        presentes Términos y Condiciones, el Usuario manifiesta: Que ha leído,
+        entiende y comprende lo aquí expuesto. Que asume todas las obligaciones
+        aquí dispuestas. Que es mayor de edad y tiene la capacidad legal
+        suficiente para utilizar el Servicio. LTérminos y Condiciones. En casoa
         aceptación de estos Términos y Condiciones por parte de los Usuarios es
         un paso previo e indispensable a la utilización del Servicio. Wallapop
         se reserva el derecho a actualizar y/o modificar los Términos y

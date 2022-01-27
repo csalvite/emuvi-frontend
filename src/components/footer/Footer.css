@@ -4,6 +4,7 @@
   background-color: var(--black);
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 #botones {
@@ -63,4 +64,6 @@ div button:hover::before {
 #siguenos {
   color: var(--green);
   font-family: Audiowide;
+  display: flex;
+  padding: 1rem;
 }

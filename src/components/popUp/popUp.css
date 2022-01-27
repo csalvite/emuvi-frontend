@@ -18,4 +18,6 @@
   height: 60%;
   border-radius: 9999;
   box-shadow: 2px 2px 15px black;
+  overflow-y: scroll;
+  color: var(--white);
 }

@@ -17,12 +17,12 @@ const Footer = () => {
         </button>
         <button onClick={() => setshowpopUp(true)}>Sobre Nosotros</button>
         <button onClick={() => setshowpopUp(true)}>Cookies</button>
+
+        <RRSS></RRSS>
+        {showpopUp && <PopUp setshowpopUp={setshowpopUp} />}
       </nav>
       <nav id='enlacess'>
         <Logo />
-        <p id='siguenos'>Siguenos en redes sociales</p>
-        <RRSS></RRSS>
-        {showpopUp && <PopUp setshowpopUp={setshowpopUp} />}
       </nav>
     </div>
   );

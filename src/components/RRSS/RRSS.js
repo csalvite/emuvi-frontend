@@ -4,6 +4,7 @@ import './RRSS.css';
 const RRSS = () => {
   return (
     <div>
+      <p id='siguenos'>Siguenos en redes sociales</p>
       <div>
         <ul className='iconss'>
           <li>
