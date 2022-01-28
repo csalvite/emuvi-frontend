@@ -69,7 +69,7 @@ function AboutUs() {
         </div>
         <div className="card">
           <div className="imgBox">
-            <img src="./resources/images/dani-min.png" alt="dani profile"></img>
+            <img src="./resources/images/danuti1.png" alt="dani profile"></img>
           </div>
           <div className="details">
             <h4>Dani Seco</h4>
