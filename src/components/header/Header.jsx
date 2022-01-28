@@ -1,9 +1,9 @@
 import React from 'react';
-import { LoginButton } from './users/Login';
-import { LogoutButton } from './users/Logout';
+import { LoginButton } from '../../components/users/Login';
+import { LogoutButton } from '../../components/users/Logout';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Link } from 'react-router-dom';
-import { ProfileHeader } from './users/ProfileHeader';
+import { ProfileHeader } from '../../components/users/ProfileHeader';
 
 import './Header.css';
 

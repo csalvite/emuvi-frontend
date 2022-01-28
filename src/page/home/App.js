@@ -1,8 +1,8 @@
 //import logo from './logo.svg';
 import './App.css';
-import Header1 from '../../components/Header';
-import Categories from '../../components/Categories';
-import AboutUs from '../../components/AboutUs';
+import Header1 from '../../components/header/Header';
+import Categories from '../../components/categories/Categories';
+import AboutUs from '../../components/aboutUs/AboutUs';
 import Footer from '../../components/footer/Footer';
 
 function App() {
@@ -11,85 +11,6 @@ function App() {
       <Header1 />
 
       <main>
-        {/*<section id="newest-products">
-          <div>
-            <div className='div-modernillo'>
-              <img src='./resources/images/gatito01.jpg' alt='Product' />
-            </div>
-            <h2>ÉCHALE UN VISTAZO A NUESTROS PRODUCTOS MÁS NOVEDOSOS</h2>
-          </div>
-
-          <div>
-            <div className='newest-products-text'>
-              <p>
-                En el siguiente enlace encontrarás un listado ordenado con los
-                productos vintage en venta más nuevos
-              </p>
-              <Link to="/login">
-                <button className="btn-newest-products">Newest Products</button>
-              </Link>
-            </div>
-            <div className='div-modernillo'>
-              <img src='./resources/images/gatito02.jpg' alt='Product' />
-            </div>
-          </div>
-        </section>
-
-        <section id='categories'>
-          <h2>CATEGORÍAS</h2>
-          <ul>
-            <li>
-              <img
-                src='./resources/vectors/computer-svgrepo-com.svg'
-                alt='Imagen de categoría'
-              />
-              <h3>Nombre de Categoría</h3>
-              <p>Descripción de la categoría</p>
-            </li>
-            <li>
-              <img
-                src='./resources/vectors/joystick-videogame-controller-svgrepo-com.svg'
-                alt='Imagen de categoría'
-              />
-              <h3>Nombre de Categoría</h3>
-              <p>Descripción de la categoría</p>
-            </li>
-            <li>
-              <img
-                src='./resources/vectors/video-svgrepo-com.svg'
-                alt='Imagen de categoría'
-              />
-              <h3>Nombre de Categoría</h3>
-              <p>Descripción de la categoría</p>
-            </li>
-            <li>
-              <img
-                src='./resources/vectors/music-svgrepo-com.svg'
-                alt='Imagen de categoría'
-              />
-              <h3>Nombre de Categoría</h3>
-              <p>Descripción de la categoría</p>
-            </li>
-            <li>
-              <img
-                src='./resources/vectors/hanger-fashion-svgrepo-com.svg'
-                alt='Imagen de categoría'
-              />
-              <h3>Nombre de Categoría</h3>
-              <p>Descripción de la categoría</p>
-            </li>
-            <li>
-              <img
-                src='./resources/vectors/ellipsis-svgrepo-com.svg'
-                alt='Imagen de categoría'
-              />
-              <h3>Nombre de Categoría</h3>
-              <p>Descripción de la categoría</p>
-            </li>
-          </ul>
-        </section>
-
-        </section>*/}
         <Categories />
         <AboutUs />
       </main>
