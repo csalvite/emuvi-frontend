@@ -81,7 +81,7 @@ function Register() {
           </li>
           <li>
             <p>
-              Ya tienes una cuenta? <Link to='/register'>Inicia Sesión</Link>
+              Ya tienes una cuenta? <Link to='/login'>Inicia Sesión</Link>
             </p>
           </li>
         </ul>
