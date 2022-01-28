@@ -30,6 +30,10 @@ function Header1() {
           </> : 
           <LoginButton />
         }
+
+        <Link to='/profile'>
+          <button className='btn'>Perfil</button>
+        </Link>
         </nav>
       
         <div className="header-container">
