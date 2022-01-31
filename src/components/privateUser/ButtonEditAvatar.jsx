@@ -22,6 +22,7 @@ export function ButtonEditAvatar({id}) {
 
             if(response.ok) {
                 console.log('OK');
+                window.location.reload();
             }
         } catch(error){
             console.error(error);

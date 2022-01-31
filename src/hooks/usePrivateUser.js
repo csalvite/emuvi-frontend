@@ -17,9 +17,11 @@ const usePrivateUser = () => {
       });
 
       if (response.ok) {
+        console.log('respuesta ok');
         const body = await response.json();
         setPrivateUser(body.data);
-        console.log(body);
+      } else {
+        setPrivateUser('');
       }
     } catch (error) {
       console.error('Error en el hook');
