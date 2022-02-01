@@ -1,22 +1,17 @@
 import {
   Avatar,
   Divider,
-  Icon,
   IconButton,
   Link,
-  ListItemIcon,
   Menu,
   MenuItem,
   Tooltip,
-  Typography,
 } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useContext, useState } from 'react';
-import { Navigate } from 'react-router-dom';
 import { TokenContext } from '../..';
 import { usePrivateUser } from '../../hooks/usePrivateUser';
 import { OptionLogoutButton } from './OptionLogoutButton';
-import { OptionProfile } from './OptionProfile';
 
 const { REACT_APP_LOCALHOST } = process.env;
 
@@ -112,8 +107,10 @@ export const ProfileHeader = () => {
         >
           {menuOptions.map((item) => {
             return (
-              <MenuItem key={item.text} component={Link} to={item.path}>
-                {item.text}
+              <MenuItem key={item.text}>
+                <Link href={item.path} underline='none'>
+                  {item.text}
+                </Link>
               </MenuItem>
             );
           })}

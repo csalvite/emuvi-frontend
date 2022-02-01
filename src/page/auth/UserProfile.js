@@ -4,6 +4,7 @@ import { Navigate } from 'react-router-dom';
 import { TokenContext } from '../..';
 import { ButtonDeleteUser } from '../../components/privateUser/ButtonDeleteUser';
 import { ButtonEditAvatar } from '../../components/privateUser/ButtonEditAvatar';
+import { FavoriteProducts } from '../../components/privateUser/FavoriteProducts';
 import { ModifyProfile } from '../../components/privateUser/ModifyProfile';
 import { usePrivateUser } from '../../hooks/usePrivateUser';
 
@@ -47,7 +48,20 @@ function UserProfile() {
       <ButtonEditAvatar id={privateUser.id} />
       {/* Hay que buscar otros estilos para borrar usuario */}
       <ButtonDeleteUser id={privateUser.id} />
-      <ModifyProfile privateUser={privateUser} />
+      {/* Aqui deberíamos tener el menú de selección para el usuario */}
+      <menu>
+        <select>
+          <option>Editar Perfil</option>
+          <option>Mis Ofertas</option>
+          <option>Favoritos</option>
+          <option>Valoraciones</option>
+        </select>
+      </menu>
+      <div>
+        {}
+        <ModifyProfile privateUser={privateUser} />
+        <FavoriteProducts privateUser={privateUser} />
+      </div>
     </div>
   ) : (
     <div>Usuario borrado o inexistente</div>

@@ -1,3 +1,4 @@
+import ChangePassword from "./ChangePassword";
 
 function ModifyProfile({privateUser}) {
 
@@ -5,13 +6,13 @@ function ModifyProfile({privateUser}) {
 
   return (
     <div className='user-profile'>
-      <div>
-        <p>Fecha de nacimiento: {birthday}</p>
+      <h2>Editar Perfil</h2>
+        <p>Nombre de usuario: {privateUser.username}</p>
         <p>Email: {privateUser.email}</p>
         <p>Ciudad: {privateUser.city}</p>
         <p>Provincia: {privateUser.province}</p>
         <p>Código Postal: {privateUser.postalCode}</p>
-      </div>
+        <ChangePassword privateUser={privateUser} />
     </div>
   )
 }
