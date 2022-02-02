@@ -7,6 +7,7 @@ import { Register } from './page/auth/Register';
 import Products from './page/products/Products';
 import reportWebVitals from './reportWebVitals';
 import { Auth0Provider } from '@auth0/auth0-react';
+import AboutUs from './components/aboutUs/AboutUs';
 
 const { REACT_APP_AUTH0_DOMAIN, REACT_APP_AUTH0_CLIENT_ID } = process.env;
 
@@ -19,9 +20,10 @@ ReactDOM.render(
     >
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<App />} />
-          <Route path='products' element={<Products />} />
-          <Route path='register' element={<Register />} />
+          <Route path="/" element={<App />} />
+          <Route path="products" element={<Products />} />
+          <Route path="register" element={<Register />} />
+          <Route path="about" element={<AboutUs />} />
         </Routes>
       </BrowserRouter>
     </Auth0Provider>
@@ -29,7 +31,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

@@ -12,7 +12,6 @@ function App() {
 
       <main>
         <Categories />
-        <AboutUs />
       </main>
 
       {/*<footer>
