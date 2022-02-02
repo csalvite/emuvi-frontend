@@ -32,7 +32,7 @@ const ConfirmChangeEmail = () => {
     };
 
     changeMail();
-  }, [registrationCode]);
+  }, [registrationCode, setToken]);
 
   return (
     <div>
