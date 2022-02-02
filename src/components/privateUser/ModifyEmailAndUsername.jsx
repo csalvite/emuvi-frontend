@@ -5,18 +5,18 @@ const {REACT_APP_LOCALHOST} = process.env;
 
 
 const ModifyEmailAndUsername = ({privateUser}) => {
-   const [token, setToken] = useContext(TokenContext);
+   const [token] = useContext(TokenContext);
     const [error, setError] = useState(false);
 
     const handleChangeUser = async(e) => {
         e.preventDefault();
 
         const modifyUser = {
-            newUsername: e.target.elements.oldPasswd.value,
-            newPassword: e.target.elements.newPasswd.value,
+            newUsername: e.target.elements.username.value,
+            newEmail: e.target.elements.email.value,
         }
 
-        const url = `${REACT_APP_LOCALHOST}/users/${privateUser.id}`
+        const url = `${REACT_APP_LOCALHOST}/users/${privateUser.id}`;
         try{
             const response = await fetch(url, {
                 method: 'PUT',
@@ -28,10 +28,13 @@ const ModifyEmailAndUsername = ({privateUser}) => {
             });
 
             if(response.ok){
-                setToken('');
+                const body = await response.json();
+
+                console.log(body);
+                console.log('Usuario modificado');
                 window.location.reload();
             } else {
-                console.error('Ha habido un error al cambiar la contraseña');
+                console.error('No se ha podido cambiar el nombre de usuario o email');
                 setError(true);
             }
 
@@ -46,7 +49,10 @@ const ModifyEmailAndUsername = ({privateUser}) => {
             <h3>Información de Usuario</h3>
             <form onSubmit={handleChangeUser}>
                 <label>Nuevo nombre de usuario: </label>
-                <input type='text' name='username' />
+                <input type='text' name='username' placeholder={privateUser.username}/>
+                <label>Cambio de email: </label>
+                <input type="email" name="email" placeholder={privateUser.email} />
+                <button>Submit</button>
             </form>
         </div>
     )

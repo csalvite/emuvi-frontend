@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
+import Footer from '../../components/footer/Footer';
+import Header1 from '../../components/Header';
 
 const { REACT_APP_LOCALHOST } = process.env;
 
@@ -65,6 +67,7 @@ function ValidateRegister() {
 
   return (
     <div className='register-form'>
+      <Header1 />
       <h1>Formulario para completar el registro en EMUVI</h1>
       <p>
         Para poder poner en venta tus productos en emuvi nos es necesaria cierta
@@ -120,6 +123,8 @@ function ValidateRegister() {
       ) : (
         ''
       )}
+
+      <Footer />
     </div>
   );
 }

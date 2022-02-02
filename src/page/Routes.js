@@ -7,6 +7,7 @@ import { Products } from './products';
 import App from './home/App';
 import NewProduct from './new_product/NewProduct';
 import { UserProfile } from './auth/UserProfile';
+import ConfirmChangeEmail from './auth/ConfirmChangeEmail';
 
 function EmuviRoutes() {
   return (
@@ -18,6 +19,10 @@ function EmuviRoutes() {
         <Route
           path='/validate/:registrationCode'
           element={<ValidateRegister />}
+        />
+        <Route
+          path='/users/mail/:registrationCode'
+          element={<ConfirmChangeEmail />}
         />
         <Route path='profile' element={<UserProfile />} />
         <Route path='products' element={<Products />} />

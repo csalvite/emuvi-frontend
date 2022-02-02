@@ -1,5 +1,4 @@
-import { useContext, useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
+import { useContext, useState } from "react";
 import { TokenContext } from "../..";
 
 const {REACT_APP_LOCALHOST} = process.env;
@@ -46,9 +45,9 @@ const ChangePassword = ({privateUser}) => {
             <h3>Cambiar Contraseña</h3>
             <form onSubmit={handleChangePassword}>
                 <label>Indica la antigua contraseña: </label>
-                <input type='password' name="oldPasswd" required />
+                <input type='password' name="oldPasswd" autoComplete="on" required />
                 <label>Indica la nueva contraseña: </label>
-                <input type='password' name="newPasswd" required />
+                <input type='password' name="newPasswd" autoComplete="on" required />
                 <button>Cambiar Contraseña</button>
             </form>
             {error ? <div>Error al cambiar la contraseña, intentalo de nuevo</div> : ''}

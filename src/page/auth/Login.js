@@ -60,7 +60,13 @@ function Login() {
           </li>
           <li>
             <label htmlFor='passwd'>Password: </label>
-            <input type='password' name='passwd' id='passwd' required />
+            <input
+              type='password'
+              name='passwd'
+              id='passwd'
+              autoComplete='on'
+              required
+            />
           </li>
           <li>
             <button className='btn'>Iniciar Sesión</button>

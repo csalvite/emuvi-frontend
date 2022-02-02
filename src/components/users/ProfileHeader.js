@@ -40,9 +40,6 @@ export const ProfileHeader = () => {
     setAnchorEl(null);
   };
 
-  /* user
-        ? `${REACT_APP_LOCALHOST}/avatar/${user.avatar}`
-        : '/resources/images/cat_chibi.jpeg' */
   return (
     token && (
       <div>
@@ -57,6 +54,7 @@ export const ProfileHeader = () => {
               aria-controls={open ? 'account-menu' : undefined}
               aria-haspopup='true'
               aria-expanded={open ? 'true' : undefined}
+              style={{ all: 'initial' }}
             >
               <Avatar
                 alt=''

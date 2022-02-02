@@ -1,7 +1,9 @@
-import { Avatar, Link, Rating } from '@mui/material';
-import { useContext, useEffect, useState } from 'react';
+import { Avatar, Rating } from '@mui/material';
+import { useContext, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 import { TokenContext } from '../..';
+import Footer from '../../components/footer/Footer';
+import Header1 from '../../components/Header';
 import { ButtonDeleteUser } from '../../components/privateUser/ButtonDeleteUser';
 import { ButtonEditAvatar } from '../../components/privateUser/ButtonEditAvatar';
 import { FavoriteProducts } from '../../components/privateUser/FavoriteProducts';
@@ -27,8 +29,17 @@ function UserProfile() {
 
   return privateUser ? (
     <div className='user-profile'>
+      <Header1 />
+      {privateUser.active ? (
+        ''
+      ) : (
+        <div>
+          El usuario no está activo, para activarlo comprueba tu correo y
+          completa el registro!
+        </div>
+      )}
       <h1>
-        Perfil de {privateUser.name} {privateUser.lastname}
+        {privateUser.name} {privateUser.lastname}
       </h1>
       <Avatar
         alt='holi'
@@ -62,6 +73,8 @@ function UserProfile() {
         <ModifyProfile privateUser={privateUser} />
         <FavoriteProducts privateUser={privateUser} />
       </div>
+
+      <Footer />
     </div>
   ) : (
     <div>Usuario borrado o inexistente</div>

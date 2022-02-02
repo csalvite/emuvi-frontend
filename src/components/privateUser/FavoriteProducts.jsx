@@ -39,7 +39,7 @@ function FavoriteProducts({privateUser}) {
   return error ? <div>Hubo un problema al cargar los productos favoritos</div> : (
     <div className='user-profile'>
         Productos Favoritos
-        {favProducts.length < 1 ? <div>No hay productos marcados como favoritos</div> 
+        {favProducts.length <= 1 ? <div>No hay productos marcados como favoritos</div> 
         : 
         favProducts.map((product) => {
             return (
