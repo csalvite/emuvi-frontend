@@ -59,7 +59,8 @@ function Products() {
                 </p>
                 {product.photos.map((photo) => (
                   <img
-                    src={`${REACT_APP_LOCALHOST}/photos/${photo.name}`}
+                    key={photo.id}
+                    src={`${REACT_APP_LOCALHOST}/avatar/${photo.name}`}
                     alt='product_photo'
                   />
                 ))}

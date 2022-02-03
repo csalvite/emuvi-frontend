@@ -45,13 +45,24 @@ export function ButtonDeleteUser({id}) {
     }
 
     return (
-        <form onSubmit={handleOnClick}>
-            <label>Contraseña: </label>
-            <input type='text' name="password" />
-            <label>Repite Contraseña: </label>
-            <input type='text' name="confirmPassword" />
-            <button className="btn">Borrar Usuario</button>
-            {error ? <p>Error al borrar el usuario</p> : ''}
-        </form>
+        <div style={{border: '1px solid black', margin: '1rem', padding: '1rem'}}>
+            <h3 style={{color: 'red'}}>Eliminar Usuario</h3>
+            <form onSubmit={handleOnClick}>
+                <ul>
+                    <li>
+                        <label>Contraseña: </label>
+                        <input type='text' name="password" />
+                    </li>
+                    <li>
+                        <label>Repite Contraseña: </label>
+                        <input type='text' name="confirmPassword" />
+                    </li>
+                    <li>
+                        <button className="btn">Borrar Usuario</button>
+                    </li>
+                </ul>
+                {error ? <p>Error al borrar el usuario</p> : ''}
+            </form>
+        </div>
     )
 }

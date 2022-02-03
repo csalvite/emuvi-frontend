@@ -46,13 +46,21 @@ const ModifyEmailAndUsername = ({privateUser}) => {
 
     return (
         <div>
-            <h3>Información de Usuario</h3>
+            <h3>Editar nombre de usuario o email</h3>
             <form onSubmit={handleChangeUser}>
-                <label>Nuevo nombre de usuario: </label>
-                <input type='text' name='username' placeholder={privateUser.username}/>
-                <label>Cambio de email: </label>
-                <input type="email" name="email" placeholder={privateUser.email} />
-                <button>Submit</button>
+                <ul>
+                    <li>
+                        <label>Nuevo nombre de usuario: </label>
+                        <input type='text' name='username' placeholder={privateUser.username}/>
+                    </li>
+                    <li>
+                        <label>Cambio de email: </label>
+                        <input type="email" name="email" placeholder={privateUser.email} />
+                    </li>
+                    <li>
+                        <button>Modificar</button>
+                    </li>
+                </ul>
             </form>
         </div>
     )

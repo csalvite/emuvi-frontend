@@ -7,7 +7,8 @@ import Header1 from '../../components/Header';
 import { ButtonDeleteUser } from '../../components/privateUser/ButtonDeleteUser';
 import { ButtonEditAvatar } from '../../components/privateUser/ButtonEditAvatar';
 import { FavoriteProducts } from '../../components/privateUser/FavoriteProducts';
-import { ModifyProfile } from '../../components/privateUser/ModifyProfile';
+import Ratings from '../../components/privateUser/Ratings';
+import { UserInfo } from '../../components/privateUser/UserInfo';
 import { usePrivateUser } from '../../hooks/usePrivateUser';
 
 const { REACT_APP_LOCALHOST } = process.env;
@@ -59,7 +60,7 @@ function UserProfile() {
       <ButtonEditAvatar id={privateUser.id} />
       {/* Hay que buscar otros estilos para borrar usuario */}
       <ButtonDeleteUser id={privateUser.id} />
-      {/* Aqui deberíamos tener el menú de selección para el usuario */}
+      {/* Aqui deberíamos tener el menú de selección para el usuario las etiquetas no son las finales, son de ejemplo*/}
       <menu>
         <select>
           <option>Editar Perfil</option>
@@ -70,8 +71,9 @@ function UserProfile() {
       </menu>
       <div>
         {}
-        <ModifyProfile privateUser={privateUser} />
+        <UserInfo privateUser={privateUser} id='edit' />
         <FavoriteProducts privateUser={privateUser} />
+        <Ratings privateUser={privateUser} />
       </div>
 
       <Footer />
