@@ -16,9 +16,9 @@ function Header1() {
           Video cannot be loaded :(
         </video>
         <nav>
-          <a href="#" className="logo">
+          <Link to="/" className="logo">
             <i className="fas fa-globe-africa"></i>EMUVI
-          </a>
+          </Link>
           <div className="search_box">
             <input type="search" placeholder="Encontrar algo..." />
             <span className="fas fa-search"></span>
@@ -30,6 +30,7 @@ function Header1() {
           </> : 
           <LoginButton />
         }
+
         </nav>
       
         <div className="header-container">

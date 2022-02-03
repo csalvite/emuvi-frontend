@@ -1,27 +1,38 @@
 import {
   Avatar,
   Divider,
-  Icon,
   IconButton,
   Link,
-  ListItemIcon,
   Menu,
   MenuItem,
   Tooltip,
-  Typography,
 } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useContext, useState } from 'react';
-import { Navigate } from 'react-router-dom';
 import { TokenContext } from '../..';
+import { usePrivateUser } from '../../hooks/usePrivateUser';
 import { OptionLogoutButton } from './OptionLogoutButton';
-import { OptionProfile } from './OptionProfile';
+
+const { REACT_APP_LOCALHOST } = process.env;
 
 export const ProfileHeader = () => {
   const [token] = useContext(TokenContext);
+  const [user] = usePrivateUser();
 
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
+
+  const menuOptions = [
+    {
+      text: 'Mi Perfil',
+      path: '/profile',
+    },
+    {
+      text: 'Nuevo Producto',
+      path: '/newproduct',
+    },
+  ];
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -35,7 +46,7 @@ export const ProfileHeader = () => {
         <Box
           sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}
         >
-          <Tooltip title='Nombre del Usuario'>
+          <Tooltip title=''>
             <IconButton
               onClick={handleClick}
               size='small'
@@ -43,8 +54,17 @@ export const ProfileHeader = () => {
               aria-controls={open ? 'account-menu' : undefined}
               aria-haspopup='true'
               aria-expanded={open ? 'true' : undefined}
+              style={{ all: 'initial' }}
             >
-              <Avatar sx={{ width: 56, height: 56 }}>M</Avatar>
+              <Avatar
+                alt=''
+                src={
+                  user
+                    ? `${REACT_APP_LOCALHOST}/avatar/${user.avatar}`
+                    : '/resources/images/cat_chibi.jpeg'
+                }
+                sx={{ width: 56, height: 56 }}
+              />
             </IconButton>
           </Tooltip>
         </Box>
@@ -83,13 +103,18 @@ export const ProfileHeader = () => {
           transformOrigin={{ horizontal: 'right', vertical: 'top' }}
           anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
         >
-          <MenuItem component={Link} to='profile'>
-            Mi Perfil
-          </MenuItem>
-          <MenuItem>Nuevo Producto</MenuItem>
+          {menuOptions.map((item) => {
+            return (
+              <MenuItem key={item.text}>
+                <Link href={item.path} underline='none'>
+                  {item.text}
+                </Link>
+              </MenuItem>
+            );
+          })}
           <Divider />
           <MenuItem>
-            <ListItemIcon>{<OptionLogoutButton />}</ListItemIcon>
+            <OptionLogoutButton />
           </MenuItem>
         </Menu>
       </div>

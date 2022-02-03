@@ -6,6 +6,11 @@ const { REACT_APP_LOCALHOST } = process.env;
 function Register() {
   const [error, setError] = useState();
   const [register, setRegister] = useState(false);
+  const [loading, setLoading] = useState();
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -27,19 +32,24 @@ function Register() {
         },
       });
 
+      setLoading(true);
+
       if (response.ok) {
         const userRegister = await response.json();
         console.log('Usuario registrado comprobar email para activación');
         setError(false);
         setRegister(true);
         console.log(userRegister);
+        setLoading(false);
       } else {
         console.error('Error en el registro del usuario');
         setError(true);
+        setLoading(false);
       }
     } catch (error) {
       console.error('Error en el registro');
       setError(true);
+      setLoading(false);
     }
   };
 
@@ -74,7 +84,13 @@ function Register() {
           </li>
           <li>
             <label htmlFor='passwd'>Password: </label>
-            <input type='password' name='passwd' id='passwd' required />
+            <input
+              type='password'
+              name='passwd'
+              id='passwd'
+              autoComplete='on'
+              required
+            />
           </li>
           <li>
             <button className='btn'>Registro</button>
