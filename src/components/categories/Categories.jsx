@@ -9,10 +9,10 @@ function Categories() {
 
         <div className="categories-container">
           <div className="category">
-              <img
-                src="./resources/vectors/informática icon"
-                alt="informatica icon"
-              ></img>
+            <img
+              src="./resources/vectors/informática icon"
+              alt="informatica icon"
+            ></img>
             <h4>Informática</h4>
           </div>
           <div className="category">
