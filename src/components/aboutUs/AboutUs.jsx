@@ -1,10 +1,13 @@
 import React from 'react';
 import './AboutUs.css';
+import JustNav from '../../components/justNavHeader/JustNav';
+import Footer from '../../components/footer/Footer';
 
 function AboutUs() {
   return (
     <>
-      <h1>NUESTRO EQUIPO</h1>
+      <JustNav />
+      <h1>Nuestro equipo</h1>
       <div className="container">
         <div className="card">
           <div className="imgBox">
@@ -84,6 +87,7 @@ function AboutUs() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
