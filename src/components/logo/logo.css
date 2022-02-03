@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Lato:ital,wght@0,300;0,400;1,300&family=Poppins:wght@400;500;600;700&display=swap');
+.LG {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+section {
+  padding: 1rem;
+}
+section .logo {
+  font-size: 50px;
+  font-weight: 30px;
+  color: var(--white);
+  cursor: pointer;
+  text-decoration: none;
+  font-family: Audiowide;
+  display: flex;
+}
+#globo {
+  font-size: 50px;
+  color: var(--green);
+  padding: 0.2rem;
+}
+
+.Rreg {
+  display: flex;
+  color: var(--green);
+  margin-top: 7px;
+}

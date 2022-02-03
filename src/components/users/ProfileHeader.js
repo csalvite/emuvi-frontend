@@ -1,27 +1,98 @@
-import React from 'react';
-import { useAuth0 } from '@auth0/auth0-react';
-import { ButtonRegisterUser } from '../../components/users/ButtonRegisterUser';
+import {
+  Avatar,
+  Divider,
+  Icon,
+  IconButton,
+  Link,
+  ListItemIcon,
+  Menu,
+  MenuItem,
+  Tooltip,
+  Typography,
+} from '@mui/material';
+import { Box } from '@mui/system';
+import React, { useContext, useState } from 'react';
+import { Navigate } from 'react-router-dom';
+import { TokenContext } from '../..';
+import { OptionLogoutButton } from './OptionLogoutButton';
+import { OptionProfile } from './OptionProfile';
 
 export const ProfileHeader = () => {
-  const { user, isAuthenticated, isLoading } = useAuth0();
+  const [token] = useContext(TokenContext);
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  console.log(user);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
-    isAuthenticated && (
+    token && (
       <div>
-        <img src={user.picture} alt={user.name} />
-        <ButtonRegisterUser />
+        <Box
+          sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}
+        >
+          <Tooltip title='Nombre del Usuario'>
+            <IconButton
+              onClick={handleClick}
+              size='small'
+              sx={{ ml: 20 }}
+              aria-controls={open ? 'account-menu' : undefined}
+              aria-haspopup='true'
+              aria-expanded={open ? 'true' : undefined}
+            >
+              <Avatar sx={{ width: 56, height: 56 }}>M</Avatar>
+            </IconButton>
+          </Tooltip>
+        </Box>
+        <Menu
+          anchorEl={anchorEl}
+          id='account-menu'
+          open={open}
+          onClose={handleClose}
+          onClick={handleClose}
+          PaperProps={{
+            elevation: 0,
+            sx: {
+              overflow: 'visible',
+              filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
+              mt: 1.5,
+              '& .MuiAvatar-root': {
+                width: 32,
+                height: 32,
+                ml: -0.5,
+                mr: 1,
+              },
+              '&:before': {
+                content: '""',
+                display: 'block',
+                position: 'absolute',
+                top: 0,
+                right: 14,
+                width: 10,
+                height: 10,
+                bgcolor: 'background.paper',
+                transform: 'translateY(-50%) rotate(45deg)',
+                zIndex: 0,
+              },
+            },
+          }}
+          transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+          anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+        >
+          <MenuItem component={Link} to='profile'>
+            Mi Perfil
+          </MenuItem>
+          <MenuItem>Nuevo Producto</MenuItem>
+          <Divider />
+          <MenuItem>
+            <ListItemIcon>{<OptionLogoutButton />}</ListItemIcon>
+          </MenuItem>
+        </Menu>
       </div>
     )
   );
 };
-
-// existe ese email en la base de datos y está activado?
-// TRUE no mostramos nada
-// FALSE enlace a formulario de registro para insertar TODOS los datos del usuario y simplemente
-//  enviar un correo de activación de cuenta/confirmación de email

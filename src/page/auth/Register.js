@@ -1,33 +1,22 @@
-import { useAuth0 } from '@auth0/auth0-react';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const { REACT_APP_LOCALHOST } = process.env;
 
 function Register() {
-  const register = async (e) => {
+  const [error, setError] = useState();
+  const [register, setRegister] = useState(false);
+
+  const handleRegister = async (e) => {
     e.preventDefault();
 
-    let lat = 0;
-    let lon = 0;
-
     const newUser = {
-      username: e.target.elements.username.value
-        ? e.target.elements.username.value
-        : user.nickname,
-      email: user.email,
-      name: user.given_name,
-      password: '',
-      lastname: user.family_name,
-      avatar: user.picture,
-      birthday: e.target.elements.birthday.value,
-      biography: e.target.elements.biography.value,
-      phone: e.target.elements.phone.value,
-      latitude: lat,
-      longitude: lon,
-      street: e.target.elements.street.value,
-      postalCode: e.target.elements.postalCode.value,
-      city: e.target.elements.city.value,
-      province: e.target.elements.province.value,
+      username: e.target.elements.username.value,
+      email: e.target.elements.email.value,
+      password: e.target.elements.passwd.value,
     };
+
+    console.log(newUser);
 
     try {
       const response = await fetch(`${REACT_APP_LOCALHOST}/users`, {
@@ -39,96 +28,73 @@ function Register() {
       });
 
       if (response.ok) {
-        const userRegisted = await response.json();
-        console.log(
-          'El usuario se ha registrado correctamente, comprobar el correo proporcionado'
-        );
-        console.log(userRegisted);
+        const userRegister = await response.json();
+        console.log('Usuario registrado comprobar email para activación');
+        setError(false);
+        setRegister(true);
+        console.log(userRegister);
       } else {
-        console.error('Algo falló al registrar al usuario');
+        console.error('Error en el registro del usuario');
+        setError(true);
       }
     } catch (error) {
       console.error('Error en el registro');
+      setError(true);
     }
   };
 
-  // Recogemos los valores del usuario logeado con Auth0
-  const { user, isAuthenticated, isLoading } = useAuth0();
-
-  if (isLoading) {
-    return <div>Loading...</div>;
+  if (register) {
+    return (
+      <div>
+        <p>
+          Usuario registrado con éxito, comprueba tu correo para activar el la
+          cuenta!
+        </p>
+        <p>
+          Qué tal si metemos aqui una imagen o algo chachi que indique que debe
+          comprobar el correo para continuar? :D
+        </p>
+      </div>
+    );
   }
 
-  console.log(user);
-
   return (
-    isAuthenticated && (
-      <div className='register-form'>
-        <h1>Formulario para completar el registro en EMUVI</h1>
-        <p>
-          Para poder poner en venta tus productos en emuvi nos es necesaria
-          cierta información a mayores que será utilizada únicamente para las
-          ventas :)
-        </p>
+    <div className='register-form'>
+      <h1>Registro de Usuario en EMUVI</h1>
+
+      <form onSubmit={handleRegister}>
+        <ul>
+          <li>
+            <label htmlFor='username'>Username: </label>
+            <input type='text' name='username' id='username' required />
+          </li>
+          <li>
+            <label htmlFor='email'>Email: </label>
+            <input type='text' name='email' id='email' required />
+          </li>
+          <li>
+            <label htmlFor='passwd'>Password: </label>
+            <input type='password' name='passwd' id='passwd' required />
+          </li>
+          <li>
+            <button className='btn'>Registro</button>
+          </li>
+          <li>
+            <p>
+              Ya tienes una cuenta? <Link to='/login'>Inicia Sesión</Link>
+            </p>
+          </li>
+        </ul>
+      </form>
+      {error ? (
         <div>
-          <img src={user.picture} alt={user.name} />
+          Hubo un error en el registro del usuario comprueba los datos
+          proporcionados
         </div>
-        <form onSubmit={register}>
-          <ul>
-            <li>
-              <label htmlFor='username'>Username: </label>
-              <input
-                type='text'
-                name='username'
-                id='text'
-                placeholder={user.nickname}
-              />
-            </li>
-            <li>
-              <label htmlFor='email'>Email: </label>
-              <input
-                type='text'
-                name='email'
-                id='email'
-                placeholder={user.email}
-                disabled
-              />
-            </li>
-            <li>
-              <label htmlFor='birthday'>Fecha de nacimiento: </label>
-              <input type='date' name='birthday' id='birthday' required />
-            </li>
-            <li>
-              <label htmlFor='biography'>Biografía: </label>
-              <textarea name='biography' id='biography' />
-            </li>
-            <li>
-              <label htmlFor='phone'>Número de teléfono: </label>
-              <input type='text' name='phone' id='phone' />
-            </li>
-            <li>
-              <label htmlFor='street'>Calle: </label>
-              <input type='text' name='street' id='street' required />
-            </li>
-            <li>
-              <label htmlFor='postalCode'>Código Postal: </label>
-              <input type='text' name='postalCode' id='postalCode' required />
-            </li>
-            <li>
-              <label htmlFor='city'>Ciudad: </label>
-              <input type='text' name='city' id='city' required />
-            </li>
-            <li>
-              <label htmlFor='province'>Provincia: </label>
-              <input type='text' name='province' id='province' required />
-            </li>
-            <li>
-              <button>Registrarse</button>
-            </li>
-          </ul>
-        </form>
-      </div>
-    )
+      ) : (
+        ''
+      )}
+    </div>
   );
 }
 
