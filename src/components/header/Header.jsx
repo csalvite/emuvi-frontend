@@ -1,17 +1,22 @@
 import React, { useContext } from 'react';
-import { ProfileHeader } from '../../components/users/ProfileHeader';
-import './JustNav.css';
+import { Link } from 'react-router-dom';
 import { TokenContext } from '../..';
+import { ProfileHeader } from '../../components/users/ProfileHeader';
 import { LoginButton } from '../users/LoginButton';
 
-function JustNav() {
+import './Header.css';
+
+function Header1() {
   const [token] = useContext(TokenContext);
 
   return (
     <div>
       <header>
-        <nav id="navBar">
-          <a href="http://localhost:3000/" className="logo">
+        <video autoPlay loop muted src="./resources/videos/HeaderVideoBG.mp4">
+          Video cannot be loaded :(
+        </video>
+        <nav>
+          <a href="#" className="logo">
             <i className="fas fa-globe-africa"></i>EMUVI
           </a>
           <div className="search_box">
@@ -27,9 +32,17 @@ function JustNav() {
             <LoginButton />
           )}
         </nav>
+
+        <div className="header-container">
+          <h2>EL MUNDO VINTAGE</h2>
+          <h3>COMPRA-VENTA DE ARTÍCULOS RETRO</h3>
+          <Link to="/products">
+            <button className="products-button">PRODUCTOS</button>
+          </Link>
+        </div>
       </header>
     </div>
   );
 }
 
-export default JustNav;
+export default Header1;

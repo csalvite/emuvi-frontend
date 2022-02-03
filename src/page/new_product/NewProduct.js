@@ -1,6 +1,6 @@
 import './NewProduct.css';
-import Header1 from '../../components/Header';
 import Footer from '../../components/footer/Footer';
+import Header1 from '../../components/header/Header';
 
 function NewProduct() {
   return (

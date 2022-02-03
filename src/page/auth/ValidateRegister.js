@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import Footer from '../../components/footer/Footer';
-import Header1 from '../../components/Header';
+import Header1 from '../../components/header/Header';
 
 const { REACT_APP_LOCALHOST } = process.env;
 
