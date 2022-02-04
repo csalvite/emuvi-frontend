@@ -10,6 +10,9 @@ function FavoriteProducts({privateUser}) {
   const [favProducts, setFavProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // Estado para recargar productos cuando se elimina uno de favoritos
+  const [favEliminated, setFavEliminated] = useState(false);
+
   // Devolvemos los productos favoritos del usuario
   useEffect(() => {
         const getFavoriteProducts = async() => {
@@ -39,7 +42,8 @@ function FavoriteProducts({privateUser}) {
             }
         }
       getFavoriteProducts();
-  }, [privateUser.id, token.token]);
+
+  }, [privateUser.id, token.token, favEliminated]);
 
   // Funcion manejadora para eliminar producto de favoritos
   const handleDeleteFavProduct = async (e) => {
@@ -61,6 +65,7 @@ function FavoriteProducts({privateUser}) {
 
         if (response.ok) {
             console.log('Producto eliminado de favoritos correctamente');
+            setFavEliminated(true);
         } else {
             console.error('Error al borrar el producto');
         }
@@ -82,7 +87,7 @@ function FavoriteProducts({privateUser}) {
   return error ? <div>Hubo un problema al cargar los productos favoritos</div> : (
     <div className='user-profile'>
         <h2>Productos Favoritos</h2>
-        {favProducts.length < 1 ? <div>No hay productos marcados como favoritos</div> 
+        {favProducts.length < 1 ? <div>No hay productos marcados como favoritos</div>
         : 
         favProducts.map((product, index) => {
             return (

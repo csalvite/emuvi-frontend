@@ -3,7 +3,7 @@ import { useContext, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 import { TokenContext } from '../..';
 import Footer from '../../components/footer/Footer';
-import Header1 from '../../components/header/Header';
+import JustNav from '../../components/justNavHeader/JustNav';
 import { ButtonDeleteUser } from '../../components/privateUser/ButtonDeleteUser';
 import { ButtonEditAvatar } from '../../components/privateUser/ButtonEditAvatar';
 import { FavoriteProducts } from '../../components/privateUser/FavoriteProducts';
@@ -30,7 +30,7 @@ function UserProfile() {
 
   return privateUser ? (
     <div className='user-profile'>
-      <Header1 />
+      <JustNav />
       {privateUser.active ? (
         ''
       ) : (
