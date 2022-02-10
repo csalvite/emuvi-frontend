@@ -1,9 +1,11 @@
 import { Avatar, Rating } from '@mui/material';
 import { useContext, useEffect } from 'react';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { TokenContext } from '../..';
 import Footer from '../../components/footer/Footer';
 import JustNav from '../../components/justNavHeader/JustNav';
+import { UserReceivedOffers } from '../../components/offers/UserReceivedOffers';
+import { UserSendOffers } from '../../components/offers/UserSendOffers';
 import { ButtonDeleteUser } from '../../components/privateUser/ButtonDeleteUser';
 import { ButtonEditAvatar } from '../../components/privateUser/ButtonEditAvatar';
 import { FavoriteProducts } from '../../components/privateUser/FavoriteProducts';
@@ -16,17 +18,6 @@ const { REACT_APP_LOCALHOST } = process.env;
 function UserProfile() {
   const [token] = useContext(TokenContext);
   const [privateUser] = usePrivateUser();
-
-  useEffect(() => {
-    const timeOut = setTimeout(() => {
-      console.log('dentro de timeout');
-      <Navigate to='/' />;
-    }, 3000);
-
-    return () => {
-      clearTimeout(timeOut);
-    };
-  }, [token]);
 
   return privateUser ? (
     <div className='user-profile'>
@@ -43,7 +34,7 @@ function UserProfile() {
         {privateUser.name} {privateUser.lastname}
       </h1>
       <Avatar
-        alt='holi'
+        alt={privateUser.username}
         src={
           privateUser
             ? `${REACT_APP_LOCALHOST}/avatar/${privateUser.avatar}`
@@ -74,6 +65,8 @@ function UserProfile() {
         <UserInfo privateUser={privateUser} id='edit' />
         <FavoriteProducts privateUser={privateUser} />
         <Ratings privateUser={privateUser} />
+        <UserSendOffers idUser={privateUser.id} />
+        <UserReceivedOffers idUser={privateUser.id} />
       </div>
 
       <Footer />

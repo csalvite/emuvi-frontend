@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import Footer from '../../components/footer/Footer';
+import JustNav from '../../components/justNavHeader/JustNav';
 import './Products.css';
 require('react-dotenv');
 
@@ -40,6 +42,7 @@ function Products() {
 
   return (
     <div className='list-products'>
+      <JustNav />
       <div>
         <h1>Página de Productos</h1>
       </div>
@@ -69,6 +72,7 @@ function Products() {
           })
         )}
       </div>
+      <Footer />
     </div>
   );
 }

@@ -7,6 +7,8 @@ const {REACT_APP_LOCALHOST} = process.env;
 const ModifyEmailAndUsername = ({privateUser}) => {
    const [token] = useContext(TokenContext);
     const [error, setError] = useState(false);
+    const [state, setState] = useState();
+    const [loading, setLoading] = useState(true);
 
     const handleChangeUser = async(e) => {
         e.preventDefault();
@@ -27,16 +29,21 @@ const ModifyEmailAndUsername = ({privateUser}) => {
                 },
             });
 
+            setLoading(true);
+
             if(response.ok){
                 const body = await response.json();
-
-                console.log(body);
-                console.log('Usuario modificado');
+                setState(body.message);
                 window.location.reload();
             } else {
                 console.error('No se ha podido cambiar el nombre de usuario o email');
+                if (modifyUser.newEmail === '' || modifyUser.newUsername === '') {
+                    setState('Debes indicar un nuevo email o nombre de usuario');
+                }
                 setError(true);
             }
+
+            setLoading(false);
 
         } catch(error){
             console.error(error.message);
@@ -62,6 +69,7 @@ const ModifyEmailAndUsername = ({privateUser}) => {
                     </li>
                 </ul>
             </form>
+            {state ? state : ''}
         </div>
     )
 }

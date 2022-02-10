@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import Footer from '../../components/footer/Footer';
-import Header1 from '../../components/header/Header';
+import JustNav from '../../components/justNavHeader/JustNav';
 
 const { REACT_APP_LOCALHOST } = process.env;
 
@@ -9,12 +9,11 @@ function ValidateRegister() {
   const { registrationCode } = useParams();
   const [error, setError] = useState();
   const [canRegister, setCanRegister] = useState(false);
+  let lat = 0;
+  let lon = 0;
 
   const register = async (e) => {
     e.preventDefault();
-
-    let lat = 0;
-    let lon = 0;
 
     const newUser = {
       name: e.target.elements.name.value,
@@ -65,9 +64,16 @@ function ValidateRegister() {
     return <Navigate to='/' />;
   }
 
+  navigator.geolocation.getCurrentPosition(function (position) {
+    lat = position.coords.latitude;
+    console.log('Latitude is :', lat);
+    lon = position.coords.longitude;
+    console.log('Longitude is :', lon);
+  });
+
   return (
     <div className='register-form'>
-      <Header1 />
+      <JustNav />
       <h1>Formulario para completar el registro en EMUVI</h1>
       <p>
         Para poder poner en venta tus productos en emuvi nos es necesaria cierta
