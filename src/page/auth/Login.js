@@ -1,6 +1,8 @@
 import { useContext, useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { TokenContext } from '../..';
+import Footer from '../../components/footer/Footer';
+import JustNav from '../../components/justNavHeader/JustNav';
 
 const { REACT_APP_LOCALHOST } = process.env;
 
@@ -50,6 +52,7 @@ function Login() {
 
   return (
     <div className='register-form'>
+      <JustNav />
       <h1>Login EMUVI</h1>
 
       <form onSubmit={handleLogin}>
@@ -83,6 +86,7 @@ function Login() {
       ) : (
         <div></div>
       )}
+      <Footer />
     </div>
   );
 }

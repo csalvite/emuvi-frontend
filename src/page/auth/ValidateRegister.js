@@ -9,12 +9,11 @@ function ValidateRegister() {
   const { registrationCode } = useParams();
   const [error, setError] = useState();
   const [canRegister, setCanRegister] = useState(false);
+  let lat = 0;
+  let lon = 0;
 
   const register = async (e) => {
     e.preventDefault();
-
-    let lat = 0;
-    let lon = 0;
 
     const newUser = {
       name: e.target.elements.name.value,
@@ -64,6 +63,13 @@ function ValidateRegister() {
   if (canRegister) {
     return <Navigate to='/' />;
   }
+
+  navigator.geolocation.getCurrentPosition(function (position) {
+    lat = position.coords.latitude;
+    console.log('Latitude is :', lat);
+    lon = position.coords.longitude;
+    console.log('Longitude is :', lon);
+  });
 
   return (
     <div className='register-form'>

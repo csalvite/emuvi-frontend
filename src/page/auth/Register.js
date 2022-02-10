@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Footer from '../../components/footer/Footer';
+import JustNav from '../../components/justNavHeader/JustNav';
 
 const { REACT_APP_LOCALHOST } = process.env;
 
@@ -7,10 +9,6 @@ function Register() {
   const [error, setError] = useState();
   const [register, setRegister] = useState(false);
   const [loading, setLoading] = useState();
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -40,68 +38,69 @@ function Register() {
         setError(false);
         setRegister(true);
         console.log(userRegister);
-        setLoading(false);
       } else {
         console.error('Error en el registro del usuario');
         setError(true);
-        setLoading(false);
       }
+
+      setLoading(false);
     } catch (error) {
       console.error('Error en el registro');
       setError(true);
-      setLoading(false);
     }
   };
 
-  if (register) {
-    return (
-      <div>
-        <p>
-          Usuario registrado con éxito, comprueba tu correo para activar el la
-          cuenta!
-        </p>
-        <p>
-          Qué tal si metemos aqui una imagen o algo chachi que indique que debe
-          comprobar el correo para continuar? :D
-        </p>
-      </div>
-    );
+  if (loading) {
+    return <div>Loading...</div>;
   }
 
   return (
     <div className='register-form'>
+      <JustNav />
       <h1>Registro de Usuario en EMUVI</h1>
-
-      <form onSubmit={handleRegister}>
-        <ul>
-          <li>
-            <label htmlFor='username'>Username: </label>
-            <input type='text' name='username' id='username' required />
-          </li>
-          <li>
-            <label htmlFor='email'>Email: </label>
-            <input type='text' name='email' id='email' required />
-          </li>
-          <li>
-            <label htmlFor='passwd'>Password: </label>
-            <input
-              type='password'
-              name='passwd'
-              id='passwd'
-              autoComplete='on'
-              required
-            />
-          </li>
-          <li>
-            <button className='btn'>Registro</button>
-          </li>
-          <li>
-            <p>
-              Ya tienes una cuenta? <Link to='/login'>Inicia Sesión</Link>
-            </p>
-          </li>
-        </ul>
-      </form>
+      {register ? (
+        <div>
+          <p>
+            Usuario registrado con éxito, comprueba tu correo para activar el la
+            cuenta!
+          </p>
+          <p>
+            Qué tal si metemos aqui una imagen o algo chachi que indique que
+            debe comprobar el correo para continuar? :D
+          </p>
+        </div>
+      ) : (
+        <form onSubmit={handleRegister}>
+          <ul>
+            <li>
+              <label htmlFor='username'>Username: </label>
+              <input type='text' name='username' id='username' required />
+            </li>
+            <li>
+              <label htmlFor='email'>Email: </label>
+              <input type='text' name='email' id='email' required />
+            </li>
+            <li>
+              <label htmlFor='passwd'>Password: </label>
+              <input
+                type='password'
+                name='passwd'
+                id='passwd'
+                autoComplete='on'
+                required
+              />
+            </li>
+            <li>
+              <button className='btn'>Registro</button>
+            </li>
+            <li>
+              <p>
+                Ya tienes una cuenta? <Link to='/login'>Inicia Sesión</Link>
+              </p>
+            </li>
+          </ul>
+        </form>
+      )}
       {error ? (
         <div>
           Hubo un error en el registro del usuario comprueba los datos
@@ -110,6 +109,7 @@ function Register() {
       ) : (
         ''
       )}
+      <Footer />
     </div>
   );
 }

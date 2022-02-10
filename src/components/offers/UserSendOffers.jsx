@@ -1,6 +1,8 @@
 import { useContext, useState } from "react";
 import { useEffect } from "react"
 import { TokenContext } from "../..";
+import { DeleteDeniedBookings } from "./DeleteDeniedBookings";
+import { DeleteDeniedOffers } from "./DeleteDeniedOffers";
 
 const { REACT_APP_LOCALHOST } = process.env;
 
@@ -46,6 +48,7 @@ export const UserSendOffers = ({ idUser }) => {
     return (
         <div>
             <h3>Ofertas Enviadas</h3>
+            <DeleteDeniedBookings idUser={idUser} />
             {offers.map((offer, index) => {
                 return (
                     <div key={index}>

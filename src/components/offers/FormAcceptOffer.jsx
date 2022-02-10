@@ -1,12 +1,14 @@
 import { useContext, useState } from "react";
 import { TokenContext } from "../..";
+import "./acceptStyle.css";
 
 const { REACT_APP_LOCALHOST } = process.env;
 
-export const AcceptOffer = ({ idUser, idOffer }) => {
+export const FormAcceptOffer = ({ setShowPopUp, idUser, idOffer, reserveStatus }) => {
 
     const [token] = useContext(TokenContext);
     const [loading, setLoading] = useState(false);
+    const [state, setState] = useState();
 
 
     const handleAcceptOffer = async (e) => {
@@ -36,8 +38,16 @@ export const AcceptOffer = ({ idUser, idOffer }) => {
             if (response.ok) {
                 const body = await response.json();
 
-                console.log(body);
+                setState(body.message);
             } else {
+                if (offerData.street === '' || offerData.city === '' || offerData.time === '' || offerData.date === '') {
+                    setState('Debes indicar todos los datos para la reunión con el comprador.');
+                }
+                
+                if (reserveStatus === 'aceptada' || reserveStatus === 'denegada') {
+                    setState('Ya has tomado una decisión sobre esta oferta, no puedes cambiar su estado.');
+                }
+
                 console.error('Hubo un error al aceptar la oferta');
             }
 
@@ -54,8 +64,9 @@ export const AcceptOffer = ({ idUser, idOffer }) => {
 
 
     return (
-        <div className="accept-offer">
-            <form onSubmit={handleAcceptOffer}>
+        <div id="popup-background" className="accept-offer">
+            <form id="form-accept-offer" onSubmit={handleAcceptOffer}>
+                <span className="close-popup" onClick={() => setShowPopUp(false)}>X</span>
                 <h4>Rellena los datos para reunirte con el comprador</h4>
                 <ul>
                     <li>
@@ -76,6 +87,7 @@ export const AcceptOffer = ({ idUser, idOffer }) => {
                     </li>
                 </ul>
                 <button className="btn">Aceptar Oferta</button>
+                {state ? <div>{state}</div> : ''}
             </form>
         </div>
     )

@@ -1,7 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { TokenContext } from "../..";
-import { AcceptOffer } from "./AcceptOffer";
+import { FormAcceptOffer } from "./FormAcceptOffer";
 import { DeclineOffer } from "./DeclineOffer";
+import { DeleteDeniedOffers } from "./DeleteDeniedOffers";
 
 const { REACT_APP_LOCALHOST } = process.env;
 
@@ -11,6 +12,7 @@ export const UserReceivedOffers = ({ idUser }) => {
     const [token] = useContext(TokenContext);
     const [offers, setOffers] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [showPopUp, setShowPopUp] = useState(false);
 
     useEffect(() => {
         const getUserReceivedOffers = async() => {
@@ -29,7 +31,6 @@ export const UserReceivedOffers = ({ idUser }) => {
                 if (response.ok) {
                     const body = await response.json();
                     setOffers(body.data);
-                    console.log(body);
                 } else {
                     console.error('Hubo un error al cargar las ofertas recibidas.');
                 }
@@ -50,14 +51,20 @@ export const UserReceivedOffers = ({ idUser }) => {
     return (
         <div>
             <h3>Ofertas Recibidas</h3>
+            <DeleteDeniedOffers idUser={idUser} />
             {offers.map((offer, index) => {
                 return (
                     <div key={index}>
                         <h4>{offer.product}</h4>
                         <p>Estado de reserva: <strong>{offer.reserveStatus}</strong></p>
                         <p>Fecha de creación: {new Date(offer.createdAt).toLocaleDateString()}</p>
-                        <AcceptOffer idUser={idUser} idOffer={offer.id} />
-                        <DeclineOffer idUser={idUser} idOffer={offer.id} />
+                        {offer.reserveStatus === 'pendiente' ? (
+                            <>
+                                <button className="btn" onClick={() => setShowPopUp(true)}>Aceptar Oferta</button>
+                                <DeclineOffer idUser={idUser} idOffer={offer.id} reserveStatus={offer.reserveStatus} />
+                                {showPopUp && <FormAcceptOffer setShowPopUp={setShowPopUp} idUser={idUser} idOffer={offer.id} reserveStatus={offer.reserveStatus} />}
+                            </>
+                        ) : ''}
                     </div>
                 )
             })}

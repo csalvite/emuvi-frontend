@@ -1,10 +1,11 @@
 import { useContext, useState } from "react";
 import { TokenContext } from "../..";
 
-export const DeclineOffer = ({ idUser, idOffer }) => {
+export const DeclineOffer = ({ idUser, idOffer, reserveStatus }) => {
 
     const [token] = useContext(TokenContext);
     const [loading, setLoading] = useState(false);
+    const [state, setState] = useState();
 
     const { REACT_APP_LOCALHOST } = process.env;
 
@@ -24,9 +25,12 @@ export const DeclineOffer = ({ idUser, idOffer }) => {
 
             if (response.ok) {
                 const body = await response.json();
-
-                console.log(body);
+                setState(body.message);
+                
             } else {
+                if (reserveStatus === 'aceptada' || reserveStatus === 'denegada') {
+                    setState('Ya has tomado una decisión sobre esta oferta, no puedes cambiar su estado.');
+                }
                 console.error('Hubo un error al declinar la oferta');
             }
 
@@ -43,6 +47,9 @@ export const DeclineOffer = ({ idUser, idOffer }) => {
 
 
     return (
-        <button className="btn" onClick={handleDeclineOffer}>Declinar Oferta</button>
+        <>
+            <button className="btn" onClick={handleDeclineOffer}>Declinar Oferta</button>
+            {state ? state : ''}
+        </>
     )
 }
