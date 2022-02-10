@@ -4,23 +4,13 @@ import './RRSS.css';
 const RRSS = () => {
   return (
     <div>
-      <p id='siguenos'>Siguenos en redes sociales</p>
       <div>
         <ul className='iconss'>
           <li>
-            <a href='https://www.github.com'>
+            <a href='https://www.instagram.com'>
               <img
                 className='lgi'
-                src='/resources/vectors/icons8-github-96.png'
-                alt='informatica icon'
-              ></img>
-            </a>
-          </li>
-          <li>
-            <a href='https://www.gitlab.com'>
-              <img
-                className='lgi'
-                src='/resources/vectors/icons8-gitlab.svg'
+                src='/resources/vectors/instagram-square-brands.svg'
                 alt='informatica icon'
               ></img>
             </a>
@@ -29,34 +19,17 @@ const RRSS = () => {
             <a href='https://www.facebook.com'>
               <img
                 className='lgi'
-                src='/resources/vectors/icons8-facebook.svg'
+                src='/resources/vectors/facebook-square-brands.svg'
                 alt='informatica icon'
               ></img>
             </a>
           </li>
+
           <li>
             <a href='https://www.linkedin.com'>
               <img
                 className='lgi'
-                src='/resources/vectors/icons8-linkedin.svg'
-                alt='informatica icon'
-              ></img>
-            </a>
-          </li>
-          <li>
-            <a href='https://www.whatsapp.com'>
-              <img
-                className='lgi'
-                src='/resources/vectors/icons8-whatsapp.svg'
-                alt='informatica icon'
-              ></img>
-            </a>
-          </li>
-          <li>
-            <a href='https://www.instagram.com'>
-              <img
-                className='lgi'
-                src='/resources/vectors/icons8-instagram.svg'
+                src='/resources/vectors/linkedin-brands.svg'
                 alt='informatica icon'
               ></img>
             </a>

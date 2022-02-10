@@ -3,14 +3,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 3rem;
 }
 
 section {
   padding: 1rem;
 }
 section .logo {
-  font-size: 50px;
-  font-weight: 30px;
+  font-size: 35px;
+  font-weight: 800;
   color: var(--white);
   cursor: pointer;
   text-decoration: none;
@@ -18,13 +19,15 @@ section .logo {
   display: flex;
 }
 #globo {
-  font-size: 50px;
+  font-size: 30px;
   color: var(--green);
   padding: 0.2rem;
+  margin-top: 0.2rem;
 }
 
 .Rreg {
   display: flex;
-  color: var(--green);
-  margin-top: 7px;
+  font-size: 1.4rem;
+  color: var(--white);
+  margin-top: 0.2rem;
 }

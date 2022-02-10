@@ -8,18 +8,25 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 10;
 }
 
-#popUp_foreground {
-  background-color: var(--black);
-  position: absolute;
+#popUp_content {
+  background-color: rgba(39, 39, 39, 0.8);
   padding: 4rem;
-  display: flex;
-  flex-direction: column;
-  width: 60%;
-  height: 800px;
-  border-radius: 9999;
-  box-shadow: 2px 2px 15px black;
+  max-width: 600px;
+  max-height: 800px;
+  box-shadow: 2px 2px 15px rgb(0, 0, 0);
   overflow-y: scroll;
   color: var(--white);
+}
+
+#popUp_close {
+  width: 30px;
+  height: 30px;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  color: white;
+  cursor: pointer;
 }

@@ -1,12 +1,12 @@
 .iconss {
   display: flex;
-  padding: 0;
-  margin: 0;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   list-style: none;
+  background: transparent;
 }
 
 .lgi {
-  height: 50px;
-  padding: 3px;
+  height: 3rem;
+  padding: 10px;
 }
