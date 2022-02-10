@@ -84,10 +84,10 @@ function FavoriteProducts({privateUser}) {
       )
   }
 
-  return error ? <div>Hubo un problema al cargar los productos favoritos</div> : (
+  return (
     <div className='user-profile'>
         <h2>Productos Favoritos</h2>
-        {favProducts.length < 1 ? <div>No hay productos marcados como favoritos</div>
+        {error ? <div>No hay productos marcados como favoritos</div>
         : 
         favProducts.map((product, index) => {
             return (
@@ -95,11 +95,11 @@ function FavoriteProducts({privateUser}) {
                     <p>{product.name} <button id={product.id} onClick={handleDeleteFavProduct}>X</button></p>
                     <p>{product.price}</p>
                     <p>
-                        {product.photos.map((photo, index) => {
+                        {product.photos.length > 0 ? product.photos.map((photo, index) => {
                             return (
                                 <img key={index} src={`${REACT_APP_LOCALHOST}/avatar/${photo.name}`} alt={photo.name} style={{width: '200px'}}/>
                             )
-                        })}
+                        }) : ''}
                     </p>
                 </div>
             )

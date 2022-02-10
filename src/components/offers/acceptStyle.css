@@ -1,0 +1,30 @@
+#popup-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(240, 248, 255, 0.5);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#form-accept-offer {
+  background-color: white;
+  width: 50%;
+  height: 50%;
+  border-radius: 1rem;
+  box-shadow: 2px 2px 15px black;
+  padding: 2rem;
+}
+
+.close-popup {
+  font-size: 1.2rem;
+  padding: 0.5rem;
+}
+
+.close-popup:hover {
+  cursor: pointer;
+  font-weight: bold;
+}

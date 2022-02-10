@@ -1,4 +1,5 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { TokenContext } from "../..";
 
 const { REACT_APP_LOCALHOST } = process.env;
@@ -6,12 +7,24 @@ const { REACT_APP_LOCALHOST } = process.env;
 export function ButtonDeleteUser({id}) {
     const [, setToken] = useContext(TokenContext);
     const [error, setError] = useState();
+    //const navigate = useNavigate();
 
     /* 
         Quizá quedaría bien mover esto al fondo de la página rodeado en rojo
         tipo GitHub "Danger Zone" mostrando ya el formulario entero y Borrar Usuario
         que sea un boton que hace submit (antes pensaba que era mejor que mostrara un popUp)
     */
+
+/*     const toHome = useEffect(() => {
+        const timeOut = setTimeout(() => {
+        console.log('dentro de timeout');
+        navigate('/');
+        }, 3000);
+
+        return () => {
+        clearTimeout(timeOut);
+        };
+    }, [navigate]); */
     
     const handleOnClick = async(e) => {
         e.preventDefault();
