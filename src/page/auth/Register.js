@@ -19,8 +19,6 @@ function Register() {
       password: e.target.elements.passwd.value,
     };
 
-    console.log(newUser);
-
     try {
       const response = await fetch(`${REACT_APP_LOCALHOST}/users`, {
         method: 'POST',
@@ -33,13 +31,9 @@ function Register() {
       setLoading(true);
 
       if (response.ok) {
-        const userRegister = await response.json();
-        console.log('Usuario registrado comprobar email para activación');
         setError(false);
         setRegister(true);
-        console.log(userRegister);
       } else {
-        console.error('Error en el registro del usuario');
         setError(true);
       }
 
@@ -78,7 +72,7 @@ function Register() {
             </li>
             <li>
               <label htmlFor='email'>Email: </label>
-              <input type='text' name='email' id='email' required />
+              <input type='email' name='email' id='email' required />
             </li>
             <li>
               <label htmlFor='passwd'>Password: </label>
@@ -104,7 +98,7 @@ function Register() {
       {error ? (
         <div>
           Hubo un error en el registro del usuario comprueba los datos
-          proporcionados
+          proporcionados, puede que ya exista un usuario con ese email o nombre.
         </div>
       ) : (
         ''

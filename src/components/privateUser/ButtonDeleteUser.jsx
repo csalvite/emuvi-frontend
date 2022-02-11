@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { TokenContext } from "../..";
 
@@ -6,25 +6,8 @@ const { REACT_APP_LOCALHOST } = process.env;
 
 export function ButtonDeleteUser({id}) {
     const [, setToken] = useContext(TokenContext);
-    const [error, setError] = useState();
-    //const navigate = useNavigate();
-
-    /* 
-        Quizá quedaría bien mover esto al fondo de la página rodeado en rojo
-        tipo GitHub "Danger Zone" mostrando ya el formulario entero y Borrar Usuario
-        que sea un boton que hace submit (antes pensaba que era mejor que mostrara un popUp)
-    */
-
-/*     const toHome = useEffect(() => {
-        const timeOut = setTimeout(() => {
-        console.log('dentro de timeout');
-        navigate('/');
-        }, 3000);
-
-        return () => {
-        clearTimeout(timeOut);
-        };
-    }, [navigate]); */
+    const navigate = useNavigate();
+    const [state, setState] = useState();
     
     const handleOnClick = async(e) => {
         e.preventDefault();
@@ -44,16 +27,17 @@ export function ButtonDeleteUser({id}) {
             });
 
             if(response.ok) {
-                console.log('Usuario Borrado');
                 setToken('');
-                setError(false);
-                console.log(error);
+                setState('Usuario eliminado, redirigiendo a página principal...')
+                setTimeout(() => {
+                    navigate('/');
+                }, 3000);
+
             } else {
-                setError(true);
+                setState('No se ha podido eliminar el usuario, comprueba que las contraseñas coincidan.')
             }
         } catch(error) {
             console.error(error);
-            setError(true);
         }
     }
 
@@ -74,7 +58,7 @@ export function ButtonDeleteUser({id}) {
                         <button className="btn">Borrar Usuario</button>
                     </li>
                 </ul>
-                {error ? <p>Error al borrar el usuario</p> : ''}
+                {state ? <p>{state}</p> : ''}
             </form>
         </div>
     )

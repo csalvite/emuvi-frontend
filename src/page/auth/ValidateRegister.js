@@ -125,7 +125,10 @@ function ValidateRegister() {
       </form>
 
       {error ? (
-        <div>Comprueba todos los campos marcados como obligatorios</div>
+        <div>
+          Comprueba todos los campos marcados como obligatorios o introduce
+          datos coherentes.
+        </div>
       ) : (
         ''
       )}

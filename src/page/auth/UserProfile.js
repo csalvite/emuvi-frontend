@@ -1,7 +1,4 @@
 import { Avatar, Rating } from '@mui/material';
-import { useContext, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { TokenContext } from '../..';
 import Footer from '../../components/footer/Footer';
 import JustNav from '../../components/justNavHeader/JustNav';
 import { UserReceivedOffers } from '../../components/offers/UserReceivedOffers';
@@ -16,7 +13,6 @@ import { usePrivateUser } from '../../hooks/usePrivateUser';
 const { REACT_APP_LOCALHOST } = process.env;
 
 function UserProfile() {
-  const [token] = useContext(TokenContext);
   const [privateUser] = usePrivateUser();
 
   return privateUser ? (
@@ -36,7 +32,7 @@ function UserProfile() {
       <Avatar
         alt={privateUser.username}
         src={
-          privateUser
+          privateUser.avatar
             ? `${REACT_APP_LOCALHOST}/avatar/${privateUser.avatar}`
             : '/resources/images/cat_chibi.jpeg'
         }

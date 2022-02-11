@@ -31,12 +31,9 @@ function Login() {
 
       if (response.ok) {
         const userLogin = await response.json();
-        console.log('Usuario logueado');
         setToken(userLogin.authToken);
         setError(false);
-        console.log(userLogin);
       } else {
-        console.error('Error en el login');
         setError(true);
       }
     } catch (error) {
@@ -81,11 +78,7 @@ function Login() {
           </li>
         </ul>
       </form>
-      {error ? (
-        <div>Error en el login ACORDARSE DE DARLE UNA CLASE A ESTO :d</div>
-      ) : (
-        <div></div>
-      )}
+      {error ? <div>El email o contraseña son incorrectos.</div> : ''}
       <Footer />
     </div>
   );
