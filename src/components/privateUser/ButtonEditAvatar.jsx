@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { TokenContext } from "../..";
 
 const { REACT_APP_LOCALHOST } = process.env;
