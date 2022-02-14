@@ -1,6 +1,7 @@
 import { Avatar, Rating } from '@mui/material';
 import Footer from '../../components/footer/Footer';
 import JustNav from '../../components/justNavHeader/JustNav';
+import { MyProducts } from '../../components/myProducts/MyProducts';
 import { UserReceivedOffers } from '../../components/offers/UserReceivedOffers';
 import { UserSendOffers } from '../../components/offers/UserSendOffers';
 import { ButtonDeleteUser } from '../../components/privateUser/ButtonDeleteUser';
@@ -60,6 +61,7 @@ function UserProfile() {
       <div>
         {}
         <UserInfo privateUser={privateUser} id='edit' />
+        <MyProducts privateUser={privateUser} />
         <FavoriteProducts privateUser={privateUser} />
         <Ratings privateUser={privateUser} />
         <UserSendOffers idUser={privateUser.id} />

@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { TokenContext } from "../..";
-import "./acceptStyle.css";
+import "../popUp/acceptStyle.css";
 
 const { REACT_APP_LOCALHOST } = process.env;
 

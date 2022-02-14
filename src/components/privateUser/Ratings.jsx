@@ -54,7 +54,7 @@ const Ratings = ({privateUser}) => {
             {error ? <div>Error al obtener las opiniones del usuario</div> 
             : (
                 <>
-                    {ratings.map((rating, index) => {
+                    {ratings.length > 0 ? ratings.map((rating, index) => {
                         return (
                             <div key={index} className="rating">
                                 <Avatar src={`${REACT_APP_LOCALHOST}/avatar/${rating.avatar}`} alt={rating.name} />
@@ -68,7 +68,7 @@ const Ratings = ({privateUser}) => {
                                 <p>{rating.comment}</p>
                             </div>
                         )
-                    })}
+                    }) : 'No se han encontrado valoraciones en este usuario.'}
                 </>
             )}
         </div>
