@@ -45,10 +45,34 @@ export const UserReceivedOffers = ({ idUser }) => {
         getUserReceivedOffers();
     }, [token.token, idUser]);
 
-    const dropIds = (e) => {
+    const dropIds = async (e) => {
         e.preventDefault();
         
         console.log(e.target.name);
+        const url = `${REACT_APP_LOCALHOST}/users/${idUser}/offers?id=`;
+        const option = e.target.name;
+
+        try {
+            const response = await fetch(url+option, {
+                method: 'DELETE',
+                headers: {
+                    Authorization: token.token,
+                }
+            });
+
+            setLoading(true);
+
+            if (response.ok) {
+                const body = await response.json();
+                console.log(body);
+            } else {
+                console.error('Hubo un error al borrar las ofertas denegadas.');
+            }
+
+            setLoading(false);
+        } catch (error) {
+            console.error(error.message);
+        }
     }
 
     if (loading) {

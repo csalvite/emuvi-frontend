@@ -66,8 +66,8 @@ function UserProfile() {
         <UserReceivedOffers idUser={privateUser.id} />
       </div>
 
-      <UserMap className='leaflet-container' />
-
+      {/*       <UserMap className='leaflet-container' />
+       */}
       <Footer />
     </div>
   ) : (

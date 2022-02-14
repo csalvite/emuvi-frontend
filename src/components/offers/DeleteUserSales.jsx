@@ -10,11 +10,14 @@ export const DeleteDeniedOffers = ({ idUser }) => {
     const [loading, setLoading] = useState();
     const [state, setState] = useState();
 
-    const handleDeleteDeniedOffers = async () => {
+    const handleDeleteDeniedOffers = async (e) => {
+        e.preventDefault();
 
-        const url = `${REACT_APP_LOCALHOST}/users/${idUser}/offers?status=denegada`;
+        const url = `${REACT_APP_LOCALHOST}/users/${idUser}/offers?status=`;
+        const option = e.target.elements.state.value;
+
         try {
-            const response = await fetch(url, {
+            const response = await fetch(url+option, {
                 method: 'DELETE',
                 headers: {
                     Authorization: token.token,
@@ -45,7 +48,15 @@ export const DeleteDeniedOffers = ({ idUser }) => {
 
     return (
         <>
-           <button className="btn" onClick={handleDeleteDeniedOffers}>Eliminar Ofertas Denegadas Recibidas</button>     
+            <h5>Eliminar mis ofertas por estado: </h5>
+            <form onSubmit={handleDeleteDeniedOffers}>
+                <select name="state">
+                    <option value='pendiente'>Pendientes</option>
+                    <option value='denegada'>Denegadas</option>
+                    <option value='aceptada'>Aceptadas</option>
+                </select>
+                <button>Eliminar Por Estado</button>
+            </form>
            {state ? state : ''}
         </>
     )
