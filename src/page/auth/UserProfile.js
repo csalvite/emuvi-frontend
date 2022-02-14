@@ -8,6 +8,7 @@ import { ButtonEditAvatar } from '../../components/privateUser/ButtonEditAvatar'
 import { FavoriteProducts } from '../../components/privateUser/FavoriteProducts';
 import Ratings from '../../components/privateUser/Ratings';
 import { UserInfo } from '../../components/privateUser/UserInfo';
+import { UserMap } from '../../components/UserMap';
 import { usePrivateUser } from '../../hooks/usePrivateUser';
 
 const { REACT_APP_LOCALHOST } = process.env;
@@ -64,6 +65,8 @@ function UserProfile() {
         <UserSendOffers idUser={privateUser.id} />
         <UserReceivedOffers idUser={privateUser.id} />
       </div>
+
+      <UserMap className='leaflet-container' />
 
       <Footer />
     </div>

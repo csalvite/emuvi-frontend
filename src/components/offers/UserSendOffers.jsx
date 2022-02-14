@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { useEffect } from "react"
 import { TokenContext } from "../..";
 import { DeleteDeniedBookings } from "./DeleteDeniedBookings";
-import { DeleteDeniedOffers } from "./DeleteDeniedOffers";
+import { DeleteDeniedOffers } from "./DeleteUserSales";
 
 const { REACT_APP_LOCALHOST } = process.env;
 

@@ -12,7 +12,7 @@ export const DeleteDeniedOffers = ({ idUser }) => {
 
     const handleDeleteDeniedOffers = async () => {
 
-        const url = `${REACT_APP_LOCALHOST}/users/${idUser}/offers`;
+        const url = `${REACT_APP_LOCALHOST}/users/${idUser}/offers?status=denegada`;
         try {
             const response = await fetch(url, {
                 method: 'DELETE',
