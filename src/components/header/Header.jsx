@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { TokenContext } from '../..';
 import { ProfileHeader } from '../../components/users/ProfileHeader';
 import { LoginButton } from '../users/LoginButton';
+import SearchBar from './SearchBar';
 
 import './Header.css';
 
@@ -19,10 +20,13 @@ function Header1() {
           <a href="#" className="logo">
             <i className="fas fa-globe-africa"></i>EMUVI
           </a>
-          <div className="search_box">
+
+          <SearchBar />
+
+          {/* <div className="search_box">
             <input type="search" placeholder="Encontrar algo..." />
             <span className="fa fa-search"></span>
-          </div>
+          </div> */}
 
           {token ? (
             <>

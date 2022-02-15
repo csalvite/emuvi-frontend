@@ -10,6 +10,7 @@ import { UserProfile } from './auth/UserProfile';
 import ConfirmChangeEmail from './auth/ConfirmChangeEmail';
 import AboutUs from '../components/aboutUs/AboutUs';
 import PublicUser from './publicProfile/PublicUser';
+import Product from './products/Product';
 
 function EmuviRoutes() {
   return (
@@ -30,6 +31,7 @@ function EmuviRoutes() {
         {/* Deberíamos intentar que la ruta pública no incluya el id del user */}
         <Route path='/profile/:idUser/public' element={<PublicUser />} />
         <Route path='products' element={<Products />} />
+        <Route path='products/:idProduct' element={<Product />} />
         <Route path='newproduct' element={<NewProduct />} />
         <Route path='aboutus' element={<AboutUs />} />
       </Routes>

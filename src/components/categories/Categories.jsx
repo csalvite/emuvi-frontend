@@ -1,8 +1,55 @@
 import React from 'react';
 import './Categories.css';
+import { Link } from 'react-router-dom';
 
 function Categories() {
+
+  const category = [
+    {
+      title: 'Informática',
+      image: './resources/vectors/informática icon',
+    },
+    {
+      title: 'Videojuegos',
+      image: './resources/vectors/videojuegos icon',
+    },
+    {
+      title: 'Música',
+      image: './resources/vectors/música icon',
+    },
+    {
+      title: 'Moda Vintage',
+      image: './resources/vectors/moda vintage icon',
+    },
+
+    {
+      title: 'Video',
+      image: './resources/vectors/video icon',
+    },
+    {
+      title: 'Otros',
+      image: './resources/vectors/otros icon',
+    },
+  ];
+
+    const categorylist = category.map((cat, index) => (
+    <li key={index}>
+      <Link to={`/products?search=${cat.title}`}>
+        <img src={cat.image} alt='categories'></img>
+        <h3>{cat.title}</h3>
+      </Link>
+    </li>
+  ));
+
   return (
+    <section className='categories'>
+      <h3 className='category-title'>CATEGORÍAS</h3>
+
+      <ul>{categorylist}</ul>
+    </section>
+  );
+
+  /* return (
     <section className="categories">
       <div className="wrapper">
         <h3 className="category-title">CATEGORÍAS</h3>
@@ -44,7 +91,7 @@ function Categories() {
         </div>
       </div>
     </section>
-  );
+  ); */
 }
 
 export default Categories;

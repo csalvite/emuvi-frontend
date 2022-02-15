@@ -26,7 +26,7 @@ export const MyProducts = ({ privateUser }) => {
 
                 if (response.ok) {
                     const body = await response.json();
-                    setProducts(body.products)
+                    setProducts(body.products);
                     setState('Productos del usuario devueltos correctamente');
                 } else {
                     setState('No se han encontrado productos publicados por este usuario.')
@@ -43,20 +43,20 @@ export const MyProducts = ({ privateUser }) => {
         <div>
             <h2>Mis Productos Publicados</h2>
             <ul>
-            {products.length > 0 ? products.map((product, index) => {
+            {products.length > 0 ? products.map((p) => {
                 return (
-                    <li key={index}>
-                        <p onClick={() => setShowPopUp(true)}>{product.name} - {product.price}€</p>
-                        <p>{product.description}</p>
-                        {product.photos.length > 0 ? product.photos.map((photo, index) => (
+                    <li key={p.id}>
+                        {showPopUp && <EditProduct setShowPopUp={setShowPopUp} idUser={privateUser.id} product={p} />}
+                        <p onClick={() => setShowPopUp(true)}>{p.name} - {p.price}€</p>
+                        <p>{p.description}</p>
+                        {p.photos.length > 0 ? p.photos.map((photo) => (
                             <img
-                            key={index}
-                            src={`${REACT_APP_LOCALHOST}/avatar/${photo.name}`}
-                            alt='product_photo'
-                            style={{width: '5rem'}}
+                                key={photo.id}
+                                src={`${REACT_APP_LOCALHOST}/avatar/${photo.name}`}
+                                alt='product_photo'
+                                style={{width: '5rem'}}
                             />
                             )) : <i>No se han encontrado fotos del producto</i>}
-                        {showPopUp && <EditProduct setShowPopUp={setShowPopUp} idUser={privateUser.id} product={product} />}
                     </li>
                 )
             }) : state}

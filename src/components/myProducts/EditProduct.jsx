@@ -87,6 +87,38 @@ export const EditProduct = ({ setShowPopUp, product }) => {
         }
     }
 
+    const handleAddProductPhoto = async (e) => {
+        e.preventDefault();
+
+        const idPhoto = e.target.name;
+        
+        try {
+            const url = `${REACT_APP_LOCALHOST}/products/${product.id}/photos/${idPhoto}`;
+            
+            const response = await fetch(url, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: token.token,
+                }
+            });
+
+            setLoading(true);
+
+            if (response.ok) {
+                setState('Foto de producto eliminada!');
+                setPhotos(product.photos);
+            } else {
+                console.error('Hubo un error al eliminar la foto');
+            }
+
+            setLoading(false);
+
+        } catch (error) {
+            console.error(error.message);
+        }
+    }
+
     if (loading) {
         return <h2>Cargando...</h2>
     }

@@ -1,15 +1,17 @@
-import './NewProduct.css';
 import Footer from '../../components/footer/Footer';
-import Header1 from '../../components/header/Header';
+import JustNav from '../../components/justNavHeader/JustNav';
+import NewProductForm from '../../components/newProducts/newProductForm';
 
-function NewProduct() {
+const NewProduct = () => {
   return (
-    <div className='new-product'>
-      <Header1 />
-      <div>SUBIR PRODUCTO</div>
+    <>
+      <JustNav />
+      <div className='new_product'>
+        <h1 className='create_product'>Añade un nuevo producto:</h1>
+        <NewProductForm />
+      </div>
       <Footer />
-    </div>
+    </>
   );
-}
-
+};
 export default NewProduct;

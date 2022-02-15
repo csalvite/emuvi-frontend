@@ -2,14 +2,15 @@
 import './App.css';
 import Header1 from '../../components/header/Header';
 import Categories from '../../components/categories/Categories';
-import AboutUs from '../../components/aboutUs/AboutUs';
 import Footer from '../../components/footer/Footer';
+import LatestProducts from '../../components/latestProducts/LatestProducts';
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <Header1 />
       <main>
+        <LatestProducts />
         <Categories />
       </main>
       <Footer />
