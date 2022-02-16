@@ -22,10 +22,10 @@ const NewProductForm = () => {
         throw new Error('solo puedes insertar 5 fotos');
       }
       const payload = new FormData();
-      payload.append('nombre', name);
-      payload.append('descripcion', description);
-      payload.append('precio', price);
-      payload.append('categoria', category);
+      payload.append('name', name);
+      payload.append('description', description);
+      payload.append('price', price);
+      payload.append('category', category);
 
       for (let i = 0; i < photos.length; i++) {
         payload.append(`photo${i}`, photos[i]);
@@ -33,7 +33,7 @@ const NewProductForm = () => {
       const response = await fetch(`${REACT_APP_LOCALHOST}/products/new`, {
         method: 'POST',
         headers: {
-          token: token.token,
+          Authorization: token.token,
         },
         body: payload,
       });
