@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
+const { REACT_APP_LOCALHOST } = process.env;
+
 const useLatestProducts = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -12,7 +14,7 @@ const useLatestProducts = () => {
   const direction = params.get('direction') || 'ASC';
   useEffect(() => {
     const getProducts = async () => {
-      let url = `http://localhost:4000/?order=${encodeURIComponent(
+      let url = `${REACT_APP_LOCALHOST}/?order=${encodeURIComponent(
         order
       )}&direction=${encodeURIComponent(direction)}`;
 
