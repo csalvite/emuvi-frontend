@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
+const { REACT_APP_LOCALHOST } = process.env;
+
 const useProducts = () => {
   /* // const { search } = useLocation();
   // const value = queryString.parse(search).search;
@@ -22,7 +24,7 @@ const useProducts = () => {
 
   useEffect(() => {
     const getProducts = async () => {
-      let url = `http://localhost:4000/products?order=${encodeURIComponent(
+      let url = `${REACT_APP_LOCALHOST}/products?order=${encodeURIComponent(
         order
       )}&direction=${encodeURIComponent(direction)}`;
 
