@@ -22,7 +22,7 @@ const SearchBar = (props) => {
           placeholder='Busca el producto...'
           className='fas fa-search'
           type='text'
-          value={search}
+          defaultvalue={search}
           onChange={(e) => setSearch(e.target.value)}
         ></input>
         <span
