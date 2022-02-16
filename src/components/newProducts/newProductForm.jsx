@@ -2,7 +2,6 @@ import { useContext, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TokenContext } from '../..';
 
-
 const NewProductForm = () => {
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
@@ -67,22 +66,28 @@ const NewProductForm = () => {
         </div>
         <div className='container_input'>
           <label htmlFor='form_product_category'>Categoria</label>
-          <input
-            className='form_product_category'
-            name='form_product_category'
+          <select
             value={category}
-            required
             onChange={(e) => {
               setCategory(e.target.value);
             }}
-          />
+            className='form_product_category'
+            name='form_product_category'
+          >
+            <option value='Informática'>Informática</option>
+            <option value='Videojuegos'>Videojuegos</option>
+            <option value='Música'>Música</option>
+            <option value='Moda Vintage'>Moda Vintage</option>
+            <option value='Video'>Video</option>
+            <option value='Otros'>Otros</option>
+          </select>
         </div>
         <div className='container_input'>
           <label htmlFor='form_product_price'>Precio</label>
           <input
             className='form_product_price'
             name='form_product_price'
-            value={name}
+            value={price}
             required
             onChange={(e) => {
               setPrice(e.target.value);
@@ -108,7 +113,7 @@ const NewProductForm = () => {
           accept='.jpg, .png, svg'
         />
         <input type='submit' value='Crear producto' />
-        {error.message}
+        {error}
       </form>
     </>
   );
