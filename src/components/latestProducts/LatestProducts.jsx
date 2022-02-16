@@ -27,7 +27,7 @@ const LatestProducts = () => {
               <div>
                 {/* {product.photos.map((photo, index) => ( */}
                   <img
-                    src={`${REACT_APP_LOCALHOST}/avatar/${product.photos[0].name}`}
+                    src={product.photos.length > 0 ? `${REACT_APP_LOCALHOST}/avatar/${product.photos[0].name}` : '/resources/images/product-photo-not-found.jpg'}
                     alt='product_photo'
                     style={{width: '100%'}}
                   />  
