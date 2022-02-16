@@ -16,15 +16,16 @@ export default function Carousel() {
   return (
     <>
       <div>
-        <h3 className='carousel-title'>Novedades</h3>
+        <h3 className='carousel-title'>Novedades Carrrousel</h3>
         <div className='carousel-container'></div>
-        <Swiper
+        {/* <Swiper
           effect={'cards'}
           grabCursor={true}
           modules={[EffectCards]}
           className='mySwiper'
-        >
-          <SwiperSlide className='carousel-card'>
+        > */}
+          <LatestProducts />
+          {/* <SwiperSlide className='carousel-card'>
             <LatestProducts />
           </SwiperSlide>
           <SwiperSlide className='carousel-card'>
@@ -37,8 +38,8 @@ export default function Carousel() {
           <SwiperSlide className='carousel-card'>Slide 7</SwiperSlide>
           <SwiperSlide className='carousel-card'>Slide 8</SwiperSlide>
           <SwiperSlide className='carousel-card'>Slide 9</SwiperSlide>
-          <SwiperSlide className='carousel-card'>Slide 10</SwiperSlide>
-        </Swiper>
+          <SwiperSlide className='carousel-card'>Slide 10</SwiperSlide> */}
+        {/* </Swiper> */}
       </div>
     </>
   );

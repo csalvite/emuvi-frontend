@@ -14,29 +14,32 @@ const useLatestProducts = () => {
   const direction = params.get('direction') || 'ASC';
   useEffect(() => {
     const getProducts = async () => {
-      let url = `${REACT_APP_LOCALHOST}/?order=${encodeURIComponent(
-        order
-      )}&direction=${encodeURIComponent(direction)}`;
+      try {
+        let url = `${REACT_APP_LOCALHOST}/?order=${encodeURIComponent(
+          order
+        )}&direction=${encodeURIComponent(direction)}`;
 
-      setLoading(true);
+        setLoading(true);
 
-      const res = await fetch(url, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+        const res = await fetch(url, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
 
-      const body = await res.json();
-      console.table(body);
-
-      if (res.ok) {
-        setError('');
-        setProducts(body.data.featuredProducts);
-      } else {
-        setError(body.message);
+        if (res.ok) {
+          const body = await res.json();
+          console.table(body);
+          setError('');
+          setProducts(body.featuredProducts);
+          console.log(products);
+        } else {
+          setError('No se han podido recibir los productos más novedosos.');
+        }
+      } catch (error) {
+        setError(error.message);
       }
-
       setLoading(false);
     };
 

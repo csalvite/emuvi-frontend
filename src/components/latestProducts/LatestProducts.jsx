@@ -1,6 +1,10 @@
 import useLatestProducts from '../../hooks/useLatestProducts';
 import { Link } from 'react-router-dom';
 import './LatestProducts.css';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { EffectCards } from 'swiper';
+
+const { REACT_APP_LOCALHOST } = process.env;
 
 const LatestProducts = () => {
   const { products, loading, error } = useLatestProducts();
@@ -11,23 +15,30 @@ const LatestProducts = () => {
     <div className='product-list'>
       <h3>PRODUCTOS MÁS NOVEDOSOS:</h3>
       <ul className='containerlist'>
+        <Swiper
+          effect={'cards'}
+          grabCursor={true}
+          modules={[EffectCards]}
+          className='mySwiper'
+        >
         {products.map((product) => (
-          <li key={product.id}>
+          <SwiperSlide key={product.id}>
             <Link to={`/products/${product.id}`}>
               <div>
-                {product.photos.map((photo, index) => (
+                {/* {product.photos.map((photo, index) => ( */}
                   <img
-                    key={index}
-                    src={`${process.env.REACT_APP_LOCALHOST}/avatar/${photo.photos}`}
+                    src={`${REACT_APP_LOCALHOST}/avatar/${product.photos[0].name}`}
                     alt='product_photo'
-                  />
-                ))}
+                    style={{width: '100%'}}
+                  />  
+                {/* ))} */}
               </div>
               <h2>{product.name}</h2>
               <h3>{product.price}</h3>
             </Link>
-          </li>
+          </SwiperSlide>
         ))}
+        </Swiper>
       </ul>
     </div>
   ) : (

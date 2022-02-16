@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import useProducts from '../../hooks/useProducts';
 
+const { REACT_APP_LOCALHOST } = process.env;
+
 const ProductList = () => {
   const { products, loading, error } = useProducts();
   if (loading) return 'Cargando....';
@@ -8,14 +10,16 @@ const ProductList = () => {
 
   return products.length > 0 ? (
     <ul>
-      {products.map((product) => (
-        <li key={product.id}>
+      {products.map((product, index) => (
+        <li key={index}>
           <Link to={`/products/${product.id}`}>
             <div>
-              {product.photos.map((photo) => (
+              {product.photos.map((photo, index) => (
                 <img
-                  src={`${process.env.REACT_APP_LOCALHOST}/static/avatar/${photo.photos}`}
+                  key={index}
+                  src={`${REACT_APP_LOCALHOST}/avatar/${photo.name}`}
                   alt='product_photo'
+                  style={{width: '100vw', height: '20rem', objectFit: 'cover'}}
                 />
               ))}
             </div>

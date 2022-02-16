@@ -1,16 +1,23 @@
 import useProductDetail from '../../hooks/useProductDetail';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.css';
+
+const { REACT_APP_LOCALHOST } = process.env;
+
 const ProductPhoto = (props) => {
   const product = useProductDetail();
 
+  console.log("PRODUCT");
+  console.log(product);
+
   let photos;
-  product.photos
-    ? (photos = product.photos.map((item, index) => (
+  product.product.photos
+    ? (photos = product.product.photos.map((item, index) => (
         <div key={index}>
           <img
             alt='foto de producto'
-            src={`http://localhost:4000/avatar/${item.name}`}
+            src={`${REACT_APP_LOCALHOST}/avatar/${item.name}`}
+            style={{width: '100vw', height: '20rem', objectFit: 'cover'}}
           ></img>
         </div>
       )))

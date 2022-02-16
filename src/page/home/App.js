@@ -12,7 +12,7 @@ function App() {
       <Header1 />
       <main>
         <LatestProducts />
-        <Carousel />
+        {/* <Carousel /> */}
         <Categories />
       </main>
       <Footer />

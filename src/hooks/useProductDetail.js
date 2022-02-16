@@ -25,9 +25,8 @@ const useProductDetail = (props) => {
         );
         if (response.ok) {
           const data = await response.json();
-          console.log(data);
 
-          setProduct(data);
+          setProduct(data.data.product);
           setError(true);
         }
       } catch (error) {
