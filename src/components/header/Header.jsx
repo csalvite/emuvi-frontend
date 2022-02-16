@@ -13,11 +13,11 @@ function Header1() {
   return (
     <div>
       <header>
-        <video autoPlay loop muted src="./resources/videos/HeaderVideoBG.mp4">
+        <video autoPlay loop muted src="./resources/videos/friends.mp4">
           Video cannot be loaded :(
         </video>
         <nav>
-          <a href="#" className="logo">
+          <a href={`http://localhost:3000/`} className="logo">
             <i className="fas fa-globe-africa"></i>EMUVI
           </a>
 

@@ -11,7 +11,7 @@ function JustNav() {
     <div>
       <header>
         <nav id="navBar">
-          <a href="http://localhost:3000/" className="logo">
+          <a href={`http://localhost:3000/`} className="logo">
             <i className="fas fa-globe-africa"></i>EMUVI
           </a>
           <div className="search_box">
