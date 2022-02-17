@@ -1,6 +1,7 @@
 import { useContext, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TokenContext } from '../..';
+import './newProductForm.css';
 
 const NewProductForm = () => {
   const [name, setName] = useState('');
@@ -40,7 +41,7 @@ const NewProductForm = () => {
       if (response.ok) {
         const body = await response.json();
         console.log(body);
-        navigate(`/product/${body.data.id}`);
+        navigate(`/products/${body.data.id}`);
       } else {
         const error = await response.json();
         throw new Error(error.message);
@@ -50,11 +51,12 @@ const NewProductForm = () => {
     }
   };
   return (
-    <>
+    <div className='create_product'>
       <form className='form_newproduct' onSubmit={createProduct}>
         <div className='container_input'>
           <label htmlFor='form_product_name'>Nombre</label>
           <input
+            type='text'
             className='form_product_name'
             name='form_product_name'
             value={name}
@@ -71,7 +73,7 @@ const NewProductForm = () => {
             onChange={(e) => {
               setCategory(e.target.value);
             }}
-            className='form_product_category'
+            className='select_product_category'
             name='form_product_category'
           >
             <option value='Informática'>Informática</option>
@@ -112,10 +114,11 @@ const NewProductForm = () => {
           ref={filesInputRef}
           accept='.jpg, .png, svg'
         />
-        <input type='submit' value='Crear producto' />
+        <input className='input_submit' type='submit' value='Crear producto' />
+
         {error}
       </form>
-    </>
+    </div>
   );
 };
 

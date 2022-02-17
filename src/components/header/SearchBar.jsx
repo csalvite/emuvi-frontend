@@ -5,7 +5,7 @@ const SearchBar = (props) => {
   const [params, setSearchParams] = useSearchParams();
 
   const [search, setSearch] = useState(params.get('search'));
-  
+
   let navigate = useNavigate();
   useEffect(() => {
     setSearchParams({ search: encodeURIComponent(search) });
@@ -22,7 +22,8 @@ const SearchBar = (props) => {
         <input
           placeholder='Busca tu producto...'
           type='text'
-          defaultValue={search}
+          value={search}
+          defaultValue={''}
           onChange={(e) => setSearch(e.target.value)}
         ></input>
         <span
