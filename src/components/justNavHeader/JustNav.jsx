@@ -3,6 +3,7 @@ import { ProfileHeader } from '../../components/users/ProfileHeader';
 import './JustNav.css';
 import { TokenContext } from '../..';
 import { LoginButton } from '../users/LoginButton';
+import SearchBar from '../header/SearchBar';
 
 function JustNav() {
   const [token] = useContext(TokenContext);
@@ -14,10 +15,13 @@ function JustNav() {
           <a href={`http://localhost:3000/`} className="logo">
             <i className="fas fa-globe-africa"></i>EMUVI
           </a>
-          <div className="search_box">
+
+          <SearchBar />
+
+          {/* <div className="search_box">
             <input type="search" placeholder="Encontrar algo..." />
             <span className="fa fa-search"></span>
-          </div>
+          </div> */}
 
           {token ? (
             <>
