@@ -30,6 +30,8 @@ const useProducts = () => {
 
       if (search) {
         url = `${url}&search=${encodeURIComponent(search)}`;
+      } else {
+        url = `${url}&search=${encodeURIComponent(search)}`;
       }
 
       setLoading(true);

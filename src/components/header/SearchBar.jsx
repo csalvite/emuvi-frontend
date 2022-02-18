@@ -23,7 +23,6 @@ const SearchBar = (props) => {
           placeholder='Busca tu producto...'
           type='text'
           value={search}
-          defaultValue={''}
           onChange={(e) => setSearch(e.target.value)}
         ></input>
         <span
