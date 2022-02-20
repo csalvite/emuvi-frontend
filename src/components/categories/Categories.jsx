@@ -3,10 +3,9 @@ import './Categories.css';
 import { Link } from 'react-router-dom';
 
 function Categories() {
-
   const category = [
     {
-      title: 'Informática',
+      title: 'Informatica',
       image: './resources/vectors/informática icon',
     },
     {
@@ -14,7 +13,7 @@ function Categories() {
       image: './resources/vectors/videojuegos icon',
     },
     {
-      title: 'Música',
+      title: 'Musica',
       image: './resources/vectors/música icon',
     },
     {
@@ -32,11 +31,14 @@ function Categories() {
     },
   ];
 
-    const categorylist = category.map((cat, index) => (
+  const categorylist = category.map((cat, index) => (
     <li key={index}>
-      <Link to={`/products?search=${cat.title}`}>
+      <Link
+        to={`/products?search=${cat.title}
+          `}
+      >
         <img src={cat.image} alt='categories'></img>
-        <h3>{cat.title}</h3>
+        <h4>{cat.title}</h4>
       </Link>
     </li>
   ));
@@ -45,7 +47,7 @@ function Categories() {
     <section className='categories'>
       <h3 className='category-title'>CATEGORÍAS</h3>
 
-      <ul>{categorylist}</ul>
+      <ul className=''>{categorylist}</ul>
     </section>
   );
 

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 const SearchBar = (props) => {
   const [params, setSearchParams] = useSearchParams();
 
+  // const [search, setSearch] = useState(params.get('search'));
   const [search, setSearch] = useState(params.get('search'));
 
   let navigate = useNavigate();
@@ -13,6 +14,7 @@ const SearchBar = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     navigate(`/products?&search=${encodeURIComponent(search)}`);
   };
 
@@ -21,7 +23,7 @@ const SearchBar = (props) => {
       <form onSubmit={handleSubmit}>
         <input
           placeholder='Busca tu producto...'
-          type='text'
+          type='search'
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         ></input>

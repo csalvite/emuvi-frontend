@@ -18,10 +18,13 @@ const useProducts = () => {
 
   const [params] = useSearchParams();
 
-  const search = params.get('search');
+  // const search = params.get('search');
+
   const order = params.get('order') || 'createdAt';
   const direction = params.get('direction') || 'DESC';
-
+  let search = params.has('search')
+    ? params.get('search')
+    : params.get('order');
   useEffect(() => {
     const getProducts = async () => {
       let url = `${REACT_APP_LOCALHOST}/products?order=${encodeURIComponent(
@@ -31,7 +34,9 @@ const useProducts = () => {
       if (search) {
         url = `${url}&search=${encodeURIComponent(search)}`;
       } else {
-        url = `${url}&search=${encodeURIComponent(search)}`;
+        url = `${REACT_APP_LOCALHOST}/products?order=${encodeURIComponent(
+          order
+        )}&direction=${encodeURIComponent(direction)}`;
       }
 
       setLoading(true);

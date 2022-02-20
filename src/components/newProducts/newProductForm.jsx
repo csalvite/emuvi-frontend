@@ -76,12 +76,12 @@ const NewProductForm = () => {
             className='select_product_category'
             name='form_product_category'
           >
-            <option value='informatica'>Informática</option>
-            <option value='videojuegos'>Videojuegos</option>
-            <option value='musica'>Música</option>
-            <option value='moda-vintage'>Moda Vintage</option>
-            <option value='video'>Video</option>
-            <option value='otros'>Otros</option>
+            <option value='Informatica'>Informática</option>
+            <option value='Videojuegos'>Videojuegos</option>
+            <option value='Música'>Música</option>
+            <option value='Moda-Vintage'>Moda-Vintage</option>
+            <option value='Video'>Video</option>
+            <option value='Otros'>Otros</option>
           </select>
         </div>
         <div className='container_input'>
