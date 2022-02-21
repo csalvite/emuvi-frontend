@@ -11,6 +11,7 @@ import ConfirmChangeEmail from './auth/ConfirmChangeEmail';
 import AboutUs from '../components/aboutUs/AboutUs';
 import PublicUser from './publicProfile/PublicUser';
 import Product from './products/Product';
+import E404 from '../components/E404/E404';
 
 function EmuviRoutes() {
   return (
@@ -34,6 +35,8 @@ function EmuviRoutes() {
         <Route path='products/:idProduct' element={<Product />} />
         <Route path='newproduct' element={<NewProduct />} />
         <Route path='aboutus' element={<AboutUs />} />
+        {/*Importante, esta ruta tiene que ser la ultima para no tocar con problemas de jerarquias*/}
+        <Route path='*' element={<E404 />} />
       </Routes>
     </BrowserRouter>
   );

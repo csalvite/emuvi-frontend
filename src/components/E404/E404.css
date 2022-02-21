@@ -1,0 +1,5 @@
+.E404 {
+  background-color: gray;
+  display: flex;
+  flex-direction: column;
+}

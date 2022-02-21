@@ -13,7 +13,7 @@ function Header1() {
   return (
     <div>
       <header>
-        <video autoPlay loop muted src="./resources/videos/friends.mp4">
+        <video autoPlay loop muted src="./resources/videos/EMUVI.mp4" className='playVideo'>
           Video cannot be loaded :(
         </video>
         <nav>
