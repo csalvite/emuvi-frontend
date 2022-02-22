@@ -2,42 +2,34 @@ import React from 'react';
 import './RRSS.css';
 
 const RRSS = () => {
-  return (
-    <div>
-      <div>
-        <ul className='iconss'>
-          <li>
-            <a href='https://www.instagram.com'>
-              <img
-                className='lgi'
-                src='/resources/vectors/instagram-square-brands.svg'
-                alt='informatica icon'
-              ></img>
-            </a>
-          </li>
-          <li>
-            <a href='https://www.facebook.com'>
-              <img
-                className='lgi'
-                src='/resources/vectors/facebook-square-brands.svg'
-                alt='informatica icon'
-              ></img>
-            </a>
-          </li>
+	return (
+		<div>
+			<div>
+				<ul className="footer-icons-container">
+					<li>
+						<a href="https://www.instagram.com">
+							<i
+								className="fa-brands fa-instagram-square"
+								id="instagram-icon"></i>
+						</a>
+					</li>
+					<li>
+						<a href="https://www.facebook.com">
+							<i
+								className="fa-brands fa-facebook-square"
+								id="facebook-icon"></i>
+						</a>
+					</li>
 
-          <li>
-            <a href='https://www.linkedin.com'>
-              <img
-                className='lgi'
-                src='/resources/vectors/linkedin-brands.svg'
-                alt='informatica icon'
-              ></img>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  );
+					<li>
+						<a href="https://www.linkedin.com">
+							<i className="fa-brands fa-linkedin" id="linkedin-icon"></i>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	);
 };
 
 export default RRSS;
