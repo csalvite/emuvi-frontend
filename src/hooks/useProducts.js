@@ -22,7 +22,7 @@ const useProducts = () => {
 
   const order = params.get('order') || 'createdAt';
   const direction = params.get('direction') || 'DESC';
-  let search = params.get('search') || '';
+  // let search = params.get('search') || '';
 
   useEffect(() => {
     const getProducts = async () => {
@@ -61,7 +61,7 @@ const useProducts = () => {
     };
 
     getProducts();
-  }, [search, order, direction]);
+  }, [order, direction]);
 
   return { products, setProducts, loading, error };
 };
