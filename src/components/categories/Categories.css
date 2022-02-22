@@ -4,19 +4,28 @@
 }
 
 .categories-title {
+	font-size: 1.7rem;
+	font-weight: bold;
 	margin-top: 5rem;
+	color: var(--darkGrey);
 }
 
 .categories-list {
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
 }
 
-.categories-img {
-	width: 10rem;
-	max-width: 10rem;
-	height: 10rem;
+.categories img {
+	width: 9rem;
+	height: 9rem;
+	margin: 0rem 1rem;
+	transition: 0.3s;
+}
+
+.categories img:hover {
+	transform: scale(1.3);
 }
 
 .categories-list a {
