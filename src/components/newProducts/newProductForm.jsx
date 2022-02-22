@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { TokenContext } from '../..';
 import './newProductForm.css';
 
-const NewProductForm = () => {
+const NewProductForm = (idProduct) => {
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [description, setDescription] = useState('');
@@ -40,8 +40,9 @@ const NewProductForm = () => {
       });
       if (response.ok) {
         const body = await response.json();
+
         console.log(body);
-        navigate(`/products/${body.data.id}`);
+        navigate(`/products/${body.data}`);
       } else {
         const error = await response.json();
         throw new Error(error.message);

@@ -22,22 +22,22 @@ const useProducts = () => {
 
   const order = params.get('order') || 'createdAt';
   const direction = params.get('direction') || 'DESC';
-  let search = params.has('search')
-    ? params.get('search')
-    : params.get('order');
+  let search = params.get('search') || '';
+
   useEffect(() => {
     const getProducts = async () => {
       let url = `${REACT_APP_LOCALHOST}/products?order=${encodeURIComponent(
         order
       )}&direction=${encodeURIComponent(direction)}`;
 
-      if (search) {
-        url = `${url}&search=${encodeURIComponent(search)}`;
-      } else {
-        url = `${REACT_APP_LOCALHOST}/products?order=${encodeURIComponent(
-          order
-        )}&direction=${encodeURIComponent(direction)}`;
-      }
+      // if (search) {
+      //   url = `${url}&search=${encodeURIComponent(search)}`;
+      // }
+      // } else {
+      //   url = `${REACT_APP_LOCALHOST}/products?order=${encodeURIComponent(
+      //     order
+      //   )}&direction=${encodeURIComponent(direction)}`;
+      // }
 
       setLoading(true);
 

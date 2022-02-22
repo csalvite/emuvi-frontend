@@ -14,16 +14,20 @@ const SearchBar = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    navigate(`/products?&search=${encodeURIComponent(search)}`);
+    if (search) {
+      let path = `/products?&search=${encodeURIComponent(search)}`;
+      navigate(path);
+    } else navigate(`/`);
   };
 
   return (
     <div className='search_box'>
       <form onSubmit={handleSubmit}>
         <input
+          autoFocus
           placeholder='Busca tu producto...'
           type='search'
+          name='product'
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         ></input>
