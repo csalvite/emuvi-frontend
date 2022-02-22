@@ -1,33 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Lato:ital,wght@0,300;0,400;1,300&family=Poppins:wght@400;500;600;700&display=swap');
-.LG {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 3rem;
+.logo-section {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 3rem;
+	padding-left: 0;
 }
 
 section {
-  padding: 1rem;
+	padding: 1rem;
 }
 section .logo {
-  font-size: 35px;
-  font-weight: 800;
-  color: var(--white);
-  cursor: pointer;
-  text-decoration: none;
-  font-family: Audiowide;
-  display: flex;
+	font-size: 35px;
+	font-weight: 800;
+	color: var(--white);
+	cursor: pointer;
+	text-decoration: none;
+	font-family: Audiowide;
+	display: flex;
+	margin-right: 30rem;
 }
-#globo {
-  font-size: 30px;
-  color: var(--green);
-  padding: 0.2rem;
-  margin-top: 0.2rem;
+
+#globe-icon {
+	font-size: 30px;
+	color: var(--green);
+	padding: 0.2rem;
+	margin-top: 0.2rem;
 }
 
 .Rreg {
-  display: flex;
-  font-size: 1.4rem;
-  color: var(--white);
-  margin-top: 0.2rem;
+	display: flex;
+	font-size: 1.2rem;
+	color: var(--white);
+}
+
+@media screen and (max-width: 1000px) {
+	.logo-section .logo {
+		margin: 0px;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.logo-section .logo {
+		margin-left: 3rem;
+	}
 }
