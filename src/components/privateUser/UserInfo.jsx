@@ -1,15 +1,17 @@
 import { ButtonDeleteUser } from "./ButtonDeleteUser";
+import { ButtonEditAvatar } from "./ButtonEditAvatar";
 import ChangePassword from "./ChangePassword";
 import ModifyEmailAndUsername from "./ModifyEmailAndUsername";
 import ModifyUserData from "./ModifyUserData";
 
-function UserInfo({privateUser, show}) {
+function UserInfo({privateUser}) {
 
   const birthday = new Date(privateUser.birthday).toLocaleDateString();
 
-  return show ? (
+  return (
     <div className='user-profile'>
       <h2>Información del usuario</h2>
+        <ButtonEditAvatar id={privateUser.id} />
         <p>Nombre de usuario: {privateUser.username}</p>
         <p>Email: {privateUser.email}</p>
         <p>Fecha de nacimiento: {birthday}</p>
@@ -21,7 +23,7 @@ function UserInfo({privateUser, show}) {
         <ModifyUserData privateUser={privateUser} />
         <ButtonDeleteUser id={privateUser.id} />
     </div>
-  ) : ''
+  )
 }
 
 export { UserInfo };
