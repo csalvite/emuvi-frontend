@@ -12,7 +12,9 @@ article h3 {
 	background-color: var(--black-2);
 	display: flex;
 	flex-direction: column;
-	align-items: stretch;
+	justify-content: space-evenly;
+	position: relative;
+	bottom: 0;
 }
 
 #footer-bottom-part {
@@ -26,7 +28,7 @@ article h3 {
 .bottom-link {
 	font-size: 0.9rem;
 	background-color: transparent;
-	padding: 0.5 1rem;
+	padding: 0.5rem 1rem;
 	border-color: transparent;
 	color: rgb(211, 206, 206);
 }
@@ -37,6 +39,7 @@ article h3 {
 .footer-copyright {
 	font-size: 0.9rem;
 	color: rgb(211, 206, 206);
+	padding: 0.5rem 1rem;
 }
 
 #footer-social-icons {
@@ -51,22 +54,22 @@ article h3 {
 }
 
 @media screen and (max-width: 480px) {
+	.footer {
+		display: inline;
+	}
+
 	.footer-copyright {
-		visibility: hidden;
+		font-size: 0.5rem;
 	}
 
 	.bottom-link {
-		font-size: 0.7rem;
+		font-size: 0.5rem;
 		text-transform: uppercase;
 		padding: 0.5rem;
 		background-color: transparent;
-		padding: 0.5 1rem;
+		padding: 0.5rem 1rem;
 		border-color: transparent;
 		color: rgb(211, 206, 206);
-	}
-
-	.footer {
-		margin-bottom: 3rem;
 	}
 
 	#footer-social-icons {

@@ -1,7 +1,6 @@
 .footer-icons-container {
 	display: flex;
 	color: var(--white);
-	justify-content: space-evenly;
 	flex-wrap: wrap;
 	list-style: none;
 	background: transparent;

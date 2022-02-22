@@ -18,8 +18,8 @@
 }
 
 .categories img {
-	width: 9rem;
-	height: 9rem;
+	width: 8.3rem;
+	height: 8.3rem;
 	margin: 0rem 1rem;
 	transition: 0.3s;
 }
@@ -29,7 +29,7 @@
 }
 
 .categories-list a {
-	font-size: 1.3rem;
+	font-size: 1.27rem;
 	text-align: center;
 	margin: -0.2rem 0.5rem;
 }
