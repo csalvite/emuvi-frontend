@@ -42,25 +42,30 @@ export const MyProducts = ({ privateUser }) => {
     return (
         <div>
             <h2>Mis Productos Publicados</h2>
-            <ul>
-            {products.length > 0 ? products.map((p) => {
+            {products.length > 0 ? products.map((product, index) => {
                 return (
-                    <li key={p.id}>
-                        {showPopUp && <EditProduct setShowPopUp={setShowPopUp} idUser={privateUser.id} product={p} />}
-                        <p onClick={() => setShowPopUp(true)}>{p.name} - {p.price}€</p>
-                        <p>{p.description}</p>
-                        {p.photos.length > 0 ? p.photos.map((photo) => (
+                    <div key={index}>
+                        {showPopUp && <EditProduct
+                                        setShowPopUp={setShowPopUp} 
+                                        idUser={privateUser.id} 
+                                        name={product.name} 
+                                        price={product.price} 
+                                        description={product.description} 
+                                        category={product.category} 
+                                    />}
+                        <p onClick={() => setShowPopUp(true)}>{product.name} - {product.price}€</p>
+                        <p>{product.description}</p>
+                        {/* {product.photos.length > 0 ? product.photos.map((photo) => (
                             <img
                                 key={photo.id}
                                 src={`${REACT_APP_LOCALHOST}/avatar/${photo.name}`}
                                 alt='product_photo'
                                 style={{width: '5rem'}}
                             />
-                            )) : <i>No se han encontrado fotos del producto</i>}
-                    </li>
+                            )) : <i>No se han encontrado fotos del producto</i>} */}
+                    </div>
                 )
             }) : state}
-            </ul>
         </div>
     )
 }

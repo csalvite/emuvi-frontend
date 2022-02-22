@@ -4,12 +4,15 @@ import "../popUp/acceptStyle.css";
 
 const { REACT_APP_LOCALHOST } = process.env;
 
-export const EditProduct = ({ setShowPopUp, product }) => {
+export const EditProduct = ({ setShowPopUp, name, price, description, category }) => {
 
     const [token] = useContext(TokenContext);
     const [loading, setLoading] = useState(false);
     const [state, setState] = useState();
-    const [photos, setPhotos] = useState(product.photos);
+    //const [photos, setPhotos] = useState(product.photos);
+    const [product, setProduct] = useState({name: name, price: price, description: description, category: category});
+
+    console.log(product);
 
     const handleEditProduct = async (e) => {
         e.preventDefault();
@@ -55,7 +58,7 @@ export const EditProduct = ({ setShowPopUp, product }) => {
         }
     }
 
-    const handleDeleteProductPhoto = async (e) => {
+   /*  const handleDeleteProductPhoto = async (e) => {
         e.preventDefault();
 
         const idPhoto = e.target.name;
@@ -85,7 +88,7 @@ export const EditProduct = ({ setShowPopUp, product }) => {
         } catch (error) {
             console.error(error.message);
         }
-    }
+    } */
 
     const handleAddProductPhoto = async (e) => {
         e.preventDefault();
@@ -107,7 +110,7 @@ export const EditProduct = ({ setShowPopUp, product }) => {
 
             if (response.ok) {
                 setState('Foto de producto eliminada!');
-                setPhotos(product.photos);
+               // setPhotos(product.photos);
             } else {
                 console.error('Hubo un error al eliminar la foto');
             }
@@ -154,7 +157,7 @@ export const EditProduct = ({ setShowPopUp, product }) => {
                     </li>
                 </ul>
 
-                {photos > 0 ? photos.map((photo, index) => {
+                {/* {photos > 0 ? photos.map((photo, index) => {
                     return (
                         <img
                             key={index}
@@ -165,7 +168,7 @@ export const EditProduct = ({ setShowPopUp, product }) => {
                             style={{width: '5rem'}}
                         />
                         )
-                    }) : 'No hay fotos'}
+                    }) : 'No hay fotos'} */}
                 <button className="btn">Aceptar Cambios</button>
                 {state ? <div>{state}</div> : ''}
             </form>

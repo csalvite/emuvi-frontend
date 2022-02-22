@@ -11,11 +11,13 @@ const ModifyUserData = ({privateUser}) => {
     const handleModifyUserData = async (e) => {
         e.preventDefault();
 
+        const oldBirthday = new Date(privateUser.birthday).toISOString().slice(0, 10);
+
         const userData = {
             name: e.target.elements.name.value || privateUser.name,
             lastname: e.target.elements.lastname.value || privateUser.lastname,
             biography: e.target.elements.biography.value || privateUser.biography,
-            birthday: e.target.elements.birthday.value || privateUser.birthday,
+            birthday: e.target.elements.birthday.value || oldBirthday,
             street: e.target.elements.street.value || privateUser.street,
             province: e.target.elements.province.value || privateUser.province,
             city: e.target.elements.city.value || privateUser.city,
