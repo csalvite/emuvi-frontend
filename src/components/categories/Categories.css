@@ -1,48 +1,26 @@
 .categories {
-  background-color: var(--lightGrey);
+	background-color: var(--lightGrey);
+	padding-bottom: 6rem;
 }
 
-.categories img {
-  width: 8rem;
-  height: 8rem;
-  transition: 0.3s;
+.categories-title {
+	margin-top: 5rem;
 }
 
-.categories img:hover {
-  transform: scale(1.3);
+.categories-list {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
-.categories ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  margin-top: 3rem;
-  margin-bottom: 5rem;
-  gap: 1.2rem;
+.categories-img {
+	width: 10rem;
+	max-width: 10rem;
+	height: 10rem;
 }
 
-.categories ul li {
-  list-style: none;
-}
-
-.categories h3 {
-  text-align: center;
-  color: rgb(54, 52, 52);
-  font-size: 1.5rem;
-  margin: 3rem;
-  align-content: center;
-}
-
-.categories h4 {
-  text-align: center;
-  font-size: 1rem;
-  margin-top: -10px;
-  margin-left: 2.8rem;
-  color: rgb(54, 52, 52);
-}
-
-.categories a {
-  text-decoration: none;
-  font-size: 0.5rem;
+.categories-list a {
+	font-size: 1.3rem;
+	text-align: center;
+	margin: -0.2rem 0.5rem;
 }
