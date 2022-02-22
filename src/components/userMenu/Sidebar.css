@@ -1,0 +1,22 @@
+.item-link {
+  color: white;
+  width: 100%;
+  padding: 1rem 0;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem;
+}
+
+.item-link:hover {
+  border-right: 4px solid white;
+}
+
+.item-image {
+  width: 1.2rem;
+  height: auto;
+  filter: invert(92%) sepia(4%) saturate(1033%) hue-rptate(169deg)
+    brightness(78%) contrast(85%);
+}

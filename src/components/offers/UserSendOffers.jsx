@@ -16,7 +16,7 @@ export const UserSendOffers = ({ idUser }) => {
     useEffect(() => {
         const getUserSendOffers = async () => {
             try {
-                const url = `${REACT_APP_LOCALHOST}/users/${idUser}/bookings`;
+                const url = `${REACT_APP_LOCALHOST}/users/${idUser.id}/bookings`;
                 const response = await fetch(url, {
                     headers: {
                         Authorization: token.token,
@@ -48,7 +48,7 @@ export const UserSendOffers = ({ idUser }) => {
     return (
         <div>
             <h3>Ofertas Enviadas</h3>
-            <DeleteDeniedBookings idUser={idUser} />
+            <DeleteDeniedBookings idUser={idUser.id} />
             {offers.map((offer, index) => {
                 return (
                     <div key={index}>

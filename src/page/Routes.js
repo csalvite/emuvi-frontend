@@ -28,7 +28,7 @@ function EmuviRoutes() {
           path='/users/mail/:registrationCode'
           element={<ConfirmChangeEmail />}
         />
-        <Route path='profile' element={<UserProfile />} />
+        <Route path='profile/*' element={<UserProfile />} />
         {/* Deberíamos intentar que la ruta pública no incluya el id del user */}
         <Route path='/profile/:idUser/public' element={<PublicUser />} />
         <Route path='products' element={<Products />} />

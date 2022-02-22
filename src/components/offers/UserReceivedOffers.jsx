@@ -19,7 +19,7 @@ export const UserReceivedOffers = ({ idUser }) => {
         const getUserReceivedOffers = async() => {
 
             try {
-                const url = `${REACT_APP_LOCALHOST}/users/${idUser}/offers`;
+                const url = `${REACT_APP_LOCALHOST}/users/${idUser.id}/offers`;
 
                 const response = await fetch(url, {
                     headers: {
@@ -49,7 +49,7 @@ export const UserReceivedOffers = ({ idUser }) => {
         e.preventDefault();
         
         console.log(e.target.name);
-        const url = `${REACT_APP_LOCALHOST}/users/${idUser}/offers?id=`;
+        const url = `${REACT_APP_LOCALHOST}/users/${idUser.id}/offers?id=`;
         const option = e.target.name;
 
         try {
@@ -82,7 +82,7 @@ export const UserReceivedOffers = ({ idUser }) => {
     return (
         <div>
             <h3>Ofertas Recibidas</h3>
-            <DeleteDeniedOffers idUser={idUser} />
+            <DeleteDeniedOffers idUser={idUser.id} />
             <FormGroup>
                 {offers.map((offer, index) => {
                     return (
@@ -93,8 +93,8 @@ export const UserReceivedOffers = ({ idUser }) => {
                             {offer.reserveStatus === 'pendiente' ? (
                                 <>
                                     <button className="btn" onClick={() => setShowPopUp(true)}>Aceptar Oferta</button>
-                                    <DeclineOffer idUser={idUser} idOffer={offer.id} reserveStatus={offer.reserveStatus} />
-                                    {showPopUp && <FormAcceptOffer setShowPopUp={setShowPopUp} idUser={idUser} idOffer={offer.id} reserveStatus={offer.reserveStatus} />}
+                                    <DeclineOffer idUser={idUser.id} idOffer={offer.id} reserveStatus={offer.reserveStatus} />
+                                    {showPopUp && <FormAcceptOffer setShowPopUp={setShowPopUp} idUser={idUser.id} idOffer={offer.id} reserveStatus={offer.reserveStatus} />}
                                 </>
                             ) : ''}
                         </div>
