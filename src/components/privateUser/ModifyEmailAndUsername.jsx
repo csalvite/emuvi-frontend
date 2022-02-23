@@ -8,7 +8,7 @@ const ModifyEmailAndUsername = ({privateUser}) => {
    const [token] = useContext(TokenContext);
     const [error, setError] = useState(false);
     const [state, setState] = useState();
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
 
     const handleChangeUser = async(e) => {
         e.preventDefault();
@@ -49,6 +49,10 @@ const ModifyEmailAndUsername = ({privateUser}) => {
             console.error(error.message);
             setError(true);
         }
+    }
+
+    if (loading) {
+        return <div>Loading...</div>
     }
 
     return (
