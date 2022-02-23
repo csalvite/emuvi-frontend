@@ -24,7 +24,7 @@ const ProductList = () => {
     if (currentPage > 0) setCurrentPage(currentPage - 8);
   };
 
-  return products.length > 0 && !products.sold ? (
+  return products.length > 0 ? (
     <>
       <ul className='container_productlist' style={{ listStyleType: 'none' }}>
         {productFiltered().map((product, index) => {

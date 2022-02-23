@@ -14,8 +14,10 @@ const SearchBar = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (search) {
-      let path = `/products?&search=${encodeURIComponent(search)}`;
+    if (search.length > 0) {
+      let path = `/products?&search=${encodeURIComponent(
+        search.toString().toLowerCase()
+      )}`;
       navigate(path);
     } else navigate(`/`);
   };
@@ -29,7 +31,10 @@ const SearchBar = (props) => {
           type='search'
           name='product'
           value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          defaultValue={''}
+          onChange={(e) => {
+            setSearch(e.target.value);
+          }}
         ></input>
         <span
           className='fas fa-search'
