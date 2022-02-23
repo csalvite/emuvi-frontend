@@ -1,9 +1,11 @@
 import { ButtonNewOffer } from '../offers/ButtonNewOffer';
 import './CardProduct.css';
 import { Link } from 'react-router-dom';
+import { usePrivateUser } from '../../hooks/usePrivateUser';
 const { REACT_APP_LOCALHOST } = process.env;
 
 export default function CardProduct(props, product) {
+  const privateUser = usePrivateUser();
   return (
     <>
       <div className='cardproduct'>
@@ -27,7 +29,7 @@ export default function CardProduct(props, product) {
         </div>
         <ButtonNewOffer
           idProduct={props.product.id}
-          idUser={props.product.idUser}
+          idUser={privateUser.id}
         />
       </div>
     </>

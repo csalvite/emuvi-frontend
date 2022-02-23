@@ -7,6 +7,8 @@ export const ButtonNewOffer = ({ idUser, idProduct }) => {
 
     const { REACT_APP_LOCALHOST } = process.env;
 
+    console.log('id usuario comprador -> ' , idUser);
+
     const handleNewOffer = async () => {
         const url = `${REACT_APP_LOCALHOST}/offers/${idProduct}/new/${idUser}`;
 
