@@ -1,5 +1,5 @@
 import CardProduct from './CardProduct';
-import { Link } from 'react-router-dom';
+
 import useProducts from '../../hooks/useProducts';
 import './ProductList.css';
 import { useState } from 'react';
@@ -24,15 +24,11 @@ const ProductList = () => {
     if (currentPage > 0) setCurrentPage(currentPage - 8);
   };
 
-  return products.length > 0 ? (
+  return products.length > 0 && !products.sold ? (
     <>
       <ul className='container_productlist' style={{ listStyleType: 'none' }}>
         {productFiltered().map((product, index) => {
-          return (
-            <Link to={`/products/${product.id}`}>
-              <CardProduct product={product} key={product.id} />
-            </Link>
-          );
+          return <CardProduct product={product} key={product.id} />;
         })}
       </ul>
       <Buttonproducts nextPage={nextPage} prevPage={prevPage} />

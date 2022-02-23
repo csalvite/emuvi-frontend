@@ -1,0 +1,198 @@
+.body-container-form {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	background-color: var(--lightGrey);
+}
+
+.register-form {
+	max-width: 22rem;
+	max-height: 22rem;
+	padding: 3rem 2rem;
+	margin-top: 5rem;
+	border-radius: 5%;
+	border: solid 3px grey;
+	color: var(--white);
+	background-color: var(--black-2);
+}
+
+.form-title {
+	font-size: 1.4rem;
+	font-weight: 500;
+	padding-top: 0.2rem;
+	margin-bottom: 1.2rem;
+	color: var(--lightGrey);
+	background-color: transparent;
+}
+
+#field {
+	display: flex;
+	height: 2.5rem;
+}
+
+.form-label {
+	padding: 0.2rem;
+	margin: 0.5rem 0;
+	height: auto;
+	background-color: var(--darkGrey);
+	border-top-left-radius: 30px;
+	border-bottom-left-radius: 30px;
+}
+
+#form-icon {
+	display: flex;
+	color: grey;
+	padding-top: 0.2rem;
+	padding-left: 0.2rem;
+	font-size: smaller;
+}
+
+.form-input {
+	border-bottom-left-radius: 0px;
+	border-top-left-radius: 0px;
+	border-bottom-right-radius: 30px;
+	border-top-right-radius: 30px;
+	margin: 0.5rem 0;
+	padding-inline: 0.5rem;
+	color: var(--lightGrey);
+	background-color: var(--darkGrey);
+	inline-size: 100%;
+}
+
+/* --------- BUTTON ----------- */
+.form-btn {
+	display: inline-block;
+	padding: 0.4rem 5.2rem;
+	margin-top: 1rem;
+	margin-bottom: 0.8rem;
+	background-color: var(--black);
+	color: var(--white);
+	border-radius: 30px;
+	border: solid 2px var(--white);
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 1.5;
+	font-family: inherit;
+	vertical-align: middle;
+	user-select: none;
+	position: relative;
+	overflow: hidden;
+}
+.form-btn:hover {
+	border-color: var(--green);
+}
+.form-btn::before,
+.form-btn::after {
+	content: '';
+	position: absolute;
+	background-color: var(--green);
+}
+
+/* top animation: */
+.form-btn::before {
+	height: 8px;
+	width: 8px;
+	left: -8px;
+	top: 6px;
+	transition: left 0.2s ease;
+}
+
+/* bottom animation: */
+.form-btn::after {
+	height: 8px;
+	width: 8px;
+	right: -10px;
+	bottom: 6px;
+	transition: right 0.2s ease;
+}
+.form-btn:hover::before {
+	left: 14px;
+}
+.form-btn:hover::after {
+	right: 14px;
+}
+.form-btn:hover::before,
+.form-btn:hover::after {
+	animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+/* --------- BUTTON END ---------- */
+
+.form-paragraph {
+	color: var(--lightGrey);
+	font-size: 0.8rem;
+	text-align: center;
+}
+
+.sign-link {
+	color: var(--white);
+	font-weight: bold;
+	text-decoration: none;
+	padding: 0 0.3rem;
+}
+
+.sign-link:hover {
+	color: var(--green);
+	font-weight: bold;
+	text-decoration: none;
+	padding: 0 0.3rem;
+}
+
+#sign-link-icon {
+	color: grey;
+}
+
+@media screen and (max-width: 1400px) {
+	.register-form {
+		box-sizing: border-box;
+		max-width: 20rem;
+		max-height: 20rem;
+		padding: 2rem 2rem;
+		margin-top: 1.6rem;
+		border-radius: 5%;
+		border: solid 3px grey;
+		color: var(--white);
+		background-color: var(--black-2);
+	}
+
+	form-title {
+		font-size: 1.3rem;
+		font-weight: 400;
+		padding-top: 0.2rem;
+		margin-bottom: 1.2rem;
+		color: var(--lightGrey);
+		background-color: transparent;
+	}
+
+	.form-btn {
+		display: inline-block;
+		padding: 0.3rem 5.2rem;
+		margin-top: 1rem;
+		margin-bottom: 0.8rem;
+		background-color: var(--black);
+		color: var(--white);
+		border-radius: 30px;
+		border: solid 2px var(--white);
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 1.5;
+		font-family: inherit;
+		vertical-align: middle;
+		user-select: none;
+		position: relative;
+		overflow: hidden;
+	}
+}

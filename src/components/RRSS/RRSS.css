@@ -1,12 +1,37 @@
-.iconss {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  list-style: none;
-  background: transparent;
+.footer-icons-container {
+	display: flex;
+	color: var(--white);
+	flex-wrap: wrap;
+	list-style: none;
+	background: transparent;
 }
 
-.lgi {
-  height: 3rem;
-  padding: 10px;
+#instagram-icon {
+	font-size: 1.8rem;
+	color: var(--lightGrey);
+	padding: 0.3rem;
+}
+
+#facebook-icon {
+	font-size: 1.8rem;
+	color: var(--lightGrey);
+	padding: 0.3rem;
+}
+
+#linkedin-icon {
+	font-size: 1.8rem;
+	color: var(--lightGrey);
+	padding: 0.3rem;
+}
+
+#instagram-icon:hover {
+	color: var(--green);
+}
+
+#facebook-icon:hover {
+	color: var(--green);
+}
+
+#linkedin-icon:hover {
+	color: var(--green);
 }
