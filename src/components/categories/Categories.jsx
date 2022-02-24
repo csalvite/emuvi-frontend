@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 function Categories() {
 	const category = [
 		{
-			title: 'Informatica',
+			title: 'Informática',
 			image: './resources/vectors/informática icon',
 		},
 		{
@@ -13,7 +13,7 @@ function Categories() {
 			image: './resources/vectors/videojuegos icon',
 		},
 		{
-			title: 'Musica',
+			title: 'Música',
 			image: './resources/vectors/música icon',
 		},
 		{
@@ -22,7 +22,7 @@ function Categories() {
 		},
 
 		{
-			title: 'Video',
+			title: 'Vídeo',
 			image: './resources/vectors/video icon',
 		},
 		{

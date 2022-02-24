@@ -15,10 +15,7 @@ import { EffectCards } from 'swiper';
 export default function Carousel() {
 	return (
 		<>
-			<div className="carousel-container">
-				<h3 className="carousel-title">Novedades Carrrousel</h3>
-				<LatestProducts />
-			</div>
+			<LatestProducts />
 		</>
 	);
 }
