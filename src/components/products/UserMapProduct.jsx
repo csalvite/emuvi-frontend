@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 // import { Icon } from 'leaflet';
 // import './UserMapProduct.css';
@@ -18,13 +18,17 @@ LeafletMarker.prototype.options.icon = icon({
   tooltipAnchor: [16, -28],
   shadowSize: [41, 41],
 });
+
 const UserMapProduct = ({ lat, lon }) => {
   console.log(lat);
   console.log(lon);
-  const position = [43.537, -8.18077];
+  let position = [43.5, -8.10];
+  /* useEffect(() => {
+    position = [lat, lon];
+  }, []); */
   return (
     <MapContainer
-      center={[43.537, -8.18077]}
+      center={position}
       zoom={12}
       style={{ height: '300px' }}
     >

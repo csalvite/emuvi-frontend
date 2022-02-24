@@ -11,7 +11,7 @@ import { Sidebar } from '../../components/userMenu/Sidebar';
 import { usePrivateUser } from '../../hooks/usePrivateUser';
 
 function UserProfile() {
-  const [privateUser] = usePrivateUser();
+  const { privateUser } = usePrivateUser();
 
   let routes = [
     {
