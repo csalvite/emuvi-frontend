@@ -36,7 +36,7 @@ const LatestProducts = () => {
 									/>
 									<h2 className="carousel-product-name">{product.name}</h2>
 									<h3 className="carousel-product-price">{product.price} €</h3>
-									<p className="detalles-link">Detalles</p>
+									<p className="detalles-link">Proponer compra</p>
 								</Link>
 							</div>
 						</SwiperSlide>
