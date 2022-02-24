@@ -51,48 +51,46 @@ function Login() {
 		<>
 			<JustNav />
 			<div className="body-container-form">
-				<div className="login-form">
-					<form onSubmit={handleLogin}>
-						<h1 className="form-title">Accede a tu cuenta</h1>
-						<div id="field">
-							<label htmlFor="email" className="form-label">
-								<i className="fa-solid fa-square-envelope" id="form-icon"></i>
-							</label>
-							<input
-								className="form-input"
-								type="text"
-								name="email"
-								id="email"
-								placeholder="Email"
-								required
-							/>
-						</div>
-						<div id="field">
-							<label htmlFor="passwd" className="form-label">
-								<i className="fa-solid fa-lock" id="form-icon"></i>
-							</label>
-							<input
-								className="form-input"
-								type="password"
-								name="passwd"
-								id="passwd"
-								autoComplete="on"
-								placeholder="Contraseña"
-								required
-							/>
-						</div>
-						<button className="form-btn">Iniciar sesión</button>
+				<form className="login-form" onSubmit={handleLogin}>
+					<h1 className="form-title">Accede a tu cuenta</h1>
+					<div id="field">
+						<label htmlFor="email" className="form-label">
+							<i className="fa-solid fa-square-envelope" id="form-icon"></i>
+						</label>
+						<input
+							className="form-input"
+							type="text"
+							name="email"
+							id="email"
+							placeholder="Email"
+							required
+						/>
+					</div>
+					<div id="field">
+						<label htmlFor="passwd" className="form-label">
+							<i className="fa-solid fa-lock" id="form-icon"></i>
+						</label>
+						<input
+							className="form-input"
+							type="password"
+							name="passwd"
+							id="passwd"
+							autoComplete="on"
+							placeholder="Contraseña"
+							required
+						/>
+					</div>
+					<button className="login-form-btn">Iniciar sesión</button>
 
-						<p className="form-paragraph">
-							No tienes cuenta?{' '}
-							<Link to="/register" className="sign-link">
-								Regístrate
-							</Link>
-							<i class="fa-solid fa-arrow-right" id="sign-link-icon"></i>
-						</p>
-					</form>
-					{error ? <div>El email o contraseña son incorrectos.</div> : ''}
-				</div>
+					<p className="form-paragraph">
+						No tienes cuenta?{' '}
+						<Link to="/register" className="sign-link">
+							Regístrate
+						</Link>
+						<i class="fa-solid fa-arrow-right" id="sign-link-icon"></i>
+					</p>
+				</form>
+				{error ? <div>El email o contraseña son incorrectos.</div> : ''}
 			</div>
 		</>
 	);
