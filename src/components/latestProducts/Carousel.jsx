@@ -13,34 +13,12 @@ import './Carousel.css';
 import { EffectCards } from 'swiper';
 
 export default function Carousel() {
-  return (
-    <>
-      <div>
-        <h3 className='carousel-title'>Novedades Carrrousel</h3>
-        <div className='carousel-container'></div>
-        {/* <Swiper
-          effect={'cards'}
-          grabCursor={true}
-          modules={[EffectCards]}
-          className='mySwiper'
-        > */}
-          <LatestProducts />
-          {/* <SwiperSlide className='carousel-card'>
-            <LatestProducts />
-          </SwiperSlide>
-          <SwiperSlide className='carousel-card'>
-            <LatestProducts />
-          </SwiperSlide>
-          <SwiperSlide className='carousel-card'>Slide 3</SwiperSlide>
-          <SwiperSlide className='carousel-card'>Slide 4</SwiperSlide>
-          <SwiperSlide className='carousel-card'>Slide 5</SwiperSlide>
-          <SwiperSlide className='carousel-card'>Slide 6</SwiperSlide>
-          <SwiperSlide className='carousel-card'>Slide 7</SwiperSlide>
-          <SwiperSlide className='carousel-card'>Slide 8</SwiperSlide>
-          <SwiperSlide className='carousel-card'>Slide 9</SwiperSlide>
-          <SwiperSlide className='carousel-card'>Slide 10</SwiperSlide> */}
-        {/* </Swiper> */}
-      </div>
-    </>
-  );
+	return (
+		<>
+			<div className="carousel-container">
+				<h3 className="carousel-title">Novedades Carrrousel</h3>
+				<LatestProducts />
+			</div>
+		</>
+	);
 }
