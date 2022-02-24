@@ -1,71 +1,70 @@
-.carousel-title {
-  text-align: center;
-  color: rgb(54, 52, 52);
-  font-size: 1.7rem;
-  font-weight: bold;
-  margin: 3rem;
-  margin-top: 5rem;
+.carousel-container .carousel-title {
+	text-align: center;
+	color: var(--darkGrey);
+	font-size: 1.7rem;
+	font-weight: bold;
+	margin: 9rem 0 4.5rem 0;
 }
 
-.carousel-container {
-  margin-bottom: 5rem;
+.carousel-container .carousel-img {
+	margin-top: 1rem;
+	height: 12rem;
+	min-width: 13rem;
+	border-radius: 0.5rem;
+}
+
+.carousel-container .carousel-product-name {
+	text-align: center;
+	font-size: 1.2rem;
+	padding: 1rem 0 0.2rem;
+}
+
+.carousel-container .carousel-product-price {
+	text-align: center;
+	font-size: 1.2rem;
+}
+
+.carousel-container .detalles-link {
+	border: 1px solid grey;
+	border-radius: 8px;
+	text-align: center;
+	color: var(--lightGrey);
+	background-color: var(--black-2);
+	font-size: 1.2rem;
+	margin-top: 2rem;
+	padding: 0.3rem 0;
+	transition: 0.2s;
+}
+
+.carousel-container .detalles-link:hover {
+	color: var(--green);
+	transform: scale(0.8);
 }
 
 .swiper {
-  width: 240px;
-  height: 320px;
+	width: 15rem;
+	height: 23rem;
+	margin-bottom: 7rem;
 }
 
 .swiper-slide {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 18px;
-  font-size: 22px;
-  font-weight: bold;
-  color: #fff;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	border-radius: 15px;
+	border: 1px solid var(--black);
+	box-shadow: 0px 4px 4px var(--black-2);
+	font-size: 18px;
+	font-weight: bold;
+	background-color: var(--white);
+	background-image: url('https://www.transparenttextures.com/patterns/worn-dots.png');
 }
 
-.swiper-slide:nth-child(1n) {
-  background-color: rgb(206, 17, 17);
-}
-
-.swiper-slide:nth-child(2n) {
-  background-color: rgb(0, 140, 255);
-}
-
-.swiper-slide:nth-child(3n) {
-  background-color: rgb(10, 184, 111);
-}
-
-.swiper-slide:nth-child(4n) {
-  background-color: rgb(211, 122, 7);
-}
-
-.swiper-slide:nth-child(5n) {
-  background-color: rgb(118, 163, 12);
-}
-
-.swiper-slide:nth-child(6n) {
-  background-color: rgb(180, 10, 47);
-}
-
-.swiper-slide:nth-child(7n) {
-  background-color: rgb(35, 99, 19);
-}
-
-.swiper-slide:nth-child(8n) {
-  background-color: rgb(0, 68, 255);
-}
-
-.swiper-slide:nth-child(9n) {
-  background-color: rgb(218, 12, 218);
-}
-
-.swiper-slide:nth-child(10n) {
-  background-color: rgb(54, 94, 77);
-}
-
-.swiper-pagination-bullet-active {
-  background-color: var(--green) !important;
+@media screen and (max-width: 480px) {
+	.carousel-container .carousel-product-name {
+		text-align: center;
+		font-size: 1.2rem;
+		margin-top: 0.4rem;
+		padding: 1rem 0 0.2rem;
+	}
 }

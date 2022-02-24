@@ -111,7 +111,7 @@ function Register() {
 									/>
 								</div>
 								<div>
-									<button className="form-btn">Registro</button>
+									<button className="register-form-btn">Registro</button>
 								</div>
 								<div>
 									<p className="form-paragraph">
