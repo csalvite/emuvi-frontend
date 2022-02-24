@@ -6,6 +6,7 @@ import { ButtonNewOffer } from '../../components/offers/ButtonNewOffer';
 import ProductPhoto from '../../components/products/ProductPhoto';
 import ProductSingleData from '../../components/products/ProductSingleData';
 import UserMapProduct from '../../components/products/UserMapProduct';
+import { PublicUserAccess } from '../../components/publicUser/PublicUserAccess';
 import useProductDetail from '../../hooks/useProductDetail';
 import './Product.css';
 // Página Producto en Detalle
@@ -20,10 +21,12 @@ const Product = (props) => {
       <ProductPhoto />
       <ProductSingleData />
 
-      <ButtonNewOffer idProduct={product.id} idUser={product.idUser} />
       <div className='leaflet-container'>
         <UserMapProduct />
       </div>
+
+      <PublicUserAccess idUser={product.idUser} />
+      <ButtonNewOffer idProduct={product.id} idUser={product.idUser} />
       <Footer />
     </>
   );
