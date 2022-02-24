@@ -18,8 +18,10 @@ LeafletMarker.prototype.options.icon = icon({
   tooltipAnchor: [16, -28],
   shadowSize: [41, 41],
 });
-const UserMapProduct = () => {
-  const position = [43.537, -8.18];
+const UserMapProduct = ({ lat, lon }) => {
+  console.log(lat);
+  console.log(lon);
+  const position = [43.537, -8.18077];
   return (
     <MapContainer
       center={[43.537, -8.18077]}

@@ -32,7 +32,7 @@ const usePrivateUser = () => {
     getUser();
   }, [token.token]);
 
-  return [privateUser];
+  return { privateUser };
 };
 
 export { usePrivateUser };

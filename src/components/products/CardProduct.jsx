@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import { usePrivateUser } from '../../hooks/usePrivateUser';
 const { REACT_APP_LOCALHOST } = process.env;
 
-export default function CardProduct(props, product) {
-  const privateUser = usePrivateUser();
+export default function CardProduct(props) {
+  const { privateUser } = usePrivateUser();
   return (
     <>
       <div className='cardproduct'>
