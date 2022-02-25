@@ -1,0 +1,15 @@
+.imagenLoading {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+}
+.VLoading {
+  display: block;
+  flex-wrap: nowrap;
+  max-width: 100%;
+}
+
+section h2 {
+  color: var(--black);
+}
