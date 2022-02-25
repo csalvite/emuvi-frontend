@@ -20,10 +20,12 @@ export default function CardProduct(props, product) {
 						/>
 
 						<h4 className="card__title">{props.product.name}</h4>
-						<h4 className="card__price">{props.product.price}</h4>
-
-						{/*<p className='card__description'>{props.product.description}</p>*/}
+						<h4 className="card__price">{props.product.price} €</h4>
 					</Link>
+					<div className="card-icon-box">
+						<i class="fa-solid fa-cart-shopping"></i>
+						<i class="fa-solid fa-heart"></i>
+					</div>
 				</div>
 				{/*<ButtonNewOffer
 					idProduct={props.product.id}
