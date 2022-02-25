@@ -1,6 +1,6 @@
 .create_product {
+	height: 100vh;
 	display: flex;
-
 	padding: 2rem;
 	gap: 1rem;
 	align-content: center;
@@ -9,13 +9,22 @@
 }
 
 .form_newproduct {
-	width: 28rem;
-	height: 38rem;
-	padding: 4rem 3.3rem;
+	width: 27rem;
+	height: 37.5rem;
+	padding: 3rem 3.3rem;
 	border-radius: 4%;
 	border: solid 4px grey;
 	color: var(--white);
 	background-color: var(--black-2);
+}
+
+.form_newproduct .create-product-form-title {
+	font-size: 1.4rem;
+	font-weight: 500;
+	padding-top: 1.5rem;
+	margin-bottom: 1.9rem;
+	color: var(--lightGrey);
+	background-color: transparent;
 }
 
 .form_newproduct div {
@@ -88,10 +97,10 @@
 /* --------- BUTTON ----------- */
 .input_submit {
 	display: inline-block;
-	width: 21rem;
+	width: 20rem;
 	height: 3rem;
 	max-width: auto;
-	margin-top: 2rem;
+	margin-top: 1.7rem;
 	margin-bottom: 1rem;
 	background-color: var(--black);
 	color: var(--white);

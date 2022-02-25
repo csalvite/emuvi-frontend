@@ -54,7 +54,7 @@ const NewProductForm = (idProduct) => {
 	return (
 		<div className="create_product">
 			<form className="form_newproduct" onSubmit={createProduct}>
-				<h1 className="form-title">AÑADIR PRODUCTO</h1>
+				<h1 className="create-product-form-title">AÑADIR PRODUCTO</h1>
 				<div className="container_input">
 					<label htmlFor="form_product_name"></label>
 					<input
