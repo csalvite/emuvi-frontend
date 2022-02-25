@@ -5,6 +5,7 @@ import './ProductList.css';
 import { useState } from 'react';
 import Buttonproducts from './Buttonproducts';
 import LoadingComponent from '../loading/loading';
+import { ButtonFavProduct } from './ButtonAddFavProducts';
 
 // const { REACT_APP_LOCALHOST } = process.env;
 
@@ -13,7 +14,7 @@ import LoadingComponent from '../loading/loading';
 const ProductList = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const { products, loading, error } = useProducts();
-  if (loading) return <LoadingComponent></LoadingComponent>
+  if (loading) return <LoadingComponent></LoadingComponent>;
   if (error) return <div>{error}</div>;
   const productFiltered = () => {
     return products.slice(currentPage, currentPage + 8);

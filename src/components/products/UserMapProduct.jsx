@@ -19,25 +19,21 @@ LeafletMarker.prototype.options.icon = icon({
   shadowSize: [41, 41],
 });
 
-const UserMapProduct = ({ lat, lon }) => {
+const UserMapProduct = ({ lat, lon, name }) => {
   console.log(lat);
   console.log(lon);
-  let position = [43.5, -8.10];
+  let position = [43.5, -8.1];
   /* useEffect(() => {
     position = [lat, lon];
   }, []); */
   return (
-    <MapContainer
-      center={position}
-      zoom={12}
-      style={{ height: '300px' }}
-    >
+    <MapContainer center={position} zoom={12} style={{ height: '300px' }}>
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
       />
       <Marker position={position}>
-        <Popup>un ciudadano narones</Popup>
+        <Popup>{name}</Popup>
       </Marker>
     </MapContainer>
   );

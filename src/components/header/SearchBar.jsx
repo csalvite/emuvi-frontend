@@ -15,9 +15,7 @@ const SearchBar = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (search.length > 0) {
-      let path = `/products?&search=${encodeURIComponent(
-        search.toString().toLowerCase()
-      )}`;
+      let path = `/products?&search=${encodeURIComponent(search)}`;
       navigate(path);
     } else navigate(`/`);
   };

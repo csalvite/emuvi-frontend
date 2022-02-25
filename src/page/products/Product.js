@@ -22,7 +22,11 @@ const Product = (props) => {
       <ProductSingleData />
 
       <div className='leaflet-container'>
-        <UserMapProduct lat={product.lat} lon={product.lon} />
+        <UserMapProduct
+          lat={product.lat}
+          lon={product.lon}
+          name={product.name}
+        />
       </div>
 
       <PublicUserAccess idUser={product.idUser} />
