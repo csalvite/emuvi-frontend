@@ -41,7 +41,7 @@
 	transform: scale(0.8);
 }
 
-.swiper {
+/*.swiper {
 	width: 15rem;
 	height: 23rem;
 	margin-bottom: 7rem;
@@ -58,13 +58,22 @@
 	font-weight: bold;
 	background-color: var(--white);
 	background-image: url('https://www.transparenttextures.com/patterns/worn-dots.png');
+}*/
+
+.swiper {
+	width: 100%;
+	padding-top: 50px;
+	padding-bottom: 50px;
 }
 
-@media screen and (max-width: 480px) {
-	.carousel-container .carousel-product-name {
-		text-align: center;
-		font-size: 1.2rem;
-		margin-top: 0.4rem;
-		padding: 1rem 0 0.2rem;
-	}
+.swiper-slide {
+	background-position: center;
+	background-size: cover;
+	width: 300px;
+	height: 300px;
+}
+
+.swiper-slide img {
+	display: block;
+	width: 100%;
 }
