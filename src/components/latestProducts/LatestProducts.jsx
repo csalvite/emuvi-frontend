@@ -8,7 +8,7 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 
 // import required modules
-import { EffectCoverflow, Pagination } from 'swiper';
+import { EffectCoverflow, Navigation, Pagination } from 'swiper';
 
 import useLatestProducts from '../../hooks/useLatestProducts';
 import { Link } from 'react-router-dom';
@@ -26,10 +26,13 @@ const LatestProducts = () => {
 			<h3 className="carousel-title">LO ÚLTIMO EN LLEGAR</h3>
 			<ul className="carousel-list-items">
 				<Swiper
+					modules={[EffectCoverflow, Pagination, Navigation]}
+					className="mySwiper"
+					navigation={true}
 					effect={'coverflow'}
-					grabCursor={true}
 					centeredSlides={true}
-					slidesPerView={'auto'}
+					slidesPerView={window.innerWidth < 768 ? 1 : 'auto'}
+					loop={true}
 					coverflowEffect={{
 						rotate: 50,
 						stretch: 0,
@@ -37,9 +40,9 @@ const LatestProducts = () => {
 						modifier: 1,
 						slideShadows: true,
 					}}
-					pagination={true}
-					modules={[EffectCoverflow, Pagination]}
-					className="mySwiper">
+					pagination={{
+						clickable: true,
+					}}>
 					{products.map((product) => (
 						<SwiperSlide key={product.id}>
 							<Link to={`/products/${product.id}`}>
