@@ -31,7 +31,7 @@ const LatestProducts = () => {
 					navigation={true}
 					effect={'coverflow'}
 					centeredSlides={true}
-					slidesPerView={window.innerWidth < 768 ? 1 : 'auto'}
+					slidesPerView={3}
 					loop={true}
 					coverflowEffect={{
 						rotate: 50,
