@@ -11,6 +11,7 @@ export const MyProducts = ({ privateUser }) => {
     const [token] = useContext(TokenContext);
     const [products, setProducts] = useState([]);
     const [state, setState] = useState();
+    const [editProduct, setEditProduct] = useState();
     const [showPopUp, setShowPopUp] = useState(false);
 
     useEffect(() => {
@@ -42,30 +43,29 @@ export const MyProducts = ({ privateUser }) => {
     return (
         <div>
             <h2>Mis Productos Publicados</h2>
-            {products.length > 0 ? products.map((product, index) => {
+            <ul>
+            {products.length > 0 ? products.map((product) => {
                 return (
-                    <div key={index}>
-                        {showPopUp && <EditProduct
-                                        setShowPopUp={setShowPopUp} 
-                                        idUser={privateUser.id} 
-                                        name={product.name} 
-                                        price={product.price} 
-                                        description={product.description} 
-                                        category={product.category} 
-                                    />}
-                        <p onClick={() => setShowPopUp(true)}>{product.name} - {product.price}€</p>
+                    <li key={product.id} onClick={() => setEditProduct({id: product.id, name: product.name, price: product.price, description: product.description})}>
+                        <h3 onClick={() => setShowPopUp(true)}>{product.name} - {product.price}€</h3>
                         <p>{product.description}</p>
-                        {/* {product.photos.length > 0 ? product.photos.map((photo) => (
+                        {product.photos.length > 0 ? product.photos.map((photo) => (
                             <img
                                 key={photo.id}
                                 src={`${REACT_APP_LOCALHOST}/avatar/${photo.name}`}
                                 alt='product_photo'
                                 style={{width: '5rem'}}
                             />
-                            )) : <i>No se han encontrado fotos del producto</i>} */}
-                    </div>
+                            )) : <i>No se han encontrado fotos del producto</i>}
+                    </li>
                 )
             }) : state}
+                {showPopUp && <EditProduct
+                                    setShowPopUp={setShowPopUp} 
+                                    idUser={privateUser.id} 
+                                    editProduct={editProduct}
+                                />}
+            </ul>
         </div>
     )
 }

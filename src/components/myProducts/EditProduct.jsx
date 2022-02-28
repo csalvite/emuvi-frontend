@@ -4,14 +4,16 @@ import "../popUp/acceptStyle.css";
 
 const { REACT_APP_LOCALHOST } = process.env;
 
-export const EditProduct = ({ setShowPopUp, name, price, description, category }) => {
+export const EditProduct = ({ setShowPopUp, editProduct }) => {
 
     const [token] = useContext(TokenContext);
     const [loading, setLoading] = useState(false);
     const [state, setState] = useState();
     //const [photos, setPhotos] = useState(product.photos);
-    const [product, setProduct] = useState({name: name, price: price, description: description, category: category});
+    //const [product, setProduct] = useState({name: name, price: price, description: description, category: category});
+    const [product, setProduct] = useState(editProduct);
 
+    // Compruebo qué recibe el componente
     console.log(product);
 
     const handleEditProduct = async (e) => {
