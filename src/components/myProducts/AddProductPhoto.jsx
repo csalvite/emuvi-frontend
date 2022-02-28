@@ -1,19 +1,22 @@
 import { useState } from "react";
+import { useContext } from "react";
+import { TokenContext } from "../..";
+import LoadingComponent from "../loading/loading";
 
 const { REACT_APP_LOCALHOST } = process.env;
 
-const EditProductPhoto = () => {
-    const [state, setState] = useState();
+const AddProductPhoto = ({ productId }) => {
+    const [token] = useContext(TokenContext);
     const [loading, setLoading] = useState(false);
-    const [photos, setPhotos] = useState([]);
+    const [state, setState] = useState();
 
-   /*  const handleDeleteProductPhoto = async (e) => {
+    const handleAddProductPhoto = async (e) => {
         e.preventDefault();
 
         const idPhoto = e.target.name;
         
         try {
-            const url = `${REACT_APP_LOCALHOST}/products/${product.id}/photos/${idPhoto}`;
+            const url = `${REACT_APP_LOCALHOST}/products/${productId}/photos`;
             
             const response = await fetch(url, {
                 method: 'DELETE',
@@ -27,7 +30,7 @@ const EditProductPhoto = () => {
 
             if (response.ok) {
                 setState('Foto de producto eliminada!');
-                setPhotos(product.photos);
+               // setPhotos(product.photos);
             } else {
                 console.error('Hubo un error al eliminar la foto');
             }
@@ -38,12 +41,18 @@ const EditProductPhoto = () => {
             console.error(error.message);
         }
     }
- */
+
+    if (loading) {
+        return (
+            <LoadingComponent />
+        )
+    }
+
     return (
-        <div className="edit-product-photos">
+        <form>
+            <input type='file' name='productPhoto' />
+        </form>
+    )
+}
 
-        </div>
-    );
-} 
-
-export { EditProductPhoto};
+export { AddProductPhoto }
