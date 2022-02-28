@@ -56,10 +56,13 @@ const LatestProducts = () => {
 									alt="product_photo"
 									style={{ width: '100%' }}
 								/>
-								<h2 className="carousel-product-name">{product.name}</h2>
+								<h2 className="main-carousel-product-name">{product.name}</h2>
 								<h3 className="carousel-product-price">{product.price} €</h3>
-								<p className="detalles-link">Proponer compra</p>
 							</Link>
+							<div className="main-carousel-icon-box">
+								<i className="fa-solid fa-cart-shopping cart"></i>
+								<i className="fa-solid fa-heart heart"></i>
+							</div>
 						</SwiperSlide>
 					))}
 				</Swiper>
