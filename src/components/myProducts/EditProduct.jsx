@@ -9,9 +9,8 @@ export const EditProduct = ({ setShowPopUp, editProduct }) => {
     const [token] = useContext(TokenContext);
     const [loading, setLoading] = useState(false);
     const [state, setState] = useState();
-    //const [photos, setPhotos] = useState(product.photos);
-    //const [product, setProduct] = useState({name: name, price: price, description: description, category: category});
     const [product, setProduct] = useState(editProduct);
+    const [photos, setPhotos] = useState(product.photos);
 
     // Compruebo qué recibe el componente
     console.log(product);
@@ -44,6 +43,7 @@ export const EditProduct = ({ setShowPopUp, editProduct }) => {
                 const body = await response.json();
 
                 setState(body.message);
+                setProduct(newProductData);
                 
                 setTimeout(() => {
                     window.location.reload();
@@ -60,38 +60,7 @@ export const EditProduct = ({ setShowPopUp, editProduct }) => {
         }
     }
 
-   /*  const handleDeleteProductPhoto = async (e) => {
-        e.preventDefault();
-
-        const idPhoto = e.target.name;
-        
-        try {
-            const url = `${REACT_APP_LOCALHOST}/products/${product.id}/photos/${idPhoto}`;
-            
-            const response = await fetch(url, {
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: token.token,
-                }
-            });
-
-            setLoading(true);
-
-            if (response.ok) {
-                setState('Foto de producto eliminada!');
-                setPhotos(product.photos);
-            } else {
-                console.error('Hubo un error al eliminar la foto');
-            }
-
-            setLoading(false);
-
-        } catch (error) {
-            console.error(error.message);
-        }
-    } */
-
+    // Esto se irá a otro componente
     const handleAddProductPhoto = async (e) => {
         e.preventDefault();
 
@@ -123,6 +92,7 @@ export const EditProduct = ({ setShowPopUp, editProduct }) => {
             console.error(error.message);
         }
     }
+    //
 
     if (loading) {
         return <h2>Cargando...</h2>
@@ -159,18 +129,18 @@ export const EditProduct = ({ setShowPopUp, editProduct }) => {
                     </li>
                 </ul>
 
-                {/* {photos > 0 ? photos.map((photo, index) => {
+                {photos.length > 0 ? photos.map((photo, index) => {
                     return (
                         <img
                             key={index}
                             src={`${REACT_APP_LOCALHOST}/avatar/${photo.name}`}
                             alt={photo.id}
                             name={photo.id}
-                            onClick={handleDeleteProductPhoto}
+                            /* onClick={handleDeleteProductPhoto} */
                             style={{width: '5rem'}}
                         />
                         )
-                    }) : 'No hay fotos'} */}
+                    }) : 'No hay fotos'}
                 <button className="btn">Aceptar Cambios</button>
                 {state ? <div>{state}</div> : ''}
             </form>

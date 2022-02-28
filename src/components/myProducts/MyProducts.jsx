@@ -46,7 +46,13 @@ export const MyProducts = ({ privateUser }) => {
             <ul>
             {products.length > 0 ? products.map((product) => {
                 return (
-                    <li key={product.id} onClick={() => setEditProduct({id: product.id, name: product.name, price: product.price, description: product.description})}>
+                    <li key={product.id} onClick={() => setEditProduct({
+                                                            id: product.id, 
+                                                            name: product.name, 
+                                                            price: product.price, 
+                                                            description: product.description, 
+                                                            photos: product.photos,
+                                                        })}>
                         <h3 onClick={() => setShowPopUp(true)}>{product.name} - {product.price}€</h3>
                         <p>{product.description}</p>
                         {product.photos.length > 0 ? product.photos.map((photo) => (
