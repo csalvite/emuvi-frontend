@@ -1,4 +1,4 @@
-.carousel-container {
+.carousel-container-pc {
 	width: 100%;
 	height: 90vh;
 	display: block;
@@ -9,7 +9,7 @@
 	background-image: url(/home/marcomgcal/Escritorio/emuvi-front/emuvi/public/resources/images/emuvi-background-1.jpg);
 }
 
-.carousel-container .carousel-title {
+.carousel-container-pc .carousel-title {
 	padding: 6rem 0 4rem 0;
 	text-align: center;
 	color: var(--darkGrey);
@@ -17,32 +17,32 @@
 	font-weight: bold;
 }
 
-.carousel-container .carousel-img {
+.carousel-container-pc .carousel-img {
 	padding: 1rem;
 	height: 13rem;
 	width: 12rem;
 	border-radius: 1.5rem;
 }
 
-.carousel-container .main-carousel-product-name {
+.carousel-container-pc .main-carousel-product-name {
 	text-align: center;
 	font-size: 1.2rem;
 	padding: 0 0 0.4rem;
 }
 
-.carousel-container .carousel-product-price {
+.carousel-container-pc .carousel-product-price {
 	text-align: center;
 	font-size: 1.2rem;
 }
 
-.carousel-container .main-carousel-icon-box {
+.carousel-container-pc .main-carousel-icon-box {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	padding-top: 0.7rem;
 }
 
-.carousel-container .main-carousel-icon-box i {
+.carousel-container-pc .main-carousel-icon-box i {
 	position: relative;
 	width: 45px;
 	height: 45px;
@@ -57,24 +57,24 @@
 	transition: 0.3s ease;
 }
 
-.carousel-container .main-carousel-icon-box .cart {
+.carousel-container-pc .main-carousel-icon-box .cart {
 	border: 2px solid #fec02f;
 	color: #fec02f;
 }
 
-.carousel-container .main-carousel-icon-box .cart:hover {
+.carousel-container-pc .main-carousel-icon-box .cart:hover {
 	border: 3px solid #fec02f;
 	color: #fec02f;
 	box-shadow: none;
 	transform: scale(0.8);
 }
 
-.carousel-container .main-carousel-icon-box .heart {
+.carousel-container-pc .main-carousel-icon-box .heart {
 	border: 2px solid #fb4b6f;
 	color: #fb4b6f;
 }
 
-.carousel-container .main-carousel-icon-box .heart:hover {
+.carousel-container-pc .main-carousel-icon-box .heart:hover {
 	border: 3px solid #fb4b6f;
 	color: #fb4b6f;
 	box-shadow: none;
@@ -112,4 +112,11 @@
 
 .swiper-pagination-bullet-active {
 	background-color: var(--darkGrey);
+}
+
+/* ---- RESPONSIVE ---- */
+@media screen and (max-width: 780px) {
+	.carousel-container-pc {
+		display: none;
+	}
 }

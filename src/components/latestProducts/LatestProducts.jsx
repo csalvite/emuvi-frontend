@@ -22,7 +22,7 @@ const LatestProducts = () => {
 	if (loading) return 'Cargando....';
 	if (error) return <div>{error}</div>;
 	return products.length > 0 ? (
-		<div className="carousel-container">
+		<div className="carousel-container-pc">
 			<h3 className="carousel-title">LO ÚLTIMO EN LLEGAR</h3>
 			<ul className="carousel-list-items">
 				<Swiper
