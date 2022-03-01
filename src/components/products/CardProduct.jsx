@@ -23,8 +23,8 @@ export default function CardProduct(props, product) {
 						<h4 className="card__price">{props.product.price} €</h4>
 					</Link>
 					<div className="card-icon-box">
-						<i class="fa-solid fa-cart-shopping"></i>
-						<i class="fa-solid fa-heart"></i>
+						<i class="fa-solid fa-cart-shopping cart"></i>
+						<i class="fa-solid fa-heart heart"></i>
 					</div>
 				</div>
 				{/*<ButtonNewOffer

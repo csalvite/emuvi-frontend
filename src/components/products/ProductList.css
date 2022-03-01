@@ -1,10 +1,15 @@
 .container_productlist {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(12rem, 16rem));
-  gap: 2rem;
-  justify-content: center;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(12rem, 16rem));
+	gap: 2rem;
+	justify-content: center;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: url(/home/marcomgcal/Escritorio/emuvi-front/emuvi/public/resources/images/emuvi-background-1.jpg);
 }
 ul a {
-  text-decoration: none;
-  color: black;
+	text-decoration: none;
+	color: black;
 }

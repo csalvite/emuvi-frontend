@@ -7,11 +7,10 @@
 	height: 23rem;
 	border-radius: 15px;
 	border: 1px solid var(--black);
-	box-shadow: 0px 4px 4px var(--black-2);
+	box-shadow: 0px 4px 4px grey;
 	font-size: 18px;
 	font-weight: bold;
-	background-color: var(--white);
-	background-image: url('https://www.transparenttextures.com/patterns/worn-dots.png');
+	background-color: var(--lightGrey);
 }
 
 .card__img {
@@ -24,7 +23,7 @@
 .card__title {
 	text-align: center;
 	font-size: 1rem;
-	padding: 1rem 0 0.2rem;
+	padding: 0.7rem 0 0.3rem;
 }
 .card__price {
 	text-align: center;
@@ -32,27 +31,11 @@
 	margin-bottom: 0.8rem;
 }
 
-/*.card__btn {
-	border: 1px solid grey;
-	border-radius: 8px;
-	text-align: center;
-	color: var(--lightGrey);
-	background-color: var(--black-2);
-	font-size: 1.2rem;
-	margin-top: 2rem;
-	padding: 0.3rem 0;
-	transition: 0.2s;
-}
-
-.card__btn:hover {
-	color: var(--green);
-	transform: scale(0.8);
-}*/
-
 .card-icon-box {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	padding-top: 0.1rem;
 }
 
 .card-icon-box i {
@@ -62,25 +45,37 @@
 	font-size: 1.4em;
 	display: grid;
 	place-items: center;
-	color: var(--white);
 	margin: 0.5rem 1rem 2.5rem;
-	padding-top: 0.1rem;
-	border: 2px solid var(--white);
+	padding-top: 0.2rem;
 	border-radius: 50%;
 	box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
-	background-color: var(--darkGrey);
+	background-color: transparent;
 	transition: 0.3s ease;
 }
 
-.card-icon-box i:hover {
-	border: 3px solid;
-	border-color: var(--green);
-	color: var(--white);
+.card-icon-box .cart {
+	border: 2px solid #fec02f;
+	color: #fec02f;
+}
+
+.card-icon-box .cart:hover {
+	border: 3px solid #fec02f;
+	color: #fec02f;
 	box-shadow: none;
-	background-color: var(--darkGrey);
 	transform: scale(0.8);
 }
 
+.card-icon-box .heart {
+	border: 2px solid #fb4b6f;
+	color: #fb4b6f;
+}
+
+.card-icon-box .heart:hover {
+	border: 3px solid #fb4b6f;
+	color: #fb4b6f;
+	box-shadow: none;
+	transform: scale(0.8);
+}
 /* ---- Mi estilo ---- */
 
 @media screen and (max-width: 480px) {
