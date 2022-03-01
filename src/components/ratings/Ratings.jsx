@@ -1,12 +1,13 @@
 import { Avatar, Rating } from "@mui/material";
 import { useEffect, useState } from "react";
+import LoadingComponent from "../loading/loading";
 
 const { REACT_APP_LOCALHOST } = process.env;
 
 const Ratings = ({privateUser}) => {
     
     const [error, setError] = useState(false);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [ratings, setRatings] = useState([]);
 
     useEffect(() => {
@@ -44,7 +45,7 @@ const Ratings = ({privateUser}) => {
 
     if (loading) {
         return (
-          <img src="/resources/vectors/loading.svg" alt="loading" />
+          <LoadingComponent />
       )
     }
 

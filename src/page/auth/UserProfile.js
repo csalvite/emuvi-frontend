@@ -5,7 +5,7 @@ import { MyProducts } from '../../components/myProducts/MyProducts';
 import { UserReceivedOffers } from '../../components/offers/UserReceivedOffers';
 import { UserSendOffers } from '../../components/offers/UserSendOffers';
 import { FavoriteProducts } from '../../components/privateUser/FavoriteProducts';
-import Ratings from '../../components/privateUser/Ratings';
+import Ratings from '../../components/ratings/Ratings';
 import { UserInfo } from '../../components/privateUser/UserInfo';
 import { Sidebar } from '../../components/userMenu/Sidebar';
 import { usePrivateUser } from '../../hooks/usePrivateUser';

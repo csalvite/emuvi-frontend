@@ -1,6 +1,7 @@
-import { Button, IconButton, Snackbar } from "@mui/material";
+import { IconButton, Snackbar } from "@mui/material";
 import { useContext, useState } from "react";
 import { TokenContext } from "../..";
+import LoadingComponent from "../loading/loading";
 import "../popUp/acceptStyle.css";
 import { AddProductPhoto } from "./AddProductPhoto";
 import { DeleteProductPhoto } from "./DeleteProductPhoto";
@@ -11,9 +12,9 @@ export const EditProduct = ({ setShowPopUp, editProduct }) => {
 
     const [token] = useContext(TokenContext);
     const [loading, setLoading] = useState(false);
-    const [state, setState] = useState();
     const [product, setProduct] = useState(editProduct);
     const [photos, setPhotos] = useState(product.photos);
+    const [text, setText] = useState();
 
     const [open, setOpen] = useState(false);
 
@@ -42,9 +43,6 @@ export const EditProduct = ({ setShowPopUp, editProduct }) => {
     </>
   );
 
-    // Compruebo qué recibe el componente
-    console.log(product);
-
     const handleEditProduct = async (e) => {
         e.preventDefault();
 
@@ -70,28 +68,27 @@ export const EditProduct = ({ setShowPopUp, editProduct }) => {
             setLoading(true);
 
             if (response.ok) {
-                const body = await response.json();
-
-                setState(body.message);
                 setProduct(newProductData);
-                
+                setText('Cambios aplicados');
                 setTimeout(() => {
                     window.location.reload();
                 }, 2000);
 
             } else {
+                setText('Error al aplicar los cambios');
                 console.error('Hubo un error al editar el producto');
             }
 
             setLoading(false);
 
         } catch (error) {
+            setText('Error al aplicar los cambios');
             console.error(error.message);
         }
     }
 
     if (loading) {
-        return <h2>Cargando...</h2>
+        return <LoadingComponent />
     }
 
     return (
@@ -100,7 +97,7 @@ export const EditProduct = ({ setShowPopUp, editProduct }) => {
                 open={open}
                 autoHideDuration={6000}
                 onClose={handleClose}
-                message="Cambios aplicados"
+                message={text}
                 action={action}
             />
             <form id="form-accept-offer" onSubmit={handleEditProduct}>
@@ -135,7 +132,6 @@ export const EditProduct = ({ setShowPopUp, editProduct }) => {
                 {photos.length > 0 ? <DeleteProductPhoto productId={product.id} productPhotos={photos} /> : 'No hay fotos'}
                 <AddProductPhoto productId={product.id} />
                 <button onClick={handleClick} className="btn">Aceptar Cambios</button>
-                {state ? <div>{state}</div> : ''}
             </form>
         </div>
     )
