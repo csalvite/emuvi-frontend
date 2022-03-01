@@ -16,38 +16,41 @@ import './LatestProductsCards.css';
 
 const { REACT_APP_LOCALHOST } = process.env;
 
-const LatestProductsResponsive = () => {
+const LatestProductsCards = () => {
 	const { products, loading, error } = useLatestProducts();
 
 	if (loading) return 'Cargando....';
 	if (error) return <div>{error}</div>;
 	return products.length > 0 ? (
-		<div className="carousel-container">
-			<h3 className="carousel-title">LO ÚLTIMO EN LLEGAR</h3>
-			<ul className="carousel-list-items">
+		<div className="cards-carousel-container">
+			<h3 className="cards-carousel-title">LO ÚLTIMO EN LLEGAR</h3>
+			<ul className="cards-carousel-list-items">
 				<Swiper
+					id="cards-swiper"
 					effect={'cards'}
 					grabCursor={true}
-					modules={[EffectCards]}
-					className="mySwiper">
+					modules={[EffectCards]}>
 					{products.map((product) => (
-						<SwiperSlide key={product.id}>
-							<div className="carousel-container">
-								<Link to={`/products/${product.id}`}>
-									<img
-										className="carousel-img"
-										src={
-											product.photos.length > 0
-												? `${REACT_APP_LOCALHOST}/avatar/${product.photos[0].name}`
-												: '/resources/images/product-photo-not-found.jpg'
-										}
-										alt="product_photo"
-										style={{ width: '100%' }}
-									/>
-									<h2 className="carousel-product-name">{product.name}</h2>
-									<h3 className="carousel-product-price">{product.price} €</h3>
-									<p className="detalles-link">Proponer compra</p>
-								</Link>
+						<SwiperSlide id="cards-swiper-slide" key={product.id}>
+							<Link to={`/products/${product.id}`}>
+								<img
+									className="cards-carousel-img"
+									src={
+										product.photos.length > 0
+											? `${REACT_APP_LOCALHOST}/avatar/${product.photos[0].name}`
+											: '/resources/images/product-photo-not-found.jpg'
+									}
+									alt="product_photo"
+									style={{ width: '100%' }}
+								/>
+								<h2 className="cards-carousel-product-name">{product.name}</h2>
+								<h3 className="cards-carousel-product-price">
+									{product.price} €
+								</h3>
+							</Link>
+							<div className="main-carousel-icon-box">
+								<i className="fa-solid fa-cart-shopping cart"></i>
+								<i className="fa-solid fa-heart heart"></i>
 							</div>
 						</SwiperSlide>
 					))}
@@ -59,4 +62,4 @@ const LatestProductsResponsive = () => {
 	);
 };
 
-export default LatestProductsResponsive;
+export default LatestProductsCards;
