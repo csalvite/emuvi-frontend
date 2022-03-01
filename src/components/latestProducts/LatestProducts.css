@@ -1,7 +1,9 @@
+/* ---- DESKTOP VERSION ---- */
+
 .carousel-container-pc {
 	width: 100%;
 	height: 90vh;
-	display: block;
+	display: block !important;
 	background-attachment: fixed;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -113,10 +115,13 @@
 .swiper-pagination-bullet-active {
 	background-color: var(--darkGrey);
 }
+/* ---- DESKTOP VERSION END ---- */
 
-/* ---- RESPONSIVE ---- */
-@media screen and (max-width: 780px) {
+/* ---- RESPONSIVE VERSION ---- */
+@media screen and (max-width: 740px) {
 	.carousel-container-pc {
-		display: none;
+		position: absolute !important;
+		top: -9999px !important;
+		left: -9999px !important;
 	}
 }
