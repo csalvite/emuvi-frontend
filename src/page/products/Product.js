@@ -7,12 +7,13 @@ import ProductPhoto from '../../components/products/ProductPhoto';
 import ProductSingleData from '../../components/products/ProductSingleData';
 import UserMapProduct from '../../components/products/UserMapProduct';
 import { PublicUserAccess } from '../../components/publicUser/PublicUserAccess';
+import { usePrivateUser } from '../../hooks/usePrivateUser';
 import useProductDetail from '../../hooks/useProductDetail';
 import './Product.css';
 // Página Producto en Detalle
 const Product = (props) => {
-  // const [user] = usePrivateUser();
   const { product } = useProductDetail();
+  const { privateUser } = usePrivateUser();
 
   return (
     <>
@@ -30,7 +31,7 @@ const Product = (props) => {
       </div>
 
       <PublicUserAccess idUser={product.idUser} />
-      <ButtonNewOffer idProduct={product.id} idUser={product.idUser} />
+      <ButtonNewOffer idProduct={product.id} idUser={privateUser.id} />
       <Footer />
     </>
   );
