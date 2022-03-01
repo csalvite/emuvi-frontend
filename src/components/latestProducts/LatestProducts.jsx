@@ -73,4 +73,48 @@ const LatestProducts = () => {
 	);
 };
 
+const LatestProductsResponsive = () => {
+	const { products, loading, error } = useLatestProducts();
+
+	if (loading) return 'Cargando....';
+	if (error) return <div>{error}</div>;
+	return products.length > 0 ? (
+		<div className="carousel-container">
+			<h3 className="carousel-title">LO ÚLTIMO EN LLEGAR</h3>
+			<ul className="carousel-list-items">
+				<Swiper
+					effect={'cards'}
+					grabCursor={true}
+					modules={[EffectCards]}
+					className="mySwiper">
+					{products.map((product) => (
+						<SwiperSlide key={product.id}>
+							<div className="carousel-container">
+								<Link to={`/products/${product.id}`}>
+									<img
+										className="carousel-img"
+										src={
+											product.photos.length > 0
+												? `${REACT_APP_LOCALHOST}/avatar/${product.photos[0].name}`
+												: '/resources/images/product-photo-not-found.jpg'
+										}
+										alt="product_photo"
+										style={{ width: '100%' }}
+									/>
+									<h2 className="carousel-product-name">{product.name}</h2>
+									<h3 className="carousel-product-price">{product.price} €</h3>
+									<p className="detalles-link">Proponer compra</p>
+								</Link>
+							</div>
+						</SwiperSlide>
+					))}
+				</Swiper>
+			</ul>
+		</div>
+	) : (
+		<div>No hay productos</div>
+	);
+};
+
 export default LatestProducts;
+export default LatestProductsResponsive;
