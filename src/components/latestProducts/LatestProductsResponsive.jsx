@@ -1,8 +1,19 @@
+import React from 'react';
+
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/effect-cards';
+
+import './LatestProductsResponsive.css';
+
+// import required modules
+import { EffectCards } from 'swiper';
+
 import useLatestProducts from '../../hooks/useLatestProducts';
 import { Link } from 'react-router-dom';
-import './Carousel.css';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCards } from 'swiper';
 
 const { REACT_APP_LOCALHOST } = process.env;
 
