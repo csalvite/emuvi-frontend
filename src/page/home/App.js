@@ -4,7 +4,7 @@ import Header1 from '../../components/header/Header';
 import Categories from '../../components/categories/Categories';
 import Footer from '../../components/footer/Footer';
 import LatestProducts from '../../components/latestProducts/LatestProducts';
-import LatestProductsResponsive from '../../components/latestProducts/LatestProductsResponsive';
+import LatestProductsCards from '../../components/latestProducts/LatestProductsCards';
 
 function App() {
 	return (
@@ -12,7 +12,7 @@ function App() {
 			<Header1 />
 			<main>
 				<LatestProducts />
-				<LatestProductsResponsive />
+				<LatestProductsCards />
 				<Categories />
 			</main>
 			<Footer />

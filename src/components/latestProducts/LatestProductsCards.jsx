@@ -7,13 +7,12 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/effect-cards';
 
-import './LatestProductsResponsive.css';
-
 // import required modules
 import { EffectCards } from 'swiper';
 
 import useLatestProducts from '../../hooks/useLatestProducts';
 import { Link } from 'react-router-dom';
+import './LatestProductsCards.css';
 
 const { REACT_APP_LOCALHOST } = process.env;
 
