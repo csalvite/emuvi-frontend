@@ -1,3 +1,11 @@
+import useLatestProducts from '../../hooks/useLatestProducts';
+import { Link } from 'react-router-dom';
+import './Carousel.css';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { EffectCards } from 'swiper';
+
+const { REACT_APP_LOCALHOST } = process.env;
+
 const LatestProductsResponsive = () => {
 	const { products, loading, error } = useLatestProducts();
 
