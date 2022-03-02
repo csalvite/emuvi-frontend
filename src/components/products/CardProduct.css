@@ -7,7 +7,7 @@
 	height: 23rem;
 	border-radius: 15px;
 	border: 1px solid var(--black);
-	box-shadow: 0px 4px 4px grey;
+	box-shadow: 0px 4px 4px var(--darkGrey);
 	font-size: 18px;
 	font-weight: bold;
 	background-color: var(--lightGrey);

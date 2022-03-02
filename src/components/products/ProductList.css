@@ -1,15 +1,24 @@
-.container_productlist {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(12rem, 16rem));
-	gap: 2rem;
+.products-section {
+	background-image: url(/home/marcomgcal/Escritorio/emuvi-front/emuvi/public/resources/images/emuvi-background-1.jpg);
 	justify-content: center;
 	background-attachment: fixed;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	background-image: url(/home/marcomgcal/Escritorio/emuvi-front/emuvi/public/resources/images/emuvi-background-1.jpg);
+}
+
+.products-main-title {
+	background-color: transparent;
+	font-size: 1.7rem;
+}
+
+.container_productlist {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, 230px);
+	gap: 40px;
+	padding: 40px;
 }
 ul a {
 	text-decoration: none;
-	color: black;
+	color: var(--darkGrey);
 }
