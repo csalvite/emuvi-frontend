@@ -18,11 +18,9 @@ const useProducts = () => {
 
   const [params] = useSearchParams();
 
-  // const search = params.get('search');
-
   const order = params.get('order') || 'createdAt';
   const direction = params.get('direction') || 'DESC';
-  let search = params.get('search') || 'order';
+  let search = params.get('search');
 
   useEffect(() => {
     const getProducts = async () => {
