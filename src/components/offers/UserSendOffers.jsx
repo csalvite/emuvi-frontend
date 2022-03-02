@@ -56,7 +56,7 @@ export const UserSendOffers = ({ idUser }) => {
                         <h4>{offer.product}</h4>
                         <p>Estado de la reserva: <strong>{offer.reserveStatus}</strong></p>
                         <p>Fecha de creación: {new Date(offer.createdAt).toLocaleDateString()}</p>
-                        {offer.reserveStatus === 'aceptada' ? <NewRating idUser={offer.sellerId} /> : ''}
+                        {offer.reserveStatus === 'aceptada' ? <NewRating idUser={offer.sellerId} idProduct={offer.idProduct} /> : ''}
                     </div>
                 )
             })}

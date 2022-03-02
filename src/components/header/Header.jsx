@@ -34,9 +34,7 @@ function Header1() {
           </div> */}
 
 					{token ? (
-						<>
-							<ProfileHeader />
-						</>
+						<ProfileHeader />
 					) : (
 						<LoginButton />
 					)}

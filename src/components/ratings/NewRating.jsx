@@ -1,13 +1,40 @@
-import { Rating } from "@mui/material";
+import { IconButton, Rating, Snackbar } from "@mui/material";
 import { useState } from "react";
 import { useContext } from "react";
 import { TokenContext } from "../..";
 
 const { REACT_APP_LOCALHOST } = process.env;
 
-const NewRating = ({ idUser }) => {
+const NewRating = ({ idUser, idProduct }) => {
     const [token] = useContext(TokenContext);
     const [value, setValue] = useState();
+    const [text, setText] = useState();
+    const [open, setOpen] = useState(false);
+
+    const handleClick = () => {
+        setOpen(true);
+    };
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+        return;
+        }
+
+        setOpen(false);
+    };
+
+    const action = (
+        <>
+        <IconButton
+            size="small"
+            aria-label="close"
+            color="inherit"
+            onClick={handleClose}
+        >
+            <i class="fa-solid fa-circle-xmark"></i>
+        </IconButton>
+        </>
+    );
 
     const handleNewRating = async (e) => {
         e.preventDefault();
@@ -20,7 +47,7 @@ const NewRating = ({ idUser }) => {
         console.log(newRating);
 
         try {
-            const url = `${REACT_APP_LOCALHOST}/users/${idUser}/votes`;
+            const url = `${REACT_APP_LOCALHOST}/users/${idUser}/votes/${idProduct}`;
 
             const response = await fetch(url, {
                 method: 'POST',
@@ -33,31 +60,42 @@ const NewRating = ({ idUser }) => {
 
             if (response.ok) {
                 const body = await response.json();
-
+                setText('Comentario enviado con éxito');
                 console.log(body);
             } else {
                 console.log('Algo ha ido mal');
+                setText('Error al enviar el comentario');
             }
         } catch(error) {
             console.error(error.message);
+            setText('Error al enviar el comentario');
         }
     }
 
     return (
-        <form className="new-rating-form" onSubmit={handleNewRating}>
-            <h4>Para mejorar la experiencia de otros usuarios con EMUVI deja una reseña del vendedor:</h4>
-            <label>Puntuación: </label>
-            <Rating
-                name="rating"
-                value={value}
-                onChange={(event, newValue) => {
-                    setValue(newValue);
-                }}
+        <>
+            <Snackbar
+                open={open}
+                autoHideDuration={6000}
+                onClose={handleClose}
+                message={text}
+                action={action}
             />
-            <label>Tu comentario: </label>
-            <input type='text' name='comment' placeholder='Escribe aqui tu comentario...' />
-            <button>Submit</button>
-        </form>
+            <form className="new-rating-form" onSubmit={handleNewRating}>
+                <h4>Para mejorar la experiencia de otros usuarios con EMUVI deja una reseña del vendedor:</h4>
+                <label>Puntuación: </label>
+                <Rating
+                    name="rating"
+                    value={value}
+                    onChange={(event, newValue) => {
+                        setValue(newValue);
+                    }}
+                />
+                <label>Tu comentario: </label>
+                <input type='text' name='comment' placeholder='Escribe aqui tu comentario...' />
+                <button onClick={() => handleClick()}>Submit</button>
+            </form>
+        </>
     );
 }
 

@@ -46,7 +46,7 @@ export const ProfileHeader = () => {
         <Box
           sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}
         >
-          <Tooltip title=''>
+          <Tooltip title={privateUser.username}>
             <IconButton
               onClick={handleClick}
               size='small'

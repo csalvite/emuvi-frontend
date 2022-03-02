@@ -10,7 +10,6 @@ export const FormAcceptOffer = ({ setShowPopUp, idUser, idOffer, reserveStatus }
     const [loading, setLoading] = useState(false);
     const [state, setState] = useState();
 
-
     const handleAcceptOffer = async (e) => {
         e.preventDefault();
 
@@ -83,7 +82,7 @@ export const FormAcceptOffer = ({ setShowPopUp, idUser, idOffer, reserveStatus }
                     </li>
                     <li>
                         <label htmlFor="date">Fecha: </label>
-                        <input type='text' name='date' id="date" />
+                        <input type='date' name="date" id="date" />
                     </li>
                 </ul>
                 <button className="btn">Aceptar Oferta</button>

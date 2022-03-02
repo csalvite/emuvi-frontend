@@ -24,9 +24,7 @@ function JustNav() {
           </div> */}
 
           {token ? (
-            <>
-              <ProfileHeader />
-            </>
+            <ProfileHeader />
           ) : (
             <LoginButton />
           )}

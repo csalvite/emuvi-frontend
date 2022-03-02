@@ -43,10 +43,6 @@ const PublicUser = () => {
     getPublicUser();
   }, [idUser]);
 
-  console.log(user);
-  console.log(ratings.data);
-  console.log(products.data);
-
   return (
     <div className='public-user'>
       <JustNav />

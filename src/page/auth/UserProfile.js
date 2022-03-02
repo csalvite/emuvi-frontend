@@ -50,29 +50,30 @@ function UserProfile() {
   let element = useRoutes(routes);
 
   return privateUser ? (
-    <div className='user-profile'>
+    <>
       <JustNav />
-      {privateUser.active ? (
-        ''
-      ) : (
-        <div>
-          El usuario no está activo, para activarlo comprueba tu correo y
-          completa el registro!
+      <div className='user-profile'>
+        {privateUser.active ? (
+          ''
+        ) : (
+          <div>
+            El usuario no está activo, para activarlo comprueba tu correo y
+            completa el registro!
+          </div>
+        )}
+
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'flex-start',
+            gap: '10rem',
+          }}
+        >
+          {element}
         </div>
-      )}
-
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'flex-start',
-          gap: '10rem',
-        }}
-      >
-        {element}
       </div>
-
       <Footer />
-    </div>
+    </>
   ) : (
     <div>Usuario borrado o inexistente</div>
   );
