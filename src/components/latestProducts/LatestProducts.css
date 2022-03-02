@@ -1,0 +1,126 @@
+/* ---- DESKTOP VERSION ---- */
+
+.carousel-container-pc {
+	width: 100%;
+	height: 90vh;
+	display: block !important;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: url(/home/marcomgcal/Escritorio/emuvi-front/emuvi/public/resources/images/emuvi-background-1.jpg);
+}
+
+.carousel-container-pc .carousel-title {
+	padding: 6rem 0 4rem 0;
+	text-align: center;
+	color: var(--darkGrey);
+	font-size: 1.7rem;
+	font-weight: bold;
+}
+
+.carousel-container-pc .carousel-img {
+	padding: 1rem;
+	height: 13rem;
+	width: 12rem;
+	border-radius: 1.5rem;
+}
+
+.carousel-container-pc .main-carousel-product-name {
+	text-align: center;
+	font-size: 1.2rem;
+	padding: 0 0 0.4rem;
+}
+
+.carousel-container-pc .carousel-product-price {
+	text-align: center;
+	font-size: 1.2rem;
+}
+
+.carousel-container-pc .main-carousel-icon-box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 0.7rem;
+}
+
+.carousel-container-pc .main-carousel-icon-box i {
+	position: relative;
+	width: 45px;
+	height: 45px;
+	font-size: 1.4em;
+	display: grid;
+	place-items: center;
+	margin: 0.5rem 1rem 2.5rem;
+	padding-top: 0.2rem;
+	border-radius: 50%;
+	box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+	background-color: transparent;
+	transition: 0.3s ease;
+}
+
+.carousel-container-pc .main-carousel-icon-box .cart {
+	border: 2px solid #fec02f;
+	color: #fec02f;
+}
+
+.carousel-container-pc .main-carousel-icon-box .cart:hover {
+	border: 3px solid #fec02f;
+	color: #fec02f;
+	box-shadow: none;
+	transform: scale(0.8);
+}
+
+.carousel-container-pc .main-carousel-icon-box .heart {
+	border: 2px solid #fb4b6f;
+	color: #fb4b6f;
+}
+
+.carousel-container-pc .main-carousel-icon-box .heart:hover {
+	border: 3px solid #fb4b6f;
+	color: #fb4b6f;
+	box-shadow: none;
+	transform: scale(0.8);
+}
+
+/* ---- Swiper JS Carousel ---- */
+.swiper {
+	width: 48rem;
+	height: 24rem;
+}
+
+.swiper-slide {
+	display: inline-block;
+	align-items: flex-start;
+	justify-content: center;
+	border-radius: 15px;
+	border: 1px solid grey;
+	box-shadow: 0px 4px 4px grey;
+	font-size: 18px;
+	font-weight: bold;
+	background-color: var(--lightGrey);
+}
+
+.swiper-pagination-fraction {
+	bottom: 0;
+}
+
+.swiper-pagination-bullet {
+	background-color: var(--darkGrey);
+	width: 12px;
+	height: 5px;
+	border-radius: 5px;
+}
+
+.swiper-pagination-bullet-active {
+	background-color: var(--darkGrey);
+}
+/* ---- DESKTOP VERSION END ---- */
+
+@media screen and (max-width: 740px) {
+	.carousel-container-pc {
+		position: absolute !important;
+		top: -9999px !important;
+		left: -9999px !important;
+	}
+}

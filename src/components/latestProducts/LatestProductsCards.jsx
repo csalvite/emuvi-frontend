@@ -1,53 +1,40 @@
 import React from 'react';
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
-import 'swiper/css/effect-coverflow';
-import 'swiper/css/pagination';
+import 'swiper/css/effect-cards';
 
 // import required modules
-import { EffectCoverflow, Navigation, Pagination } from 'swiper';
+import { EffectCards } from 'swiper';
 
 import useLatestProducts from '../../hooks/useLatestProducts';
 import { Link } from 'react-router-dom';
-import './LatestProducts.css';
+import './LatestProductsCards.css';
 
 const { REACT_APP_LOCALHOST } = process.env;
 
-const LatestProducts = () => {
+const LatestProductsCards = () => {
 	const { products, loading, error } = useLatestProducts();
 
 	if (loading) return 'Cargando....';
 	if (error) return <div>{error}</div>;
 	return products.length > 0 ? (
-		<div className="carousel-container-pc">
-			<h3 className="carousel-title">LO ÚLTIMO EN LLEGAR</h3>
-			<ul className="carousel-list-items">
+		<div className="cards-carousel-container">
+			<h3 className="cards-carousel-title">LO ÚLTIMO EN LLEGAR</h3>
+			<ul className="cards-carousel-list-items">
 				<Swiper
-					modules={[EffectCoverflow, Pagination, Navigation]}
-					className="mySwiper"
-					navigation={true}
-					effect={'coverflow'}
-					centeredSlides={true}
-					slidesPerView={3}
-					loop={true}
-					coverflowEffect={{
-						rotate: 50,
-						stretch: 0,
-						depth: 100,
-						modifier: 1,
-						slideShadows: true,
-					}}
-					pagination={{
-						clickable: true,
-					}}>
+					id="cards-swiper"
+					effect={'cards'}
+					grabCursor={true}
+					modules={[EffectCards]}>
 					{products.map((product) => (
-						<SwiperSlide key={product.id}>
+						<SwiperSlide id="cards-swiper-slide" key={product.id}>
 							<Link to={`/products/${product.id}`}>
 								<img
-									className="carousel-img"
+									className="cards-carousel-img"
 									src={
 										product.photos.length > 0
 											? `${REACT_APP_LOCALHOST}/avatar/${product.photos[0].name}`
@@ -56,8 +43,10 @@ const LatestProducts = () => {
 									alt="product_photo"
 									style={{ width: '100%' }}
 								/>
-								<h2 className="main-carousel-product-name">{product.name}</h2>
-								<h3 className="carousel-product-price">{product.price} €</h3>
+								<h2 className="cards-carousel-product-name">{product.name}</h2>
+								<h3 className="cards-carousel-product-price">
+									{product.price} €
+								</h3>
 							</Link>
 							<div className="main-carousel-icon-box">
 								<i className="fa-solid fa-cart-shopping cart"></i>
@@ -73,4 +62,4 @@ const LatestProducts = () => {
 	);
 };
 
-export default LatestProducts;
+export default LatestProductsCards;
