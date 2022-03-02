@@ -3,9 +3,9 @@ import CardProduct from './CardProduct';
 import useProducts from '../../hooks/useProducts';
 import './ProductList.css';
 import { useState } from 'react';
-// const { REACT_APP_LOCALHOST } = process.env;
-
-// const { REACT_APP_LOCALHOST } = process.env;
+import Buttonproducts from './Buttonproducts';
+import LoadingComponent from '../loading/loading';
+import { ButtonFavProduct } from './ButtonAddFavProducts';
 
 const ProductList = () => {
 	const [currentPage, setCurrentPage] = useState(0);

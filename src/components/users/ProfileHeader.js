@@ -17,7 +17,7 @@ const { REACT_APP_LOCALHOST } = process.env;
 
 export const ProfileHeader = () => {
   const [token] = useContext(TokenContext);
-  const [user] = usePrivateUser();
+  const { privateUser } = usePrivateUser();
 
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -59,8 +59,8 @@ export const ProfileHeader = () => {
               <Avatar
                 alt=''
                 src={
-                  user
-                    ? `${REACT_APP_LOCALHOST}/avatar/${user.avatar}`
+                  privateUser
+                    ? `${REACT_APP_LOCALHOST}/avatar/${privateUser.avatar}`
                     : '/resources/images/cat_chibi.jpeg'
                 }
                 sx={{ width: 56, height: 56 }}

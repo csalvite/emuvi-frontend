@@ -1,78 +1,78 @@
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Lato:ital,wght@0,300;0,400;1,300&family=Poppins:wght@400;500;600;700&display=swap');
 article ul li {
-	padding: 10px;
-	list-style: decimal-leading-zero;
+  padding: 10px;
+  list-style: decimal-leading-zero;
 }
 
 article h3 {
-	color: var(--green);
+  color: var(--green);
 }
 
 .footer {
-	background-color: var(--black-2);
-	display: flex;
-	flex-direction: column;
-	justify-content: space-evenly;
-	position: relative;
-	bottom: 0;
+  background-color: var(--black-2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  position: relative;
+  bottom: 0;
 }
 
 #footer-bottom-part {
-	display: flex;
-	justify-content: space-evenly;
-	flex-wrap: wrap;
-	padding: 0.5rem;
-	background-color: var(--black-2);
-	border-top: 1px solid grey;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 0.5rem;
+  background-color: var(--black-2);
+  border-top: 1px solid grey;
 }
 .bottom-link {
-	font-size: 0.9rem;
-	background-color: transparent;
-	padding: 0.5rem 1rem;
-	border-color: transparent;
-	color: rgb(211, 206, 206);
+  font-size: 0.9rem;
+  background-color: transparent;
+  padding: 0.5rem 1rem;
+  border-color: transparent;
+  color: rgb(211, 206, 206);
 }
 .bottom-link:hover {
-	color: greenyellow;
+  color: greenyellow;
 }
 
 .footer-copyright {
-	font-size: 0.9rem;
-	color: rgb(211, 206, 206);
-	padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  color: rgb(211, 206, 206);
+  padding: 0.5rem 1rem;
 }
 
 #footer-social-icons {
-	color: var(--lightGrey);
-	display: flex;
-	background-color: var(--black-2);
-	flex-wrap: wrap;
-	align-items: center;
-	justify-content: space-around;
-	padding-top: 1.3rem;
-	padding-bottom: 1.3rem;
+  color: var(--lightGrey);
+  display: flex;
+  background-color: var(--black-2);
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 1.3rem;
+  padding-bottom: 1.3rem;
 }
 
 @media screen and (max-width: 480px) {
-	.footer {
-		display: inline;
-	}
+  .footer {
+    display: inline;
+  }
 
-	.footer-copyright {
-		font-size: 0.5rem;
-	}
+  .footer-copyright {
+    font-size: 0.5rem;
+  }
 
-	.bottom-link {
-		font-size: 0.5rem;
-		text-transform: uppercase;
-		padding: 0.5rem;
-		background-color: transparent;
-		padding: 0.5rem 1rem;
-		border-color: transparent;
-		color: rgb(211, 206, 206);
-	}
+  .bottom-link {
+    font-size: 0.5rem;
+    text-transform: uppercase;
+    padding: 0.5rem;
+    background-color: transparent;
+    padding: 0.5rem 1rem;
+    border-color: transparent;
+    color: rgb(211, 206, 206);
+  }
 
-	#footer-social-icons {
-		padding-bottom: 3rem;
-	}
+  #footer-social-icons {
+    padding-bottom: 3rem;
+  }
 }

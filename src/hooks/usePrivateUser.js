@@ -5,7 +5,7 @@ const { REACT_APP_LOCALHOST } = process.env;
 
 const usePrivateUser = () => {
   const [token] = useContext(TokenContext);
-  const [privateUser, setPrivateUser] = useState(null);
+  const [privateUser, setPrivateUser] = useState([]);
 
   useEffect(() => {
     const getUser = async () => {
@@ -32,7 +32,7 @@ const usePrivateUser = () => {
     getUser();
   }, [token.token]);
 
-  return [privateUser];
+  return { privateUser };
 };
 
 export { usePrivateUser };

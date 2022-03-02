@@ -1,18 +1,47 @@
+import { IconButton, Snackbar } from "@mui/material";
 import { useContext, useState } from "react";
 import { TokenContext } from "../..";
+import LoadingComponent from "../loading/loading";
 import "../popUp/acceptStyle.css";
+import { AddProductPhoto } from "./AddProductPhoto";
+import { DeleteProductPhoto } from "./DeleteProductPhoto";
 
 const { REACT_APP_LOCALHOST } = process.env;
 
-export const EditProduct = ({ setShowPopUp, name, price, description, category }) => {
+export const EditProduct = ({ setShowPopUp, editProduct }) => {
 
     const [token] = useContext(TokenContext);
     const [loading, setLoading] = useState(false);
-    const [state, setState] = useState();
-    //const [photos, setPhotos] = useState(product.photos);
-    const [product, setProduct] = useState({name: name, price: price, description: description, category: category});
+    const [product, setProduct] = useState(editProduct);
+    const [photos, setPhotos] = useState(product.photos);
+    const [text, setText] = useState();
 
-    console.log(product);
+    const [open, setOpen] = useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
+
+  const action = (
+    <>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={handleClose}
+      >
+        <i class="fa-solid fa-circle-xmark"></i>
+      </IconButton>
+    </>
+  );
 
     const handleEditProduct = async (e) => {
         e.preventDefault();
@@ -39,95 +68,38 @@ export const EditProduct = ({ setShowPopUp, name, price, description, category }
             setLoading(true);
 
             if (response.ok) {
-                const body = await response.json();
-
-                setState(body.message);
-                
+                setProduct(newProductData);
+                setText('Cambios aplicados');
                 setTimeout(() => {
                     window.location.reload();
                 }, 2000);
 
             } else {
+                setText('Error al aplicar los cambios');
                 console.error('Hubo un error al editar el producto');
             }
 
             setLoading(false);
 
         } catch (error) {
-            console.error(error.message);
-        }
-    }
-
-   /*  const handleDeleteProductPhoto = async (e) => {
-        e.preventDefault();
-
-        const idPhoto = e.target.name;
-        
-        try {
-            const url = `${REACT_APP_LOCALHOST}/products/${product.id}/photos/${idPhoto}`;
-            
-            const response = await fetch(url, {
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: token.token,
-                }
-            });
-
-            setLoading(true);
-
-            if (response.ok) {
-                setState('Foto de producto eliminada!');
-                setPhotos(product.photos);
-            } else {
-                console.error('Hubo un error al eliminar la foto');
-            }
-
-            setLoading(false);
-
-        } catch (error) {
-            console.error(error.message);
-        }
-    } */
-
-    const handleAddProductPhoto = async (e) => {
-        e.preventDefault();
-
-        const idPhoto = e.target.name;
-        
-        try {
-            const url = `${REACT_APP_LOCALHOST}/products/${product.id}/photos/${idPhoto}`;
-            
-            const response = await fetch(url, {
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: token.token,
-                }
-            });
-
-            setLoading(true);
-
-            if (response.ok) {
-                setState('Foto de producto eliminada!');
-               // setPhotos(product.photos);
-            } else {
-                console.error('Hubo un error al eliminar la foto');
-            }
-
-            setLoading(false);
-
-        } catch (error) {
+            setText('Error al aplicar los cambios');
             console.error(error.message);
         }
     }
 
     if (loading) {
-        return <h2>Cargando...</h2>
+        return <LoadingComponent />
     }
 
     return (
         <div id="popup-background" className="accept-offer" style={{zIndex: '1'}}>
+            <Snackbar
+                open={open}
+                autoHideDuration={6000}
+                onClose={handleClose}
+                message={text}
+                action={action}
+            />
             <form id="form-accept-offer" onSubmit={handleEditProduct}>
                 <span className="close-popup" onClick={() => setShowPopUp(false)}>X</span>
                 <h4>Edita información de {product.name} {product.category}</h4>
@@ -157,20 +129,9 @@ export const EditProduct = ({ setShowPopUp, name, price, description, category }
                     </li>
                 </ul>
 
-                {/* {photos > 0 ? photos.map((photo, index) => {
-                    return (
-                        <img
-                            key={index}
-                            src={`${REACT_APP_LOCALHOST}/avatar/${photo.name}`}
-                            alt={photo.id}
-                            name={photo.id}
-                            onClick={handleDeleteProductPhoto}
-                            style={{width: '5rem'}}
-                        />
-                        )
-                    }) : 'No hay fotos'} */}
-                <button className="btn">Aceptar Cambios</button>
-                {state ? <div>{state}</div> : ''}
+                {photos.length > 0 ? <DeleteProductPhoto productId={product.id} productPhotos={photos} /> : 'No hay fotos'}
+                <AddProductPhoto productId={product.id} />
+                <button onClick={handleClick} className="btn">Aceptar Cambios</button>
             </form>
         </div>
     )

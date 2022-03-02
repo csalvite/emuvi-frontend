@@ -72,12 +72,13 @@ function ValidateRegister() {
   });
 
   return (
-    <div className='register-form'>
+    <div>
+      {/* className='register-form' he quitado esta clase porque dejaba unos estilos "un tanto raros" xD - cesar */}
       <JustNav />
       <h1>Formulario para completar el registro en EMUVI</h1>
       <p>
         Para poder poner en venta tus productos en emuvi nos es necesaria cierta
-        información a mayores que será utilizada únicamente para las ventas :)
+        información a mayores que será utilizada únicamente para las ventas
       </p>
 
       <form onSubmit={register}>

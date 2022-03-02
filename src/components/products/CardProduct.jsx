@@ -1,6 +1,8 @@
 import { ButtonNewOffer } from '../offers/ButtonNewOffer';
 import './CardProduct.css';
 import { Link } from 'react-router-dom';
+import { usePrivateUser } from '../../hooks/usePrivateUser';
+import { ButtonFavProduct } from './ButtonAddFavProducts';
 const { REACT_APP_LOCALHOST } = process.env;
 
 export default function CardProduct(props, product) {

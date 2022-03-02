@@ -48,11 +48,11 @@ export function ButtonDeleteUser({id}) {
                 <ul>
                     <li>
                         <label>Contraseña: </label>
-                        <input type='text' name="password" />
+                        <input type='password' name="password" />
                     </li>
                     <li>
                         <label>Repite Contraseña: </label>
-                        <input type='text' name="confirmPassword" />
+                        <input type='password' name="confirmPassword" />
                     </li>
                     <li>
                         <button className="btn">Borrar Usuario</button>

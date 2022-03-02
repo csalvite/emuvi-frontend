@@ -151,9 +151,7 @@ export const Sidebar = ({privateUser}) => {
                         onClick={() => handleProfileClick()}
                         alt={privateUser.username}
                         src={
-                        privateUser.avatar
-                            ? `${REACT_APP_LOCALHOST}/avatar/${privateUser.avatar}`
-                            : '/resources/images/cat_chibi.jpeg'
+                        `${REACT_APP_LOCALHOST}/avatar/${privateUser.avatar}`
                         }
                         sx={{ width: "2.5rem", height: "2.5rem" }}
                     />

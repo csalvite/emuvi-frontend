@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 const { REACT_APP_LOCALHOST } = process.env;
 
-export const usePublicUser = (idUser) => {
+export const usePublicUser = ({ idUser }) => {
   const [user, setUser] = useState();
 
   useEffect(() => {
