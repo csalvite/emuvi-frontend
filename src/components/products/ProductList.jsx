@@ -3,7 +3,6 @@ import CardProduct from './CardProduct';
 import useProducts from '../../hooks/useProducts';
 import './ProductList.css';
 import { useState } from 'react';
-import Buttonproducts from './Buttonproducts';
 // const { REACT_APP_LOCALHOST } = process.env;
 
 // const { REACT_APP_LOCALHOST } = process.env;
@@ -33,7 +32,17 @@ const ProductList = () => {
 						return <CardProduct product={product} key={product.id} />;
 					})}
 				</ul>
-				<Buttonproducts nextPage={nextPage} prevPage={prevPage} />
+				<div id="pagination-product-container">
+					<button className="prev-btn" onClick={prevPage}>
+						<i className="fa-solid fa-angle-left prev-pagination-icon"></i>
+						PREV
+					</button>
+					&nbsp;
+					<button className="next-btn" onClick={nextPage}>
+						NEXT
+						<i className="fa-solid fa-angle-right next-pagination-icon"></i>
+					</button>
+				</div>
 			</section>
 		</>
 	) : (

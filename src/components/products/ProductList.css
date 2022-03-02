@@ -18,7 +18,51 @@
 	gap: 40px;
 	padding: 40px;
 }
+
 ul a {
 	text-decoration: none;
 	color: var(--darkGrey);
+}
+
+#pagination-product-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 2rem 0 3rem;
+}
+
+.prev-btn {
+	color: var(--lightGrey);
+	padding: 0.4rem 0.6rem 0.4rem 0.9rem;
+	border-radius: 30px 5px 5px 30px;
+	background-color: var(--darkGrey);
+	border: 3px solid grey;
+	font-size: 1.1rem;
+}
+
+.prev-btn:hover {
+	margin-right: 0.6rem;
+	color: var(--green);
+}
+
+.prev-pagination-icon {
+	padding-right: 0.5rem;
+}
+
+.next-btn {
+	color: var(--lightGrey);
+	padding: 0.4rem 0.9rem 0.4rem 0.6rem;
+	border-radius: 5px 30px 30px 5px;
+	background-color: var(--darkGrey);
+	border: 3px solid grey;
+	font-size: 1.1rem;
+}
+
+.next-btn:hover {
+	margin-left: 0.6rem;
+	color: var(--green);
+}
+
+.next-pagination-icon {
+	padding-left: 0.5rem;
 }
