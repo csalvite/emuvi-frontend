@@ -60,6 +60,7 @@ export const MyProducts = ({ privateUser }) => {
                     <li key={product.id} onClick={() => setEditProduct({
                                                             id: product.id, 
                                                             name: product.name, 
+                                                            category: product.category,
                                                             price: product.price, 
                                                             description: product.description, 
                                                             photos: product.photos,

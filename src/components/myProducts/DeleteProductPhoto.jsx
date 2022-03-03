@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { TokenContext } from "../..";
+import LoadingComponent from "../loading/loading";
 
 const { REACT_APP_LOCALHOST } = process.env;
 
@@ -8,8 +9,6 @@ const DeleteProductPhoto = ({ productId, productPhotos }) => {
     const [loading, setLoading] = useState(false);
     const [state, setState] = useState();
     const [photos, setPhotos] = useState(productPhotos);
-
-    console.log(productPhotos);
 
     const handleDeleteProductPhoto = async (e) => {
         e.preventDefault();
@@ -31,6 +30,8 @@ const DeleteProductPhoto = ({ productId, productPhotos }) => {
 
             if (response.ok) {
                 setState('Foto de producto eliminada!');
+                const arrNew = photos.filter((photo) => photo.id !== Number(idPhoto));
+                setPhotos(arrNew);
             } else {
                 console.error('Hubo un error al eliminar la foto');
             }
@@ -42,7 +43,9 @@ const DeleteProductPhoto = ({ productId, productPhotos }) => {
         }
     }
 
-    console.log('Holi deleteproductofoto');
+    if (loading) {
+        return <LoadingComponent />
+    }
 
     return (
         <>

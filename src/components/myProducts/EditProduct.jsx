@@ -127,10 +127,14 @@ export const EditProduct = ({ setShowPopUp, editProduct }) => {
                             <option value="otros">Otros</option>
                         </select>
                     </li>
+                    <li>
+                        {photos.length > 0 ? <DeleteProductPhoto productId={product.id} productPhotos={photos} /> : 'No hay fotos'}
+                    </li>
+                    <li>
+                        <label>Añade una nueva foto de producto:</label>
+                        <AddProductPhoto productId={product.id} />
+                    </li>
                 </ul>
-
-                {photos.length > 0 ? <DeleteProductPhoto productId={product.id} productPhotos={photos} /> : 'No hay fotos'}
-                <AddProductPhoto productId={product.id} />
                 <button onClick={handleClick} className="btn">Aceptar Cambios</button>
             </form>
         </div>

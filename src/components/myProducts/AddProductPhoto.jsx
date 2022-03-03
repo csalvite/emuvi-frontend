@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { IconButton, Snackbar } from "@mui/material";
+import { useRef, useState } from "react";
 import { useContext } from "react";
 import { TokenContext } from "../..";
 import LoadingComponent from "../loading/loading";
@@ -8,20 +9,55 @@ const { REACT_APP_LOCALHOST } = process.env;
 const AddProductPhoto = ({ productId }) => {
     const [token] = useContext(TokenContext);
     const [loading, setLoading] = useState(false);
-    const [state, setState] = useState();
+    const filesInputRef = useRef();
+    const [text, setText] = useState();
+    const [open, setOpen] = useState(false);
 
-    const handleAddProductPhoto = async (e) => {
-        e.preventDefault();
+    const handleClick = () => {
+        setOpen(true);
+    };
 
-        const idPhoto = e.target.name;
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+        return;
+        }
+
+        setOpen(false);
+    };
+
+    const action = (
+        <>
+        <IconButton
+            size="small"
+            aria-label="close"
+            color="inherit"
+            onClick={handleClose}
+        >
+            <i class="fa-solid fa-circle-xmark"></i>
+        </IconButton>
+        </>
+    );
+
+    const handleAddProductPhoto = async () => {
+
+        const photos = filesInputRef.current.files;
+        if (photos.length > 5) {
+            throw new Error('solo puedes insertar 5 fotos');
+        }
+
+        const payload = new FormData();
+
+        for (let i = 0; i < photos.length; i++) {
+            payload.append(`photo${i}`, photos[i]);
+        }
         
         try {
             const url = `${REACT_APP_LOCALHOST}/products/${productId}/photos`;
             
             const response = await fetch(url, {
-                method: 'DELETE',
+                method: 'POST',
+                body: payload,
                 headers: {
-                    'Content-Type': 'application/json',
                     Authorization: token.token,
                 }
             });
@@ -29,15 +65,17 @@ const AddProductPhoto = ({ productId }) => {
             setLoading(true);
 
             if (response.ok) {
-                setState('Foto de producto eliminada!');
-               // setPhotos(product.photos);
+                setText('Fotos añadidas correctamente');
+                
             } else {
+                setText('Error al añadir las fotos');
                 console.error('Hubo un error al eliminar la foto');
             }
 
             setLoading(false);
 
         } catch (error) {
+            setText('Error al añadir las fotos');
             console.error(error.message);
         }
     }
@@ -49,9 +87,25 @@ const AddProductPhoto = ({ productId }) => {
     }
 
     return (
-        <form>
-            <input type='file' name='productPhoto' />
-        </form>
+        <>
+            <Snackbar
+                open={open}
+                autoHideDuration={6000}
+                onClose={handleClose}
+                message={text}
+                action={action}
+            />
+            <input
+                type='file'
+                multiple
+                ref={filesInputRef}
+                accept='.jpg, .png, svg'
+                onChange={() => {
+                    handleAddProductPhoto();
+                    handleClick();
+                }}
+            />
+        </>
     )
 }
 
