@@ -17,7 +17,6 @@ function DirectionProducts(props) {
     <div className='container_input'>
       <label htmlFor='form_product_category'></label>
       <select
-        placeholder='Categoría'
         value={direction}
         onChange={(e) => {
           setDirection(e.target.value);
