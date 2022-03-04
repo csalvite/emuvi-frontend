@@ -1,11 +1,12 @@
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-// import ProductList from '../page/products/ProductList';
-const SearchBar = (props) => {
-  const [params, setSearchParams] = useSearchParams();
 
-  // const [search, setSearch] = useState(params.get('search'));
-  const [search, setSearch] = useState(params.get('search'));
+const SearchBar = () => {
+  const [params, setSearchParams] = useSearchParams('');
+
+  const [search, setSearch] = useState(
+    params.has('search') ? params.get('search') : ''
+  );
 
   let navigate = useNavigate();
   useEffect(() => {
@@ -14,10 +15,9 @@ const SearchBar = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (search.length > 0) {
-      let path = `/products?&search=${encodeURIComponent(search)}`;
-      navigate(path);
-    } else navigate(`/`);
+
+    let path = `/products?&search=${encodeURIComponent(search)}`;
+    navigate(path);
   };
 
   return (
@@ -27,11 +27,11 @@ const SearchBar = (props) => {
           autoFocus
           placeholder='Busca tu producto...'
           type='search'
+          querysearch={search}
           name='product'
           value={search}
-          defaultValue={''}
           onChange={(e) => {
-            setSearch(e.target.value);
+            setSearch(e.target.value.toString());
           }}
         ></input>
         <span

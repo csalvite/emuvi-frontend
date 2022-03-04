@@ -22,10 +22,11 @@ LeafletMarker.prototype.options.icon = icon({
 const UserMapProduct = ({ lat, lon, name }) => {
   console.log(lat);
   console.log(lon);
-  let position = [43.5, -8.1];
-  /* useEffect(() => {
-    position = [lat, lon];
-  }, []); */
+  let position = [43, -4];
+
+  // let position = [lat, lon];
+  console.log(position);
+
   return (
     <MapContainer center={position} zoom={12} style={{ height: '300px' }}>
       <TileLayer
