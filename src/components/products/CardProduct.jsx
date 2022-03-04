@@ -6,6 +6,9 @@ import { ButtonFavProduct } from './ButtonAddFavProducts';
 const { REACT_APP_LOCALHOST } = process.env;
 
 export default function CardProduct(props, product) {
+
+	const {privateUser} = usePrivateUser();
+
 	return (
 		<>
 			<div className="cardproduct">
@@ -25,10 +28,8 @@ export default function CardProduct(props, product) {
 						<h4 className="card__price">{props.product.price} €</h4>
 					</Link>
 					<div className="card-icon-box">
-						<i
-							class="fa-solid fa-cart-shopping cart"
-							title="Proponer compra"></i>
-						<i class="fa-solid fa-heart heart" title="Añadir a favoritos"></i>
+						<ButtonNewOffer idUser={privateUser.id} idProduct={props.product.id} />
+						<ButtonFavProduct idProduct={props.product.id} />
 					</div>
 				</div>
 				{/*<ButtonNewOffer

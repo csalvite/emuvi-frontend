@@ -13,10 +13,14 @@ import { EffectCards } from 'swiper';
 import useLatestProducts from '../../hooks/useLatestProducts';
 import { Link } from 'react-router-dom';
 import './LatestProductsCards.css';
+import { ButtonNewOffer } from '../offers/ButtonNewOffer';
+import { usePrivateUser } from '../../hooks/usePrivateUser';
+import { ButtonFavProduct } from '../products/ButtonAddFavProducts';
 
 const { REACT_APP_LOCALHOST } = process.env;
 
 const LatestProductsCards = () => {
+	const {privateUser} = usePrivateUser();
 	const { products, loading, error } = useLatestProducts();
 
 	if (loading) return 'Cargando....';
@@ -49,8 +53,8 @@ const LatestProductsCards = () => {
 								</h3>
 							</Link>
 							<div className="main-carousel-icon-box">
-								<i className="fa-solid fa-cart-shopping cart"></i>
-								<i className="fa-solid fa-heart heart"></i>
+								<ButtonNewOffer idUser={privateUser.id} idProduct={product.id} />
+								<ButtonFavProduct idProduct={product.id} />
 							</div>
 						</SwiperSlide>
 					))}

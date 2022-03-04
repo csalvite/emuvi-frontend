@@ -8,7 +8,7 @@ export const ButtonFavProduct = ({ idProduct }) => {
   const [token] = useContext(TokenContext);
   const [loading, setLoading] = useState(false);
 
-   const [text, setText] = useState();
+   const [text, setText] = useState(<img src="/resources/vectors/tail-spin.svg" alt="spinner" />);
 
     const [open, setOpen] = useState(false);
 
@@ -74,12 +74,12 @@ export const ButtonFavProduct = ({ idProduct }) => {
                 message={text}
                 action={action}
             />
-        <button className='btn' onClick={() => {
+        <i class="fa-solid fa-heart heart" 
+           title="Añadir a favoritos"
+           onClick={() => {
             handleAddFavProduct();
             handleClick();
-          } }>
-          Añadir a favorito
-        </button>
+           }}></i>
     </>
     
   );

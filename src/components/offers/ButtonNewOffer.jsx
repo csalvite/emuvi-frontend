@@ -8,7 +8,7 @@ export const ButtonNewOffer = ({ idUser, idProduct }) => {
 
     const { REACT_APP_LOCALHOST } = process.env;
 
-    const [text, setText] = useState();
+    const [text, setText] = useState(<img src="/resources/vectors/tail-spin.svg" alt="spinner" />);
     const [open, setOpen] = useState(false);
 
     const handleClick = () => {
@@ -70,10 +70,12 @@ export const ButtonNewOffer = ({ idUser, idProduct }) => {
                 message={text}
                 action={action}
             />
-            <button className="btn" onClick={() => {
-                handleNewOffer();
-                handleClick();
-            }}>Proponer Compra</button>
+            <i class="fa-solid fa-cart-shopping cart"
+							title="Proponer compra"
+                            onClick={() => {
+                                handleNewOffer();
+                                handleClick();
+                            }}></i>
         </>
     )
 }
