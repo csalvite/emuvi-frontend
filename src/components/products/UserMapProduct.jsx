@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
+import React, { useEffect, useState } from 'react';
+import { MapContainer, Marker, Popup, TileLayer, useMapEvents } from 'react-leaflet';
 // import { Icon } from 'leaflet';
 // import './UserMapProduct.css';
 import 'leaflet/dist/leaflet.css';
@@ -19,24 +19,26 @@ LeafletMarker.prototype.options.icon = icon({
   shadowSize: [41, 41],
 });
 
-const UserMapProduct = ({ lat, lon, name }) => {
-  console.log(lat);
-  console.log(lon);
-  let position = [43, -4];
+const UserMapProduct = ({ lat, lng, name }) => {
 
-  // let position = [lat, lon];
-  console.log(position);
+  let position = [lat, lng];
 
-  return (
-    <MapContainer center={position} zoom={12} style={{ height: '300px' }}>
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-      />
-      <Marker position={position}>
-        <Popup>{name}</Popup>
-      </Marker>
-    </MapContainer>
+   return (
+     <div>
+       {lat && lng ? (
+         <MapContainer center={position} zoom={12} style={{ height: '300px' }}>
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+        />
+        <Marker position={position}>
+          <Popup>{name}</Popup>
+        </Marker>
+      </MapContainer>
+       ) : (
+         <h2>El usuario no ha permitido saber su ubicacion exacta.</h2>
+       )}
+    </div>
   );
 };
 export default UserMapProduct;

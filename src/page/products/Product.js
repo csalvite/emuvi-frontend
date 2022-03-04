@@ -25,7 +25,7 @@ const Product = (props) => {
       <div className='leaflet-container'>
         <UserMapProduct
           lat={product.lat}
-          lon={product.lon}
+          lng={product.lon}
           name={product.name}
         />
       </div>
