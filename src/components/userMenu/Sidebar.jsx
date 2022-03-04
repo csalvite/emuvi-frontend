@@ -121,27 +121,27 @@ export const Sidebar = ({privateUser}) => {
                 
                 <SlickBar clicked={click}>
                     <Link className='item-link' to='/profile'>
-                        <i className="fa-solid fa-user item-image"></i>
+                        <i className="fa-solid fa-user item-image" title='Información de Usuario'></i>
                         <Text clicked={click}>Editar Usuario</Text>
                     </Link>
                     <Link className='item-link' to='/profile/myproducts'>
-                        <i className="fa-solid fa-shop item-image"></i>
+                        <i className="fa-solid fa-shop item-image" title='Mis Productos'></i>
                         <Text clicked={click}>Mis Productos</Text>
                     </Link>
                     <Link className='item-link' to='/profile/ratings'>
-                        <i className="fa-solid fa-star item-image"></i>
+                        <i className="fa-solid fa-star item-image" title='Valoraciones'></i>
                         <Text clicked={click}>Valoraciones</Text>
                     </Link>
                     <Link className='item-link' to='/profile/sendoffers'>
-                        <i className="fa-solid fa-handshake item-image"></i>
+                        <i className="fa-solid fa-handshake item-image" title='Ofertas Enviadas'></i>
                         <Text clicked={click}>Ofertas Enviadas</Text>
                     </Link>
                     <Link className='item-link' to='/profile/receivedoffers'>
-                        <i className="fa-solid fa-truck item-image"></i>
+                        <i className="fa-solid fa-truck item-image" title='Ofertas Recibidas'></i>
                         <Text clicked={click}>Ofertas Recibidas</Text>
                     </Link>
                     <Link  className='item-link' to='/profile/favorites'>
-                        <i className="fa-solid fa-heart item-image"></i>
+                        <i className="fa-solid fa-heart item-image" title='Productos Favoritos'></i>
                         <Text clicked={click}>Favoritos</Text>
                     </Link>
                 </SlickBar>
