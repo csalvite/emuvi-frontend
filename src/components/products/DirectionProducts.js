@@ -10,9 +10,9 @@ function DirectionProducts(props) {
     params.has('direction') ? params.get('direction') : ''
   );
 
-  // useEffect(() => {
-  //   setSearchParams({ direction: encodeURIComponent(direction) });
-  // }, [direction, params, setSearchParams]);
+  useEffect(() => {
+    setSearchParams({ direction: encodeURIComponent(direction) });
+  }, [direction, params, setSearchParams]);
   return (
     <div className='container_input'>
       <label htmlFor='form_product_category'></label>

@@ -7,6 +7,7 @@ import LoadingComponent from '../loading/loading';
 export const ButtonFavProduct = ({ idProduct }) => {
   const [token] = useContext(TokenContext);
   const [loading, setLoading] = useState(false);
+  const [favorite, setFavorite] = useState(false);
 
    const [text, setText] = useState(<img src="/resources/vectors/tail-spin.svg" alt="spinner" />);
 
@@ -52,9 +53,13 @@ export const ButtonFavProduct = ({ idProduct }) => {
         const body = await res.json();
         console.log(body);
         setText('Producto añadido a favoritos');
+        /* El producto no es favorito */
+        setFavorite(true);
       } else {
         console.error('Hubo un error al añadir el producto como favorito');
         setText('Error al añadir producto a favoritos');
+        /* El producto ya es favorito */
+        setFavorite(false);
       }
       setLoading(false);
     } catch (error) {
@@ -74,12 +79,17 @@ export const ButtonFavProduct = ({ idProduct }) => {
                 message={text}
                 action={action}
             />
-        <i class="fa-solid fa-heart heart" 
+
+        {favorite ? 
+          <i class="fa-solid fa-heart-crack"></i>
+          :
+          <i class="fa-solid fa-heart heart" 
            title="Añadir a favoritos"
            onClick={() => {
             handleAddFavProduct();
             handleClick();
            }}></i>
+        }
     </>
     
   );
