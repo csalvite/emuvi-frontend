@@ -1,19 +1,25 @@
 import { useState } from "react";
 import { useContext } from "react";
 import { TokenContext } from "../..";
+import LoadingComponent from "../loading/loading";
 
 const { REACT_APP_LOCALHOST } = process.env;
 
-export const DeleteDeniedOffers = ({ idUser }) => {
+export const DeleteStatus = ({ idUser, offers, setOffers, whatIs }) => {
 
     const [token] = useContext(TokenContext);
     const [loading, setLoading] = useState();
     const [state, setState] = useState();
 
-    const handleDeleteDeniedOffers = async (e) => {
+    const handleDeleteOffers = async (e) => {
         e.preventDefault();
 
-        const url = `${REACT_APP_LOCALHOST}/users/${idUser}/offers?status=`;
+        let url;
+        if (whatIs === 'booking') {
+            url = `${REACT_APP_LOCALHOST}/users/${idUser}/bookings?status=`;
+        } else {
+            url = `${REACT_APP_LOCALHOST}/users/${idUser}/offers?status=`;
+        }
         const option = e.target.elements.state.value;
 
         try {
@@ -28,28 +34,29 @@ export const DeleteDeniedOffers = ({ idUser }) => {
 
             if (response.ok) {
                 const body = await response.json();
-                console.log(body);
                 setState(body.message);
+                const arrNew = offers.filter((item) => item.reserveStatus !== option);
+                setOffers(arrNew);
             } else {
                 console.error('Hubo un error al borrar las ofertas denegadas.');
-                setState('No se han podido eliminar los productos denegados.')
+                setState('No se han podido eliminar las ofertas.')
             }
 
             setLoading(false);
         } catch (error) {
             console.error(error.message);
-            setState('Error al eliminar los productos denegados.')
+            setState('Error al eliminar los productos.')
         }
     }
 
     if (loading) {
-        return <h2>Cargando...</h2>
+        return <LoadingComponent />
     }
 
     return (
         <>
             <h5>Eliminar mis ofertas por estado: </h5>
-            <form onSubmit={handleDeleteDeniedOffers}>
+            <form onSubmit={handleDeleteOffers}>
                 <select name="state">
                     <option value='pendiente'>Pendientes</option>
                     <option value='denegada'>Denegadas</option>
