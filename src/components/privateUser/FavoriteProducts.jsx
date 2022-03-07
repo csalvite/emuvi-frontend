@@ -10,9 +10,6 @@ function FavoriteProducts({privateUser}) {
   const [favProducts, setFavProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Estado para recargar productos cuando se elimina uno de favoritos
-  const [favEliminated, setFavEliminated] = useState(false);
-
   // Devolvemos los productos favoritos del usuario
   useEffect(() => {
         const getFavoriteProducts = async() => {
@@ -43,14 +40,16 @@ function FavoriteProducts({privateUser}) {
         }
       getFavoriteProducts();
 
-  }, [privateUser.id, token.token, favEliminated]);
+  }, [privateUser.id, token.token, setFavProducts]);
 
   // Funcion manejadora para eliminar producto de favoritos
   const handleDeleteFavProduct = async (e) => {
     e.preventDefault();
 
+    const idDeleteProduct = e.target.id;
+
     // Según el botón que pulse se recoge un id de producto u otro
-    const url = `${REACT_APP_LOCALHOST}/user/${privateUser.id}/favorites/${e.target.id}`;
+    const url = `${REACT_APP_LOCALHOST}/user/${privateUser.id}/favorites/${idDeleteProduct}`;
 
     try {
         const response = await fetch(url, {
@@ -65,7 +64,8 @@ function FavoriteProducts({privateUser}) {
 
         if (response.ok) {
             console.log('Producto eliminado de favoritos correctamente');
-            setFavEliminated(true);
+            const arrNew = favProducts.filter((item) => item.id !== Number(idDeleteProduct));
+            setFavProducts(arrNew);
         } else {
             console.error('Error al borrar el producto');
         }
