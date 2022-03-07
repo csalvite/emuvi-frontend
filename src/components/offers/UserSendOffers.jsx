@@ -1,9 +1,10 @@
+import { Checkbox, FormControlLabel, FormGroup } from "@mui/material";
 import { useContext, useState } from "react";
 import { useEffect } from "react"
 import { TokenContext } from "../..";
+import LoadingComponent from "../loading/loading";
 import { NewRating } from "../ratings/NewRating";
-import { DeleteDeniedBookings } from "./DeleteDeniedBookings";
-import { DeleteDeniedOffers } from "./DeleteUserSales";
+import { DeleteStatus } from "./DeleteStatus";
 
 const { REACT_APP_LOCALHOST } = process.env;
 
@@ -40,26 +41,68 @@ export const UserSendOffers = ({ idUser }) => {
         }
 
         getUserSendOffers();
-    }, [token.token, idUser]);
+    }, [token.token, idUser, setOffers]);
+
+    const dropIds = async (e) => {
+        e.preventDefault();
+        
+        console.log(e.target.name);
+        const url = `${REACT_APP_LOCALHOST}/users/${idUser.id}/bookings?id=`;
+        const option = e.target.name;
+
+        try {
+            const response = await fetch(url+option, {
+                method: 'DELETE',
+                headers: {
+                    Authorization: token.token,
+                }
+            });
+
+            setLoading(true);
+
+            if (response.ok) {
+                const arrNew = offers.filter((item) => item.id !== Number(option));
+                setOffers(arrNew);
+            } else {
+                console.error('Hubo un error al borrar las ofertas denegadas.');
+            }
+
+            setLoading(false);
+        } catch (error) {
+            console.error(error.message);
+        }
+    }
 
     if(loading) {
-        return <h2>Cargando...</h2>
+        return <LoadingComponent />
     }
 
     return (
         <div>
             <h3>Ofertas Enviadas</h3>
-            <DeleteDeniedBookings idUser={idUser.id} />
-            {offers.map((offer, index) => {
+            <DeleteStatus idUser={idUser.id} offers={offers} setOffers={setOffers} whatIs='booking' />
+            {/* {offers?.map((offer) => {
                 return (
-                    <div key={index}>
+                    <div key={offer.id}>
                         <h4>{offer.product}</h4>
                         <p>Estado de la reserva: <strong>{offer.reserveStatus}</strong></p>
                         <p>Fecha de creación: {new Date(offer.createdAt).toLocaleDateString()}</p>
                         {offer.reserveStatus === 'aceptada' ? <NewRating idUser={offer.sellerId} idProduct={offer.idProduct} /> : ''}
                     </div>
                 )
-            })}
+            })} */}
+            <FormGroup>
+                {offers.map((offer) => {
+                    return (
+                        <div key={offer.id}>
+                            <FormControlLabel control={<Checkbox onChange={dropIds} name={`${offer.id}`} />} label={`Eliminar ${offer.product} en estado ${offer.reserveStatus}`} />
+                            <p>Estado de reserva: <strong>{offer.reserveStatus}</strong></p>
+                            <p>Fecha de creación: {new Date(offer.createdAt).toLocaleDateString()}</p>
+                            {offer.reserveStatus === 'aceptada' ? <NewRating idUser={offer.sellerId} idProduct={offer.idProduct} /> : ''}
+                        </div>
+                    )
+                })}    
+            </FormGroup>       
         </div>
     )
 }
