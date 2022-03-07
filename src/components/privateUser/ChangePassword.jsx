@@ -44,11 +44,23 @@ const ChangePassword = ({privateUser}) => {
         <div>
             <h3>Cambiar Contraseña</h3>
             <form onSubmit={handleChangePassword}>
-                <label>Indica la antigua contraseña: </label>
-                <input type='password' name="oldPasswd" autoComplete="on" required />
-                <label>Indica la nueva contraseña: </label>
-                <input type='password' name="newPasswd" autoComplete="on" required />
-                <button>Cambiar Contraseña</button>
+                <ul>
+                    <li>
+                        <label>Indica la antigua contraseña: </label>
+                    </li>
+                    <li>
+                        <input type='password' name="oldPasswd" autoComplete="on" required />
+                    </li>
+                    <li>
+                        <label>Indica la nueva contraseña: </label>
+                    </li>
+                    <li>
+                        <input type='password' name="newPasswd" autoComplete="on" required />
+                    </li>
+                    <li>
+                        <button className="btn">Cambiar Contraseña</button>
+                    </li>
+                </ul>
             </form>
             {error ? <div>Error al cambiar la contraseña, intentalo de nuevo</div> : ''}
         </div>

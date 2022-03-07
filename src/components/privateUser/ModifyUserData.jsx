@@ -56,38 +56,54 @@ const ModifyUserData = ({privateUser}) => {
                 <ul>
                     <li>
                         <label htmlFor="name">Nombre: </label>
+                    </li>
+                    <li>
                         <input type='text' name="name" id="name" placeholder={privateUser.name} />
                     </li>
                     <li>
                         <label htmlFor="lastname">Apellidos: </label>
+                    </li>
+                    <li>
                         <input type='text' name="lastname" id="lastname" placeholder={privateUser.lastname} />
                     </li>
                     <li>
                         <label htmlFor="biography">Biografía: </label>
+                    </li>
+                    <li>
                         <textarea type='text' name="biography" id="biography" placeholder={privateUser.biography} />
                     </li>
                     <li>
                         <label htmlFor="birthday">Fecha de nacimiento: (actualmente {userBirthday}) </label>
+                    </li>
+                    <li>
                         <input type='date' name="birthday" id="birthday" />
                     </li>
                     <li>
                         <label htmlFor="street">Calle: </label>
+                    </li>
+                    <li>
                         <input type='text' name="street" id="street" placeholder={privateUser.street} />
                     </li>
                     <li>
                         <label htmlFor="city">Ciudad: </label>
+                    </li>
+                    <li>
                         <input type='text' name="city" id="city" placeholder={privateUser.city} />
                     </li>
                     <li>
                         <label htmlFor="postalCode">Código Postal: </label>
+                    </li>
+                    <li>
                         <input type='text' name="postalCode" id="postalCode" placeholder={privateUser.postalCode} />
                     </li>
                     <li>
                         <label htmlFor="province">Provincia / Estado: </label>
+                    </li>
+                    <li>
                         <input type='text' name="province" id="province" placeholder={privateUser.province} />
                     </li>
                     <li>
-                        <button>Modificar</button>
+                        <button className="btn">Modificar</button>
                     </li>
                 </ul>
             </form>

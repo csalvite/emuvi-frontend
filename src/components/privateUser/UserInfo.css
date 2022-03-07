@@ -1,0 +1,73 @@
+.user-profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+
+  font-size: 1.2em;
+}
+
+.user-profile h3 {
+  font-size: 1.5em;
+}
+
+.user-profile li {
+  list-style: none;
+}
+
+.user-profile input,
+.user-profile textarea {
+  width: 60vw;
+  font-size: 0.85em;
+  padding: 0.6rem;
+  border-radius: 25px;
+}
+
+.user-profile textarea {
+  height: 20vh;
+}
+
+/* Componente UserInfo.jsx */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Componente ModifyEmailAndUsername.jsx */
+.modify-email {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+/* Componente ButtonDeleteUser.jsx */
+.drop-user {
+  border: 3px solid rgb(247, 39, 39);
+  padding: 2rem;
+}
+
+.drop-user > h3 {
+  color: red;
+}
+
+/* Componente FavoriteProducts.jsx */
+.user-fav-products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .user-info {
+    flex-direction: column;
+  }
+
+  .user-profile input {
+    width: 100%;
+  }
+
+  .user-fav-products {
+    gap: 1rem;
+  }
+}

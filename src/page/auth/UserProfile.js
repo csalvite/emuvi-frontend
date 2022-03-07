@@ -9,6 +9,7 @@ import Ratings from '../../components/ratings/Ratings';
 import { UserInfo } from '../../components/privateUser/UserInfo';
 import { Sidebar } from '../../components/userMenu/Sidebar';
 import { usePrivateUser } from '../../hooks/usePrivateUser';
+import './UserProfile.css';
 
 function UserProfile() {
   const { privateUser } = usePrivateUser();
@@ -52,7 +53,7 @@ function UserProfile() {
   return privateUser ? (
     <>
       <JustNav />
-      <div className='user-profile'>
+      <div className='private-profile'>
         {privateUser.active ? (
           ''
         ) : (
@@ -62,15 +63,7 @@ function UserProfile() {
           </div>
         )}
 
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'flex-start',
-            gap: '10rem',
-          }}
-        >
-          {element}
-        </div>
+        <div className='container-profile'>{element}</div>
       </div>
       <Footer />
     </>

@@ -1,5 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { TokenContext } from "../..";
+import CardProduct from "../products/CardProduct";
+import './UserInfo.css';
 
 const {REACT_APP_LOCALHOST} = process.env;
 
@@ -88,22 +90,30 @@ function FavoriteProducts({privateUser}) {
     <div className='user-profile'>
         <h2>Productos Favoritos</h2>
         {error ? <div>No hay productos marcados como favoritos</div>
-        : 
-        favProducts.map((product, index) => {
+        : (
+            <div className="user-fav-products">
+            {favProducts.map((product) => {
             return (
-                <div key={index}>
-                    <p>{product.name} <button id={product.id} onClick={handleDeleteFavProduct}>X</button></p>
-                    <p>{product.price}</p>
-                    <p>
-                        {product.photos.length > 0 ? product.photos.map((photo, index) => {
-                            return (
-                                <img key={index} src={`${REACT_APP_LOCALHOST}/avatar/${photo.name}`} alt={photo.name} style={{width: '200px'}}/>
-                            )
-                        }) : ''}
-                    </p>
-                </div>
-            )
-        })}
+                <CardProduct product={product} key={product.id} />
+                )
+            })}
+            </div>
+        )}
+            {/* <div key={index}>
+
+                <button id={product.id} onClick={handleDeleteFavProduct}>X</button>
+                
+                
+                <p>{product.name} <button id={product.id} onClick={handleDeleteFavProduct}>X</button></p>
+                <p>{product.price}</p>
+                <p>
+                    {product.photos.length > 0 ? product.photos.map((photo, index) => {
+                        return (
+                            <img key={index} src={`${REACT_APP_LOCALHOST}/avatar/${photo.name}`} alt={photo.name} style={{width: '200px'}}/>
+                        )
+                    }) : ''}
+                </p>
+            </div> */}
     </div>
   )
 }

@@ -3,6 +3,7 @@ import { ButtonEditAvatar } from "./ButtonEditAvatar";
 import ChangePassword from "./ChangePassword";
 import ModifyEmailAndUsername from "./ModifyEmailAndUsername";
 import ModifyUserData from "./ModifyUserData";
+import './UserInfo.css';
 
 function UserInfo({privateUser}) {
 
@@ -11,13 +12,17 @@ function UserInfo({privateUser}) {
   return (
     <div className='user-profile'>
       <h2>Información del usuario</h2>
-        <ButtonEditAvatar id={privateUser.id} />
-        <p>Nombre de usuario: {privateUser.username}</p>
-        <p>Email: {privateUser.email}</p>
-        <p>Fecha de nacimiento: {birthday}</p>
-        <p>Ciudad: {privateUser.city}</p>
-        <p>Provincia: {privateUser.province}</p>
-        <p>Código Postal: {privateUser.postalCode}</p>
+        <div className="user-info">  
+          <ButtonEditAvatar id={privateUser.id} />
+          <div>
+            <p><strong>Nombre de usuario:</strong> {privateUser.username}</p>
+            <p><strong>Email:</strong> {privateUser.email}</p>
+            <p><strong>Fecha de nacimiento:</strong> {birthday}</p>
+            <p><strong>Ciudad:</strong> {privateUser.city}</p>
+            <p><strong>Provincia:</strong> {privateUser.province}</p>
+            <p><strong>Código Postal:</strong> {privateUser.postalCode}</p> 
+          </div>
+        </div>
         <ModifyEmailAndUsername privateUser={privateUser} />
         <ChangePassword privateUser={privateUser} />
         <ModifyUserData privateUser={privateUser} />

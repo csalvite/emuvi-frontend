@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { TokenContext } from "../..";
+import './UserInfo.css';
 
 const {REACT_APP_LOCALHOST} = process.env;
 
@@ -56,20 +57,24 @@ const ModifyEmailAndUsername = ({privateUser}) => {
     }
 
     return (
-        <div>
+        <div className="modify-email">
             <h3>Editar nombre de usuario o email</h3>
             <form onSubmit={handleChangeUser}>
                 <ul>
                     <li>
                         <label>Nuevo nombre de usuario: </label>
+                    </li>
+                    <li>
                         <input type='text' name='username' placeholder={privateUser.username}/>
                     </li>
                     <li>
                         <label>Cambio de email: </label>
+                    </li>
+                    <li>
                         <input type="email" name="email" placeholder={privateUser.email} />
                     </li>
                     <li>
-                        <button>Modificar</button>
+                        <button className="btn">Modificar</button>
                     </li>
                 </ul>
             </form>

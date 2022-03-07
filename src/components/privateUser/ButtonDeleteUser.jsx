@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { TokenContext } from "../..";
+import './UserInfo.css';
 
 const { REACT_APP_LOCALHOST } = process.env;
 
@@ -42,16 +43,20 @@ export function ButtonDeleteUser({id}) {
     }
 
     return (
-        <div style={{border: '1px solid black', margin: '1rem', padding: '1rem'}}>
-            <h3 style={{color: 'red'}}>Eliminar Usuario</h3>
+        <div className="drop-user">
+            <h3>Eliminar Usuario</h3>
             <form onSubmit={handleOnClick}>
                 <ul>
                     <li>
                         <label>Contraseña: </label>
+                    </li>
+                    <li>
                         <input type='password' name="password" />
                     </li>
                     <li>
                         <label>Repite Contraseña: </label>
+                    </li>
+                    <li>
                         <input type='password' name="confirmPassword" />
                     </li>
                     <li>
