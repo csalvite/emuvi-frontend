@@ -24,7 +24,7 @@
 
 /* ---- Map ---- */
 .leaflet-container {
-	width: 40rem;
+	border-radius: 5px;
 }
 
 /* ---- Icons ---- */
