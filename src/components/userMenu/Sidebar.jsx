@@ -74,7 +74,13 @@ const SlickBar = styled.ul`
 
     transition: all 0.5s ease;
     border-radius: 0 30px 30px 0;
-    width: ${(props) => (props.clicked ? "12rem" : "3.5rem")};
+    width: ${(props) => (props.clicked ? "12rem" : "3rem")};
+
+    @media only screen and (max-width: 600px) {
+        top: 3rem;
+        padding: 1rem 0;
+        z-index: 1;
+    }
 `;
 
 const Text = styled.span`
@@ -87,8 +93,8 @@ const Text = styled.span`
 const Profile = styled.div`
     width: ${(props) => (props.clicked ? "14rem" : "3rem")};
     height: 3rem;
-    padding: 0.5rem 0;
-    /* padding: ${(props) => (props.clicked ? "0.5rem 0;" : "0")}; */
+    /* padding: 0.5rem 0; */
+    padding: ${(props) => (props.clicked ? "0.5rem 0;" : "0")};
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -144,32 +150,34 @@ export const Sidebar = ({privateUser}) => {
                         <i className="fa-solid fa-heart item-image" title='Productos Favoritos'></i>
                         <Text clicked={click}>Favoritos</Text>
                     </Link>
-                </SlickBar>
 
-                <Profile clicked={profileClicked}>
-                    <Avatar
-                        onClick={() => handleProfileClick()}
-                        alt={privateUser.username}
-                        src={
-                        `${REACT_APP_LOCALHOST}/avatar/${privateUser.avatar}`
-                        }
-                        sx={{ width: "2.5rem", height: "2.5rem" }}
-                    />
+                    </SlickBar>
 
-                    <Details clicked={profileClicked}>
-                        <h4>{privateUser.name} {privateUser.lastname}</h4>
-                        {privateUser.mediaVotes ? 
-                            <Rating
-                                name='size-medium'
-                                value={privateUser.mediaVotes}
-                                size='medium'
-                                readOnly
-                            /> 
-                        : 
-                            <p>Sin valoraciones</p>
-                        }
-                    </Details>
-                </Profile>
+                    <Profile clicked={profileClicked}>
+                        <Avatar
+                            onClick={() => handleProfileClick()}
+                            alt={privateUser.username}
+                            src={
+                                `${REACT_APP_LOCALHOST}/avatar/${privateUser.avatar}`
+                            }
+                            sx={{ width: "2.5rem", height: "2.5rem" }}
+                            />
+
+                        <Details clicked={profileClicked}>
+                            <h4>{privateUser.name} {privateUser.lastname}</h4>
+                            {privateUser.mediaVotes ? 
+                                <Rating
+                                    name='size-medium'
+                                    value={privateUser.mediaVotes}
+                                    size='medium'
+                                    readOnly
+                                    /> 
+                                    : 
+                                    <p>Sin valoraciones</p>
+                                }
+                        </Details>
+                    </Profile>
+                {/* </SlickBar> */}
 
             </SidebarContainer>
 
