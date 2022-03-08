@@ -3,6 +3,7 @@ import React from 'react';
 import Footer from '../../components/footer/Footer';
 import JustNav from '../../components/justNavHeader/JustNav';
 import { ButtonNewOffer } from '../../components/offers/ButtonNewOffer';
+import { ButtonFavProduct } from '../../components/products/ButtonAddFavProducts';
 import ProductPhoto from '../../components/products/ProductPhoto';
 import ProductSingleData from '../../components/products/ProductSingleData';
 import UserMapProduct from '../../components/products/UserMapProduct';
@@ -26,16 +27,15 @@ const Product = (props) => {
 					<div className="leaflet-container">
 						<UserMapProduct
 							lat={product.lat}
-							lon={product.lon}
+							lng={product.lon}
 							name={product.name}
 						/>
 					</div>
-					{/*<PublicUserAccess idUser={product.idUser} />
-					<ButtonNewOffer idProduct={product.id} idUser={privateUser.id} />*/}
+
 					<div className="product-details-icons">
-						<i className="fa-solid fa-cart-shopping cart"></i>
-						<i className="fa-solid fa-heart heart"></i>
-						<i class="fa-solid fa-user user" title="Perfil del vendedor"></i>
+      					<ButtonNewOffer idProduct={product.id} idUser={privateUser.id} />
+						<ButtonFavProduct idProduct={product.id} />
+						<PublicUserAccess idUser={product.idUser} />
 					</div>
 				</div>
 			</section>

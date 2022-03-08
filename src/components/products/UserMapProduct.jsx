@@ -24,9 +24,9 @@ const UserMapProduct = ({ lat, lng, name }) => {
   let position = [lat, lng];
 
    return (
-     <div>
+     <div className='map'>
        {lat && lng ? (
-         <MapContainer center={position} zoom={12} style={{ height: '300px' }}>
+        <MapContainer center={position} zoom={12} style={{ height: '14rem' }}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'

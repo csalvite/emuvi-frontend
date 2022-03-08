@@ -1,86 +1,88 @@
 .product-details-section {
-	background-image: url(/public/resources/images/emuvi-background-1.jpg);
-	justify-content: center;
-	background-attachment: fixed;
-	background-position: center;
-	background-repeat: no-repeat;
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  background-image: url(/public/resources/images/emuvi-background-1.jpg);
+  justify-content: center;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .product-details-container {
-	max-width: 40rem;
-	background-color: var(--white);
-	padding: 2rem;
-	margin: 2rem;
-	border: 1px solid var(--darkGrey);
-	border-radius: 15px;
-	box-shadow: 0px 4px 4px var(--darkGrey);
+  max-width: 40rem;
+  background-color: var(--white);
+  padding: 2rem;
+  margin: 2rem;
+  border: 1px solid var(--darkGrey);
+  border-radius: 15px;
+  box-shadow: 0px 4px 4px var(--darkGrey);
 }
 
 /* ---- Map ---- */
 .leaflet-container {
-	border-radius: 5px;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
 }
 
 /* ---- Icons ---- */
 .product-details-icons {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 3rem;
 }
 
 .product-details-icons i {
-	position: relative;
-	width: 45px;
-	height: 45px;
-	font-size: 1.4em;
-	display: grid;
-	place-items: center;
-	margin: 0.5rem 1rem 2.5rem;
-	padding-top: 0.2rem;
-	border-radius: 50%;
-	box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
-	background-color: transparent;
-	transition: 0.3s ease;
+  position: relative;
+  width: 45px;
+  height: 45px;
+  font-size: 1.4em;
+  display: grid;
+  place-items: center;
+  margin: 0.5rem 1rem 2.5rem;
+  padding-top: 0.2rem;
+  border-radius: 50%;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+  background-color: transparent;
+  transition: 0.3s ease;
 }
 
 .product-details-icons .cart {
-	border: 2px solid #fec02f;
-	color: #fec02f;
+  border: 2px solid #fec02f;
+  color: #fec02f;
 }
 
 .product-details-icons .cart:hover {
-	border: 3px solid #fec02f;
-	color: #fec02f;
-	box-shadow: none;
-	transform: scale(0.8);
+  border: 3px solid #fec02f;
+  color: #fec02f;
+  box-shadow: none;
+  transform: scale(0.8);
 }
 .product-details-icons .heart {
-	border: 2px solid #fb4b6f;
-	color: #fb4b6f;
+  border: 2px solid #fb4b6f;
+  color: #fb4b6f;
 }
 
 .product-details-icons .heart:hover {
-	border: 3px solid #fb4b6f;
-	color: #fb4b6f;
-	box-shadow: none;
-	transform: scale(0.8);
+  border: 3px solid #fb4b6f;
+  color: #fb4b6f;
+  box-shadow: none;
+  transform: scale(0.8);
 }
 
 .product-details-icons .user {
-	border: 2px solid var(--green);
-	color: var(--green);
+  border: 2px solid var(--green);
+  color: var(--green);
 }
 
 .product-details-icons .user:hover {
-	border: 3px solid var(--green);
-	color: var(--green);
-	box-shadow: none;
-	transform: scale(0.8);
+  border: 3px solid var(--green);
+  color: var(--green);
+  box-shadow: none;
+  transform: scale(0.8);
 }

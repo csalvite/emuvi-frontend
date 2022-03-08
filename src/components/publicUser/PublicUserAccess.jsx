@@ -1,11 +1,9 @@
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 export const PublicUserAccess = ({ idUser }) => {
+    let navigate = useNavigate();
+
     return (
-        <div className="product-user-options">
-            <button className="btn">
-                <Link to={`/profile/${idUser}/public`}>Ver Perfil</Link>
-            </button>
-        </div>
+        <i className="fa-solid fa-user user" title="Perfil del vendedor" onClick={() => navigate(`/profile/${idUser}/public`)}></i>
     )
 }
