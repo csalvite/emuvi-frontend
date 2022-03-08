@@ -5,25 +5,30 @@
 	gap: 1rem;
 	align-content: center;
 	justify-content: center;
-	background: var(--lightGrey);
+	background-image: url(/public/resources/images/emuvi-background-1.jpg);
+	justify-content: center;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 
 .form_newproduct {
 	width: 27rem;
 	height: 37.5rem;
 	padding: 3rem 3.3rem;
-	border-radius: 4%;
-	border: solid 4px grey;
+	border-radius: 10px;
+	border: solid 3px grey;
 	color: var(--white);
-	background-color: var(--black-2);
+	background-color: var(--lightGrey);
+	box-shadow: 0 3px 8px var(--black-2);
 }
 
 .form_newproduct .create-product-form-title {
 	font-size: 1.4rem;
-	font-weight: 500;
+	font-weight: 700;
 	padding-top: 1.5rem;
 	margin-bottom: 1.9rem;
-	color: var(--lightGrey);
+	color: var(--black-2);
 	background-color: transparent;
 }
 
@@ -36,21 +41,24 @@
 .form_newproduct input {
 	text-indent: 0.2rem;
 	border-radius: 30px;
-	border: 2px inset var(--darkGrey);
+	border: 2px inset grey;
 	margin: 0.5rem 0;
 	padding-inline: 0.5rem;
 	padding: 0.5rem;
-	color: var(--lightGrey);
-	background-color: var(--darkGrey);
+	color: var(--black-2);
+	background-color: white;
 	inline-size: 100%;
+	box-shadow: 5px 10px 5px rgb(221, 218, 218) inset;
 }
 
 .form_product_name::placeholder {
-	color: var(--lightGrey);
+	color: var(--black-2);
+	font-weight: 600;
 }
 
 .form_product_price::placeholder {
-	color: var(--lightGrey);
+	color: var(--black-2);
+	font-weight: 600;
 }
 
 .form_newproduct .select_product_category {
@@ -60,18 +68,22 @@
 	margin: 0.5rem 0;
 	padding-inline: 0.5rem;
 	padding: 0.2rem;
-	color: var(--lightGrey);
-	background-color: var(--darkGrey);
+	color: var(--black-2);
+	font-weight: 600;
+	background-color: white;
 	inline-size: 100%;
+	box-shadow: 5px 10px 5px rgb(221, 218, 218) inset;
 }
 
 .form_newproduct .form_product_description {
-	color: var(--lightGrey);
+	color: var(--black-2);
+	font-weight: 600;
 	height: 5rem;
 }
 
 .form_newproduct .form_product_description::placeholder {
-	color: var(--lightGrey);
+	color: var(--darkGrey);
+	font-weight: 600;
 }
 
 .form_newproduct select {
@@ -94,8 +106,8 @@
 	background-color: var(--black);
 	color: var(--white);
 	border-radius: 30px;
-	border: solid 2px var(--lightGrey);
-	font-weight: 500;
+	border: 3px solid var(--white);
+	font-weight: 700;
 	font-size: 0.8rem;
 	line-height: 0.2rem;
 	font-family: inherit;
@@ -106,6 +118,7 @@
 }
 .input_submit:hover {
 	border-color: var(--green);
+	border: 3px solid;
 }
 .input_submit::before,
 .input_submit::after {
