@@ -2,7 +2,8 @@ import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { TokenContext } from '../..';
 import Footer from '../../components/footer/Footer';
-import Header1 from '../../components/header/Header';
+import JustNav from '../../components/justNavHeader/JustNav';
+import './ConfirmChangeEmail.css';
 
 const { REACT_APP_LOCALHOST } = process.env;
 
@@ -24,6 +25,8 @@ const ConfirmChangeEmail = () => {
         if (response.ok) {
           setToken('');
           setError(false);
+        } else {
+          setError(true);
         }
       } catch (error) {
         console.error(error.message);
@@ -36,12 +39,20 @@ const ConfirmChangeEmail = () => {
 
   return (
     <div>
-      <Header1 />
-      {error ? (
-        <div>Ha habido un error en la confirmación del cambio de email</div>
-      ) : (
-        <div>Email cambiado correctamente :D</div>
-      )}
+      <JustNav />
+      <div className='change-email-container'>
+        {error ? (
+          <div className='change-email change-email-error'>
+            <i class='fa-solid fa-circle-exclamation'></i>
+            <p>Ha habido un error en la confirmación del cambio de email</p>
+          </div>
+        ) : (
+          <div className='change-email change-email-success'>
+            <i class='fa-solid fa-circle-check'></i>
+            <p>Email cambiado correctamente!</p>
+          </div>
+        )}
+      </div>
       <Footer />
     </div>
   );

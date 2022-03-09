@@ -1,15 +1,18 @@
 import { useContext, useState } from "react";
 import { TokenContext } from "../..";
 import './UserInfo.css';
+import { useNavigate } from "react-router-dom"
 
 const {REACT_APP_LOCALHOST} = process.env;
 
 
 const ModifyEmailAndUsername = ({privateUser}) => {
-   const [token] = useContext(TokenContext);
+    let navigate = useNavigate();
+    const [token, setToken] = useContext(TokenContext);
     const [error, setError] = useState(false);
     const [state, setState] = useState();
     const [loading, setLoading] = useState(false);
+    
 
     const handleChangeUser = async(e) => {
         e.preventDefault();
@@ -35,7 +38,16 @@ const ModifyEmailAndUsername = ({privateUser}) => {
             if(response.ok){
                 const body = await response.json();
                 setState(body.message);
-                window.location.reload();
+                if (modifyUser.newUsername) {
+                    window.location.reload();
+                } else if (modifyUser.newEmail) {
+                    setState('Email modificado, comprueba tu correo para volver a activar el usuario.');
+
+                    setTimeout(() => {
+                        navigate('/');
+                        setToken('');
+                    }, 3000);
+                }
             } else {
                 console.error('No se ha podido cambiar el nombre de usuario o email');
                 if (modifyUser.newEmail === '' || modifyUser.newUsername === '') {

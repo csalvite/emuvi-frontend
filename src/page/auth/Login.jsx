@@ -8,6 +8,7 @@ const { REACT_APP_LOCALHOST } = process.env;
 
 function Login() {
 	const [error, setError] = useState();
+	const [state, setState] = useState();
 
 	// recuperamos del contexto: token y setToken
 	const [token, setToken] = useContext(TokenContext);
@@ -34,10 +35,11 @@ function Login() {
 				setToken(userLogin.authToken);
 				setError(false);
 			} else {
+				const err = await response.json();
 				setError(true);
+				setState(err.message);
 			}
 		} catch (error) {
-			console.error('Error en el login');
 			setError(true);
 		}
 	};
@@ -89,8 +91,8 @@ function Login() {
 						</Link>
 						<i class="fa-solid fa-arrow-right" id="sign-link-icon"></i>
 					</p>
+					{error ? <div className='login-error'>{state}</div> : ''}
 				</form>
-				{error ? <div>El email o contraseña son incorrectos.</div> : ''}
 			</div>
 		</>
 	);

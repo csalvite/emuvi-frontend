@@ -1,0 +1,44 @@
+.change-email-container {
+  height: 80vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+
+  text-align: center;
+}
+
+.change-email {
+  padding: 2rem;
+  height: 70%;
+  width: 60%;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+
+  font-size: 1.8em;
+}
+
+.change-email i {
+  font-size: 5rem;
+}
+
+.change-email-error {
+  border: 2px solid red;
+  color: red;
+}
+
+.change-email-success {
+  border: 2px solid green;
+  color: green;
+}
+
+@media only screen and (max-width: 600px) {
+  .change-email {
+    width: 90%;
+  }
+}

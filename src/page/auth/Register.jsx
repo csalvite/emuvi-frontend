@@ -9,6 +9,7 @@ function Register() {
 	const [error, setError] = useState();
 	const [register, setRegister] = useState(false);
 	const [loading, setLoading] = useState();
+	const [state, setState] = useState();
 
 	const handleRegister = async (e) => {
 		e.preventDefault();
@@ -34,7 +35,9 @@ function Register() {
 				setError(false);
 				setRegister(true);
 			} else {
+				const err = await response.json();
 				setError(true);
+				setState(err.message);
 			}
 
 			setLoading(false);
@@ -127,9 +130,10 @@ function Register() {
 					)}
 					{error ? (
 						<div>
-							Hubo un error en el registro del usuario comprueba los datos
+							{/* Hubo un error en el registro del usuario comprueba los datos
 							proporcionados, puede que ya exista un usuario con ese email o
-							nombre.
+							nombre. */}
+							{state}
 						</div>
 					) : (
 						''
