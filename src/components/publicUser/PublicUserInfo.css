@@ -1,0 +1,40 @@
+.public-user-stars-name {
+	text-align: center;
+}
+
+.public-profile-name {
+	color: var(--darkGrey);
+	padding-top: 0.5rem;
+}
+
+.public-profile-avatar {
+	display: flex;
+	margin: auto;
+	border: 4px inset grey;
+	margin-top: -7rem;
+	margin-bottom: 2rem;
+}
+
+.public-user-more-info {
+	font-size: 1.3rem;
+	font-weight: 500;
+	line-height: 2rem;
+	padding: 2rem 0;
+	margin: 2rem 0;
+	color: var(--darkGrey);
+	border-top: 1px solid var(--lightGrey);
+	border-bottom: 1px solid var(--lightGrey);
+}
+
+.public-profile-icons {
+	padding-right: 0.5rem;
+}
+
+.public-user-bio {
+	font-size: 1.3rem;
+	font-weight: 500;
+	color: var(--darkGrey);
+	padding: 0 0 2rem;
+	margin-bottom: 2rem;
+	border-bottom: 1px solid var(--lightGrey);
+}
