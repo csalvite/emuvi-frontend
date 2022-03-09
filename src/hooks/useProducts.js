@@ -4,14 +4,13 @@ import { useSearchParams } from 'react-router-dom';
 const { REACT_APP_LOCALHOST } = process.env;
 
 const useProducts = () => {
+  const [params] = useSearchParams();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  const [params] = useSearchParams();
-
-  const order = params.get('order') || 'price';
-  const direction = params.get('direction') || 'DESC';
+  const order = params.get('order') || 'price' || 'createAt' || 'category';
+  const direction = params.get('direction') || 'DESC' || 'ASC';
 
   let search = params.get('search');
   useEffect(() => {
@@ -20,7 +19,7 @@ const useProducts = () => {
         order
       )}&direction=${encodeURIComponent(direction)}`;
 
-      if (search && direction) {
+      if (search) {
         url = `${url}&search=${encodeURIComponent(search)}`;
       }
 

@@ -9,6 +9,7 @@ const SearchBar = () => {
   );
 
   let navigate = useNavigate();
+
   useEffect(() => {
     setSearchParams({ search: encodeURIComponent(search) });
   }, [search, params, setSearchParams]);
@@ -17,6 +18,7 @@ const SearchBar = () => {
     e.preventDefault();
 
     let path = `/products?&search=${encodeURIComponent(search)}`;
+
     navigate(path);
   };
 

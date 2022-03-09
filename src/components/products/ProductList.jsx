@@ -3,11 +3,13 @@ import CardProduct from './CardProduct';
 import useProducts from '../../hooks/useProducts';
 import './ProductList.css';
 import { useState } from 'react';
-import DirectionProducts from './DirectionProducts';
+
+import FilterProducts from './FilterProducts';
 
 const ProductList = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const { products, loading, error } = useProducts();
+
   if (loading) return 'Cargando....';
   if (error) return <div>{error}</div>;
   const productFiltered = () => {
@@ -25,7 +27,9 @@ const ProductList = () => {
     <>
       <section className='products-section'>
         <h1 className='products-main-title'>PRODUCTOS</h1>
-        <DirectionProducts />
+        {/* <SearchBar2 /> */}
+        <FilterProducts />
+
         <ul className='container_productlist' style={{ listStyleType: 'none' }}>
           {productFiltered().map((product, index) => {
             return <CardProduct product={product} key={product.id} />;
