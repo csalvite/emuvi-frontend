@@ -106,18 +106,26 @@ export const EditProduct = ({ setShowPopUp, editProduct }) => {
                 <ul>
                     <li>
                         <label htmlFor="name">Nombre: </label>
+                    </li>
+                    <li>
                         <input type='text' name='name' id="name" placeholder={product.name} />
                     </li>
                     <li>
                         <label htmlFor="price">Precio: </label>
+                    </li>
+                    <li>
                         <input type='text' name='price' id="price" placeholder={`${product.price}€`} />
                     </li>
                     <li>
                         <label htmlFor="description">Descripción: </label>
+                    </li>
+                    <li>
                         <textarea type='text' name='description' id="description" placeholder={product.description} ></textarea>
                     </li>
                     <li>
                         <label htmlFor="category">Categoría: </label>
+                    </li>
+                    <li>
                         <select name="category" id="category" defaultValue={product.category} >
                             <option value="informatica">Informática</option>
                             <option value="videojuegos">Videojuegos</option>
@@ -128,10 +136,15 @@ export const EditProduct = ({ setShowPopUp, editProduct }) => {
                         </select>
                     </li>
                     <li>
+                        <label>Haz click sobre las imagenes que desees eliminar: </label>
+                    </li>
+                    <li>
                         {photos.length > 0 ? <DeleteProductPhoto productId={product.id} productPhotos={photos} /> : 'No hay fotos'}
                     </li>
                     <li>
                         <label>Añade una nueva foto de producto:</label>
+                    </li>
+                    <li>
                         <AddProductPhoto productId={product.id} />
                     </li>
                 </ul>

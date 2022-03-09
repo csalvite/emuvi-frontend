@@ -8,6 +8,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  z-index: 999;
 }
 
 #form-accept-offer {
@@ -17,6 +19,25 @@
   border-radius: 1rem;
   box-shadow: 2px 2px 15px black;
   padding: 2rem;
+
+  overflow: scroll;
+}
+
+#form-accept-offer > ul {
+  list-style: none;
+}
+
+#form-accept-offer input,
+#form-accept-offer textarea,
+#form-accept-offer select {
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 25px;
+  border: 1px solid black;
+}
+
+#form-accept-offer textarea {
+  height: 12vh;
 }
 
 .close-popup {
@@ -27,4 +48,17 @@
 .close-popup:hover {
   cursor: pointer;
   font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+  #form-accept-offer {
+    width: 90%;
+    height: 70%;
+  }
+
+  #form-accept-offer input,
+  #form-accept-offer textarea,
+  #form-accept-offer select {
+    width: 100%;
+  }
 }
