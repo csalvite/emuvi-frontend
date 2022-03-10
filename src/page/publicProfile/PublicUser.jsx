@@ -60,21 +60,22 @@ const PublicUser = () => {
 							/>
 						</div>
 					</div>
-
 					<h2 className="public-user-ratings">Opiniones Sobre el Usuario</h2>
-					{ratings.data?.map((rating, index) => {
+					{/*{ratings.data?.map((rating, index) => {
 						return <PublicUserRatings key={index} rating={rating} />;
 					})}
 
-					{/* return <PublicUserProductList key={index} product={product} />; */}
+					
 					<h2 className="public-user-products">Productos en Venta</h2>
 					{products.data?.map((product) => {
-						return (
+						return {
+							 NO ENCONTRÉ LA MANERA DE ALINEAR ESTE COMPONENTE :(
 							<div className="on-sale-products">
 								<CardProduct product={product} key={product.id} />
 							</div>
-						);
-					})}
+							
+					}; })}
+					*/}
 				</div>
 			</section>
 			<Footer />
