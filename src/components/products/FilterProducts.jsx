@@ -1,5 +1,8 @@
 import { useSearchParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import Slider from '@mui/material/Slider';
+import Rating from '@mui/material/Rating';
+import Box from '@mui/material/Box';
 
 function FilterProducts() {
   const [params, setParams] = useSearchParams('');
@@ -12,13 +15,27 @@ function FilterProducts() {
   const [order, setOrder] = useState(
     params.has('order') ? params.get('order') : ''
   );
+  const [rating, setRating] = useState(
+    params.has('rating') ? params.get('rating') : ''
+  );
+  // const [minPrice, setMinPrice] = useState(
+  //   params.has('minPrice') ? params.get('minPrice') : ''
+  // );
+  // const [maxPrice, setMaxPrice] = useState(
+  //   params.has('maxPrice') ? params.get('maxPrice') : ''
+  // );
+
   useEffect(() => {
     setParams({
       search,
       order,
       direction,
+      rating,
+      // minPrice,
+      // maxPrice,
     });
-  }, [direction, params, setParams, order, search]);
+  }, [direction, params, setParams, order, search, rating]);
+  console.log(order);
 
   return (
     <>
@@ -136,6 +153,60 @@ function FilterProducts() {
           <label for='otros'>Otros</label>
         </form>
       </div>
+      {/* <Slider
+        sx={{ width: '12.5rem' }}
+        min={0}
+        max={1000}
+        step={50}
+        value={minPrice}
+        onChange={(e) => {
+          setMinPrice(e.target.value);
+        }}
+        valueLabelDisplay='auto'
+      /> */}
+      <div>
+        <input
+          type='range'
+          value='price'
+          onChange={(e) => {
+            setOrder(e.target.value);
+          }}
+          min='1'
+          max='10000'
+          step='50'
+        />
+      </div>
+      <div>
+        <Rating
+          name='rating'
+          value={rating}
+          onChange={(event, newValue) => {
+            setRating(newValue);
+          }}
+        />
+      </div>
+      {/*       
+      <div>
+        <Slider
+          getAriaLabel={() => 'Minimum distance'}
+          value={minPrice}
+           onChange={(e) => {
+          setMinPrice(e.target.value);
+          valueLabelDisplay='auto'
+          getAriaValueText={valuetext}
+          disableSwap
+        />
+        <Slider
+          getAriaLabel={() => 'Minimum distance shift'}
+          value={maxPrice}
+           onChange={(e) => {
+          setMaxPrice(e.target.value);
+          valueLabelDisplay='auto'
+          getAriaValueText={valuetext}
+          disableSwap
+          />
+          </div>
+       */}
     </>
   );
 }
