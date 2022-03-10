@@ -3,16 +3,19 @@
 }
 
 .public-profile-name {
+	font-size: 1.8rem;
+	line-height: 3rem;
 	color: var(--darkGrey);
-	padding-top: 0.5rem;
+	padding: 0.5rem 0 2.5rem;
 }
 
 .public-profile-avatar {
 	display: flex;
 	margin: auto;
-	border: 4px inset grey;
-	margin-top: -7rem;
+	border: 1px solid var(--darkGrey);
+	margin-top: -8rem;
 	margin-bottom: 2rem;
+	box-shadow: 0px 3px 10px grey;
 }
 
 .public-user-more-info {
@@ -30,11 +33,23 @@
 	padding-right: 0.5rem;
 }
 
+.public-user-biography-title {
+	font-size: 1.4rem;
+	line-height: 2rem;
+	color: var(--darkGrey);
+}
+
 .public-user-bio {
+	color: var(--darkGrey);
+	padding: 2rem 0 0;
+	border-top: 1px solid var(--lightGrey);
 	font-size: 1.3rem;
 	font-weight: 500;
+	line-height: 2rem;
+}
+
+.user-location-paragraph {
 	color: var(--darkGrey);
-	padding: 0 0 2rem;
-	margin-bottom: 2rem;
-	border-bottom: 1px solid var(--lightGrey);
+	padding-bottom: 0.8rem;
+	font-weight: 500;
 }

@@ -51,13 +51,14 @@ const PublicUser = () => {
 			<section className="public-user-section">
 				<div className="public-user-profile">
 					<PublicUserInfo publicUser={user} />
-
-					<div className="leaflet-container">
-						<UserMapProduct
-							lat={privateUser.latitude}
-							lng={privateUser.longitude}
-							name={privateUser.username}
-						/>
+					<div className="public-user-map">
+						<div className="leaflet-container">
+							<UserMapProduct
+								lat={privateUser.latitude}
+								lng={privateUser.longitude}
+								name={privateUser.username}
+							/>
+						</div>
 					</div>
 
 					<h2 className="public-user-ratings">Opiniones Sobre el Usuario</h2>
@@ -68,7 +69,11 @@ const PublicUser = () => {
 					{/* return <PublicUserProductList key={index} product={product} />; */}
 					<h2 className="public-user-products">Productos en Venta</h2>
 					{products.data?.map((product) => {
-						return <CardProduct product={product} key={product.id} />;
+						return (
+							<div className="on-sale-products">
+								<CardProduct product={product} key={product.id} />
+							</div>
+						);
 					})}
 				</div>
 			</section>

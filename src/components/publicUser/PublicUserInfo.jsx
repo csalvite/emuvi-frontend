@@ -24,6 +24,10 @@ export const PublicUserInfo = ({ publicUser }) => {
 					{publicUser.name} {publicUser.lastname}
 				</h2>
 			</div>
+			<div className="public-user-bio">
+				<h4 className="public-user-biography-title">Biografía: </h4>
+				<p>{publicUser.biography}</p>
+			</div>
 			<div className="public-user-more-info">
 				<p>
 					<i className="fa-solid fa-phone public-profile-icons"></i>{' '}
@@ -33,15 +37,11 @@ export const PublicUserInfo = ({ publicUser }) => {
 					<i className="fa-solid fa-envelope public-profile-icons"></i>{' '}
 					{publicUser.email}
 				</p>
-				<p>
-					<i className="fa-solid fa-location-dot public-profile-icons"></i>{' '}
-					{publicUser.city}, {publicUser.province}
-				</p>
 			</div>
-			<div className="public-user-bio">
-				<h4>Biografía: </h4>
-				<p>{publicUser.biography}</p>
-			</div>
+			<p className="user-location-paragraph">
+				<i class="fa-solid fa-map-pin public-profile-icons"></i>{' '}
+				{publicUser.city}, {publicUser.province}
+			</p>
 		</>
 	);
 };
