@@ -102,7 +102,7 @@ export const EditProduct = ({ setShowPopUp, editProduct }) => {
             />
             <form id="form-accept-offer" onSubmit={handleEditProduct}>
                 <span className="close-popup" onClick={() => setShowPopUp(false)}>X</span>
-                <h4>Edita información de {product.name} {product.category}</h4>
+                <h3>Edita información de {product.name} {product.category}</h3>
                 <ul>
                     <li>
                         <label htmlFor="name">Nombre: </label>

@@ -81,7 +81,7 @@ export const UserReceivedOffers = ({ idUser }) => {
 
     return (
         <div>
-            <h3>Ofertas Recibidas</h3>
+            <h2>Ofertas Recibidas</h2>
             <DeleteStatus idUser={idUser.id} offers={offers} setOffers={setOffers} />
             <FormGroup>
                 {offers.map((offer, index) => {

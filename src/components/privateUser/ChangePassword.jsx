@@ -4,8 +4,8 @@ import { TokenContext } from "../..";
 const {REACT_APP_LOCALHOST} = process.env;
 
 const ChangePassword = ({privateUser}) => {
-    const [token, setToken] = useContext(TokenContext);
-    const [error, setError] = useState(false);
+    const [token] = useContext(TokenContext);
+    const [state, setState] = useState();
 
     const handleChangePassword = async(e) => {
         e.preventDefault();
@@ -27,16 +27,15 @@ const ChangePassword = ({privateUser}) => {
             });
 
             if(response.ok){
-                setToken('');
-                window.location.reload();
+                setState('Contraseña modificada correctamente.')
+                e.target.elements.oldPasswd.value = '';
+                e.target.elements.newPasswd.value = '';
             } else {
-                console.error('Ha habido un error al cambiar la contraseña');
-                setError(true);
+                setState('Ha habido un error al cambiar la contraseña.')
             }
 
         } catch(error){
-            console.error(error.message);
-            setError(true);
+            setState('Ha habido un error al cambiar la contraseña.')
         }
     }
 
@@ -62,7 +61,7 @@ const ChangePassword = ({privateUser}) => {
                     </li>
                 </ul>
             </form>
-            {error ? <div>Error al cambiar la contraseña, intentalo de nuevo</div> : ''}
+            {state ? <div>{state}</div> : ''}
         </div>
     );
 

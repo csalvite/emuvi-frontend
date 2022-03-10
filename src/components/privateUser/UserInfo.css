@@ -7,10 +7,6 @@
   font-size: 1.2em;
 }
 
-.user-profile h3 {
-  font-size: 1.5em;
-}
-
 .user-profile li {
   list-style: none;
 }
@@ -25,6 +21,7 @@
 
 .user-profile textarea {
   height: 20vh;
+  resize: vertical;
 }
 
 /* Componente UserInfo.jsx */
@@ -47,7 +44,7 @@
   padding: 2rem;
 }
 
-.drop-user > h3 {
+.drop-user > h4 {
   color: red;
 }
 

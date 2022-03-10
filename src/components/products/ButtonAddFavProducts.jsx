@@ -74,12 +74,28 @@ export const ButtonFavProduct = ({ idProduct }) => {
                 message={text}
                 action={action}
             />
+        {/* {isFav ? (
+          <i class="fa-solid fa-heart-crack"
+                    title="Eliminar de favoritos"
+                    onClick={() => {
+                      handleAddFavProduct();
+                      handleClick();
+                    }}></i>
+        ) : (
+          <i class="fa-solid fa-heart heart" 
+                    title="Añadir a favoritos"
+                    onClick={() => {
+                      handleAddFavProduct();
+                      handleClick();
+                    }}></i>
+              
+        )} */}
         <i class="fa-solid fa-heart heart" 
-           title="Añadir a favoritos"
-           onClick={() => {
-            handleAddFavProduct();
-            handleClick();
-           }}></i>
+                    title="Añadir a favoritos"
+                    onClick={() => {
+                      handleAddFavProduct();
+                      handleClick();
+                    }}></i>
     </>
     
   );

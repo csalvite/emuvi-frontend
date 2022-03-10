@@ -79,7 +79,7 @@ export const UserSendOffers = ({ idUser }) => {
 
     return (
         <div>
-            <h3>Ofertas Enviadas</h3>
+            <h2>Ofertas Enviadas</h2>
             <DeleteStatus idUser={idUser.id} offers={offers} setOffers={setOffers} whatIs='booking' />
             {/* {offers?.map((offer) => {
                 return (

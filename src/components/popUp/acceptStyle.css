@@ -38,6 +38,7 @@
 
 #form-accept-offer textarea {
   height: 12vh;
+  resize: vertical;
 }
 
 .close-popup {

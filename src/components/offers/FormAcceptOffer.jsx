@@ -66,7 +66,7 @@ export const FormAcceptOffer = ({ setShowPopUp, idUser, idOffer, reserveStatus }
         <div id="popup-background" className="accept-offer">
             <form id="form-accept-offer" onSubmit={handleAcceptOffer}>
                 <span className="close-popup" onClick={() => setShowPopUp(false)}>X</span>
-                <h4>Rellena los datos para reunirte con el comprador</h4>
+                <h3>Rellena los datos para reunirte con el comprador</h3>
                 <ul>
                     <li>
                         <label htmlFor="street">Calle: </label>
