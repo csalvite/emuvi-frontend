@@ -7,19 +7,29 @@ const SearchBar = () => {
   const [search, setSearch] = useState(
     params.has('search') ? params.get('search') : ''
   );
+  useEffect(() => {
+    if (params.has('search')) {
+      setSearchParams({ search: encodeURIComponent(search) });
+    } else {
+      params.delete('search');
 
+      setSearchParams(params);
+    }
+  }, [params, setSearchParams, search]);
   let navigate = useNavigate();
 
-  useEffect(() => {
-    setSearchParams({ search: encodeURIComponent(search) });
-  }, [search, params, setSearchParams]);
+  // useEffect(() => {
+  //   setSearchParams({ search: encodeURIComponent(search) });
+  // }, [search, params, setSearchParams]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    let path = `/products?&search=${encodeURIComponent(search)}`;
-
-    navigate(path);
+    if (search) {
+      let path = `/products?&search=${encodeURIComponent(search)}`;
+      navigate(path);
+    } else {
+      navigate(`/products`);
+    }
   };
 
   return (

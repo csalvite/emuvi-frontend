@@ -2,28 +2,40 @@ import { useSearchParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Slider from '@mui/material/Slider';
 import Rating from '@mui/material/Rating';
-import Box from '@mui/material/Box';
 
 function FilterProducts() {
   const [params, setParams] = useSearchParams('');
   const [search, setSearch] = useState(
     params.has('search') ? params.get('search') : ''
   );
+
   const [direction, setDirection] = useState(
     params.has('direction') ? params.get('direction') : ''
   );
   const [order, setOrder] = useState(
     params.has('order') ? params.get('order') : ''
   );
-  const [rating, setRating] = useState(
-    params.has('rating') ? params.get('rating') : ''
-  );
-  // const [minPrice, setMinPrice] = useState(
-  //   params.has('minPrice') ? params.get('minPrice') : ''
-  // );
-  // const [maxPrice, setMaxPrice] = useState(
-  //   params.has('maxPrice') ? params.get('maxPrice') : ''
-  // );
+  const [rating, setRating] = useState('rating');
+  if (rating) {
+    params.get('rating');
+  } else {
+    params.get('');
+  }
+
+  const [minPrice, setMinPrice] = useState(1);
+
+  if (minPrice) {
+    params.get('minPrice');
+  } else {
+    params.get('');
+  }
+
+  const [maxPrice, setMaxPrice] = useState(10000);
+  if (maxPrice) {
+    params.get('maxPrice');
+  } else {
+    params.get('');
+  }
 
   useEffect(() => {
     setParams({
@@ -31,11 +43,11 @@ function FilterProducts() {
       order,
       direction,
       rating,
-      // minPrice,
-      // maxPrice,
+      minPrice,
+      maxPrice,
     });
-  }, [direction, params, setParams, order, search, rating]);
-  console.log(order);
+  }, [direction, params, setParams, order, search, rating, minPrice, maxPrice]);
+  console.log(minPrice);
 
   return (
     <>
@@ -59,7 +71,6 @@ function FilterProducts() {
           <option value='rating'>Por valoraciones</option>
         </select>
       </div>
-
       <div className='container_input'>
         <label htmlFor='form_product_category'></label>
         <select
@@ -153,29 +164,26 @@ function FilterProducts() {
           <label for='otros'>Otros</label>
         </form>
       </div>
-      {/* <Slider
-        sx={{ width: '12.5rem' }}
-        min={0}
-        max={1000}
-        step={50}
-        value={minPrice}
-        onChange={(e) => {
-          setMinPrice(e.target.value);
-        }}
-        valueLabelDisplay='auto'
-      /> */}
       <div>
-        <input
-          type='range'
-          value='price'
+        {minPrice <= 1 && maxPrice >= 10000 ? (
+          <p>Filtrar por precio</p>
+        ) : (
+          <p>{`${minPrice}€ - ${maxPrice}€`}</p>
+        )}
+        <Slider
+          sx={{ width: '12.5rem' }}
+          color='secondary'
+          min={1}
+          max={10000}
+          step={50}
+          value={minPrice}
           onChange={(e) => {
-            setOrder(e.target.value);
+            setMinPrice(e.target.value);
           }}
-          min='1'
-          max='10000'
-          step='50'
+          valueLabelDisplay='auto'
         />
       </div>
+
       <div>
         <Rating
           name='rating'
@@ -185,28 +193,6 @@ function FilterProducts() {
           }}
         />
       </div>
-      {/*       
-      <div>
-        <Slider
-          getAriaLabel={() => 'Minimum distance'}
-          value={minPrice}
-           onChange={(e) => {
-          setMinPrice(e.target.value);
-          valueLabelDisplay='auto'
-          getAriaValueText={valuetext}
-          disableSwap
-        />
-        <Slider
-          getAriaLabel={() => 'Minimum distance shift'}
-          value={maxPrice}
-           onChange={(e) => {
-          setMaxPrice(e.target.value);
-          valueLabelDisplay='auto'
-          getAriaValueText={valuetext}
-          disableSwap
-          />
-          </div>
-       */}
     </>
   );
 }
