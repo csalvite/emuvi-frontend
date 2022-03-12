@@ -8,7 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 63vh;
+  height: 100%;
 }
 
 .centerr {
@@ -17,6 +17,7 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  min-width: 100vw;
 }
 
 .ring {

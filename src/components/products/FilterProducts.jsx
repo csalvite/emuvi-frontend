@@ -1,4 +1,4 @@
-import { useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Slider from '@mui/material/Slider';
 import Rating from '@mui/material/Rating';
@@ -15,22 +15,15 @@ function FilterProducts() {
   const [order, setOrder] = useState(
     params.has('order') ? params.get('order') : ''
   );
-  const [rating, setRating] = useState('rating');
-  if (rating) {
-    params.get('rating');
-  } else {
-    params.get('');
-  }
+  const [rating, setRating] = useState(
+    params.has('rating') ? params.get('rating') : ''
+  );
 
-  const [minPrice, setMinPrice] = useState(1);
+  const [minPrice = 1, setMinPrice] = useState(
+    params.has('minPrice') ? params.get('minPrice') : ''
+  );
 
-  if (minPrice) {
-    params.get('minPrice');
-  } else {
-    params.get('');
-  }
-
-  const [maxPrice, setMaxPrice] = useState(10000);
+  const [maxPrice] = useState(10000);
   if (maxPrice) {
     params.get('maxPrice');
   } else {
@@ -39,15 +32,22 @@ function FilterProducts() {
 
   useEffect(() => {
     setParams({
+      minPrice,
+      maxPrice,
       search,
       order,
       direction,
       rating,
-      minPrice,
-      maxPrice,
     });
   }, [direction, params, setParams, order, search, rating, minPrice, maxPrice]);
-  console.log(minPrice);
+  console.log(rating);
+  let navigate = useNavigate();
+  const cleanFilter = (e) => {
+    e.preventDefault();
+    navigate(
+      `/products?minPrice=&maxPrice=10000&search=&order=&direction=&rating=`
+    );
+  };
 
   return (
     <>
@@ -89,17 +89,17 @@ function FilterProducts() {
         </select>
       </div>
       <div>
-        <form>
+        <h4>Categorías:</h4>
+        <forms>
           <input
             type='radio'
+            name='categorias'
             value='informatica'
             id='informatica'
             checked={search === 'informatica'}
             onChange={(e) => {
-              e.preventDefault();
               setSearch(e.target.value);
             }}
-            name='informatica'
           />
           <label for='informatica'>Infórmatica</label>
           <input
@@ -108,10 +108,9 @@ function FilterProducts() {
             id='musica'
             checked={search === 'musica'}
             onChange={(e) => {
-              e.preventDefault();
               setSearch(e.target.value);
             }}
-            name='musica'
+            name='categorias'
           />
           <label for='musica'>Música</label>
           <input
@@ -120,10 +119,9 @@ function FilterProducts() {
             checked={search === 'videojuegos'}
             id='videojuegos'
             onChange={(e) => {
-              e.preventDefault();
               setSearch(e.target.value);
             }}
-            name='videojuegos'
+            name='categorias'
           />
           <label for='videojuegos'>Videojuegos</label>
           <input
@@ -132,10 +130,9 @@ function FilterProducts() {
             checked={search === 'video'}
             id='video'
             onChange={(e) => {
-              e.preventDefault();
               setSearch(e.target.value);
             }}
-            name='video'
+            name='categorias'
           />
           <label for='video'>Video</label>
           <input
@@ -144,10 +141,9 @@ function FilterProducts() {
             checked={search === 'modavintage'}
             id='modavintage'
             onChange={(e) => {
-              e.preventDefault();
               setSearch(e.target.value);
             }}
-            name='modavintage'
+            name='categorias'
           />
           <label for='modavintage'>Moda Vintage</label>
           <input
@@ -156,26 +152,25 @@ function FilterProducts() {
             checked={search === 'otros'}
             id='otros'
             onChange={(e) => {
-              e.preventDefault();
               setSearch(e.target.value);
             }}
-            name='otros'
+            name='categorias'
           />
           <label for='otros'>Otros</label>
-        </form>
+        </forms>
       </div>
       <div>
         {minPrice <= 1 && maxPrice >= 10000 ? (
-          <p>Filtrar por precio</p>
+          <h4>Filtrar por precio:</h4>
         ) : (
           <p>{`${minPrice}€ - ${maxPrice}€`}</p>
         )}
         <Slider
-          sx={{ width: '12.5rem' }}
+          sx={{ width: '14.5rem' }}
           color='secondary'
           min={1}
           max={10000}
-          step={50}
+          step={10}
           value={minPrice}
           onChange={(e) => {
             setMinPrice(e.target.value);
@@ -185,14 +180,18 @@ function FilterProducts() {
       </div>
 
       <div>
+        <h4>Opiniones del vendedor:</h4>
         <Rating
           name='rating'
-          value={rating}
-          onChange={(event, newValue) => {
-            setRating(newValue);
+          value={Number(rating)}
+          onChange={(e) => {
+            setRating(Number(e.target.value));
           }}
         />
       </div>
+      <button on Click={cleanFilter}>
+        Borrar filtros
+      </button>
     </>
   );
 }

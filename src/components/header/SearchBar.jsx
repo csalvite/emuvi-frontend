@@ -39,7 +39,7 @@ const SearchBar = () => {
           autoFocus
           placeholder='Busca tu producto...'
           type='search'
-          querysearch={search}
+          // querysearch={search}
           name='product'
           value={search}
           onChange={(e) => {
