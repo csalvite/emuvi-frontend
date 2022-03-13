@@ -53,148 +53,157 @@ function FilterProducts() {
 	return (
 		<>
 			<div className="accordion">
-				<h3>Filtrar productos</h3>
-			</div>
+				<label className="accordion-label" for="accordion1">
+					<h3 className="filter-title">
+						FILTRAR PRODUCTOS
+						<i className="fa-solid fa-sort filter-icon"></i>
+					</h3>
+				</label>
+				<input type="checkbox" id="accordion1"></input>
+				<div className="accordion-inputs-container">
+					<div className="container_input">
+						<label htmlFor="form_product_category"></label>
+						<select
+							value={order}
+							onChange={(e) => {
+								setOrder(e.target.value);
+							}}
+							className="select_product_category"
+							name="form_product_category">
+							<option hidden selected>
+								Filtros:
+							</option>
+							<option value="price">Por precio</option>
 
-			<div className="container_input">
-				<label htmlFor="form_product_category"></label>
-				<select
-					value={order}
-					onChange={(e) => {
-						setOrder(e.target.value);
-					}}
-					className="select_product_category"
-					name="form_product_category">
-					<option hidden selected>
-						Filtros:
-					</option>
-					<option value="price">Por precio</option>
+							<option value="createdAt">Por fecha</option>
+							<option value="name">Por orden alfabetico</option>
+							<option value="rating">Por valoraciones</option>
+						</select>
+					</div>
+					<div className="container_input">
+						<label htmlFor="form_product_category"></label>
+						<select
+							value={direction}
+							onChange={(e) => {
+								setDirection(e.target.value);
+							}}
+							className="select_product_category"
+							name="form_product_category">
+							<option hidden selected>
+								Ordenar Por:
+							</option>
+							<option value="ASC">Ascendente</option>
+							<option value="DESC">Descendente</option>
+						</select>
+					</div>
 
-					<option value="createdAt">Por fecha</option>
-					<option value="name">Por orden alfabetico</option>
-					<option value="rating">Por valoraciones</option>
-				</select>
-			</div>
-			<div className="container_input">
-				<label htmlFor="form_product_category"></label>
-				<select
-					value={direction}
-					onChange={(e) => {
-						setDirection(e.target.value);
-					}}
-					className="select_product_category"
-					name="form_product_category">
-					<option hidden selected>
-						Ordenar Por:
-					</option>
-					<option value="ASC">Ascendente</option>
-					<option value="DESC">Descendente</option>
-				</select>
-			</div>
-			<div>
-				<form>
-					<input
-						type="radio"
-						value="informatica"
-						id="informatica"
-						checked={search === 'informatica'}
-						onChange={(e) => {
-							e.preventDefault();
-							setSearch(e.target.value);
-						}}
-						name="informatica"
-					/>
-					<label for="informatica">Infórmatica</label>
-					<input
-						type="radio"
-						value="musica"
-						id="musica"
-						checked={search === 'musica'}
-						onChange={(e) => {
-							e.preventDefault();
-							setSearch(e.target.value);
-						}}
-						name="musica"
-					/>
-					<label for="musica">Música</label>
-					<input
-						type="radio"
-						value="videojuegos"
-						checked={search === 'videojuegos'}
-						id="videojuegos"
-						onChange={(e) => {
-							e.preventDefault();
-							setSearch(e.target.value);
-						}}
-						name="videojuegos"
-					/>
-					<label for="videojuegos">Videojuegos</label>
-					<input
-						type="radio"
-						value="video"
-						checked={search === 'video'}
-						id="video"
-						onChange={(e) => {
-							e.preventDefault();
-							setSearch(e.target.value);
-						}}
-						name="video"
-					/>
-					<label for="video">Video</label>
-					<input
-						type="radio"
-						value="modavintage"
-						checked={search === 'modavintage'}
-						id="modavintage"
-						onChange={(e) => {
-							e.preventDefault();
-							setSearch(e.target.value);
-						}}
-						name="modavintage"
-					/>
-					<label for="modavintage">Moda Vintage</label>
-					<input
-						type="radio"
-						value="otros"
-						checked={search === 'otros'}
-						id="otros"
-						onChange={(e) => {
-							e.preventDefault();
-							setSearch(e.target.value);
-						}}
-						name="otros"
-					/>
-					<label for="otros">Otros</label>
-				</form>
-			</div>
-			<div>
-				{minPrice <= 1 && maxPrice >= 10000 ? (
-					<p>Filtrar por precio</p>
-				) : (
-					<p>{`${minPrice}€ - ${maxPrice}€`}</p>
-				)}
-				<Slider
-					sx={{ width: '12.5rem' }}
-					color="secondary"
-					min={1}
-					max={10000}
-					step={50}
-					value={minPrice}
-					onChange={(e) => {
-						setMinPrice(e.target.value);
-					}}
-					valueLabelDisplay="auto"
-				/>
-			</div>
+					<div>
+						{minPrice <= 1 && maxPrice >= 10000 ? (
+							<p>Filtrar por precio</p>
+						) : (
+							<p>{`${minPrice}€ - ${maxPrice}€`}</p>
+						)}
+						<Slider
+							sx={{ width: '12.5rem' }}
+							color="secondary"
+							min={1}
+							max={10000}
+							step={50}
+							value={minPrice}
+							onChange={(e) => {
+								setMinPrice(e.target.value);
+							}}
+							valueLabelDisplay="auto"
+						/>
+					</div>
 
-			<div>
-				<Rating
-					name="rating"
-					value={rating}
-					onChange={(event, newValue) => {
-						setRating(newValue);
-					}}
-				/>
+					<div>
+						<Rating
+							name="rating"
+							value={rating}
+							onChange={(event, newValue) => {
+								setRating(newValue);
+							}}
+						/>
+					</div>
+
+					<div>
+						<form>
+							<input
+								type="radio"
+								value="informatica"
+								id="informatica"
+								checked={search === 'informatica'}
+								onChange={(e) => {
+									e.preventDefault();
+									setSearch(e.target.value);
+								}}
+								name="informatica"
+							/>
+							<label for="informatica">Infórmatica</label>
+							<input
+								type="radio"
+								value="musica"
+								id="musica"
+								checked={search === 'musica'}
+								onChange={(e) => {
+									e.preventDefault();
+									setSearch(e.target.value);
+								}}
+								name="musica"
+							/>
+							<label for="musica">Música</label>
+							<input
+								type="radio"
+								value="videojuegos"
+								checked={search === 'videojuegos'}
+								id="videojuegos"
+								onChange={(e) => {
+									e.preventDefault();
+									setSearch(e.target.value);
+								}}
+								name="videojuegos"
+							/>
+							<label for="videojuegos">Videojuegos</label>
+							<input
+								type="radio"
+								value="video"
+								checked={search === 'video'}
+								id="video"
+								onChange={(e) => {
+									e.preventDefault();
+									setSearch(e.target.value);
+								}}
+								name="video"
+							/>
+							<label for="video">Video</label>
+							<input
+								type="radio"
+								value="modavintage"
+								checked={search === 'modavintage'}
+								id="modavintage"
+								onChange={(e) => {
+									e.preventDefault();
+									setSearch(e.target.value);
+								}}
+								name="modavintage"
+							/>
+							<label for="modavintage">Moda Vintage</label>
+							<input
+								type="radio"
+								value="otros"
+								checked={search === 'otros'}
+								id="otros"
+								onChange={(e) => {
+									e.preventDefault();
+									setSearch(e.target.value);
+								}}
+								name="otros"
+							/>
+							<label for="otros">Otros</label>
+						</form>
+					</div>
+				</div>
 			</div>
 		</>
 	);

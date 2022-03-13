@@ -1,0 +1,41 @@
+.filter-title {
+	font-size: 1rem;
+	font-weight: 500;
+	margin: 0 auto;
+	padding-left: 6.5rem;
+	text-align: center;
+}
+
+.filter-title:hover {
+	color: var(--green);
+}
+
+.filter-icon {
+	padding-left: 3rem;
+}
+
+.accordion .accordion-label {
+	display: block;
+	color: var(--lightGrey);
+	background-color: #353535;
+	border-top: 1px solid grey;
+	cursor: pointer;
+	padding: 10px;
+}
+
+.accordion .accordion-inputs-container {
+	background-color: #f9f9f9;
+	color: var(--darkGrey);
+	box-shadow: var(--box-shadow);
+	text-align: left;
+	visibility: hidden;
+	opacity: 0;
+	display: none;
+}
+
+#accordion1:checked ~ .accordion-inputs-container {
+	display: block;
+	text-align: center;
+	opacity: 1;
+	visibility: visible;
+}
