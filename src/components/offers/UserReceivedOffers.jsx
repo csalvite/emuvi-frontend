@@ -85,9 +85,9 @@ export const UserReceivedOffers = ({ idUser }) => {
             <h2>Ofertas Recibidas</h2>
             <DeleteStatus idUser={idUser.id} offers={offers} setOffers={setOffers} />
             <FormGroup>
-                {offers.map((offer, index) => {
+                {offers?.map((offer) => {
                     return (
-                        <div key={index}>
+                        <div key={offer.id}>
                             <h4>El usuario {offer.buyerName} te propone la compra de {offer.product} </h4>
                             <p>Ver perfil de {offer.buyerName} <PublicUserAccess idUser={offer.idUserBuyer} /> </p>
                             <FormControlLabel control={<Checkbox onChange={dropIds} name={`${offer.id}`} />} label={`Eliminar oferta en estado ${offer.reserveStatus}`} />
@@ -95,9 +95,9 @@ export const UserReceivedOffers = ({ idUser }) => {
                             <p>Fecha de creación: {new Date(offer.createdAt).toLocaleDateString()}</p>
                             {offer.reserveStatus === 'pendiente' ? (
                                 <>
-                                    <button className="btn" onClick={() => setShowPopUp(true)}>Aceptar Oferta</button>
-                                    <DeclineOffer idUser={idUser.id} idOffer={offer.id} reserveStatus={offer.reserveStatus} />
-                                    {showPopUp && <FormAcceptOffer setShowPopUp={setShowPopUp} idUser={idUser.id} idOffer={offer.id} reserveStatus={offer.reserveStatus} />}
+                                    <i className="fa-solid fa-check" onClick={() => setShowPopUp(true)} title="Aceptar Oferta"></i>
+                                    <DeclineOffer idUser={idUser.id} idOffer={offer.id} reserveStatus={offer.reserveStatus} offers={offers} setOffers={setOffers} />
+                                    {showPopUp && <FormAcceptOffer setShowPopUp={setShowPopUp} idUser={idUser.id} idOffer={offer.id} reserveStatus={offer.reserveStatus} offers={offers} setOffers={setOffers} />}
                                 </>
                             ) : ''}
                         </div>

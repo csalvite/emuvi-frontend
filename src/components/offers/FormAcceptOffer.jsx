@@ -1,14 +1,15 @@
+import { IconButton, Snackbar } from "@mui/material";
 import { useContext, useState } from "react";
 import { TokenContext } from "../..";
 import "../popUp/acceptStyle.css";
 
 const { REACT_APP_LOCALHOST } = process.env;
 
-export const FormAcceptOffer = ({ setShowPopUp, idUser, idOffer, reserveStatus }) => {
+export const FormAcceptOffer = ({ setShowPopUp, idUser, idOffer, reserveStatus, offers, setOffers }) => {
 
     const [token] = useContext(TokenContext);
     const [loading, setLoading] = useState(false);
-    const [state, setState] = useState();
+    const [state, setState] = useState();   
 
     const handleAcceptOffer = async (e) => {
         e.preventDefault();
@@ -36,7 +37,8 @@ export const FormAcceptOffer = ({ setShowPopUp, idUser, idOffer, reserveStatus }
 
             if (response.ok) {
                 const body = await response.json();
-
+                const arrNew = offers.filter((offer) => offer.id !== Number(idOffer));
+                setOffers(arrNew);
                 setState(body.message);
             } else {
                 if (offerData.street === '' || offerData.city === '' || offerData.time === '' || offerData.date === '') {

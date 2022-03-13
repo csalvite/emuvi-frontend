@@ -7,7 +7,7 @@ const { REACT_APP_LOCALHOST } = process.env;
 const DeleteFavProduct = ({ idProduct, idUser, favProducts, setFavProducts }) => {
     const [ token ] = useContext(TokenContext);
 
-     const [text, setText] = useState(<img src="/resources/vectors/tail-spin.svg" alt="spinner" />);
+    const [text, setText] = useState(<img src="/resources/vectors/tail-spin.svg" alt="spinner" />);
 
     const [open, setOpen] = useState(false);
 
