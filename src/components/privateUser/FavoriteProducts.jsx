@@ -44,42 +44,6 @@ function FavoriteProducts({privateUser}) {
 
   }, [privateUser.id, token.token, setFavProducts]);
 
-  // Funcion manejadora para eliminar producto de favoritos
-  const handleDeleteFavProduct = async (e) => {
-    e.preventDefault();
-
-    const idDeleteProduct = e.target.id;
-
-    // Según el botón que pulse se recoge un id de producto u otro
-    const url = `${REACT_APP_LOCALHOST}/user/${privateUser.id}/favorites/${idDeleteProduct}`;
-
-    try {
-        const response = await fetch(url, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: token.token,
-            }
-        });
-
-        setLoading(true);
-
-        if (response.ok) {
-            console.log('Producto eliminado de favoritos correctamente');
-            const arrNew = favProducts.filter((item) => item.id !== Number(idDeleteProduct));
-            setFavProducts(arrNew);
-        } else {
-            console.error('Error al borrar el producto');
-        }
-
-        setLoading(false);
-
-    } catch (error) {
-        console.error(error.message);
-        setError(true);
-    }
-  }
-
   if (loading) {
       return (
           <img src="/resources/vectors/loading.svg" alt="loading" />
@@ -94,7 +58,7 @@ function FavoriteProducts({privateUser}) {
             <div className="user-fav-products">
             {favProducts.map((product) => {
             return (
-                <CardProduct product={product} key={product.id} />
+                <CardProduct product={product} key={product.id} deleteFav={true} favProducts={favProducts} setFavProducts={setFavProducts} />
                 )
             })}
             </div>

@@ -4,6 +4,7 @@ import { FormAcceptOffer } from "./FormAcceptOffer";
 import { DeclineOffer } from "./DeclineOffer";
 import { Checkbox, FormControlLabel, FormGroup } from "@mui/material";
 import { DeleteStatus } from "./DeleteStatus";
+import { PublicUserAccess } from "../publicUser/PublicUserAccess";
 
 const { REACT_APP_LOCALHOST } = process.env;
 
@@ -88,6 +89,7 @@ export const UserReceivedOffers = ({ idUser }) => {
                     return (
                         <div key={index}>
                             <h4>El usuario {offer.buyerName} te propone la compra de {offer.product} </h4>
+                            <p>Ver perfil de {offer.buyerName} <PublicUserAccess idUser={offer.idUserBuyer} /> </p>
                             <FormControlLabel control={<Checkbox onChange={dropIds} name={`${offer.id}`} />} label={`Eliminar oferta en estado ${offer.reserveStatus}`} />
                             <p>Estado de reserva: <strong>{offer.reserveStatus}</strong></p>
                             <p>Fecha de creación: {new Date(offer.createdAt).toLocaleDateString()}</p>

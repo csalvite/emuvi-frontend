@@ -3,20 +3,17 @@ import './CardProduct.css';
 import { Link } from 'react-router-dom';
 import { usePrivateUser } from '../../hooks/usePrivateUser';
 import { ButtonFavProduct } from './ButtonAddFavProducts';
-import { useFavoriteProduct } from '../../hooks/useFavoriteProduct';
 const { REACT_APP_LOCALHOST } = process.env;
 
 export default function CardProduct(props, product) {
 
 	const {privateUser} = usePrivateUser();
 
-	// Eliminar este custom hook
-	const {isFav} = useFavoriteProduct();
-
 	return (
 		<>
 			<div className="cardproduct">
 				<div className="card__body">
+
 					<Link to={`/products/${props.product.id}`}>
 						<img
 							className="card__img"
@@ -33,7 +30,13 @@ export default function CardProduct(props, product) {
 					</Link>
 					<div className="card-icon-box">
 						<ButtonNewOffer idUser={privateUser.id} idProduct={props.product.id} />
-						<ButtonFavProduct idProduct={props.product.id} isFav={isFav} />
+						<ButtonFavProduct 
+							idProduct={props.product.id} 
+							deleteFav={props.deleteFav} 
+							idUser={privateUser.id} 
+							favProducts={props.favProducts} 
+							setFavProducts={props.setFavProducts} 
+						/>
 					</div>
 				</div>
 				{/*<ButtonNewOffer
