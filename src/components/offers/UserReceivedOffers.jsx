@@ -88,8 +88,7 @@ export const UserReceivedOffers = ({ idUser }) => {
                 {offers?.map((offer) => {
                     return (
                         <div key={offer.id}>
-                            <h4>El usuario {offer.buyerName} te propone la compra de {offer.product} </h4>
-                            <p>Ver perfil de {offer.buyerName} <PublicUserAccess idUser={offer.idUserBuyer} /> </p>
+                            <h4>El usuario {offer.buyerName} <PublicUserAccess idUser={offer.idUserBuyer} /> te propone la compra de {offer.product} </h4>
                             <FormControlLabel control={<Checkbox onChange={dropIds} name={`${offer.id}`} />} label={`Eliminar oferta en estado ${offer.reserveStatus}`} />
                             <p>Estado de reserva: <strong>{offer.reserveStatus}</strong></p>
                             <p>Fecha de creación: {new Date(offer.createdAt).toLocaleDateString()}</p>

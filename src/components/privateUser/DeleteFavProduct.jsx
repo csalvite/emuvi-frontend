@@ -78,7 +78,7 @@ const DeleteFavProduct = ({ idProduct, idUser, favProducts, setFavProducts }) =>
                 action={action}
             />
 
-        <i className="fa-solid fa-heart-crack"
+        <i className="fa-solid fa-heart-crack heart"
             title="Eliminar de favoritos"
             onClick={() => {
                 handleDeleteFavProduct();
