@@ -12,6 +12,7 @@ import AboutUs from '../components/aboutUs/AboutUs';
 import PublicUser from './publicProfile/PublicUser';
 import Product from './products/Product';
 import E404 from '../components/E404/E404';
+import DropDown from '../components/DropDown/DropDown';
 
 function EmuviRoutes() {
   return (
@@ -35,6 +36,7 @@ function EmuviRoutes() {
         <Route path='products/:idProduct' element={<Product />} />
         <Route path='newproduct' element={<NewProduct />} />
         <Route path='aboutus' element={<AboutUs />} />
+        <Route path='DD' element={<DropDown />} />
         {/*Importante, esta ruta tiene que ser la ultima para no tocar con problemas de jerarquias*/}
         <Route path='*' element={<E404 />} />
       </Routes>

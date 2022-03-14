@@ -1,0 +1,96 @@
+.login-formRegister {
+  max-width: 70%;
+  max-height: 100%;
+  padding: 4rem 3.3rem;
+  border-radius: 5%;
+  border: solid 4px grey;
+  color: var(--white);
+  background-color: var(--black-2);
+  position: absolute;
+}
+
+#biography {
+  background: var(--darkGrey);
+  padding: 3rem;
+  padding-top: 1rem;
+  border-radius: 20px 20px 20px 20px;
+  border: 2px inset var(--darkGrey);
+}
+#fieldRegister {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-inputRegister {
+  border-bottom-left-radius: 30px;
+  border-top-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border-top-right-radius: 30px;
+  border: 2px inset var(--darkGrey);
+  margin: 0.5rem 0;
+  padding-inline: 0.5rem;
+  padding: 1rem;
+  color: var(--lightGrey);
+  background-color: var(--darkGrey);
+  inline-size: 100%;
+  display: inline;
+}
+
+@media screen and (max-width: 600px) {
+  .login-formRegister {
+    max-width: 100%;
+    min-height: max-content;
+    padding: 1rem;
+    display: flex;
+    margin: 1rem;
+    flex-direction: column;
+  }
+  .form-title {
+    font-size: 1rem;
+    font-weight: 500;
+    padding-top: 0.2rem;
+    margin-bottom: 1rem;
+    color: var(--lightGrey);
+    background-color: transparent;
+  }
+  #fieldRegister {
+    overflow: ;
+  }
+  .login-form-btn {
+    display: inline-block;
+    padding: 0.1rem 6rem;
+    max-width: auto;
+    margin-top: 1rem;
+    margin-bottom: 0.8rem;
+    background-color: var(--black);
+    color: var(--white);
+    border-radius: 30px;
+    border: solid 2px var(--lightGrey);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1;
+    font-family: inherit;
+    vertical-align: middle;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+  }
+  #biography {
+    background: var(--darkGrey);
+    color: white;
+  }
+
+  .form-inputRegister {
+    padding: 0.5rem;
+
+    inline-size: 100%;
+  }
+}
+
+@media screen and (max-height: 400px) {
+  .login-formRegister {
+    overflow: scroll;
+  }
+}

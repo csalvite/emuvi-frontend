@@ -1,0 +1,44 @@
+.dropdown-menu {
+  height: 5px;
+  width: 15rem;
+  display: flex;
+  font-weight: 1;
+  align-items: center;
+  text-align: center;
+  color: grey;
+  background: var(--black-2);
+  position: relative;
+  cursor: pointer;
+  padding: 1rem;
+  border-radius: 30px;
+  font-size: 15px;
+
+  flex-direction: inherit;
+}
+
+.dropdown-menu:hover {
+  color: grey;
+  background: var(--black);
+  border: 2px solid var(--black-2);
+}
+
+.listDD {
+  list-style: none;
+  bottom: -5.2rem;
+  left: 0;
+  position: absolute;
+}
+
+.listDD > li {
+  border: 2px solid var(--black);
+  width: 15rem;
+
+  background-color: var(--black-2);
+  border-radius: 30px;
+  cursor: pointer;
+}
+.listDD > li:hover {
+  border: 2px solid var(--white);
+  min-width: min-content;
+  color: var(--white);
+}

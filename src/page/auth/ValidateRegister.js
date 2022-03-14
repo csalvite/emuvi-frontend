@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import Footer from '../../components/footer/Footer';
 import JustNav from '../../components/justNavHeader/JustNav';
+import './ValidateRegister.css';
 
 const { REACT_APP_LOCALHOST } = process.env;
 
@@ -75,55 +76,118 @@ function ValidateRegister() {
     <div>
       {/* className='register-form' he quitado esta clase porque dejaba unos estilos "un tanto raros" xD - cesar */}
       <JustNav />
-      <h1>Formulario para completar el registro en EMUVI</h1>
-      <p>
-        Para poder poner en venta tus productos en emuvi nos es necesaria cierta
-        información a mayores que será utilizada únicamente para las ventas
-      </p>
-
-      <form onSubmit={register}>
-        <ul>
-          <li>
-            <label htmlFor='name'>Nombre: </label>
-            <input type='text' name='name' id='name' required />
-          </li>
-          <li>
-            <label htmlFor='lastname'>Apellidos: </label>
-            <input type='text' name='lastname' id='lastname' required />
-          </li>
-          <li>
-            <label htmlFor='birthday'>Fecha de nacimiento: </label>
-            <input type='date' name='birthday' id='birthday' required />
-          </li>
-          <li>
-            <label htmlFor='biography'>Biografía: </label>
-            <textarea name='biography' id='biography' />
-          </li>
-          <li>
-            <label htmlFor='phone'>Número de teléfono: </label>
-            <input type='text' name='phone' id='phone' />
-          </li>
-          <li>
-            <label htmlFor='street'>Calle: </label>
-            <input type='text' name='street' id='street' required />
-          </li>
-          <li>
-            <label htmlFor='postalCode'>Código Postal: </label>
-            <input type='text' name='postalCode' id='postalCode' required />
-          </li>
-          <li>
-            <label htmlFor='city'>Ciudad: </label>
-            <input type='text' name='city' id='city' required />
-          </li>
-          <li>
-            <label htmlFor='province'>Provincia: </label>
-            <input type='text' name='province' id='province' required />
-          </li>
-          <li>
-            <button className='btn'>Registrarse</button>
-          </li>
-        </ul>
-      </form>
+      <div className='body-container-form'>
+        <form onSubmit={register} className='login-formRegister'>
+          <h1 className='form-title'>Completa el registro </h1>
+          {/* <p>
+            Para poder poner en venta tus productos en emuvi nos es necesaria
+            cierta información a mayores que será utilizada únicamente para las
+            ventas
+          </p> */}
+          <ul id='fieldRegister'>
+            <li>
+              <label htmlFor='name'></label>
+              <input
+                className='form-inputRegister'
+                type='text'
+                name='name'
+                id='name'
+                placeholder='Nombre'
+                required
+              />
+            </li>
+            <li>
+              <label htmlFor='lastname'></label>
+              <input
+                className='form-inputRegister'
+                type='text'
+                name='lastname'
+                id='lastname'
+                placeholder='Apellidos'
+                required
+              />
+            </li>
+            <li>
+              <label htmlFor='birthday'></label>
+              <input
+                className='form-inputRegister'
+                type='date'
+                name='birthday'
+                id='birthday'
+                required
+              />
+            </li>
+            <li>
+              <label htmlFor='phone'></label>
+              <input
+                className='form-inputRegister'
+                type='text'
+                name='phone'
+                placeholder='Telefono'
+                id='phone'
+              />
+            </li>
+            <li>
+              <label htmlFor='street'></label>
+              <input
+                className='form-inputRegister'
+                type='text'
+                name='street'
+                id='street'
+                placeholder='Calle'
+                required
+              />
+            </li>
+            <li>
+              <label
+                className='form-labelRegister'
+                htmlFor='postalCode'
+              ></label>
+              <input
+                className='form-inputRegister'
+                type='text'
+                name='postalCode'
+                id='postalCode'
+                placeholder='Codigo Postal'
+                required
+              />
+            </li>
+            <li>
+              <label htmlFor='city'></label>
+              <input
+                className='form-inputRegister'
+                type='text'
+                name='city'
+                id='city'
+                placeholder='Ciudad'
+                required
+              />
+            </li>
+            <li>
+              <label htmlFor='province'></label>
+              <input
+                className='form-inputRegister'
+                type='text'
+                name='province'
+                id='province'
+                placeholder='Provincia'
+                required
+              />
+            </li>
+            <li>
+              <label htmlFor='biography'></label>
+              <textarea
+                name='biography'
+                id='biography'
+                placeholder='Biografia'
+              />
+            </li>
+            <li>
+              <button className='login-form-btn'>Registrarse</button>
+            </li>
+          </ul>
+        </form>
+      </div>
 
       {error ? (
         <div>
