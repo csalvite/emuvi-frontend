@@ -3,21 +3,19 @@ import './CardProduct.css';
 import { Link } from 'react-router-dom';
 import { usePrivateUser } from '../../hooks/usePrivateUser';
 import { ButtonFavProduct } from './ButtonAddFavProducts';
-import { useFavoriteProduct } from '../../hooks/useFavoriteProduct';
+import { DeleteProduct } from '../myProducts/DeleteProduct';
 const { REACT_APP_LOCALHOST } = process.env;
 
 export default function CardProduct(props, product) {
 
 	const {privateUser} = usePrivateUser();
 
-	// Eliminar este custom hook
-	const {isFav} = useFavoriteProduct();
-
 	return (
 		<>
 			<div className="cardproduct">
 				<div className="card__body">
-					<Link to={`/products/${props.product.id}`}>
+
+					<Link to={`/products/${props.product.id}`} style={{textDecoration: 'none', color: 'black'}}>
 						<img
 							className="card__img"
 							src={
@@ -32,8 +30,33 @@ export default function CardProduct(props, product) {
 						<h4 className="card__price">{props.product.price} €</h4>
 					</Link>
 					<div className="card-icon-box">
-						<ButtonNewOffer idUser={privateUser.id} idProduct={props.product.id} />
-						<ButtonFavProduct idProduct={props.product.id} isFav={isFav} />
+						{
+							props.myProduct ? (
+								<>
+								<i className="fa-solid fa-pen-to-square edit-product-icon" 
+                                    onClick={() => props.setShowPopUp(true)}
+                                    title='Editar Producto'
+                                    ></i>
+								<DeleteProduct 
+									idUser={privateUser.id} 
+									idProduct={props.product.id} 
+									products={props.products}
+									setProducts={props.setProducts} 
+								/>
+								</>
+							) : (
+								<>
+								<ButtonNewOffer idUser={privateUser.id} idProduct={props.product.id} />
+								<ButtonFavProduct 
+									idProduct={props.product.id} 
+									deleteFav={props.deleteFav} 
+									idUser={privateUser.id} 
+									favProducts={props.favProducts} 
+									setFavProducts={props.setFavProducts} 
+								/>
+								</>
+							)
+						}
 					</div>
 				</div>
 				{/*<ButtonNewOffer

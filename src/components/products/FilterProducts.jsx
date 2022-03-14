@@ -1,4 +1,4 @@
-import { useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Slider from '@mui/material/Slider';
 import Rating from '@mui/material/Rating';
@@ -74,7 +74,6 @@ function FilterProducts() {
 								Filtrar por
 							</option>
 							<option value="price">Precio</option>
-
 							<option value="createdAt">fecha</option>
 							<option value="name">Orden alfabetico</option>
 							<option value="rating">Valoraciones</option>
@@ -227,6 +226,7 @@ function FilterProducts() {
 			</div>
 		</>
 	);
+
 }
 
 export default FilterProducts;

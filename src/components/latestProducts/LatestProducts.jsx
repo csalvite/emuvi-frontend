@@ -13,11 +13,15 @@ import { EffectCoverflow, Navigation, Pagination } from 'swiper';
 import useLatestProducts from '../../hooks/useLatestProducts';
 import { Link } from 'react-router-dom';
 import './LatestProducts.css';
+import { ButtonNewOffer } from '../offers/ButtonNewOffer';
+import { ButtonFavProduct } from '../products/ButtonAddFavProducts';
+import { usePrivateUser } from '../../hooks/usePrivateUser';
 
 const { REACT_APP_LOCALHOST } = process.env;
 
 const LatestProducts = () => {
 	const { products, loading, error } = useLatestProducts();
+	const { privateUser } = usePrivateUser();
 
 	if (loading) return 'Cargando....';
 	if (error) return <div>{error}</div>;
@@ -60,8 +64,8 @@ const LatestProducts = () => {
 								<h3 className="carousel-product-price">{product.price} €</h3>
 							</Link>
 							<div className="main-carousel-icon-box">
-								<i className="fa-solid fa-cart-shopping cart"></i>
-								<i className="fa-solid fa-heart heart"></i>
+								<ButtonNewOffer idUser={privateUser.id} idProduct={product.id} />
+								<ButtonFavProduct idProduct={product.id} />
 							</div>
 						</SwiperSlide>
 					))}

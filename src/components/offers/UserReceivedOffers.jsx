@@ -4,6 +4,7 @@ import { FormAcceptOffer } from "./FormAcceptOffer";
 import { DeclineOffer } from "./DeclineOffer";
 import { Checkbox, FormControlLabel, FormGroup } from "@mui/material";
 import { DeleteStatus } from "./DeleteStatus";
+import { PublicUserAccess } from "../publicUser/PublicUserAccess";
 
 const { REACT_APP_LOCALHOST } = process.env;
 
@@ -84,18 +85,18 @@ export const UserReceivedOffers = ({ idUser }) => {
             <h2>Ofertas Recibidas</h2>
             <DeleteStatus idUser={idUser.id} offers={offers} setOffers={setOffers} />
             <FormGroup>
-                {offers.map((offer, index) => {
+                {offers?.map((offer) => {
                     return (
-                        <div key={index}>
-                            <h4>El usuario {offer.buyerName} te propone la compra de {offer.product} </h4>
+                        <div key={offer.id}>
+                            <h4>El usuario {offer.buyerName} <PublicUserAccess idUser={offer.idUserBuyer} /> te propone la compra de {offer.product} </h4>
                             <FormControlLabel control={<Checkbox onChange={dropIds} name={`${offer.id}`} />} label={`Eliminar oferta en estado ${offer.reserveStatus}`} />
                             <p>Estado de reserva: <strong>{offer.reserveStatus}</strong></p>
                             <p>Fecha de creación: {new Date(offer.createdAt).toLocaleDateString()}</p>
                             {offer.reserveStatus === 'pendiente' ? (
                                 <>
-                                    <button className="btn" onClick={() => setShowPopUp(true)}>Aceptar Oferta</button>
-                                    <DeclineOffer idUser={idUser.id} idOffer={offer.id} reserveStatus={offer.reserveStatus} />
-                                    {showPopUp && <FormAcceptOffer setShowPopUp={setShowPopUp} idUser={idUser.id} idOffer={offer.id} reserveStatus={offer.reserveStatus} />}
+                                    <i className="fa-solid fa-check" onClick={() => setShowPopUp(true)} title="Aceptar Oferta"></i>
+                                    <DeclineOffer idUser={idUser.id} idOffer={offer.id} reserveStatus={offer.reserveStatus} offers={offers} setOffers={setOffers} />
+                                    {showPopUp && <FormAcceptOffer setShowPopUp={setShowPopUp} idUser={idUser.id} idOffer={offer.id} reserveStatus={offer.reserveStatus} offers={offers} setOffers={setOffers} />}
                                 </>
                             ) : ''}
                         </div>

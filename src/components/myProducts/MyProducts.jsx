@@ -3,7 +3,10 @@ import { useState } from "react";
 import { useEffect } from "react"
 import { TokenContext } from "../..";
 import LoadingComponent from "../loading/loading";
+import CardProduct from "../products/CardProduct";
+import { DeleteProduct } from "./DeleteProduct";
 import { EditProduct } from "./EditProduct";
+import './MyProducts.css';
 
 const { REACT_APP_LOCALHOST } = process.env;
 
@@ -45,45 +48,43 @@ export const MyProducts = ({ privateUser }) => {
         }
 
         getMyProducts();
-    }, [token.token, privateUser.id]);
+    }, [token.token, privateUser.id, setProducts]);
 
     if (loading) {
         return <LoadingComponent />
     }
 
     return (
-        <div>
+        <div className="my-products">
             <h2>Mis Productos Publicados</h2>
-            <ul>
-            {products.length > 0 ? products.map((product) => {
+            <div className="list-my-products">
+            {products ? products?.map((product) => {
                 return (
-                    <li key={product.id} onClick={() => setEditProduct({
-                                                            id: product.id, 
-                                                            name: product.name, 
-                                                            category: product.category,
-                                                            price: product.price, 
-                                                            description: product.description, 
-                                                            photos: product.photos,
-                                                        })}>
-                        <h3 onClick={() => setShowPopUp(true)}>{product.name} - {product.price}€</h3>
-                        <p>{product.description}</p>
-                        {product.photos.length > 0 ? product.photos.map((photo) => (
-                            <img
-                                key={photo.id}
-                                src={`${REACT_APP_LOCALHOST}/avatar/${photo.name}`}
-                                alt='product_photo'
-                                style={{width: '5rem'}}
+                    <div key={product.id} 
+                        onClick={() => setEditProduct({
+                                id: product.id, 
+                                name: product.name, 
+                                category: product.category,
+                                price: product.price, 
+                                description: product.description, 
+                                photos: product.photos,
+                            })}>
+                        <CardProduct 
+                            setShowPopUp={setShowPopUp} 
+                            product={product}
+                            products={products}
+                            setProducts={setProducts}
+                            myProduct={true}
                             />
-                            )) : <i>No se han encontrado fotos del producto</i>}
-                    </li>
+                    </div>
                 )
             }) : state}
+            </div>
                 {showPopUp && <EditProduct
                                     setShowPopUp={setShowPopUp} 
                                     idUser={privateUser.id} 
                                     editProduct={editProduct}
                                 />}
-            </ul>
         </div>
     )
 }

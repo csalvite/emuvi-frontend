@@ -3,8 +3,9 @@ import { useState } from 'react';
 import { useContext } from 'react';
 import { TokenContext } from '../..';
 import LoadingComponent from '../loading/loading';
+import { DeleteFavProduct } from '../privateUser/DeleteFavProduct';
 
-export const ButtonFavProduct = ({ idProduct }) => {
+export const ButtonFavProduct = ({ idProduct, deleteFav, idUser, favProducts, setFavProducts }) => {
   const [token] = useContext(TokenContext);
   const [loading, setLoading] = useState(false);
 
@@ -53,13 +54,14 @@ export const ButtonFavProduct = ({ idProduct }) => {
         console.log(body);
         setText('Producto añadido a favoritos');
       } else {
+        const err = await res.json();
         console.error('Hubo un error al añadir el producto como favorito');
-        setText('Error al añadir producto a favoritos');
+        setText(err.message);
       }
       setLoading(false);
     } catch (error) {
       console.error(error.message);
-      setText('Error al añadir producto a favoritos');
+      setText(error.message);
     }
   };
   if (loading) {
@@ -74,13 +76,8 @@ export const ButtonFavProduct = ({ idProduct }) => {
                 message={text}
                 action={action}
             />
-        {/* {isFav ? (
-          <i class="fa-solid fa-heart-crack"
-                    title="Eliminar de favoritos"
-                    onClick={() => {
-                      handleAddFavProduct();
-                      handleClick();
-                    }}></i>
+        {deleteFav ? (
+          <DeleteFavProduct idProduct={idProduct} idUser={idUser} favProducts={favProducts} setFavProducts={setFavProducts} />
         ) : (
           <i class="fa-solid fa-heart heart" 
                     title="Añadir a favoritos"
@@ -89,13 +86,13 @@ export const ButtonFavProduct = ({ idProduct }) => {
                       handleClick();
                     }}></i>
               
-        )} */}
-        <i class="fa-solid fa-heart heart" 
+        )}
+        {/* <i class="fa-solid fa-heart heart" 
                     title="Añadir a favoritos"
                     onClick={() => {
                       handleAddFavProduct();
                       handleClick();
-                    }}></i>
+                    }}></i> */}
     </>
     
   );
