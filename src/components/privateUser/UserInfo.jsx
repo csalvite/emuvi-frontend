@@ -1,34 +1,58 @@
-import { ButtonDeleteUser } from "./ButtonDeleteUser";
-import { ButtonEditAvatar } from "./ButtonEditAvatar";
-import ChangePassword from "./ChangePassword";
-import ModifyEmailAndUsername from "./ModifyEmailAndUsername";
-import ModifyUserData from "./ModifyUserData";
+import { ButtonDeleteUser } from './ButtonDeleteUser';
+import { ButtonEditAvatar } from './ButtonEditAvatar';
+import ChangePassword from './ChangePassword';
+import ModifyEmailAndUsername from './ModifyEmailAndUsername';
+import ModifyUserData from './ModifyUserData';
 import './UserInfo.css';
 
-function UserInfo({privateUser}) {
+function UserInfo({ privateUser }) {
+	const birthday = new Date(privateUser.birthday).toLocaleDateString();
 
-  const birthday = new Date(privateUser.birthday).toLocaleDateString();
+	return (
+		<div className="user-profile">
+			<h2 id="user-info-title">Información del usuario</h2>
+			<div className="user-info-container">
+				<ButtonEditAvatar id={privateUser.id} />
+				<div className="user-info">
+					<p>
+						<strong>
+							<i class="fa-solid fa-user-tie"></i>
+						</strong>{' '}
+						{privateUser.username}
+					</p>
 
-  return (
-    <div className='user-profile'>
-      <h2>Información del usuario</h2>
-        <div className="user-info">  
-          <ButtonEditAvatar id={privateUser.id} />
-          <div>
-            <p><strong>Nombre de usuario:</strong> {privateUser.username}</p>
-            <p><strong>Email:</strong> {privateUser.email}</p>
-            <p><strong>Fecha de nacimiento:</strong> {birthday}</p>
-            <p><strong>Ciudad:</strong> {privateUser.city}</p>
-            <p><strong>Provincia:</strong> {privateUser.province}</p>
-            <p><strong>Código Postal:</strong> {privateUser.postalCode}</p> 
-          </div>
-        </div>
-        <ModifyEmailAndUsername privateUser={privateUser} />
-        <ChangePassword privateUser={privateUser} />
-        <ModifyUserData privateUser={privateUser} />
-        <ButtonDeleteUser id={privateUser.id} />
-    </div>
-  )
+					<p>
+						<strong>
+							<i class="fa-solid fa-cake-candles"></i>
+						</strong>{' '}
+						{birthday}
+					</p>
+					<p>
+						<strong>
+							<i class="fa-solid fa-building"></i>
+						</strong>{' '}
+						{privateUser.city}
+					</p>
+					<p className="province-postal-code">
+						<strong>Provincia:</strong> {privateUser.province}
+					</p>
+					<p className="province-postal-code">
+						<strong>Código Postal:</strong> {privateUser.postalCode}
+					</p>
+					<p>
+						<strong>
+							<i class="fa-solid fa-envelope"></i>
+						</strong>{' '}
+						{privateUser.email}
+					</p>
+				</div>
+			</div>
+			<ModifyEmailAndUsername privateUser={privateUser} />
+			<ChangePassword privateUser={privateUser} />
+			<ModifyUserData privateUser={privateUser} />
+			<ButtonDeleteUser id={privateUser.id} />
+		</div>
+	);
 }
 
 export { UserInfo };

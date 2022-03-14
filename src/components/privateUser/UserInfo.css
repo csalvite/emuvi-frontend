@@ -1,89 +1,130 @@
+#user-info-title {
+	font-size: 2rem;
+	color: var(--black-2);
+}
+
 .user-profile {
-  display: flex;
-  flex-direction: column;
-
-  gap: 2rem;
-
-  font-size: 1.2em;
+	font-size: 1.2em;
 }
 
 .user-profile li {
-  list-style: none;
+	list-style: none;
 }
 
 .user-profile input,
 .user-profile textarea {
-  width: 60vw;
-  font-size: 0.85em;
-  padding: 0.6rem;
-  border-radius: 25px;
+	width: 30vw;
+	font-size: 0.85em;
+	padding: 0.4rem;
+	border-radius: 25px;
 }
 
 .user-profile textarea {
-  height: 20vh;
-  resize: vertical;
+	height: 20vh;
+	resize: vertical;
+}
+
+.province-postal-code {
+	position: absolute !important;
+	top: -9999px !important;
+	left: -9999px !important;
 }
 
 /* Componente UserInfo.jsx */
+.user-info-container {
+	display: flex;
+	justify-content: center;
+	position: relative;
+	width: 25rem;
+	height: 12.5rem;
+	background-color: rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(4px);
+	box-shadow: 0 25px 25px rgba(0, 0, 0, 0.1);
+	border-radius: 20px;
+	display: flex;
+	gap: 0.8rem;
+	overflow: hidden;
+	border: 1px solid var(--lightGrey);
+	transition: 0.5s;
+}
+
+.user-info-container:hover {
+	transform: scale(1.1);
+}
+
+.user-info-container::before {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 30%;
+	background-color: var(--black-2);
+}
+
 .user-info {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
+	font-size: 0.9rem;
+	padding: 0.5rem;
+	margin-top: 1.5rem;
+}
+
+.user-info p {
+	padding: 0.1rem;
 }
 
 /* Componente ModifyEmailAndUsername.jsx */
 .modify-email {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.8rem;
 }
 
 /* Componente ButtonDeleteUser.jsx */
 .drop-user {
-  border: 3px solid rgb(247, 39, 39);
-  padding: 2rem;
+	border: 3px solid rgb(247, 39, 39);
+	padding: 2rem;
 }
 
 .drop-user > h4 {
-  color: red;
+	color: red;
 }
 
 /* Componente FavoriteProducts.jsx */
 .user-fav-products {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2rem;
 }
 
 @media only screen and (max-width: 600px) {
-  .user-info {
-    flex-direction: column;
-    align-items: initial;
-  }
+	.user-info {
+		flex-direction: column;
+		align-items: initial;
+	}
 
-  .user-profile input,
-  .user-profile textarea {
-    width: none;
-  }
+	.user-profile input,
+	.user-profile textarea {
+		width: none;
+	}
 
-  .user-fav-products {
-    gap: 1rem;
-  }
+	.user-fav-products {
+		gap: 1rem;
+	}
 
-  .user-profile {
-    font-size: 0.8em;
-  }
+	.user-profile {
+		font-size: 0.8em;
+	}
 
-  .user-profile h3 {
-    font-size: 1.2em;
-  }
+	.user-profile h3 {
+		font-size: 1.2em;
+	}
 
-  .drop-user {
-    border: none;
-    padding: 0;
-  }
+	.drop-user {
+		border: none;
+		padding: 0;
+	}
 
-  .btn {
-    font-size: 0.8rem;
-  }
+	.btn {
+		font-size: 0.8rem;
+	}
 }
