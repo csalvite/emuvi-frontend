@@ -71,13 +71,13 @@ function FilterProducts() {
 							className="select_product_category"
 							name="form_product_category">
 							<option hidden selected>
-								Filtros:
+								Filtrar por
 							</option>
-							<option value="price">Por precio</option>
+							<option value="price">Precio</option>
 
-							<option value="createdAt">Por fecha</option>
-							<option value="name">Por orden alfabetico</option>
-							<option value="rating">Por valoraciones</option>
+							<option value="createdAt">fecha</option>
+							<option value="name">Orden alfabetico</option>
+							<option value="rating">Valoraciones</option>
 						</select>
 					</div>
 					<div className="container_input">
@@ -90,22 +90,33 @@ function FilterProducts() {
 							className="select_product_category"
 							name="form_product_category">
 							<option hidden selected>
-								Ordenar Por:
+								Ordenar
 							</option>
 							<option value="ASC">Ascendente</option>
 							<option value="DESC">Descendente</option>
 						</select>
 					</div>
 
+					<div className="filters-ratings-container">
+						<p className="filters-subtitle">Valoraciones del vendedor</p>
+						<Rating
+							name="rating"
+							value={rating}
+							onChange={(event, newValue) => {
+								setRating(newValue);
+							}}
+						/>
+					</div>
+
 					<div>
 						{minPrice <= 1 && maxPrice >= 10000 ? (
-							<p>Filtrar por precio</p>
+							<p className="filters-subtitle">Rango de precios</p>
 						) : (
 							<p>{`${minPrice}€ - ${maxPrice}€`}</p>
 						)}
 						<Slider
-							sx={{ width: '12.5rem' }}
-							color="secondary"
+							sx={{ width: '15rem' }}
+							color="primary"
 							min={1}
 							max={10000}
 							step={50}
@@ -117,19 +128,11 @@ function FilterProducts() {
 						/>
 					</div>
 
-					<div>
-						<Rating
-							name="rating"
-							value={rating}
-							onChange={(event, newValue) => {
-								setRating(newValue);
-							}}
-						/>
-					</div>
-
-					<div>
+					<div className="filters-categories-container">
 						<form>
+							<p className="filters-subtitle">Categoría</p>
 							<input
+								className="filters-radio-input"
 								type="radio"
 								value="informatica"
 								id="informatica"
@@ -140,8 +143,11 @@ function FilterProducts() {
 								}}
 								name="informatica"
 							/>
-							<label for="informatica">Infórmatica</label>
+							<label className="radio-label" for="informatica">
+								Infórmatica
+							</label>
 							<input
+								className="filters-radio-input"
 								type="radio"
 								value="musica"
 								id="musica"
@@ -152,8 +158,11 @@ function FilterProducts() {
 								}}
 								name="musica"
 							/>
-							<label for="musica">Música</label>
+							<label className="radio-label" for="musica">
+								Música
+							</label>
 							<input
+								className="filters-radio-input"
 								type="radio"
 								value="videojuegos"
 								checked={search === 'videojuegos'}
@@ -164,8 +173,11 @@ function FilterProducts() {
 								}}
 								name="videojuegos"
 							/>
-							<label for="videojuegos">Videojuegos</label>
+							<label className="radio-label" for="videojuegos">
+								Videojuegos
+							</label>
 							<input
+								className="filters-radio-input"
 								type="radio"
 								value="video"
 								checked={search === 'video'}
@@ -176,8 +188,11 @@ function FilterProducts() {
 								}}
 								name="video"
 							/>
-							<label for="video">Video</label>
+							<label className="radio-label" for="video">
+								Video
+							</label>
 							<input
+								className="filters-radio-input"
 								type="radio"
 								value="modavintage"
 								checked={search === 'modavintage'}
@@ -188,8 +203,11 @@ function FilterProducts() {
 								}}
 								name="modavintage"
 							/>
-							<label for="modavintage">Moda Vintage</label>
+							<label className="radio-label" for="modavintage">
+								Moda Vintage
+							</label>
 							<input
+								className="filters-radio-input"
 								type="radio"
 								value="otros"
 								checked={search === 'otros'}
@@ -200,7 +218,9 @@ function FilterProducts() {
 								}}
 								name="otros"
 							/>
-							<label for="otros">Otros</label>
+							<label className="radio-label" for="otros">
+								Otros
+							</label>
 						</form>
 					</div>
 				</div>
