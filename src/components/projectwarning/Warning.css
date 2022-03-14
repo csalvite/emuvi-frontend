@@ -1,0 +1,31 @@
+.warning-its-a-project {
+  position: absolute;
+  color: white;
+  z-index: 999;
+  left: 0;
+  bottom: 2rem;
+  background: var(--black-2);
+  height: 7vh;
+  width: 20vw;
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  gap: 2rem;
+  border-radius: 0 25px 25px 0;
+}
+
+.warning-its-a-project > i {
+  padding: 1rem;
+}
+
+.warning-its-a-project > i:hover {
+  background-color: var(--darkGrey);
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+  .warning-its-a-project {
+    width: 75vw;
+  }
+}

@@ -5,19 +5,24 @@ import Categories from '../../components/categories/Categories';
 import Footer from '../../components/footer/Footer';
 import LatestProducts from '../../components/latestProducts/LatestProducts';
 import LatestProductsCards from '../../components/latestProducts/LatestProductsCards';
+import { useState } from 'react';
+import { Warning } from '../../components/projectwarning/Warning';
 
 function App() {
-	return (
-		<div className="App">
-			<Header1 />
-			<main>
-				<LatestProducts />
-				<LatestProductsCards />
-				<Categories />
-			</main>
-			<Footer />
-		</div>
-	);
+  const [showWarning, setShowWarning] = useState(true);
+
+  return (
+    <div className='App'>
+      {showWarning ? <Warning setShowWarning={setShowWarning} /> : ''}
+      <Header1 />
+      <main>
+        <LatestProducts />
+        <LatestProductsCards />
+        <Categories />
+      </main>
+      <Footer />
+    </div>
+  );
 }
 
 export default App;
