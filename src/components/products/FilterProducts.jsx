@@ -115,7 +115,7 @@ function FilterProducts() {
 							<p>{`${minPrice}€ - ${maxPrice}€`}</p>
 						)}
 						<Slider
-							sx={{ width: '15rem' }}
+							sx={{ width: '15rem', color: 'gray' }}
 							color="primary"
 							min={1}
 							max={10000}

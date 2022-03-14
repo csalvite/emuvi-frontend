@@ -45,7 +45,7 @@
 	font-weight: 500;
 	border-radius: 30px;
 	border: 1px inset rgb(199, 195, 195);
-	margin: 0.5rem 0;
+	margin: 0.7rem 0;
 	padding-inline: 0.5rem;
 	padding: 0.3rem;
 	color: var(--black-2);
@@ -92,4 +92,20 @@
 .radio-label:hover {
 	background-color: grey;
 	color: var(--lightGrey);
+}
+
+@media screen and (max-width: 650px) {
+	.select_product_category {
+		inline-size: 50%;
+	}
+}
+
+@media screen and (max-width: 575px) {
+	.radio-label {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		max-width: 12rem;
+		text-align: center;
+	}
 }
