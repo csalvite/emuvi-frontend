@@ -11,9 +11,10 @@
 
 .container_productlist {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, 230px);
-	gap: 40px;
-	padding: 40px;
+	justify-content: center;
+	grid-template-columns: repeat(auto-fill, 200px);
+	gap: 4rem;
+	margin: 3rem;
 }
 
 ul a {
