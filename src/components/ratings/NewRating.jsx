@@ -5,7 +5,7 @@ import { TokenContext } from "../..";
 
 const { REACT_APP_LOCALHOST } = process.env;
 
-const NewRating = ({ idUser, idProduct }) => {
+const NewRating = ({ idUser, myUser, idProduct, offers, setOffers, idOffer }) => {
     const [token] = useContext(TokenContext);
     const [value, setValue] = useState();
     const [text, setText] = useState();
@@ -44,8 +44,6 @@ const NewRating = ({ idUser, idProduct }) => {
             comment: e.target.elements.comment.value,
         }
 
-        console.log(newRating);
-
         try {
             const url = `${REACT_APP_LOCALHOST}/users/${idUser}/votes/${idProduct}`;
 
@@ -59,9 +57,29 @@ const NewRating = ({ idUser, idProduct }) => {
             });
 
             if (response.ok) {
-                const body = await response.json();
-                setText('Comentario enviado con éxito');
-                console.log(body);
+                
+                setText('Comentario enviado con éxito, eliminando oferta!');
+
+                setTimeout(async () => {
+                    const url = `${REACT_APP_LOCALHOST}/users/${myUser}/bookings?id=`;
+                    const option = idOffer;
+
+                    try {
+                        const response = await fetch(url+option, {
+                            method: 'DELETE',
+                            headers: {
+                                Authorization: token.token, 
+                            }
+                        });
+
+                        if(response.ok){
+                            const arrNew = offers.filter((item) => item.id !== idOffer);
+                            setOffers(arrNew);
+                        }
+                    } catch(error){
+                        console.error('error');
+                    }
+                }, 3000);
             } else {
                 console.log('Algo ha ido mal');
                 setText('Error al enviar el comentario');

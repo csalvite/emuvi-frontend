@@ -95,10 +95,17 @@ export const UserSendOffers = ({ idUser }) => {
                 {offers.map((offer) => {
                     return (
                         <div key={offer.id}>
-                            <FormControlLabel control={<Checkbox onChange={dropIds} name={`${offer.id}`} />} label={`Eliminar ${offer.product} en estado ${offer.reserveStatus}`} />
+                            <FormControlLabel control={<Checkbox onChange={dropIds} name={`${offer.id}`} />} label={`Cancelar ${offer.product} en estado ${offer.reserveStatus}`} />
                             <p>Estado de reserva: <strong>{offer.reserveStatus}</strong></p>
                             <p>Fecha de creación: {new Date(offer.createdAt).toLocaleDateString()}</p>
-                            {offer.reserveStatus === 'aceptada' ? <NewRating idUser={offer.sellerId} idProduct={offer.idProduct} /> : ''}
+                            {offer.reserveStatus === 'aceptada' ? <NewRating 
+                                                                    idUser={offer.sellerId} 
+                                                                    myUser={idUser.id}
+                                                                    idProduct={offer.idProduct} 
+                                                                    offers={offers} 
+                                                                    setOffers={setOffers} 
+                                                                    idOffer={offer.id}
+                                                                  /> : ''}
                         </div>
                     )
                 })}    
