@@ -63,10 +63,6 @@ function Register() {
 								Usuario registrado con éxito, comprueba tu correo para activar
 								el la cuenta!
 							</p>
-							<p>
-								Qué tal si metemos aqui una imagen o algo chachi que indique que
-								debe comprobar el correo para continuar? :D
-							</p>
 						</div>
 					) : (
 						<form onSubmit={handleRegister}>

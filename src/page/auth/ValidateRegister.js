@@ -76,7 +76,7 @@ function ValidateRegister() {
     <div>
       {/* className='register-form' he quitado esta clase porque dejaba unos estilos "un tanto raros" xD - cesar */}
       <JustNav />
-      <div className='body-container-form'>
+      <div className='validate-form'>
         <form onSubmit={register} className='login-formRegister'>
           <h1 className='form-title'>Completa el registro </h1>
           {/* <p>
@@ -178,7 +178,7 @@ function ValidateRegister() {
               <label htmlFor='biography'></label>
               <textarea
                 name='biography'
-                id='biography'
+                id='register-biography'
                 placeholder='Biografia'
               />
             </li>

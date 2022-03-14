@@ -5,12 +5,13 @@ import './ProductList.css';
 import { useState } from 'react';
 
 import FilterProducts from './FilterProducts';
+import LoadingComponent from '../loading/loading';
 
 const ProductList = () => {
 	const [currentPage, setCurrentPage] = useState(0);
 	const { products, loading, error } = useProducts();
 
-	if (loading) return 'Cargando....';
+	if (loading) return <LoadingComponent />;
 	if (error) return <div>{error}</div>;
 	const productFiltered = () => {
 		return products.slice(currentPage, currentPage + 8);

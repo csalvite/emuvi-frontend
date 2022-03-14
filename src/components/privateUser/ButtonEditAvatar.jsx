@@ -1,3 +1,4 @@
+import { Avatar } from "@mui/material";
 import { useContext } from "react";
 import { TokenContext } from "../..";
 import { usePrivateUser } from "../../hooks/usePrivateUser";
@@ -38,7 +39,7 @@ export function ButtonEditAvatar({id}) {
             <input type='file' id="file" name="changeAvatar" className="inputfile inputfile-5" onChange={handleEditAvatar} accept=".png, .jpg, .jpeg, .webp" />
             <label for="file" title="Cambiar imagen de perfil">
                 <figure>
-                    <img className="avatar-img" src={
+                    <Avatar className="avatar-img" src={
                         `${REACT_APP_LOCALHOST}/avatar/${privateUser.avatar}`
                         } alt='avatar' />
                 </figure>

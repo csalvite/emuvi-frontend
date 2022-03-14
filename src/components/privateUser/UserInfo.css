@@ -1,7 +1,7 @@
 .user-profile {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+
   gap: 2rem;
 
   font-size: 1.2em;

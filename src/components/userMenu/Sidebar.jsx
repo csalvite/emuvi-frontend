@@ -7,7 +7,7 @@ import { Link, Outlet } from 'react-router-dom';
 const { REACT_APP_LOCALHOST } = process.env;
 
 const Button = styled.button`
-  background-color: black;
+  background-color: var(--black-2);
   border: none;
   width: 2.5rem;
   height: 2.5rem;
@@ -42,7 +42,7 @@ const Button = styled.button`
 `;
 
 const SidebarContainer = styled.div`
-    background-color: black;
+    background-color: var(--black-2);
     width: 3.5rem;
     height: 80vh;
     margin-top: 1rem;
@@ -64,7 +64,7 @@ const SlickBar = styled.ul`
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: black;
+    background-color: var(--black-2);
 
     padding: 2rem 0;
 
@@ -102,7 +102,7 @@ const Profile = styled.div`
     overflow: hidden;
     margin-left: ${(props) => (props.clicked ? "11rem" : "0")};
 
-    background-color: black;
+    background-color: var(--black-2);
     color: white;
 
     transition: all 0.3s ease;
