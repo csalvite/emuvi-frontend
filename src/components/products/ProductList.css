@@ -1,4 +1,6 @@
 .products-section {
+	margin: 0;
+	padding: 0;
 	background-image: url(/public/resources/images/emuvi-background-1.jpg);
 	justify-content: center;
 	background-attachment: fixed;
@@ -7,16 +9,12 @@
 	background-size: cover;
 }
 
-.products-main-title {
-	background-color: transparent;
-	font-size: 1.7rem;
-}
-
 .container_productlist {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, 230px);
-	gap: 40px;
-	padding: 40px;
+	justify-content: center;
+	grid-template-columns: repeat(auto-fill, 200px);
+	gap: 4rem;
+	margin: 3rem;
 }
 
 ul a {
