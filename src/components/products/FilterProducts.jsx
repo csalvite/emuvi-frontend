@@ -23,15 +23,11 @@ function FilterProducts() {
 		params.get('');
 	}
 
-	const [minPrice, setMinPrice] = useState(1);
+	const [minPrice = 1, setMinPrice] = useState(
+		params.has('minPrice') ? params.get('minPrice') : ''
+	);
 
-	if (minPrice) {
-		params.get('minPrice');
-	} else {
-		params.get('');
-	}
-
-	const [maxPrice, setMaxPrice] = useState(10000);
+	const [maxPrice] = useState(10000);
 	if (maxPrice) {
 		params.get('maxPrice');
 	} else {
@@ -100,9 +96,9 @@ function FilterProducts() {
 						<p className="filters-subtitle">Valoraciones del vendedor</p>
 						<Rating
 							name="rating"
-							value={rating}
-							onChange={(event, newValue) => {
-								setRating(newValue);
+							value={Number(rating)}
+							onChange={(e) => {
+								setRating(Number(e.target.value));
 							}}
 						/>
 					</div>
