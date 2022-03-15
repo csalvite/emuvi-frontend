@@ -11,10 +11,12 @@ const useProducts = () => {
 
   const order = params.get('order') || 'createdAt';
   const direction = params.get('direction') || 'DESC';
-  let rating = params.get('rating');
+  let rating = Number(params.get('rating'));
   let search = params.get('search');
   let minPrice = params.get('minPrice');
   let maxPrice = params.get('maxPrice');
+
+  console.log(typeof rating);
 
   useEffect(() => {
     const getProducts = async () => {
@@ -22,19 +24,18 @@ const useProducts = () => {
         order
       )}&direction=${encodeURIComponent(direction)}`;
 
-      if ((minPrice && maxPrice) || rating) {
-        url = `${url}&minPrice=${encodeURIComponent(
-          minPrice
-        )}&maxPrice=${encodeURIComponent(maxPrice)}&rating=${encodeURIComponent(
-          rating
-        )}`;
+      if (rating) {
+        url += `&rating=${encodeURIComponent(rating)}`;
       }
-      if (search) {
-        url = `${url}&minPrice=${encodeURIComponent(
+
+      if (minPrice && maxPrice) {
+        url += `&minPrice=${encodeURIComponent(
           minPrice
-        )}&maxPrice=${encodeURIComponent(maxPrice)}&rating=${encodeURIComponent(
-          rating
-        )}&search=${encodeURIComponent(search)}`;
+        )}&maxPrice=${encodeURIComponent(maxPrice)}`;
+      }
+
+      if (search) {
+        url += `&search=${encodeURIComponent(search)}`;
       }
 
       setLoading(true);

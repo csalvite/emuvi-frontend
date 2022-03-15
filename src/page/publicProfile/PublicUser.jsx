@@ -6,7 +6,6 @@ import CardProduct from '../../components/products/CardProduct';
 import UserMapProduct from '../../components/products/UserMapProduct';
 import { PublicUserInfo } from '../../components/publicUser/PublicUserInfo';
 import { PublicUserRatings } from '../../components/publicUser/PublicUserRatings';
-import { usePrivateUser } from '../../hooks/usePrivateUser';
 import './PublicUser.css';
 
 const { REACT_APP_LOCALHOST } = process.env;
@@ -16,7 +15,6 @@ const PublicUser = () => {
 	const [ratings, setRatings] = useState([]);
 	const [products, setProducts] = useState([]);
 	const { idUser } = useParams();
-	const { privateUser } = usePrivateUser();
 
 	useEffect(() => {
 		const getPublicUser = async () => {
