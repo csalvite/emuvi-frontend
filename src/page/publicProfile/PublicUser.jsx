@@ -54,28 +54,27 @@ const PublicUser = () => {
 					<div className="public-user-map">
 						<div className="leaflet-container">
 							<UserMapProduct
-								lat={privateUser.latitude}
-								lng={privateUser.longitude}
-								name={privateUser.username}
+								lat={user.lat}
+								lng={user.lon}
+								name={user.name}
 							/>
 						</div>
 					</div>
-					<h2 className="public-user-ratings">Opiniones Sobre el Usuario</h2>
-					{/*{ratings.data?.map((rating, index) => {
+					<h2 className="public-user-ratings-title">Opiniones Sobre el Usuario</h2>
+					{ratings.data?.map((rating, index) => {
 						return <PublicUserRatings key={index} rating={rating} />;
 					})}
 
 					
 					<h2 className="public-user-products">Productos en Venta</h2>
+					<div className="on-sale-products">
 					{products.data?.map((product) => {
-						return {
-							 NO ENCONTRÉ LA MANERA DE ALINEAR ESTE COMPONENTE :(
-							<div className="on-sale-products">
-								<CardProduct product={product} key={product.id} />
-							</div>
-							
-					}; })}
-					*/}
+						return (
+							<CardProduct product={product} key={product.id} />
+						)
+					})}
+					</div>
+					
 				</div>
 			</section>
 			<Footer />

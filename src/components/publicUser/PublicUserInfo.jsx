@@ -4,6 +4,7 @@ import './PublicUserInfo.css';
 const { REACT_APP_LOCALHOST } = process.env;
 
 export const PublicUserInfo = ({ publicUser }) => {
+
 	return (
 		<>
 			<div className="public-user-stars-name">
@@ -16,7 +17,7 @@ export const PublicUserInfo = ({ publicUser }) => {
 				<Rating
 					className="public-profile-stars"
 					name="size-large"
-					value={publicUser.mediaVotes}
+					value={Number(publicUser.mediaVotes)}
 					size="large"
 					readOnly
 				/>
