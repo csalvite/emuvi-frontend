@@ -9,15 +9,13 @@ const useProducts = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  const order =
-    params.get('order') || 'price' || 'createAt' || 'category' || 'rating';
-  const direction = params.get('direction') || 'DESC' || 'ASC';
+  const order = params.get('order') || 'createdAt';
+  const direction = params.get('direction') || 'DESC';
   let rating = params.get('rating');
   let search = params.get('search');
   let minPrice = params.get('minPrice');
-  let maxPrice = params.has('maxPrice')
-    ? params.get('maxPrice')
-    : params.get('');
+  let maxPrice = params.get('maxPrice');
+
   useEffect(() => {
     const getProducts = async () => {
       let url = `${REACT_APP_LOCALHOST}/products?order=${encodeURIComponent(
@@ -25,8 +23,7 @@ const useProducts = () => {
       )}&direction=${encodeURIComponent(direction)}`;
 
       if ((minPrice && maxPrice) || rating) {
-        url = `${url}
-        )}&minPrice=${encodeURIComponent(
+        url = `${url}&minPrice=${encodeURIComponent(
           minPrice
         )}&maxPrice=${encodeURIComponent(maxPrice)}&rating=${encodeURIComponent(
           rating
