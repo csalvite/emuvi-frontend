@@ -16,8 +16,6 @@ const useProducts = () => {
   let minPrice = params.get('minPrice');
   let maxPrice = params.get('maxPrice');
 
-  console.log(typeof rating);
-
   useEffect(() => {
     const getProducts = async () => {
       let url = `${REACT_APP_LOCALHOST}/products?order=${encodeURIComponent(

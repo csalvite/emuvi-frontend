@@ -112,7 +112,7 @@ function FilterProducts() {
               color='secondary'
               min={1}
               max={1000}
-              step={25}
+              step={5}
               value={minPrice}
               onChange={(e) => {
                 setMinPrice(e.target.value);
