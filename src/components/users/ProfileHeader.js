@@ -44,7 +44,12 @@ export const ProfileHeader = () => {
     token && (
       <div>
         <Box
-          sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            textAlign: 'center',
+          }}
         >
           <Tooltip title={privateUser.username}>
             <IconButton
