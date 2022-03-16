@@ -1,34 +1,75 @@
-import { ButtonDeleteUser } from "./ButtonDeleteUser";
-import { ButtonEditAvatar } from "./ButtonEditAvatar";
-import ChangePassword from "./ChangePassword";
-import ModifyEmailAndUsername from "./ModifyEmailAndUsername";
-import ModifyUserData from "./ModifyUserData";
+import { ButtonDeleteUser } from './ButtonDeleteUser';
+import { ButtonEditAvatar } from './ButtonEditAvatar';
+import ChangePassword from './ChangePassword';
+import ModifyEmailAndUsername from './ModifyEmailAndUsername';
+import ModifyUserData from './ModifyUserData';
 import './UserInfo.css';
 
-function UserInfo({privateUser}) {
+function UserInfo({ privateUser }) {
+	const birthday = new Date(privateUser.birthday).toLocaleDateString();
 
-  const birthday = new Date(privateUser.birthday).toLocaleDateString();
+	return (
+		<div id="user-profile-main-container">
+			<div className="user-profile">
+				<div
+					className="user-info-container"
+					title="Haz clic en la imagen para modificarla">
+					<ButtonEditAvatar id={privateUser.id} />
+					<div className="user-info">
+						<p>
+							<i className="fa-solid fa-user-tie corporative-card-icons"></i>{' '}
+							{privateUser.username}
+						</p>
+						<p>
+							<i className="fa-solid fa-cake-candles corporative-card-icons"></i>{' '}
+							{birthday}
+						</p>
+						<p>
+							<i className="fa-solid fa-building corporative-card-icons"></i>{' '}
+							{privateUser.city}
+						</p>
+						<p>
+							<i className="fa-solid fa-envelope corporative-card-icons"></i>{' '}
+							{privateUser.email}
+						</p>
+						<p className="province-postal-code">
+							<strong>Provincia:</strong> {privateUser.province}
+						</p>
+						<p className="province-postal-code">
+							<strong>Código Postal:</strong> {privateUser.postalCode}
+						</p>
+					</div>
+				</div>
 
-  return (
-    <div className='user-profile'>
-      <h2>Información del usuario</h2>
-        <div className="user-info">  
-          <ButtonEditAvatar id={privateUser.id} />
-          <div>
-            <p><strong>Nombre de usuario:</strong> {privateUser.username}</p>
-            <p><strong>Email:</strong> {privateUser.email}</p>
-            <p><strong>Fecha de nacimiento:</strong> {birthday}</p>
-            <p><strong>Ciudad:</strong> {privateUser.city}</p>
-            <p><strong>Provincia:</strong> {privateUser.province}</p>
-            <p><strong>Código Postal:</strong> {privateUser.postalCode}</p> 
-          </div>
-        </div>
-        <ModifyEmailAndUsername privateUser={privateUser} />
-        <ChangePassword privateUser={privateUser} />
-        <ModifyUserData privateUser={privateUser} />
-        <ButtonDeleteUser id={privateUser.id} />
-    </div>
-  )
+				<section id="accordion-section">
+					<details>
+						<summary>
+							<strong>Editar nombre de usuario o email</strong>
+						</summary>
+						<ModifyEmailAndUsername privateUser={privateUser} />
+					</details>
+					<details>
+						<summary>
+							<strong>Cambiar Contraseña</strong>
+						</summary>
+						<ChangePassword privateUser={privateUser} />
+					</details>
+					<details>
+						<summary>
+							<strong>Modificar Información Personal</strong>
+						</summary>
+						<ModifyUserData privateUser={privateUser} />
+					</details>
+					<details>
+						<summary>
+							<strong>Eliminar Usuario</strong>
+						</summary>
+						<ButtonDeleteUser id={privateUser.id} />
+					</details>
+				</section>
+			</div>
+		</div>
+	);
 }
 
 export { UserInfo };

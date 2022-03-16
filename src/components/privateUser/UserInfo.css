@@ -1,89 +1,274 @@
+#user-profile-main-container {
+	display: flex;
+	margin: auto;
+}
+
 .user-profile {
-  display: flex;
-  flex-direction: column;
-
-  gap: 2rem;
-
-  font-size: 1.2em;
+	display: grid;
+	align-content: center;
+	flex-wrap: wrap;
+	justify-content: center;
+	font-size: 1.2em;
 }
 
 .user-profile li {
-  list-style: none;
+	list-style: none;
 }
 
 .user-profile input,
 .user-profile textarea {
-  width: 60vw;
-  font-size: 0.85em;
-  padding: 0.6rem;
-  border-radius: 25px;
+	text-indent: 0.2rem;
+	border-radius: 30px;
+	border: 2px inset white;
+	margin: 0.5rem 0;
+	padding-inline: 0.5rem;
+	padding: 0.5rem;
+	color: var(--black-2);
+	background-color: white;
+	inline-size: 100%;
+	box-shadow: 5px 10px 5px rgb(221, 218, 218) inset;
 }
 
 .user-profile textarea {
-  height: 20vh;
-  resize: vertical;
+	height: 20vh;
 }
 
-/* Componente UserInfo.jsx */
+/* Componente UserInfo.jsx (CARD)*/
+.user-info-container {
+	display: flex;
+	justify-content: center;
+	position: relative;
+	margin: 0 0 -5rem 0;
+	width: 25rem;
+	height: 12.5rem;
+	background-color: rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(3px);
+	box-shadow: 0 25px 25px rgba(0, 0, 0, 0.3);
+	border-radius: 20px;
+	display: flex;
+	gap: 0.8rem;
+	overflow: hidden;
+	border: 1px solid var(--lightGrey);
+	transition: 0.5s;
+}
+
+.user-info-container:hover {
+	transform: scale(1.1);
+}
+
+.user-info-container::before {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 30%;
+	background-color: var(--black-2);
+}
+
 .user-info {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
+	font-size: 0.9rem;
+	padding: 2rem 0 2rem 0.5rem;
+}
+
+.user-info p {
+	padding: 0.1rem;
+}
+
+.corporative-card-icons {
+	margin-right: 0.2rem;
+}
+
+.province-postal-code {
+	position: absolute !important;
+	top: -9999px !important;
+	border: 1px solid white;
+	padding: 2rem;
 }
 
 /* Componente ModifyEmailAndUsername.jsx */
 .modify-email {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
+	border: 1px solid white;
+	background-color: var(--lightGrey);
+	padding: 2rem;
 }
 
 /* Componente ButtonDeleteUser.jsx */
 .drop-user {
-  border: 3px solid rgb(247, 39, 39);
-  padding: 2rem;
+	border: 3px solid rgb(248, 142, 142);
+	border-radius: 5px;
+	padding: 2rem;
+	background-color: var(--lightGrey);
 }
 
 .drop-user > h4 {
-  color: red;
+	color: red;
+}
+
+/* Componente ChangePassword.jsx */
+.change-password-container {
+	background-color: var(--lightGrey);
+	border: 1px solid white;
+	padding: 2rem;
+}
+/* Componente ModifyUserData.jsx */
+.modify-user-data-container {
+	border: 1px solid white;
+	background-color: var(--lightGrey);
+	padding: 2rem;
 }
 
 /* Componente FavoriteProducts.jsx */
 .user-fav-products {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2rem;
 }
 
-@media only screen and (max-width: 600px) {
-  .user-info {
-    flex-direction: column;
-    align-items: initial;
-  }
+/* ---- Accordion Section ---- */
+#accordion-section {
+	overflow: scroll;
+	display: grid;
+	padding: 10rem 4.5rem;
+	width: 48rem;
+	height: 35rem;
+	margin: 5px;
+	margin-left: -11rem;
+	border-radius: 15px;
+	background-color: var(--lightGrey);
+	box-shadow: 0 5px 10px var(--black-2);
+}
 
-  .user-profile input,
-  .user-profile textarea {
-    width: none;
-  }
+#accordion-section details summary {
+	z-index: 0;
+	padding: 15px;
+	background-color: var(--lightGrey);
+	color: var(--darkGrey);
+	border: 1px solid white;
+	border-radius: 5px;
+	position: relative;
+	list-style: none;
+	outline: none;
+	cursor: pointer;
+	font-size: 1.7rem;
+}
 
-  .user-fav-products {
-    gap: 1rem;
-  }
+#accordion-section details summary::after {
+	font-weight: 700;
+	content: '+';
+	position: absolute;
+	top: 10px;
+	color: gray;
+	right: 15px;
+	font-size: 30px;
+	transition: 0.2s linear;
+}
 
-  .user-profile {
-    font-size: 0.8em;
-  }
+#accordion-section details[open] summary::after {
+	transform: rotate(135deg);
+}
 
-  .user-profile h3 {
-    font-size: 1.2em;
-  }
+#accordion-section-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
 
-  .drop-user {
-    border: none;
-    padding: 0;
-  }
+@media only screen and (max-width: 768px) {
+	#user-profile-main-container {
+		background-color: transparent;
+	}
 
-  .btn {
-    font-size: 0.8rem;
-  }
+	#accordion-section {
+		padding: 9rem;
+		border: none;
+		box-shadow: none;
+		background: none;
+	}
+
+	#accordion-section details summary {
+		font-size: 1.2rem;
+	}
+}
+
+@media only screen and (max-width: 480px) {
+	#user-profile-main-container {
+		width: auto;
+		height: auto;
+		background-color: transparent;
+	}
+
+	#accordion-section {
+		margin-left: -13rem;
+		padding: 10rem;
+	}
+
+	#accordion-section details summary {
+		font-size: 1rem;
+		text-transform: uppercase;
+		border-color: transparent;
+		background-color: transparent;
+	}
+
+	#accordion-section details summary::after {
+		right: 16px;
+		left: 375px;
+		font-size: 30px;
+	}
+
+	.modify-user-data-container {
+		background-color: transparent;
+	}
+
+	.drop-user {
+		border: none;
+		background-color: transparent;
+	}
+
+	.change-password-container {
+		border: none;
+		background-color: transparent;
+	}
+
+	.modify-email {
+		border: none;
+		background-color: transparent;
+	}
+
+	.user-info-container {
+		max-width: 16rem;
+	}
+}
+
+@media only screen and (max-width: 400px) {
+	#accordion-section {
+		width: 40rem;
+	}
+
+	#accordion-section details summary {
+		font-size: 0.8rem;
+	}
+	.modify-email {
+		max-width: 16rem;
+		padding: 2px;
+		font-size: 0.8rem;
+	}
+
+	.drop-user {
+		max-width: 16rem;
+		padding: 2px;
+		font-size: 0.8rem;
+	}
+
+	.change-password-container {
+		max-width: 16rem;
+		padding: 2px;
+		font-size: 0.8rem;
+	}
+
+	.modify-user-data-container {
+		max-width: 16rem;
+		padding: 2px;
+		font-size: 0.8rem;
+	}
 }
