@@ -17,13 +17,28 @@ const ProductList = () => {
     return products.slice(currentPage, currentPage + 8);
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
   const nextPage = () => {
     if (products.length > currentPage + 8) setCurrentPage(currentPage + 8);
   };
+
   const prevPage = () => {
     if (currentPage > 0) setCurrentPage(currentPage - 8);
   };
-
+  function eventBottonnext() {
+    scrollToTop();
+    nextPage();
+  }
+  function eventBottonprev() {
+    scrollToTop();
+    prevPage();
+  }
   return (
     <>
       <section className='products-section'>
@@ -40,12 +55,12 @@ const ProductList = () => {
               })}
             </ul>
             <div id='pagination-product-container'>
-              <button className='prev-btn' onClick={prevPage}>
+              <button className='prev-btn' onClick={eventBottonprev}>
                 <i className='fa-solid fa-angle-left prev-pagination-icon'></i>
                 PREV
               </button>
               &nbsp;
-              <button className='next-btn' onClick={nextPage}>
+              <button className='next-btn' onClick={eventBottonnext}>
                 NEXT
                 <i className='fa-solid fa-angle-right next-pagination-icon'></i>
               </button>

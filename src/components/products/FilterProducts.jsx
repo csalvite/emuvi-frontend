@@ -21,19 +21,15 @@ function FilterProducts() {
     params.has('rating') ? params.get('rating') : ''
   );
 
-  const [minPrice = 1, setMinPrice] = useState(
-    params.has('minPrice') ? params.get('minPrice') : ''
-  );
+  const [minPrice, setMinPrice] = useState(1);
 
-  const [maxPrice, setMaxPrice] = useState(
-    params.has('maxPrice') ? params.get('maxPrice') : ''
-  );
+  const [maxPrice, setMaxPrice] = useState(1000);
 
   useEffect(() => {
     const param = {};
 
-    if (minPrice) param.minPrice = minPrice;
-    if (maxPrice) param.maxPrice = maxPrice;
+    if (minPrice !== 1) param.minPrice = minPrice;
+    if (maxPrice !== 1000) param.maxPrice = maxPrice;
     if (search) param.search = search;
     if (direction) param.direction = direction;
     if (rating) param.rating = rating;
@@ -119,9 +115,14 @@ function FilterProducts() {
               min={1}
               max={1000}
               step={5}
-              value={minPrice}
-              onChange={(e) => {
-                setMinPrice(e.target.value);
+              defaultvalue={[minPrice, maxPrice]}
+              onChange={(e, value) => {
+                setMinPrice(value[0]);
+                setMaxPrice(value[1]);
+              }}
+              onChangeCommitted={(e, value) => {
+                setMinPrice(value[0]);
+                setMaxPrice(value[1]);
               }}
               valueLabelDisplay='auto'
             />
