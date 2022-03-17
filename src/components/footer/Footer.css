@@ -9,7 +9,6 @@ article h3 {
 }
 
 .footer {
-	z-index: -3;
 	position: fixed;
 	bottom: 0;
 	background-color: var(--black-2);
@@ -36,6 +35,7 @@ article h3 {
 	color: rgb(211, 206, 206);
 }
 .bottom-link:hover {
+	cursor: pointer;
 	color: greenyellow;
 }
 
