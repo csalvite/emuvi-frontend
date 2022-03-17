@@ -89,4 +89,8 @@
     padding: 7.5rem 0 2rem;
     font-size: 1.2rem;
   }
+
+  .on-sale-products {
+    justify-content: center;
+  }
 }

@@ -22,7 +22,7 @@ function Header1() {
 					Video cannot be loaded :(
 				</video>
 				<nav>
-					<a href={`http://localhost:3000/`} className="logo">
+					<a href='/' className="logo">
 						<i className="fas fa-globe-africa"></i>EMUVI
 					</a>
 

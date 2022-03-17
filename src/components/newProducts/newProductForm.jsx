@@ -8,7 +8,7 @@ const NewProductForm = (idProduct) => {
   const [price, setPrice] = useState('');
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
-  const [error, setError] = useState('');
+  const [error, setError] = useState();
   const filesInputRef = useRef();
   const [token] = useContext(TokenContext);
   const navigate = useNavigate();
@@ -44,8 +44,10 @@ const NewProductForm = (idProduct) => {
         console.log(body);
         navigate(`/products/${body.data}`);
       } else {
-        const error = await response.json();
-        throw new Error(error.message);
+        const err = await response.json();
+        setError(err.message);
+        //throw new Error(error.message);
+        console.log(err.message);
       }
     } catch (error) {
       setError(error.message);
@@ -62,6 +64,7 @@ const NewProductForm = (idProduct) => {
             className='form_product_name'
             name='form_product_name'
             placeholder='Nombre'
+            maxLength={25}
             value={name}
             required
             onChange={(e) => {
@@ -94,10 +97,11 @@ const NewProductForm = (idProduct) => {
         <div className='container_input'>
           <label htmlFor='form_product_price'></label>
           <input
-            type='text'
+            type='number'
+            maxLength={9}
+            placeholder='Máximo 99999.99€'
             className='form_product_price'
             name='form_product_price'
-            placeholder='Precio €'
             value={price}
             required
             onChange={(e) => {
@@ -109,7 +113,7 @@ const NewProductForm = (idProduct) => {
           <label htmlFor='form_product_description'></label>
           <input
             type='text'
-            maxLength={30}
+            maxLength={250}
             className='form_product_description'
             name='form_product_description'
             placeholder='Descripción'
@@ -129,7 +133,7 @@ const NewProductForm = (idProduct) => {
 
         <button className='input_submit'>CREAR PRODUCTO</button>
 
-        {error}
+        {error ? <div style={{color: 'black'}}>{error}</div> : ''}
       </form>
     </div>
   );
