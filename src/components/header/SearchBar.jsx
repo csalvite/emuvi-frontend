@@ -8,19 +8,16 @@ const SearchBar = () => {
     params.has('search') ? params.get('search') : ''
   );
   useEffect(() => {
-    if (params.has('search')) {
-      setSearchParams({ search: encodeURIComponent(search) });
-    } else {
-      params.delete('search');
-
-      setSearchParams(params);
-    }
+    const param = {};
+    // if (params.has('search')) {
+    //   setSearchParams({ search: encodeURIComponent(search) });
+    // } else {
+    //   setSearchParams(params);
+    // }
+    if (search) param.search = search;
+    setSearchParams(param);
   }, [params, setSearchParams, search]);
   let navigate = useNavigate();
-
-  // useEffect(() => {
-  //   setSearchParams({ search: encodeURIComponent(search) });
-  // }, [search, params, setSearchParams]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -39,7 +36,6 @@ const SearchBar = () => {
           autoFocus
           placeholder='Busca tu producto...'
           type='search'
-          // querysearch={search}
           name='product'
           value={search}
           onChange={(e) => {
