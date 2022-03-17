@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Slider from '@mui/material/Slider';
 import Rating from '@mui/material/Rating';
-import ButtonReset from './ButtonReset';
+
 import './FilterProducts.css';
 function FilterProducts() {
   const [params, setParams] = useSearchParams('');
@@ -25,24 +25,30 @@ function FilterProducts() {
     params.has('minPrice') ? params.get('minPrice') : ''
   );
 
-  const [maxPrice] = useState(1000);
-  if (maxPrice) {
-    params.get('maxPrice');
-  } else {
-    params.get('');
-  }
+  const [maxPrice, setMaxPrice] = useState(
+    params.has('maxPrice') ? params.get('maxPrice') : ''
+  );
 
   useEffect(() => {
-    setParams({
-      minPrice,
-      maxPrice,
-      search,
-      order,
-      direction,
-      rating,
-    });
-  }, [minPrice, maxPrice, search, order, direction, rating, params, setParams]);
+    const param = {};
 
+    if (minPrice) param.minPrice = minPrice;
+    if (maxPrice) param.maxPrice = maxPrice;
+    if (search) param.search = search;
+    if (direction) param.direction = direction;
+    if (rating) param.rating = rating;
+    if (order) param.order = order;
+
+    setParams(param);
+  }, [minPrice, maxPrice, search, order, direction, rating, params, setParams]);
+  function reset() {
+    setDirection('');
+    setSearch('');
+    setMinPrice('');
+    setMaxPrice('');
+    setRating('');
+    setOrder('');
+  }
   return (
     <>
       <div className='accordion'>
@@ -210,7 +216,7 @@ function FilterProducts() {
               </label>
             </form>
             <div className='clean-filter-button'>
-              <ButtonReset />
+              <button onClick={reset}>Limpiar Filtros</button>
             </div>
           </div>
         </div>
