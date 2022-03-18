@@ -42,7 +42,7 @@ const Button = styled.button`
 `;
 
 const SidebarContainer = styled.div`
-	z-index: 1;
+	z-index: 2;
 	background-color: var(--black-2);
 	width: 3.5rem;
 	height: 80vh;

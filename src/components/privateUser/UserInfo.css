@@ -194,6 +194,30 @@
 }
 
 @media only screen and (max-width: 480px) {
+	.user-info-container {
+		margin: 0;
+		max-width: 16rem;
+		max-height: 8rem;
+		z-index: 1;
+	}
+
+	.user-info-container::before {
+		visibility: hidden;
+	}
+
+	.user-info {
+		padding: 0;
+		margin-left: -6.5rem;
+		margin-top: 1.4rem;
+	}
+
+	.user-profile input,
+.user-profile textarea {
+	inline-size: 80%;
+
+}
+
+	
 	#user-profile-main-container {
 		width: auto;
 		height: auto;
@@ -201,8 +225,9 @@
 	}
 
 	#accordion-section {
-		margin-left: -13rem;
-		padding: 10rem;
+	margin-top: -5rem;
+	
+
 	}
 
 	#accordion-section details summary {
@@ -237,12 +262,14 @@
 		background-color: transparent;
 	}
 
-	.user-info-container {
-		max-width: 16rem;
-	}
+	
 }
 
 @media only screen and (max-width: 400px) {
+  .user-info-container {
+	margin-left: -1rem;
+	}
+
 	#accordion-section {
 		width: 40rem;
 	}
