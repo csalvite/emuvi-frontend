@@ -26,13 +26,13 @@ function AboutUs() {
 							</p>
 
 							<a href="https://www.linkedin.com/in/marco-m-b33a51191/">
-								<i class="fab fa-linkedin"></i>
+								<i className="fab fa-linkedin aboutUsIcons"></i>
 							</a>
 							<a href="https://www.facebook.com/marco.munozgormedino/">
-								<i class="fab fa-facebook-square"></i>
+								<i className="fa-brands fa-github aboutUsIcons"></i>
 							</a>
 							<a href="https://www.linkedin.com/in/marco-m-b33a51191/">
-								<i class="fab fa-instagram-square"></i>
+								<i className="fab fa-instagram-square aboutUsIcons"></i>
 							</a>
 						</div>
 					</div>
@@ -49,9 +49,9 @@ function AboutUs() {
 								Aquí iría una breve presentación de cada uno de nosotros, así
 								como alguna afición o destreza a destacar
 							</p>
-							<i class="fab fa-linkedin"></i>
-							<i class="fab fa-facebook-square"></i>
-							<i class="fab fa-instagram-square"></i>
+							<i className="fab fa-linkedin aboutUsIcons"></i>
+							<i className="fa-brands fa-github aboutUsIcons"></i>
+							<i className="fab fa-instagram-square aboutUsIcons"></i>
 						</div>
 					</div>
 					<div className="card">
@@ -67,9 +67,9 @@ function AboutUs() {
 								Aquí iría una breve presentación de cada uno de nosotros, así
 								como alguna afición o destreza a destacar
 							</p>
-							<i class="fab fa-linkedin"></i>
-							<i class="fab fa-facebook-square"></i>
-							<i class="fab fa-instagram-square"></i>
+							<i className="fab fa-linkedin aboutUsIcons"></i>
+							<i className="fa-brands fa-github aboutUsIcons"></i>
+							<i className="fab fa-instagram-square aboutUsIcons"></i>
 						</div>
 					</div>
 					<div className="card">
@@ -85,9 +85,9 @@ function AboutUs() {
 								Aquí iría una breve presentación de cada uno de nosotros, así
 								como alguna afición o destreza a destacar
 							</p>
-							<i class="fab fa-linkedin"></i>
-							<i class="fab fa-facebook-square"></i>
-							<i class="fab fa-instagram-square"></i>
+							<i className="fab fa-linkedin aboutUsIcons"></i>
+							<i className="fa-brands fa-github aboutUsIcons"></i>
+							<i className="fab fa-instagram-square aboutUsIcons"></i>
 						</div>
 					</div>
 				</div>
