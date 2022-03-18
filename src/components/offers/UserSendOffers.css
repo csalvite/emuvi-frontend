@@ -1,0 +1,22 @@
+.user-send-offers-title {
+  margin: 2rem;
+}
+
+#sent-offers {
+  font-size: 1rem;
+  background-color: white;
+  border-radius: 5px;
+  padding: 1.5rem;
+  margin: 1rem 0 0;
+  border: 1px solid var(--lightGrey);
+  transition: 500ms ease;
+}
+
+#sent-offers:hover {
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+
+.booking-state {
+  margin: 1rem 0 0.3rem;
+}

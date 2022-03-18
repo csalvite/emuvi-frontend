@@ -1,0 +1,50 @@
+#received-offers-main-container {
+  color: var(--darkGrey);
+}
+
+#received-offers-title {
+  font-size: 2.5rem;
+  padding: 1.5rem;
+}
+
+
+.received-offers-container {
+  font-size: 1rem;
+  background-color: white;
+  border-radius: 5px;
+  padding: 1.5rem;
+  margin: 1rem 0 0;
+  border: 1px solid var(--lightGrey);
+  transition: 500ms ease;
+}
+
+.received-offers-container:hover {
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.user-propose-title {
+  margin: 1.2rem 0;
+}
+
+.acceptIcon {
+  margin-top: 0.5rem;
+  padding: 1rem;
+  font-size: 30px;
+  color: rgb(26, 153, 26);
+  transition: 300ms ease;
+}
+
+.declineIcon {
+  padding: 1rem;
+  font-size: 28px;
+  color: #f8345b;
+  transition: 300ms ease;
+}
+
+.acceptIcon:hover {
+  transform: scale(1.2);
+}
+
+.declineIcon:hover {
+  transform: scale(1.2);
+}
