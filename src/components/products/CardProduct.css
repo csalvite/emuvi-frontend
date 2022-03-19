@@ -14,8 +14,8 @@
 }
 
 .card__img {
-	height: 12rem;
-	min-width: 13rem;
+	max-height: 12rem;
+	max-width: 13rem;
 	border-radius: 0.5rem;
 	margin-top: 1.3rem;
 }
