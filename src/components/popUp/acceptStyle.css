@@ -1,65 +1,102 @@
-#popup-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: rgba(240, 248, 255, 0.5);
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.accept-offer-text {
+	margin: 2rem;
+}
 
-  z-index: 999;
+.accept-offer-btn {
+	margin: 2rem;
+	padding: 0.5rem 1rem;
+	border-radius: 25px;
+	border: 2px solid var(--white);
+	background-color: var(--lightGrey);
+	transition: 300ms ease;
+}
+
+.accept-offer-btn:hover {
+	color: var(--lightGrey);
+	background-color: gray;
+	transform: scale(1.1);
+}
+
+.accept-offer-close-popup {
+	font-size: 1.7rem;
+	font-weight: bolder;
+	padding-top: 1rem;
+	transition: 500ms ease;
+}
+
+.accept-offer-close-popup:hover {
+	color: rgb(250, 85, 85);
+	cursor: pointer;
+}
+
+.accept-offer-label-text {
+	font-weight: 600;
+	line-height: 1.7rem;
+	margin-left: 0.5rem;
+}
+
+#popup-background {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: rgba(240, 248, 255, 0.5);
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	z-index: 999;
 }
 
 #form-accept-offer {
-  background-color: white;
-  width: 60%;
-  height: 75%;
-  border-radius: 1rem;
-  box-shadow: 2px 2px 15px black;
-  padding: 2rem;
+	background-color: white;
+	width: 60%;
+	height: 75%;
+	border-radius: 1rem;
+	box-shadow: 2px 2px 15px black;
+	padding: 2rem;
 
-  overflow: scroll;
+	overflow: scroll;
 }
 
 #form-accept-offer > ul {
-  list-style: none;
+	list-style: none;
 }
 
 #form-accept-offer input,
 #form-accept-offer textarea,
 #form-accept-offer select {
-  width: 100%;
-  padding: 0.7rem;
-  border-radius: 25px;
-  border: 1px solid black;
+	width: 100%;
+	padding: 0.7rem;
+	border-radius: 25px;
+	border: 1px solid black;
 }
 
 #form-accept-offer textarea {
-  height: 12vh;
-  resize: vertical;
+	height: 12vh;
+	resize: vertical;
 }
 
 .close-popup {
-  font-size: 1.2rem;
-  padding: 0.5rem;
+	font-size: 1.2rem;
+	padding: 0.5rem;
 }
 
 .close-popup:hover {
-  cursor: pointer;
-  font-weight: bold;
+	cursor: pointer;
+	font-weight: bold;
 }
 
 @media only screen and (max-width: 600px) {
-  #form-accept-offer {
-    width: 90%;
-    height: 70%;
-  }
+	#form-accept-offer {
+		width: 90%;
+		height: 70%;
+	}
 
-  #form-accept-offer input,
-  #form-accept-offer textarea,
-  #form-accept-offer select {
-    width: 100%;
-  }
+	#form-accept-offer input,
+	#form-accept-offer textarea,
+	#form-accept-offer select {
+		width: 100%;
+	}
 }
