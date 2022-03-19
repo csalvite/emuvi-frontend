@@ -14,6 +14,7 @@
 
 .product-details-container {
   max-width: 40rem;
+  width: 40rem;
   background-color: var(--white);
   padding: 2rem;
   margin: 2rem;
@@ -85,4 +86,11 @@
   color: var(--green);
   box-shadow: none;
   transform: scale(0.8);
+}
+
+@media screen and (max-width: 600px) {
+  .product-details-container {
+    max-width: 100vw;
+    width: 100vw;
+  }
 }
