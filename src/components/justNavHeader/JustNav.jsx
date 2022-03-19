@@ -6,32 +6,28 @@ import { LoginButton } from '../users/LoginButton';
 import SearchBar from '../header/SearchBar';
 
 function JustNav() {
-  const [token] = useContext(TokenContext);
+	const [token] = useContext(TokenContext);
 
-  return (
-    <div>
-      <header>
-        <nav id="navBar">
-          <a href='/' className="logo">
-            <i className="fas fa-globe-africa"></i>EMUVI
-          </a>
+	return (
+		<div>
+			<header>
+				<nav id="navBar">
+					<a href="/" className="justNav-logo">
+						<i className="fas fa-globe-africa"></i>EMUVI
+					</a>
 
-          <SearchBar />
+					<SearchBar />
 
-          {/* <div className="search_box">
+					{/* <div className="search_box">
             <input type="search" placeholder="Encontrar algo..." />
             <span className="fa fa-search"></span>
           </div> */}
 
-          {token ? (
-            <ProfileHeader />
-          ) : (
-            <LoginButton />
-          )}
-        </nav>
-      </header>
-    </div>
-  );
+					{token ? <ProfileHeader /> : <LoginButton />}
+				</nav>
+			</header>
+		</div>
+	);
 }
 
 export default JustNav;

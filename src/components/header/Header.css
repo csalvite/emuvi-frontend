@@ -48,18 +48,6 @@ nav .search_box input {
 	border-bottom-left-radius: 30px;
 }
 
-nav .search_box input {
-	border: none;
-	outline: none;
-	background: var(--white);
-	height: 100%;
-	padding: 0 10px;
-	font-size: 20px;
-	width: 350px;
-	border-top-left-radius: 30px;
-	border-bottom-left-radius: 30px;
-}
-
 nav .search_box span {
 	color: var(--black);
 	font-size: 20px;
@@ -274,6 +262,10 @@ header > video {
 
 	nav .search_box input {
 		width: 80%;
+		border-top-left-radius: 30px;
+		border-bottom-left-radius: 30px;
+		border-top-right-radius: none;
+		border-bottom-right-radius: none;
 	}
 
 	nav .bar {
@@ -311,6 +303,8 @@ header > video {
 
 	nav .search_box input {
 		width: 80%;
+		border-top-right-radius: none;
+		border-bottom-right-radius: none;
 	}
 
 	nav .bar {
