@@ -33,7 +33,6 @@ const SearchBar = () => {
     <div className='search_box'>
       <form onSubmit={handleSubmit}>
         <input
-          autoFocus
           placeholder='Busca tu producto...'
           type='search'
           name='product'
