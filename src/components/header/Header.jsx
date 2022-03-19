@@ -22,7 +22,7 @@ function Header1() {
 					Video cannot be loaded :(
 				</video>
 				<nav>
-					<a href='/' className="logo">
+					<a href="/" className="main-logo">
 						<i className="fas fa-globe-africa"></i>EMUVI
 					</a>
 
@@ -33,11 +33,7 @@ function Header1() {
             <span className="fa fa-search"></span>
           </div> */}
 
-					{token ? (
-						<ProfileHeader />
-					) : (
-						<LoginButton />
-					)}
+					{token ? <ProfileHeader /> : <LoginButton />}
 				</nav>
 
 				<div className="header-container">
