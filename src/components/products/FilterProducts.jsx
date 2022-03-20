@@ -23,28 +23,31 @@ function FilterProducts() {
     params.has('rating') ? params.get('rating') : ''
   );
 
-/*   const [minPrice, setMinPrice] = useState(1);
+  /*   const [minPrice, setMinPrice] = useState(1);
 
   const [maxPrice, setMaxPrice] = useState(99999); */
 
-
   const [prices, setPrices] = useState(
-    params.has('minPrice') ? [params.get('minPrice'), params.get('maxPrice')] : ''
+    params.has('minPrice')
+      ? [params.get('minPrice'), params.get('maxPrice')]
+      : ''
   );
 
   const [sliderNums, setSliderNums] = useState(
-    params.has('minPrice') ? [params.get('minPrice'), params.get('maxPrice')] : [0, 999]
+    params.has('minPrice')
+      ? [params.get('minPrice'), params.get('maxPrice')]
+      : [0, 999]
   );
-      /* 
+  /* 
         params.has('minPrice') ? params.get('minPrice') : '',
         params.has('maxPrice') ? params.get('maxPrice') : '',
       */
 
-      const handleChangePrices = (event, newValue) => {
-        setSliderNums(newValue);
-      }
-  
-/*       const handleChange = (event, newValue) => {
+  const handleChangePrices = (event, newValue) => {
+    setSliderNums(newValue);
+  };
+
+  /*       const handleChange = (event, newValue) => {
         setPrices(newValue);
         setSliderNums(prices);
       }; */
@@ -62,15 +65,23 @@ function FilterProducts() {
     if (prices) param.maxPrice = prices[1];
 
     setParams(param);
-  }, [/* minPrice, maxPrice, */ search, order, direction, rating, params, prices, setParams]);
+  }, [
+    /* minPrice, maxPrice, */ search,
+    order,
+    direction,
+    rating,
+    params,
+    prices,
+    setParams,
+  ]);
   function reset() {
     setDirection('');
     setSearch('');
- /*    setMinPrice('');
+    /*    setMinPrice('');
     setMaxPrice(''); */
     setRating('');
     setOrder('');
-    setPrices([1, 999]);
+    setPrices('');
   }
   return (
     <>
@@ -154,23 +165,33 @@ function FilterProducts() {
               valueLabelDisplay='auto'
             /> */}
 
-              {/*  */}
+            {/*  */}
+            {sliderNums[0] <= 0 && sliderNums[1] >= 999 ? (
               <h4>Filtrar por precio:</h4>
-              <Slider
-                sx={{ width: '14.5rem' }}
-                value={sliderNums}
-                min={0}
-                max={999}
-                step={5}
-                onChange={handleChangePrices}
-                /* onChangeCommitted={handleChange} */
-                valueLabelDisplay="auto"
-              />
-              <Button size='medium' onClick={() => {
-                setPrices(sliderNums);
-              }}>Buscar</Button>
+            ) : (
+              <p>{`${sliderNums[0]}€ - ${sliderNums[1]}€`}</p>
+            )}
 
-              {/*  */}
+            <Slider
+              sx={{ width: '14.5rem' }}
+              value={sliderNums}
+              min={0}
+              max={999}
+              step={5}
+              onChange={handleChangePrices}
+              /* onChangeCommitted={handleChange} */
+              valueLabelDisplay='auto'
+            />
+            <Button
+              size='medium'
+              onClick={() => {
+                setPrices(sliderNums);
+              }}
+            >
+              Buscar
+            </Button>
+
+            {/*  */}
           </div>
 
           <div className='filters-categories-container'>
