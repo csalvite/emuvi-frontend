@@ -5,6 +5,8 @@ import Slider from '@mui/material/Slider';
 import Rating from '@mui/material/Rating';
 
 import './FilterProducts.css';
+import { Button } from '@mui/material';
+
 function FilterProducts() {
   const [params, setParams] = useSearchParams('');
   const [search, setSearch] = useState(
@@ -21,29 +23,54 @@ function FilterProducts() {
     params.has('rating') ? params.get('rating') : ''
   );
 
-  const [minPrice, setMinPrice] = useState(1);
+/*   const [minPrice, setMinPrice] = useState(1);
 
-  const [maxPrice, setMaxPrice] = useState(1000);
+  const [maxPrice, setMaxPrice] = useState(99999); */
+
+
+  const [prices, setPrices] = useState(
+    params.has('minPrice') ? [params.get('minPrice'), params.get('maxPrice')] : ''
+  );
+
+  const [sliderNums, setSliderNums] = useState(
+    params.has('minPrice') ? [params.get('minPrice'), params.get('maxPrice')] : [0, 999]
+  );
+      /* 
+        params.has('minPrice') ? params.get('minPrice') : '',
+        params.has('maxPrice') ? params.get('maxPrice') : '',
+      */
+
+      const handleChangePrices = (event, newValue) => {
+        setSliderNums(newValue);
+      }
+  
+/*       const handleChange = (event, newValue) => {
+        setPrices(newValue);
+        setSliderNums(prices);
+      }; */
 
   useEffect(() => {
     const param = {};
 
-    if (minPrice !== 1) param.minPrice = minPrice;
-    if (maxPrice !== 1000) param.maxPrice = maxPrice;
+    /* if (minPrice !== 1) param.minPrice = minPrice;
+    if (maxPrice !== 1000) param.maxPrice = maxPrice; */
     if (search) param.search = search;
     if (direction) param.direction = direction;
     if (rating) param.rating = rating;
     if (order) param.order = order;
+    if (prices) param.minPrice = prices[0];
+    if (prices) param.maxPrice = prices[1];
 
     setParams(param);
-  }, [minPrice, maxPrice, search, order, direction, rating, params, setParams]);
+  }, [/* minPrice, maxPrice, */ search, order, direction, rating, params, prices, setParams]);
   function reset() {
     setDirection('');
     setSearch('');
-    setMinPrice('');
-    setMaxPrice('');
+ /*    setMinPrice('');
+    setMaxPrice(''); */
     setRating('');
     setOrder('');
+    setPrices([1, 999]);
   }
   return (
     <>
@@ -104,18 +131,18 @@ function FilterProducts() {
             />
           </div>
           <div>
-            {minPrice <= 1 && maxPrice >= 1000 ? (
+            {/*{minPrice <= 1 && maxPrice >= 1000 ? (
               <h4>Filtrar por precio:</h4>
             ) : (
               <p>{`${minPrice}€ - ${maxPrice}€`}</p>
             )}
-            <Slider
+             <Slider
               sx={{ width: '14.5rem' }}
               color='secondary'
               min={1}
               max={1000}
               step={5}
-              defaultvalue={[minPrice, maxPrice]}
+              defaultValue={[minPrice, maxPrice]}
               onChange={(e, value) => {
                 setMinPrice(value[0]);
                 setMaxPrice(value[1]);
@@ -125,7 +152,25 @@ function FilterProducts() {
                 setMaxPrice(value[1]);
               }}
               valueLabelDisplay='auto'
-            />
+            /> */}
+
+              {/*  */}
+              <h4>Filtrar por precio:</h4>
+              <Slider
+                sx={{ width: '14.5rem' }}
+                value={sliderNums}
+                min={0}
+                max={999}
+                step={5}
+                onChange={handleChangePrices}
+                /* onChangeCommitted={handleChange} */
+                valueLabelDisplay="auto"
+              />
+              <Button size='medium' onClick={() => {
+                setPrices(sliderNums);
+              }}>Buscar</Button>
+
+              {/*  */}
           </div>
 
           <div className='filters-categories-container'>

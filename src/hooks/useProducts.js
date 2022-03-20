@@ -16,6 +16,9 @@ const useProducts = () => {
   let minPrice = params.get('minPrice');
   let maxPrice = params.get('maxPrice');
 
+  console.log('MinPrice = ', minPrice);
+  console.log('MaxPrice = ', maxPrice);
+
   useEffect(() => {
     const getProducts = async () => {
       let url = `${REACT_APP_LOCALHOST}/products?order=${encodeURIComponent(
@@ -26,10 +29,12 @@ const useProducts = () => {
         url += `&rating=${encodeURIComponent(rating)}`;
       }
 
+      /* if (minPrice && maxPrice) { */
       if (minPrice && maxPrice) {
         url += `&minPrice=${encodeURIComponent(
-          minPrice
-        )}&maxPrice=${encodeURIComponent(maxPrice)}`;
+          /* minPrice  */
+          Number(minPrice)
+        )}&maxPrice=${encodeURIComponent(Number(maxPrice))}`;
       }
 
       if (search) {
