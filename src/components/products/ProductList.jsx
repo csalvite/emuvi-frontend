@@ -25,7 +25,9 @@ const ProductList = () => {
   };
 
   const nextPage = () => {
-    if (products.length > currentPage + 8) setCurrentPage(currentPage + 8);
+    if (products.length > currentPage + 8) {
+      setCurrentPage(currentPage + 8);
+    }
   };
 
   const prevPage = () => {
@@ -60,10 +62,21 @@ const ProductList = () => {
                 PREV
               </button>
               &nbsp;
-              <button className='next-btn' onClick={eventBottonnext}>
-                NEXT
-                <i className='fa-solid fa-angle-right next-pagination-icon'></i>
-              </button>
+              {products.length < currentPage + 8 ? (
+                <button
+                  className='next-btn'
+                  onClick={eventBottonnext}
+                  style={{ visibility: 'hidden' }}
+                >
+                  NEXT
+                  <i className='fa-solid fa-angle-right next-pagination-icon'></i>
+                </button>
+              ) : (
+                <button className='next-btn' onClick={eventBottonnext}>
+                  NEXT
+                  <i className='fa-solid fa-angle-right next-pagination-icon'></i>
+                </button>
+              )}
             </div>
           </>
         ) : (

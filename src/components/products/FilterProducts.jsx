@@ -182,15 +182,16 @@ function FilterProducts() {
               /* onChangeCommitted={handleChange} */
               valueLabelDisplay='auto'
             />
-            <Button
-              size='medium'
-              onClick={() => {
-                setPrices(sliderNums);
-              }}
-            >
-              Buscar
-            </Button>
-
+            <div>
+              <Button
+                size='medium'
+                onClick={() => {
+                  setPrices(sliderNums);
+                }}
+              >
+                Buscar
+              </Button>
+            </div>
             {/*  */}
           </div>
 
