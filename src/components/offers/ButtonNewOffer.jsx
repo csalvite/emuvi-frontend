@@ -70,7 +70,7 @@ export const ButtonNewOffer = ({ idUser, idProduct }) => {
                 message={text}
                 action={action}
             />
-            <i class="fa-solid fa-cart-shopping cart"
+            <i className="fa-solid fa-cart-shopping cart"
 							title="Proponer compra"
                             onClick={() => {
                                 handleNewOffer();

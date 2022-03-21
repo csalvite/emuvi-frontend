@@ -15,7 +15,7 @@ function RadioCategories({ search, setSearch }) {
           setSearch(e.target.value);
         }}
       />
-      <label for='informatica' className='radio-label'>
+      <label htmlFor='informatica' className='radio-label'>
         Infórmatica
       </label>
       <input
@@ -29,7 +29,7 @@ function RadioCategories({ search, setSearch }) {
         }}
         name='categorias'
       />
-      <label for='musica' className='radio-label'>
+      <label htmlFor='musica' className='radio-label'>
         Música
       </label>
       <input
@@ -43,7 +43,7 @@ function RadioCategories({ search, setSearch }) {
         }}
         name='categorias'
       />
-      <label for='videojuegos' className='radio-label'>
+      <label htmlFor='videojuegos' className='radio-label'>
         Videojuegos
       </label>
       <input
@@ -57,7 +57,7 @@ function RadioCategories({ search, setSearch }) {
         }}
         name='categorias'
       />
-      <label for='video' className='radio-label'>
+      <label htmlFor='video' className='radio-label'>
         Video
       </label>
       <input
@@ -71,7 +71,7 @@ function RadioCategories({ search, setSearch }) {
         }}
         name='categorias'
       />
-      <label for='modavintage' className='radio-label'>
+      <label htmlFor='modavintage' className='radio-label'>
         Moda Vintage
       </label>
       <input
@@ -85,7 +85,7 @@ function RadioCategories({ search, setSearch }) {
         }}
         name='categorias'
       />
-      <label for='otros' className='radio-label'>
+      <label htmlFor='otros' className='radio-label'>
         Otros
       </label>
     </form>

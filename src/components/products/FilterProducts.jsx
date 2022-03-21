@@ -54,6 +54,8 @@ function FilterProducts() {
     if (prices) param.maxPrice = prices[1];
 
     setParams(param);
+
+
   }, [search, order, direction, rating, params, prices, setParams]);
   function reset() {
     setDirection('');
@@ -65,7 +67,7 @@ function FilterProducts() {
   return (
     <>
       <div className='accordion'>
-        <label className='accordion-label' for='accordion1'>
+        <label className='accordion-label' htmlFor='accordion1'>
           <h3 className='filter-title'>
             FILTRAR PRODUCTOS
             <i className='fa-solid fa-sort filter-icon'></i>

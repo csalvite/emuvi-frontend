@@ -79,7 +79,7 @@ export const ButtonFavProduct = ({ idProduct, deleteFav, idUser, favProducts, se
         {deleteFav ? (
           <DeleteFavProduct idProduct={idProduct} idUser={idUser} favProducts={favProducts} setFavProducts={setFavProducts} />
         ) : (
-          <i class="fa-solid fa-heart heart" 
+          <i className="fa-solid fa-heart heart" 
                     title="Añadir a favoritos"
                     onClick={() => {
                       handleAddFavProduct();
@@ -87,12 +87,7 @@ export const ButtonFavProduct = ({ idProduct, deleteFav, idUser, favProducts, se
                     }}></i>
               
         )}
-        {/* <i class="fa-solid fa-heart heart" 
-                    title="Añadir a favoritos"
-                    onClick={() => {
-                      handleAddFavProduct();
-                      handleClick();
-                    }}></i> */}
+
     </>
     
   );

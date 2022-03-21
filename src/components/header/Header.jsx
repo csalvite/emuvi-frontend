@@ -12,15 +12,7 @@ function Header1() {
 
 	return (
 		<div>
-			<header>
-				<video
-					autoPlay
-					loop
-					muted
-					src="./resources/videos/EMUVI.mp4"
-					className="playVideo">
-					Video cannot be loaded :(
-				</video>
+			<header className='main-header'>
 				<nav>
 					<a href="/" className="main-logo">
 						<i className="fas fa-globe-africa"></i>EMUVI
@@ -44,6 +36,14 @@ function Header1() {
 					</Link>
 				</div>
 			</header>
+			<video
+				autoPlay
+				loop
+				muted
+				src="./resources/videos/EMUVI_v2.mp4"
+				className="playVideo">
+				Video cannot be loaded :(
+			</video>
 		</div>
 	);
 }

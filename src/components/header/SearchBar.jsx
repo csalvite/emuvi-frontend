@@ -16,6 +16,10 @@ const SearchBar = () => {
     // }
     if (search) param.search = search;
     setSearchParams(param);
+
+    return () => {
+      setSearchParams('');
+    }
   }, [params, setSearchParams, search]);
   let navigate = useNavigate();
 

@@ -5,14 +5,14 @@ function SelectOrder({ order, setOrder }) {
     <div className='container_input'>
       <label htmlFor='form_product_category'></label>
       <select
-        value={order}
+        defaultValue='createdAt'
         onChange={(e) => {
           setOrder(e.target.value);
         }}
         className='select_product_category'
         name='form_product_category'
       >
-        <option hidden selected>
+        <option>
           Filtrar por:
         </option>
         <option value='price'>Por precio</option>

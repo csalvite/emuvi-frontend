@@ -49,9 +49,14 @@ export const ProfileHeader = () => {
             justifyContent: 'center',
             alignItems: 'center',
             textAlign: 'center',
+            margin: '0',
+            padding: '0',
+            boxSizing: 'border-box',
           }}
         >
-          <Tooltip title={privateUser.username}>
+          <Tooltip
+            title={privateUser.username ? privateUser.username : 'Usuario'}
+          >
             <IconButton
               onClick={handleClick}
               size='small'
@@ -75,12 +80,38 @@ export const ProfileHeader = () => {
         </Box>
         <Menu
           anchorEl={anchorEl}
+          disableScrollLock={
+            true
+          } /* Para evitar el padding de 17px al clickar el menu */
           id='account-menu'
           open={open}
           onClose={handleClose}
           onClick={handleClose}
           PaperProps={{
             elevation: 0,
+            sx: {
+              overflow: 'hidden',
+              filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
+              mt: 1.5,
+              '& .MuiAvatar-root': {
+                width: 32,
+                height: 32,
+                ml: -0.5,
+                mr: 1,
+              },
+              '&:before': {
+                content: '""',
+                display: 'block',
+                position: 'absolute',
+                top: 0,
+                right: 14,
+                width: 10,
+                height: 10,
+                bgcolor: 'background.paper',
+                transform: 'translateY(-50%) rotate(45deg)',
+                zIndex: 0,
+              },
+            },
           }}
           transformOrigin={{ horizontal: 'right', vertical: 'top' }}
           anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
@@ -88,7 +119,11 @@ export const ProfileHeader = () => {
           {menuOptions.map((item) => {
             return (
               <MenuItem key={item.text}>
-                <Link href={item.path} underline='none'>
+                <Link
+                  href={item.path}
+                  underline='none'
+                  style={{ width: '100%' }}
+                >
                   {item.text}
                 </Link>
               </MenuItem>
