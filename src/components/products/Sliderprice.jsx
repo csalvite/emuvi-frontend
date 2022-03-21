@@ -12,7 +12,11 @@ function Sliderprice({ sliderNums, handleChangePrices, setPrices }) {
       )}
 
       <Slider
-        sx={{ width: '14.5rem' }}
+        sx={{
+          width: '14.5rem',
+          color: 'sucess.main',
+          '&.MuiSlider-thumb': { borderRadius: '0.5px' },
+        }}
         value={sliderNums}
         min={0}
         max={999}

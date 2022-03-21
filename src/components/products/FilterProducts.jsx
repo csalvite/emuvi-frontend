@@ -1,7 +1,7 @@
 import { useSearchParams } from 'react-router-dom';
 
 import { useState, useEffect } from 'react';
-
+import { Button } from '@mui/material';
 import SelectOrder from './SelectOrder';
 
 import './FilterProducts.css';
@@ -95,7 +95,7 @@ function FilterProducts() {
           <div className='filters-categories-container'>
             <RadioCategories search={search} setSearch={setSearch} />
             <div className='clean-filter-button'>
-              <button onClick={reset}>Limpiar Filtros</button>
+              <Button onClick={reset}>Limpiar Filtros</Button>
             </div>
           </div>
         </div>
