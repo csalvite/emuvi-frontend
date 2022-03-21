@@ -1,11 +1,15 @@
 import { useSearchParams } from 'react-router-dom';
 
 import { useState, useEffect } from 'react';
-import Slider from '@mui/material/Slider';
-import Rating from '@mui/material/Rating';
+
+import SelectOrder from './SelectOrder';
 
 import './FilterProducts.css';
-import { Button } from '@mui/material';
+
+import SelectDirection from './SelectDirection';
+import { Rating } from '@mui/material';
+import RadioCategories from './RadioCategories';
+import Sliderprice from './Sliderprice';
 
 function FilterProducts() {
   const [params, setParams] = useSearchParams('');
@@ -23,10 +27,6 @@ function FilterProducts() {
     params.has('rating') ? params.get('rating') : ''
   );
 
-  /*   const [minPrice, setMinPrice] = useState(1);
-
-  const [maxPrice, setMaxPrice] = useState(99999); */
-
   const [prices, setPrices] = useState(
     params.has('minPrice')
       ? [params.get('minPrice'), params.get('maxPrice')]
@@ -38,25 +38,14 @@ function FilterProducts() {
       ? [params.get('minPrice'), params.get('maxPrice')]
       : [0, 999]
   );
-  /* 
-        params.has('minPrice') ? params.get('minPrice') : '',
-        params.has('maxPrice') ? params.get('maxPrice') : '',
-      */
 
   const handleChangePrices = (event, newValue) => {
     setSliderNums(newValue);
   };
 
-  /*       const handleChange = (event, newValue) => {
-        setPrices(newValue);
-        setSliderNums(prices);
-      }; */
-
   useEffect(() => {
     const param = {};
 
-    /* if (minPrice !== 1) param.minPrice = minPrice;
-    if (maxPrice !== 1000) param.maxPrice = maxPrice; */
     if (search) param.search = search;
     if (direction) param.direction = direction;
     if (rating) param.rating = rating;
@@ -65,20 +54,10 @@ function FilterProducts() {
     if (prices) param.maxPrice = prices[1];
 
     setParams(param);
-  }, [
-    /* minPrice, maxPrice, */ search,
-    order,
-    direction,
-    rating,
-    params,
-    prices,
-    setParams,
-  ]);
+  }, [search, order, direction, rating, params, prices, setParams]);
   function reset() {
     setDirection('');
     setSearch('');
-    /*    setMinPrice('');
-    setMaxPrice(''); */
     setRating('');
     setOrder('');
     setPrices('');
@@ -94,45 +73,11 @@ function FilterProducts() {
         </label>
         <input type='checkbox' id='accordion1'></input>
         <div className='accordion-inputs-container'>
-          <div className='container_input'>
-            <label htmlFor='form_product_category'></label>
-            <select
-              value={order}
-              onChange={(e) => {
-                setOrder(e.target.value);
-              }}
-              className='select_product_category'
-              name='form_product_category'
-            >
-              <option hidden selected>
-                Filtrar por:
-              </option>
-              <option value='price'>Por precio</option>
-
-              <option value='createdAt'>Por fecha</option>
-              <option value='name'>Por orden alfabetico</option>
-              <option value='rating'>Por valoraciones</option>
-            </select>
-          </div>
-          <div className='container_input'>
-            <label htmlFor='form_product_category'></label>
-            <select
-              value={direction}
-              onChange={(e) => {
-                setDirection(e.target.value);
-              }}
-              className='select_product_category'
-              name='form_product_category'
-            >
-              <option hidden selected>
-                Ordenar Por:
-              </option>
-              <option value='ASC'>Ascendente</option>
-              <option value='DESC'>Descendente</option>
-            </select>
-          </div>
+          <SelectOrder order={order} setOrder={setOrder} />
+          <SelectDirection direction={direction} setDirection={setDirection} />
           <div className='filters-rating-container'>
             <p className='filters-subtitle'>Valoraciones del vendedor:</p>
+
             <Rating
               name='rating'
               value={Number(rating)}
@@ -141,148 +86,14 @@ function FilterProducts() {
               }}
             />
           </div>
-          <div>
-            {/*{minPrice <= 1 && maxPrice >= 1000 ? (
-              <h4>Filtrar por precio:</h4>
-            ) : (
-              <p>{`${minPrice}€ - ${maxPrice}€`}</p>
-            )}
-             <Slider
-              sx={{ width: '14.5rem' }}
-              color='secondary'
-              min={1}
-              max={1000}
-              step={5}
-              defaultValue={[minPrice, maxPrice]}
-              onChange={(e, value) => {
-                setMinPrice(value[0]);
-                setMaxPrice(value[1]);
-              }}
-              onChangeCommitted={(e, value) => {
-                setMinPrice(value[0]);
-                setMaxPrice(value[1]);
-              }}
-              valueLabelDisplay='auto'
-            /> */}
-
-            {/*  */}
-            {sliderNums[0] <= 0 && sliderNums[1] >= 999 ? (
-              <h4>Filtrar por precio:</h4>
-            ) : (
-              <p>{`${sliderNums[0]}€ - ${sliderNums[1]}€`}</p>
-            )}
-
-            <Slider
-              sx={{ width: '14.5rem' }}
-              value={sliderNums}
-              min={0}
-              max={999}
-              step={5}
-              onChange={handleChangePrices}
-              /* onChangeCommitted={handleChange} */
-              valueLabelDisplay='auto'
-            />
-            <div>
-              <Button
-                size='medium'
-                onClick={() => {
-                  setPrices(sliderNums);
-                }}
-              >
-                Buscar
-              </Button>
-            </div>
-            {/*  */}
-          </div>
+          <Sliderprice
+            handleChangePrices={handleChangePrices}
+            sliderNums={sliderNums}
+            setPrices={setPrices}
+          />
 
           <div className='filters-categories-container'>
-            <form>
-              <p className='filters-subtitle'>Categoría:</p>
-              <input
-                className='filters-radio-input'
-                type='radio'
-                name='categorias'
-                value='informatica'
-                id='informatica'
-                checked={search === 'informatica'}
-                onChange={(e) => {
-                  setSearch(e.target.value);
-                }}
-              />
-              <label for='informatica' className='radio-label'>
-                Infórmatica
-              </label>
-              <input
-                className='filters-radio-input'
-                type='radio'
-                value='musica'
-                id='musica'
-                checked={search === 'musica'}
-                onChange={(e) => {
-                  setSearch(e.target.value);
-                }}
-                name='categorias'
-              />
-              <label for='musica' className='radio-label'>
-                Música
-              </label>
-              <input
-                className='filters-radio-input'
-                type='radio'
-                value='videojuegos'
-                checked={search === 'videojuegos'}
-                id='videojuegos'
-                onChange={(e) => {
-                  setSearch(e.target.value);
-                }}
-                name='categorias'
-              />
-              <label for='videojuegos' className='radio-label'>
-                Videojuegos
-              </label>
-              <input
-                className='filters-radio-input'
-                type='radio'
-                value='video'
-                checked={search === 'video'}
-                id='video'
-                onChange={(e) => {
-                  setSearch(e.target.value);
-                }}
-                name='categorias'
-              />
-              <label for='video' className='radio-label'>
-                Video
-              </label>
-              <input
-                className='filters-radio-input'
-                type='radio'
-                value='modavintage'
-                checked={search === 'modavintage'}
-                id='modavintage'
-                onChange={(e) => {
-                  setSearch(e.target.value);
-                }}
-                name='categorias'
-              />
-              <label for='modavintage' className='radio-label'>
-                Moda Vintage
-              </label>
-              <input
-                className='filters-radio-input'
-                type='radio'
-                value='otros'
-                checked={search === 'otros'}
-                id='otros'
-                onChange={(e) => {
-                  setSearch(e.target.value);
-                }}
-                name='categorias'
-              />
-              <label for='otros' className='radio-label'>
-                Otros
-              </label>
-            </form>
+            <RadioCategories search={search} setSearch={setSearch} />
             <div className='clean-filter-button'>
               <button onClick={reset}>Limpiar Filtros</button>
             </div>
