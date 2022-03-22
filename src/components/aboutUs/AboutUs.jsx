@@ -19,20 +19,26 @@ function AboutUs() {
 						</div>
 						<div className="details">
 							<h4>Marco Muñoz</h4>
-							<h5>Especialista en...</h5>
+							<h5>Entusiasta del diseño, maquetación y desarrollo web.</h5>
 							<p>
-								Aquí iría una breve presentación de cada uno de nosotros, así
-								como alguna afición o destreza a destacar
+								Me gustaría conectar con un trabajo en el que pueda expandir mi
+								creatividad, conocimientos y experiencia.
 							</p>
 
 							<a href="https://www.linkedin.com/in/marco-m-b33a51191/">
-								<i className="fab fa-linkedin aboutUsIcons"></i>
+								<i
+									className="fab fa-linkedin aboutUsIcons"
+									id="linkedinIcon"></i>
 							</a>
-							<a href="https://www.facebook.com/marco.munozgormedino/">
-								<i className="fa-brands fa-github aboutUsIcons"></i>
+							<a href="https://github.com/marcomgcal">
+								<i
+									className="fa-brands fa-github aboutUsIcons"
+									id="githubIcon"></i>
 							</a>
-							<a href="https://www.linkedin.com/in/marco-m-b33a51191/">
-								<i className="fab fa-instagram-square aboutUsIcons"></i>
+							<a href="https://www.instagram.com/delagarden/?hl=es">
+								<i
+									className="fab fa-instagram-square aboutUsIcons"
+									id="instagramIcon"></i>
 							</a>
 						</div>
 					</div>
@@ -49,9 +55,21 @@ function AboutUs() {
 								Aquí iría una breve presentación de cada uno de nosotros, así
 								como alguna afición o destreza a destacar
 							</p>
-							<i className="fab fa-linkedin aboutUsIcons"></i>
-							<i className="fa-brands fa-github aboutUsIcons"></i>
-							<i className="fab fa-instagram-square aboutUsIcons"></i>
+							<a href="https://www.linkedin.com/in/cesar-alvite/">
+								<i
+									className="fab fa-linkedin aboutUsIcons"
+									id="linkedinIcon"></i>
+							</a>
+							<a href="https://github.com/csalvite">
+								<i
+									className="fa-brands fa-github aboutUsIcons"
+									id="githubIcon"></i>
+							</a>
+							<a href="https://www.instagram.com/cesar_alvite/">
+								<i
+									className="fab fa-instagram-square aboutUsIcons"
+									id="instagramIcon"></i>
+							</a>
 						</div>
 					</div>
 					<div className="card">
@@ -67,9 +85,21 @@ function AboutUs() {
 								Aquí iría una breve presentación de cada uno de nosotros, así
 								como alguna afición o destreza a destacar
 							</p>
-							<i className="fab fa-linkedin aboutUsIcons"></i>
-							<i className="fa-brands fa-github aboutUsIcons"></i>
-							<i className="fab fa-instagram-square aboutUsIcons"></i>
+							<a href="https://www.linkedin.com/in/alexandre-coba-vazquez-5bb527213/">
+								<i
+									className="fab fa-linkedin aboutUsIcons"
+									id="linkedinIcon"></i>
+							</a>
+							<a href="https://github.com/Alexcoba01">
+								<i
+									className="fa-brands fa-github aboutUsIcons"
+									id="githubIcon"></i>
+							</a>
+							<a href="https://www.instagram.com/alexcoba/">
+								<i
+									className="fab fa-instagram-square aboutUsIcons"
+									id="instagramIcon"></i>
+							</a>
 						</div>
 					</div>
 					<div className="card">
@@ -85,9 +115,19 @@ function AboutUs() {
 								Aquí iría una breve presentación de cada uno de nosotros, así
 								como alguna afición o destreza a destacar
 							</p>
-							<i className="fab fa-linkedin aboutUsIcons"></i>
-							<i className="fa-brands fa-github aboutUsIcons"></i>
-							<i className="fab fa-instagram-square aboutUsIcons"></i>
+							<a href="https://www.linkedin.com/in/daniel-seco-lozano-1a42b3226/">
+								<i
+									className="fab fa-linkedin aboutUsIcons"
+									id="linkedinIcon"></i>
+							</a>
+							<a href="https://github.com/danutty">
+								<i
+									className="fa-brands fa-github aboutUsIcons"
+									id="githubIcon"></i>
+							</a>
+							<i
+								className="fab fa-instagram-square aboutUsIcons"
+								id="instagramIcon"></i>
 						</div>
 					</div>
 				</div>

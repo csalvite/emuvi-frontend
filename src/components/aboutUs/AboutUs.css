@@ -18,7 +18,7 @@
 .aboutUs-title {
 	text-align: center;
 	background-color: transparent;
-	color: rgb(54, 52, 52);
+	color: var(--black-2);
 	text-align: center;
 	padding-top: 8rem;
 	font-size: 1.7rem;
@@ -76,19 +76,26 @@
 	top: 0;
 	left: 0;
 	box-sizing: border-box;
-	padding: 20px;
+	padding: 1.8rem;
 }
 
 .card .details h5 {
+	font-weight: 600;
 	margin: 0.5rem auto;
 }
 
 .card .details p {
+	background-color: var(--black-2);
+	padding: 0.3rem;
+	color: var(--white);
+	font-style: italic;
+	border-radius: 5px;
+	font-weight: 500;
 	font-size: 0.7rem;
 }
 
 .card .details i {
-	margin-top: 1.5rem;
+	margin-top: 1rem;
 	margin-right: 1rem;
 	font-size: 1.5rem;
 }
@@ -99,7 +106,17 @@
 }
 
 .aboutUsIcons:hover {
-	box-shadow: ;
-	color: var(--green);
 	transform: scale(1.2);
+}
+
+#linkedinIcon:hover {
+	color: #3187c2;
+}
+
+#githubIcon:hover {
+	color: #f1a015;
+}
+
+#instagramIcon:hover {
+	color: #de536e;
 }
