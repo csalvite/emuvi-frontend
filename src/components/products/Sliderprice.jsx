@@ -3,6 +3,36 @@ import { Button } from '@mui/material';
 import Slider from '@mui/material/Slider';
 
 function Sliderprice({ sliderNums, handleChangePrices, setPrices }) {
+  const marks = [
+    {
+      value: 0,
+      label: '0€',
+    },
+
+    {
+      value: 200,
+      label: '200 €',
+    },
+
+    {
+      value: 400,
+      label: '400€',
+    },
+
+    {
+      value: 600,
+      label: '700€',
+    },
+    {
+      value: 800,
+      label: '800 €',
+    },
+
+    {
+      value: 999,
+      label: '999€',
+    },
+  ];
   return (
     <div>
       {sliderNums[0] <= 0 && sliderNums[1] >= 999 ? (
@@ -20,6 +50,7 @@ function Sliderprice({ sliderNums, handleChangePrices, setPrices }) {
         value={sliderNums}
         min={0}
         max={999}
+        marks={marks}
         step={5}
         onChange={handleChangePrices}
         valueLabelDisplay='auto'
