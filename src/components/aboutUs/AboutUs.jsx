@@ -50,10 +50,10 @@ function AboutUs() {
 						</div>
 						<div className="details">
 							<h4>Cesar Alvite</h4>
-							<h5>Especialista en...</h5>
+							<h5>Minero de código y catador de café</h5>
 							<p>
-								Aquí iría una breve presentación de cada uno de nosotros, así
-								como alguna afición o destreza a destacar
+								Soy desarrollador con experiencia en proyectos personales usando ReactJS y NodeJS 
+								además de haber administrado y creado diferentes bases de datos en MySQL y SQL Server
 							</p>
 							<a href="https://www.linkedin.com/in/cesar-alvite/">
 								<i
