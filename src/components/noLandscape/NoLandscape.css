@@ -1,0 +1,28 @@
+@media (max-width: 990px) and (orientation: landscape) {
+	#landscape {
+		display: flex;
+		position: fixed;
+		top: 0;
+		bottom: 0px;
+		right: 0px;
+		left: 0px;
+		background: #f2f2f2;
+		z-index: 990000;
+		width: 100%;
+		height: 100vh;
+		font-size: 140%;
+		font-weight: 800;
+		color: var(--darkGrey);
+		align-items: center;
+		justify-content: center;
+	}
+
+	.landscapeIcon {
+		padding-bottom: 2rem;
+		font-size: 5rem;
+		color: var(--darkGrey);
+		display: flex;
+		text-align: center;
+		justify-content: center;
+	}
+}

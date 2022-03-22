@@ -7,22 +7,24 @@ import LatestProducts from '../../components/latestProducts/LatestProducts';
 import LatestProductsCards from '../../components/latestProducts/LatestProductsCards';
 import { useState } from 'react';
 import { Warning } from '../../components/projectwarning/Warning';
+import NoLandscape from '../../components/noLandscape/NoLandscape';
 
 function App() {
-  const [showWarning, setShowWarning] = useState(true);
+	const [showWarning, setShowWarning] = useState(true);
 
-  return (
-    <div className='App'>
-      {showWarning ? <Warning setShowWarning={setShowWarning} /> : ''}
-      <Header1 />
-      <main>
-        <LatestProducts />
-        <LatestProductsCards />
-        <Categories />
-      </main>
-      <Footer />
-    </div>
-  );
+	return (
+		<div className="App">
+			{showWarning ? <Warning setShowWarning={setShowWarning} /> : ''}
+			<Header1 />
+			<NoLandscape />
+			<main>
+				<LatestProducts />
+				<LatestProductsCards />
+				<Categories />
+			</main>
+			<Footer />
+		</div>
+	);
 }
 
 export default App;
