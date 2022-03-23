@@ -52,8 +52,9 @@ export const ButtonNewOffer = ({ idUser, idProduct }) => {
                 console.log(body);
                 setText('Propuesta enviada correctamente.')
             } else {
+                const err = await response.json();
                 console.error('Ha habido un error en la petición');
-                setText('Hubo un error al enviar la propuesta');
+                setText(err.message);
             }
         } catch (error) {
             console.error(error.message);
