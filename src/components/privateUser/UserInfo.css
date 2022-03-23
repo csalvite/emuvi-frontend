@@ -1,353 +1,352 @@
 #user-profile-main-container {
-	display: flex;
-	margin: auto;
+  display: flex;
+  margin: auto;
 }
 
 .user-profile {
-	display: grid;
-	align-content: center;
-	flex-wrap: wrap;
-	justify-content: center;
-	font-size: 1.2em;
+  display: grid;
+  align-content: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 1.2em;
 }
 
 .user-profile li {
-	list-style: none;
+  list-style: none;
 }
 
 .user-profile input,
 .user-profile textarea {
-	text-indent: 0.2rem;
-	border-radius: 30px;
-	border: 2px inset white;
-	margin: 0.5rem 0;
-	padding-inline: 0.5rem;
-	padding: 0.5rem;
-	color: var(--black-2);
-	background-color: white;
-	inline-size: 100%;
-	box-shadow: 5px 10px 5px rgb(221, 218, 218) inset;
+  text-indent: 0.2rem;
+  border-radius: 30px;
+  border: 2px inset white;
+  margin: 0.5rem 0;
+  padding-inline: 0.5rem;
+  padding: 0.5rem;
+  color: var(--black-2);
+  background-color: white;
+  inline-size: 100%;
+  box-shadow: 5px 10px 5px rgb(221, 218, 218) inset;
 }
 
 .user-profile textarea {
-	height: 20vh;
+  height: 20vh;
 }
 
 /* Componente UserInfo.jsx (CARD)*/
 .user-info-container {
-	display: flex;
-	justify-content: center;
-	position: relative;
-	margin: 0 0 -5rem 0;
-	width: 22.5rem;
-	height: 12.5rem;
-	background-color: rgba(255, 255, 255, 0.1);
-	backdrop-filter: blur(3px);
-	box-shadow: 0 25px 25px rgba(0, 0, 0, 0.3);
-	border-radius: 20px;
-	display: flex;
-	gap: 0.8rem;
-	overflow: hidden;
-	border: 1px solid var(--lightGrey);
-	transition: 0.5s;
-	z-index: 5;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin: 0 0 -5rem 0;
+  width: 22.5rem;
+  height: 12.5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(3px);
+  box-shadow: 0 25px 25px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  display: flex;
+  gap: 0.8rem;
+  overflow: hidden;
+  border: 1px solid var(--lightGrey);
+  transition: 0.5s;
+  z-index: 5;
 }
 
 .user-info-container:hover {
-	transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .user-info-container::before {
-	content: '';
-	font-size: 1.1rem;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: 30%;
-	background-color: var(--black-2);
+  content: '';
+  font-size: 1.1rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background-color: var(--black-2);
 }
 
 .user-info {
-	font-size: 0.9rem;
-	padding: 2rem 0 2rem 0;
+  font-size: 0.9rem;
+  padding: 2rem 0 2rem 0;
 }
 
 .user-info p {
-	padding: 0.1rem;
+  padding: 0.1rem;
 }
 
 .corporative-card-icons {
-	margin-right: 0.2rem;
-	margin-left: -0.3rem;
+  margin-right: 0.2rem;
+  margin-left: -0.3rem;
 }
 
 .province-postal-code {
-	position: absolute !important;
-	top: -9999px !important;
-	border: 1px solid white;
-	padding: 2rem;
+  position: absolute !important;
+  top: -9999px !important;
+  border: 1px solid white;
+  padding: 2rem;
 }
 
 /* Componente ModifyEmailAndUsername.jsx */
 .modify-email {
-	border: 1px solid white;
-	background-color: var(--lightGrey);
-	padding: 2rem;
+  border: 1px solid white;
+  background-color: var(--lightGrey);
+  padding: 2rem;
 }
 
 /* Componente ButtonDeleteUser.jsx */
 .drop-user {
-	border: 3px solid rgb(248, 142, 142);
-	border-radius: 5px;
-	padding: 2rem;
-	background-color: var(--lightGrey);
+  border: 3px solid rgb(248, 142, 142);
+  border-radius: 5px;
+  padding: 2rem;
+  background-color: var(--lightGrey);
 }
 
 .drop-user > h4 {
-	color: red;
+  color: red;
 }
 
 /* Componente ChangePassword.jsx */
 .change-password-container {
-	background-color: var(--lightGrey);
-	border: 1px solid white;
-	padding: 2rem;
+  background-color: var(--lightGrey);
+  border: 1px solid white;
+  padding: 2rem;
 }
 /* Componente ModifyUserData.jsx */
 .modify-user-data-container {
-	border: 1px solid white;
-	background-color: var(--lightGrey);
-	padding: 2rem;
+  border: 1px solid white;
+  background-color: var(--lightGrey);
+  padding: 2rem;
 }
 
 /* Componente FavoriteProducts.jsx */
 .user-fav-products {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
 /* ---- Accordion Section ---- */
 #accordion-section {
-	overflow: scroll;
-	display: grid;
-	padding: 10rem 4.5rem;
-	width: 48rem;
-	height: 35rem;
-	margin: 5px;
-	margin-left: -11rem;
-	border-radius: 15px;
-	background-color: var(--lightGrey);
-	box-shadow: 0 5px 10px var(--black-2);
+  overflow: scroll;
+  display: grid;
+  padding: 10rem 4.5rem;
+  width: 48rem;
+  height: 35rem;
+  margin: 5px;
+  margin-left: -11rem;
+  border-radius: 15px;
+  background-color: var(--lightGrey);
+  box-shadow: 0 5px 10px var(--black-2);
 }
 
 #accordion-section details summary {
-	z-index: 0;
-	padding: 15px;
-	background-color: var(--lightGrey);
-	color: var(--darkGrey);
-	border: 1px solid white;
-	border-radius: 5px;
-	position: relative;
-	list-style: none;
-	outline: none;
-	cursor: pointer;
-	font-size: 1.7rem;
+  z-index: 0;
+  padding: 15px;
+  background-color: var(--lightGrey);
+  color: var(--darkGrey);
+  border: 1px solid white;
+  border-radius: 5px;
+  position: relative;
+  list-style: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1.7rem;
 }
 
 #accordion-section details summary::after {
-	font-weight: 700;
-	content: '+';
-	position: absolute;
-	top: 10px;
-	color: gray;
-	right: 15px;
-	font-size: 30px;
-	transition: 0.2s linear;
+  font-weight: 700;
+  content: '+';
+  position: absolute;
+  top: 10px;
+  color: gray;
+  right: 15px;
+  font-size: 30px;
+  transition: 0.2s linear;
 }
 
 #accordion-section details[open] summary::after {
-	transform: rotate(135deg);
+  transform: rotate(135deg);
 }
 
 #accordion-section-container {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media only screen and (max-width: 768px) {
-	#user-profile-main-container {
-		background-color: transparent;
-	}
+  #user-profile-main-container {
+    background-color: transparent;
+  }
 
-	#accordion-section {
-		padding: 9rem 3rem;
-		border: none;
-		box-shadow: none;
-		background: none;
-		width: 90vw;
-	}
+  #accordion-section {
+    padding: 9rem 3rem;
+    border: none;
+    box-shadow: none;
+    background: none;
+    width: 90vw;
+  }
 
-	#accordion-section details summary {
-		font-size: 1.2rem;
-	}
+  #accordion-section details summary {
+    font-size: 1.2rem;
+  }
 }
 
 @media only screen and (max-width: 600px) {
-	#accordion-section {
-		display: inline-block;
-		margin: 0 -5rem;
-	}
+  #accordion-section {
+    display: inline-block;
+    margin: 0 -5rem;
+  }
 
-	#accordion-section details summary {
-		font-size: 1rem;
-		text-transform: uppercase;
-		border-color: transparent;
-		background-color: transparent;
-		transition: 500ms ease;
-	}
+  #accordion-section details summary {
+    font-size: 1rem;
+    text-transform: uppercase;
+    border-color: transparent;
+    background-color: transparent;
+    transition: 500ms ease;
+  }
 
-	#accordion-section details summary:focus {
-		background-color: var(--lightGrey);
-	}
+  #accordion-section details summary:focus {
+    background-color: var(--lightGrey);
+  }
 
-	#accordion-section details summary:hover {
-		text-decoration: solid;
-		background-color: var(--lightGrey);
-	}
+  #accordion-section details summary:hover {
+    text-decoration: solid;
+    background-color: var(--lightGrey);
+  }
 
-	#accordion-section details summary::after {
-		font-weight: 700;
-		content: '';
-	}
+  #accordion-section details summary::after {
+    font-weight: 700;
+    content: '';
+  }
 }
 
 @media only screen and (max-width: 480px) {
-	.user-info-container {
-		border: none;
-		background-color: transparent;
-		backdrop-filter: none;
-		display: flex;
-		box-shadow: none;
-		max-width: 16rem;
-		max-height: 8rem;
-		background-color: white;
-		box-shadow: 0 25px 25px rgba(0, 0, 0, 0.3);
-		z-index: 1;
-	}
+  .user-info-container {
+    border: none;
+    background-color: transparent;
+    backdrop-filter: none;
+    display: flex;
+    box-shadow: none;
+    max-width: 16rem;
+    max-height: 8rem;
+    background-color: white;
+    box-shadow: 0 25px 25px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+  }
 
-	.user-info-container::before {
-		visibility: hidden;
-	}
+  .user-info-container::before {
+    visibility: hidden;
+  }
 
-	.user-info {
-		padding: 0;
-		margin-left: -6.5rem;
-		margin-top: 1.4rem;
-	}
+  .user-info {
+    padding: 0;
+    margin-left: -6.5rem;
+    margin-top: 1.4rem;
+  }
 
-	.user-profile input,
-	.user-profile textarea {
-		inline-size: 80%;
-	}
+  .user-profile input,
+  .user-profile textarea {
+    inline-size: 80%;
+  }
 
-	#user-profile-main-container {
-		width: auto;
-		height: auto;
-		background-color: transparent;
-	}
+  #user-profile-main-container {
+    width: auto;
+    height: auto;
+    background-color: transparent;
+  }
 
-	#accordion-section {
-		display: inline-block;
-		margin: 0 -5rem;
-	}
+  #accordion-section {
+    display: inline-block;
+    margin: 0 -5rem;
+  }
 
-	#accordion-section details summary {
-		font-size: 1rem;
-		text-transform: uppercase;
-		border-color: transparent;
-		background-color: transparent;
-		transition: 500ms ease;
-	}
+  #accordion-section details summary {
+    font-size: 1rem;
+    text-transform: uppercase;
+    border-color: transparent;
+    background-color: transparent;
+    transition: 500ms ease;
+  }
 
-	#accordion-section details summary:focus {
-		background-color: var(--lightGrey);
-	}
+  #accordion-section details summary:focus {
+    background-color: var(--lightGrey);
+  }
 
-	#accordion-section details summary:hover {
-		text-decoration: solid;
-		background-color: var(--lightGrey);
-	}
+  #accordion-section details summary:hover {
+    text-decoration: solid;
+    background-color: var(--lightGrey);
+  }
 
-	#accordion-section details summary::after {
-		font-weight: 700;
-		content: '';
-	}
+  #accordion-section details summary::after {
+    font-weight: 700;
+    content: '';
+  }
 
-	.modify-user-data-container {
-		background-color: transparent;
-	}
+  .modify-user-data-container {
+    background-color: transparent;
+  }
 
-	.drop-user {
-		border: none;
-		background-color: transparent;
-	}
+  .drop-user {
+    border: none;
+    background-color: transparent;
+  }
 
-	.change-password-container {
-		border: none;
-		background-color: transparent;
-	}
+  .change-password-container {
+    border: none;
+    background-color: transparent;
+  }
 
-	.modify-email {
-		border: none;
-		background-color: transparent;
-	}
+  .modify-email {
+    border: none;
+    background-color: transparent;
+  }
 }
 
 @media only screen and (max-width: 389px) {
-	.user-info-container {
-		margin-left: -2rem;
-	}
+  .user-info-container {
+    margin-left: -2rem;
+  }
 
-	#accordion-section {
-		width: 40rem;
-		margin: 0 -6rem;
-	}
+  #accordion-section {
+    margin: 0 -6rem;
+  }
 
-	#accordion-section details summary {
-		font-size: 0.8rem;
-	}
-	.modify-email {
-		margin-left: 0.8rem;
-		max-width: 24rem;
-		padding: 2px;
-		font-size: 0.8rem;
-	}
+  #accordion-section details summary {
+    font-size: 0.8rem;
+  }
+  .modify-email {
+    margin-left: 0.8rem;
+    max-width: 24rem;
+    padding: 2px;
+    font-size: 0.8rem;
+  }
 
-	.drop-user {
-		margin-left: 0.8rem;
-		max-width: 24rem;
-		padding: 2px;
-		font-size: 0.8rem;
-	}
+  .drop-user {
+    margin-left: 0.8rem;
+    max-width: 24rem;
+    padding: 2px;
+    font-size: 0.8rem;
+  }
 
-	.change-password-container {
-		margin-left: 0.8rem;
-		max-width: 24rem;
-		padding: 2px;
-		font-size: 0.8rem;
-	}
+  .change-password-container {
+    margin-left: 0.8rem;
+    max-width: 24rem;
+    padding: 2px;
+    font-size: 0.8rem;
+  }
 
-	.modify-user-data-container {
-		margin-left: 0.8rem;
-		max-width: 24rem;
-		padding: 2px;
-		font-size: 0.8rem;
-	}
+  .modify-user-data-container {
+    margin-left: 0.8rem;
+    max-width: 24rem;
+    padding: 2px;
+    font-size: 0.8rem;
+  }
 }
 
 ::-webkit-scrollbar {
-	display: none;
+  display: none;
 }
