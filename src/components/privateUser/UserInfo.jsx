@@ -44,6 +44,12 @@ function UserInfo({ privateUser }) {
 				<section id="accordion-section">
 					<details>
 						<summary>
+							<strong>Modificar avatar</strong>
+						</summary>
+						<ButtonEditAvatar id={privateUser.id} />
+					</details>
+					<details>
+						<summary>
 							<strong>Editar nombre de usuario o email</strong>
 						</summary>
 						<ModifyEmailAndUsername privateUser={privateUser} />

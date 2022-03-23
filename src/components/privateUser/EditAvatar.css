@@ -32,7 +32,11 @@
 }
 
 @media only screen and (max-width: 480px) {
-	.avatar-img {
+	.user-info-container .avatar-img {
 		visibility: hidden;
+	}
+
+	.avatar-img {
+		visibility: visible;
 	}
 }
