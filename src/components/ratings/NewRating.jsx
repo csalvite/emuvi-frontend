@@ -2,6 +2,7 @@ import { IconButton, Rating, Snackbar } from "@mui/material";
 import { useState } from "react";
 import { useContext } from "react";
 import { TokenContext } from "../..";
+import '../privateUser/UserInfo.css';
 
 const { REACT_APP_LOCALHOST } = process.env;
 
@@ -111,7 +112,7 @@ const NewRating = ({ idUser, myUser, idProduct, offers, setOffers, idOffer }) =>
                 />
                 <label>Tu comentario: </label>
                 <input type='text' name='comment' placeholder='Escribe aqui tu comentario...' />
-                <button onClick={() => handleClick()}>Submit</button>
+                <button className="btn" onClick={() => handleClick()}>Submit</button>
             </form>
         </>
     );

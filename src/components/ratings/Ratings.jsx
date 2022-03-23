@@ -1,6 +1,7 @@
 import { Avatar, Rating } from "@mui/material";
 import { useEffect, useState } from "react";
 import LoadingComponent from "../loading/loading";
+import '../privateUser/UserInfo.css';
 
 const { REACT_APP_LOCALHOST } = process.env;
 
@@ -58,8 +59,10 @@ const Ratings = ({privateUser}) => {
                     {ratings.length > 0 ? ratings.map((rating, index) => {
                         return (
                             <div key={index} className="rating">
-                                <Avatar src={`${REACT_APP_LOCALHOST}/avatar/${rating.avatar}`} alt={rating.name} />
-                                <h4>{rating.name}</h4>
+                                <div className="rating-title">
+                                    <Avatar src={`${REACT_APP_LOCALHOST}/avatar/${rating.avatar}`} alt={rating.name} />
+                                    <h4>{rating.name}</h4>
+                                </div>
                                 <Rating
                                     name='size-large'
                                     value={Number(rating.vote)}

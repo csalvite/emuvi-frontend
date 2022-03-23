@@ -8,7 +8,6 @@ const {REACT_APP_LOCALHOST} = process.env;
 function FavoriteProducts({privateUser}) {
 
   const [token] = useContext(TokenContext);
-  const [error, setError] = useState();
   const [favProducts, setFavProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -28,16 +27,12 @@ function FavoriteProducts({privateUser}) {
                 if (response.ok) {
                     const body = await response.json();
                     setFavProducts(body.data);
-                    setError(false);
-                } else {
-                    setError(true);
                 }
                 
                 setLoading(false);
 
             } catch(error) {
                 console.error(error);
-                setError(true);
             }
         }
       getFavoriteProducts();
@@ -53,8 +48,7 @@ function FavoriteProducts({privateUser}) {
   return (
     <div className='user-profile'>
         <h2>Productos Favoritos</h2>
-        {error ? <div>No hay productos marcados como favoritos</div>
-        : (
+        {favProducts.length > 0 ? (
             <div className="user-fav-products">
             {favProducts.map((product) => {
             return (
@@ -62,22 +56,8 @@ function FavoriteProducts({privateUser}) {
                 )
             })}
             </div>
-        )}
-            {/* <div key={index}>
-
-                <button id={product.id} onClick={handleDeleteFavProduct}>X</button>
-                
-                
-                <p>{product.name} <button id={product.id} onClick={handleDeleteFavProduct}>X</button></p>
-                <p>{product.price}</p>
-                <p>
-                    {product.photos.length > 0 ? product.photos.map((photo, index) => {
-                        return (
-                            <img key={index} src={`${REACT_APP_LOCALHOST}/avatar/${photo.name}`} alt={photo.name} style={{width: '200px'}}/>
-                        )
-                    }) : ''}
-                </p>
-            </div> */}
+        )
+        :  <div>No hay productos marcados como favoritos</div>}
     </div>
   )
 }

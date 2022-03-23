@@ -31,7 +31,7 @@ const DeleteFavProduct = ({ idProduct, idUser, favProducts, setFavProducts }) =>
             color="inherit"
             onClick={handleClose}
         >
-            <i class="fa-solid fa-circle-xmark"></i>
+            <i className="fa-solid fa-circle-xmark"></i>
         </IconButton>
         </>
     );
