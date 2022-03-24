@@ -11,6 +11,8 @@ import { PublicUserAccess } from '../../components/publicUser/PublicUserAccess';
 import { usePrivateUser } from '../../hooks/usePrivateUser';
 import useProductDetail from '../../hooks/useProductDetail';
 import './Product.css';
+import NoLandscape from '../../components/noLandscape/NoLandscape';
+
 // Página Producto en Detalle
 const Product = (props) => {
 	const { product } = useProductDetail();
@@ -20,6 +22,7 @@ const Product = (props) => {
 		<>
 			<JustNav />
 			<section className="product-details-section">
+				<NoLandscape />
 				<div className="product-details-container">
 					<ProductPhoto />
 					<ProductSingleData />
@@ -33,7 +36,7 @@ const Product = (props) => {
 					</div>
 
 					<div className="product-details-icons">
-      					<ButtonNewOffer idProduct={product.id} idUser={privateUser.id} />
+						<ButtonNewOffer idProduct={product.id} idUser={privateUser.id} />
 						<ButtonFavProduct idProduct={product.id} />
 						<PublicUserAccess idUser={product.idUser} />
 					</div>

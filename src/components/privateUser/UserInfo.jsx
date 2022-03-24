@@ -4,12 +4,14 @@ import ChangePassword from './ChangePassword';
 import ModifyEmailAndUsername from './ModifyEmailAndUsername';
 import ModifyUserData from './ModifyUserData';
 import './UserInfo.css';
+import NoLandscape from '../../components/noLandscape/NoLandscape';
 
 function UserInfo({ privateUser }) {
 	const birthday = new Date(privateUser.birthday).toLocaleDateString();
 
 	return (
 		<div id="user-profile-main-container">
+			<NoLandscape />
 			<div className="user-profile">
 				<div
 					className="user-info-container"

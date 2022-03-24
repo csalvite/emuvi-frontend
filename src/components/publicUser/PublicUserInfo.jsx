@@ -1,12 +1,13 @@
 import { Avatar, Rating } from '@mui/material';
 import './PublicUserInfo.css';
+import NoLandscape from '../../components/noLandscape/NoLandscape';
 
 const { REACT_APP_LOCALHOST } = process.env;
 
 export const PublicUserInfo = ({ publicUser }) => {
-
 	return (
 		<>
+			<NoLandscape />
 			<div className="public-user-stars-name">
 				<Avatar
 					className="public-profile-avatar"
