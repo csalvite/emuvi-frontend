@@ -57,12 +57,12 @@ function Footer() {
 						<p>
 							La aceptación de estos Términos y Condiciones por parte de los
 							Usuarios es un paso previo e indispensable a la utilización del
-							Servicio. Wallapop se reserva el derecho a actualizar y/o
+							Servicio. EMUVI se reserva el derecho a actualizar y/o
 							modificar los Términos y Condiciones en cualquier momento y por
-							cualquier motivo a su exclusiva discreción. Wallapop notificará
+							cualquier motivo a su exclusiva discreción. EMUVI notificará
 							acerca de cualquier cambio material en los Términos y Condiciones
 							o en cualquier Servicio u otra función de los Servicios. Al
-							acceder o usar los Servicios después de que Wallapop haya
+							acceder o usar los Servicios después de que EMUVI haya
 							notificado al Usuario sobre una modificación o actualización, el
 							Usuario acepta quedar obligado por los Términos y Condiciones
 							modificados. Si los Términos y Condiciones modificados no resultan
@@ -206,16 +206,16 @@ function Footer() {
 							posible reclamación, multa, pena o sanción que pueda venir
 							obligada a soportar como consecuencia del incumplimiento por parte
 							del Usuario de cualquiera de las normas de utilización antes
-							indicadas, reservándose además Wallapop el derecho a solicitar la
+							indicadas, reservándose además EMUVI el derecho a solicitar la
 							indemnización por daños y perjuicios que corresponda.
 						</p>
 						<h3>Exclusion de usuarios</h3>
 
 						<p>
-							Wallapop se reserva el derecho a impedir el uso del Servicio, ya
+							EMUVI se reserva el derecho a impedir el uso del Servicio, ya
 							sea de forma temporal o definitiva, a cualquier Usuario que
 							infrinja cualquiera de las normas establecidas en estos Términos y
-							Condiciones, la ley o la moral. Discrecionalmente, Wallapop
+							Condiciones, la ley o la moral. Discrecionalmente, EMUVI
 							también podrá excluir Usuarios e incluso dejar de prestar total o
 							parcialmente el Servicio cuando así lo considere oportuno para
 							mejorar la operativa del Servicio y/o del resto de los Usuarios
