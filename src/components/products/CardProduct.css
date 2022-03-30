@@ -1,98 +1,98 @@
 .cardproduct {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 15rem;
-  height: 23rem;
-  border-radius: 15px;
-  border: 1px solid var(--black);
-  box-shadow: 0px 4px 4px var(--darkGrey);
-  font-size: 18px;
-  font-weight: bold;
-  background-color: var(--lightGrey);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 15rem;
+	height: 23rem;
+	border-radius: 15px;
+	border: 1px solid var(--black);
+	box-shadow: 0px 4px 4px var(--darkGrey);
+	font-size: 18px;
+	font-weight: bold;
+	background-color: var(--lightGrey);
 }
 
 .card__img {
-  max-height: 12rem;
-  max-width: 13rem;
-  border-radius: 0.5rem;
-  margin-top: 1.3rem;
+	max-height: 12rem;
+	min-width: 13rem;
+	border-radius: 0.5rem;
+	margin-top: 1.3rem;
 }
 
 .card__title {
-  text-align: center;
-  font-size: 1rem;
-  padding: 0.7rem 0 0.3rem;
+	text-align: center;
+	font-size: 1rem;
+	padding: 0.7rem 0 0.3rem;
 }
 .card__price {
-  text-align: center;
-  font-size: 1rem;
-  margin-bottom: 0.8rem;
+	text-align: center;
+	font-size: 1rem;
+	margin-bottom: 0.8rem;
 }
 
 .card-icon-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 0.1rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 0.1rem;
 }
 
 .card-icon-box i {
-  position: relative;
-  width: 45px;
-  height: 45px;
-  font-size: 1.4em;
-  display: grid;
-  place-items: center;
-  margin: 0.5rem 1rem 2.5rem;
-  padding-top: 0.2rem;
-  border-radius: 50%;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
-  background-color: transparent;
-  transition: 0.3s ease;
+	position: relative;
+	width: 45px;
+	height: 45px;
+	font-size: 1.4em;
+	display: grid;
+	place-items: center;
+	margin: 0.5rem 1rem 2.5rem;
+	padding-top: 0.2rem;
+	border-radius: 50%;
+	box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+	background-color: transparent;
+	transition: 0.3s ease;
 }
 
 .card-icon-box .cart {
-  border: 2px solid #fec02f;
-  color: #fec02f;
+	border: 2px solid #fec02f;
+	color: #fec02f;
 }
 
 .card-icon-box .cart:hover {
-  border: 3px solid #fec02f;
-  color: #fec02f;
-  box-shadow: none;
-  transform: scale(0.8);
+	border: 3px solid #fec02f;
+	color: #fec02f;
+	box-shadow: none;
+	transform: scale(0.8);
 }
 
 .card-icon-box .heart {
-  border: 2px solid #fb4b6f;
-  color: #fb4b6f;
+	border: 2px solid #fb4b6f;
+	color: #fb4b6f;
 }
 
 .card-icon-box .heart:hover {
-  border: 3px solid #fb4b6f;
-  color: #fb4b6f;
-  box-shadow: none;
-  transform: scale(0.8);
+	border: 3px solid #fb4b6f;
+	color: #fb4b6f;
+	box-shadow: none;
+	transform: scale(0.8);
 }
 /* ---- Mi estilo ---- */
 
 @media screen and (max-width: 480px) {
-  .carousel-container .carousel-product-name {
-    text-align: center;
-    font-size: 1.2rem;
-    margin-top: 0.4rem;
-    padding: 1rem 0 0.2rem;
-  }
+	.carousel-container .carousel-product-name {
+		text-align: center;
+		font-size: 1.2rem;
+		margin-top: 0.4rem;
+		padding: 1rem 0 0.2rem;
+	}
 
-  .card__img {
-    max-height: 12rem;
-    height: 12rem;
-    max-width: 13rem;
-    width: 13rem;
-    border-radius: 0.5rem;
-    margin-top: 1.3rem;
-    object-fit: cover;
-  }
+	.card__img {
+		max-height: 12rem;
+		height: 12rem;
+		max-width: 13rem;
+		width: 13rem;
+		border-radius: 0.5rem;
+		margin-top: 1.3rem;
+		object-fit: cover;
+	}
 }
