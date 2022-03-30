@@ -109,11 +109,11 @@ function AboutUs() {
 								alt="dani profile"></img>
 						</div>
 						<div className="details">
-							<h4>Dani Seco</h4>
+							<h4>Daniel Seco</h4>
 							<h5>Especialista en...</h5>
 							<p>
-								Aquí iría una breve presentación de cada uno de nosotros, así
-								como alguna afición o destreza a destacar
+								En esta etapa de mi vida he decidido cambiar y 
+								trabajar en lo que verdaderamente me apasiona
 							</p>
 							<a href="https://www.linkedin.com/in/daniel-seco-lozano-1a42b3226/">
 								<i
@@ -125,9 +125,12 @@ function AboutUs() {
 									className="fa-brands fa-github aboutUsIcons"
 									id="githubIcon"></i>
 							</a>
+							<a href= "www.instagram.com/daniellinnana/">
+
 							<i
 								className="fab fa-instagram-square aboutUsIcons"
 								id="instagramIcon"></i>
+							</a>
 						</div>
 					</div>
 				</div>
