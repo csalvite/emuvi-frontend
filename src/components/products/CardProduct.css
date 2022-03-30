@@ -14,10 +14,13 @@
 }
 
 .card__img {
-	max-height: 12rem;
-	min-width: 13rem;
 	border-radius: 0.5rem;
 	margin-top: 1.3rem;
+	max-height: 12rem;
+	height: 12rem;
+	min-width: 13rem;
+	max-width: 13rem;
+	object-fit: cover;
 }
 
 .card__title {
